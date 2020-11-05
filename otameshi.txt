@@ -1,4 +1,4 @@
 <<<<<<< HEAD
 =======
-aaaaaaaaaaaaaaaa
+aaaaaaaaaaaaaaaawatawata
 >>>>>>> branch 'master' of https://github.com/matsumatsumatsumatsu/practice
