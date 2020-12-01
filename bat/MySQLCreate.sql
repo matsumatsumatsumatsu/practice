@@ -3,7 +3,7 @@ user_id int UNSIGNED,
 user_name varchar(20),
 real_name varchar(10),
 address varchar(20),
-tel varchar(10),
+tel varchar(20),
 mail varchar(25),
 profile varchar(500),
 point int UNSIGNED,
@@ -71,12 +71,16 @@ CONSTRAINT fk_buyer_id
 create table Deal(
 deal_id int unsigned PRIMARY KEY,
 payment_id int UNSIGNED,
-deposit int UNSIGNED not null,
+deposit_id int UNSIGNED,
 item_id int UNSIGNED,
 deal_state int UNSIGNED,
 time_limit DATETIME,
 CONSTRAINT fk_payment_id
     FOREIGN KEY payment_id(payment_id) 
+    REFERENCES PaymentLog(payment_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+CONSTRAINT fk_deposit_id
+    FOREIGN KEY payment_id(deposit_id) 
     REFERENCES PaymentLog(payment_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
 CONSTRAINT fk_item_id
