@@ -1,5 +1,4 @@
 package tera;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,11 +12,11 @@ public abstract class CommandFactory {
 		AbstractCommand command = null;
 
 		Properties prop = new Properties();
-		
+
 		try {
 			// プロパティファイルを読み込む
-			 prop.load(new FileInputStream("c:/webapps/mercari/commands.properties"));
-		
+			 prop.load(new FileInputStream("C:/Users/koyama/git/practice/mercari/commands.properties"));
+
 
 			// パスに対応した文字列を取得します
 			String name = prop.getProperty(rc.getCommandPath());

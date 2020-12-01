@@ -1,0 +1,41 @@
+<!-- <?xml version="1.0" encoding="UTF-8"> -->
+
+<web-app>
+<welcome-file-list>
+    <welcome-file>\WEB-INF\jsp\input.jsp</welcome-file>
+   
+  </welcome-file-list>
+  <!-- <servlet>
+		<servlet-name>FrontServlet</servlet-name>
+		<servlet-class>FrontServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>FrontServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping> -->
+
+    <servlet>
+		<servlet-name>tera.FrontServlet</servlet-name>
+		<servlet-class>tera.FrontServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>tera.FrontServlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+  <!-- <servlet>
+    <servlet-name>tera.FrontServlet</servlet-name>
+    <jsp-file>/input.jap</jsp-file>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>in</servlet-name>
+    <url-pattern>/testbooks</url-pattern> -->
+
+
+
+
+
+</web-app>
