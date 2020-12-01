@@ -1,8 +1,5 @@
 package tera;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.Properties;
+import java.util.ResourceBundle;
 
 
 public abstract class CommandFactory {
@@ -11,15 +8,13 @@ public abstract class CommandFactory {
 
 		AbstractCommand command = null;
 
-		Properties prop = new Properties();
-
 		try {
 			// プロパティファイルを読み込む
-			 prop.load(new FileInputStream("C:/Users/koyama/git/practice/mercari/commands.properties"));
+			ResourceBundle rb = ResourceBundle.getBundle("property\\commands");
 
 
 			// パスに対応した文字列を取得します
-			String name = prop.getProperty(rc.getCommandPath());
+			String name = rb.getString(rc.getCommandPath());
 
 			// 指定された名前のクラスに対応したClassクラスの
 			// インスタンスを取得する（名前は完全限定名であること）
@@ -29,12 +24,6 @@ public abstract class CommandFactory {
 			// 対応するクラスのインスタンス化を行う
 			command = (AbstractCommand) c.newInstance();
 
-		} catch (FileNotFoundException e) {
-			// 実際には独自例外にラップしてスローする
-			throw new RuntimeException(e.getMessage(), e);
-		} catch (IOException e) {
-			// 実際には独自例外にラップしてスローする
-			throw new RuntimeException(e.getMessage(), e);
 		} catch (ClassNotFoundException e) {
 			// 実際には独自例外にラップしてスローする
 			throw new RuntimeException(e.getMessage(), e);

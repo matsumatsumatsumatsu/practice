@@ -15,7 +15,7 @@ public class UserDao implements UsersDao{
         PreparedStatement st = null;
          ResultSet rs = null;
          String user_id ;
-        System.out.println("MySQLProducts    です");
+        System.out.println("MySQLProductsです");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection(
@@ -24,11 +24,11 @@ public class UserDao implements UsersDao{
             //  Class.forName("oracle.jdbc.driver.OracleDriver");
             //  cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
                cn.setAutoCommit(false);
-        
-            
+
+
             String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?)";
             st = cn.prepareStatement(sql);
-            
+
             st.setString(1, p.getUser_name());
             st.setString(2, p.getReal_name());
             st.setString(3, p.getAddress());
