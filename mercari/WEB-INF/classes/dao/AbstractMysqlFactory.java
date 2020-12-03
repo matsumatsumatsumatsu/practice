@@ -7,7 +7,7 @@ public abstract class AbstractMysqlFactory {
         AbstractMysqlFactory factory = null;
         try {
             // プロパティファイルを読み込む
-        	ResourceBundle rb = ResourceBundle.getBundle("property\\dao");
+        	ResourceBundle rb = ResourceBundle.getBundle("property/dao");
 
 
             // パスに対応した文字列を取得します

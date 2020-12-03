@@ -19,12 +19,12 @@ public class AddUserCommand extends AbstractCommand{
         String tell=tells[0];
     	String malis[] =rq.getParameter("mali");
         String mali=malis[0];
-        User p= new User();
-        p.setUser_name(user_name);
-        p.setReal_name(real_name);
-        p.setAddress(address);
-    	 p.setTell(tell);
-    	 p.setMail(mali);
+        User u= new User();
+        u.setUser_name(user_name);
+        u.setReal_name(real_name);
+        u.setAddress(address);
+    	u.setTell(tell);
+    	u.setMail(mali);
 
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
@@ -32,7 +32,7 @@ public class AddUserCommand extends AbstractCommand{
 
         System.out.println("DAO"+dao.getClass().getName());
         //呼ばれていない
-        dao.addUser(p);
+        dao.addUser(u);
 
         rec.setTarget("start");
         return rec;
