@@ -10,7 +10,7 @@ import java.util.List;
 import tera.User;
 
 public class UserDao implements UsersDao{
-	public void addUser(User p) {
+	public void addUser(User u) {
         Connection cn = null;
         PreparedStatement st = null;
          ResultSet rs = null;
@@ -18,24 +18,20 @@ public class UserDao implements UsersDao{
         System.out.println("MySQLProductsです");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-             cn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST",
-                "info", "pro");
-            //  Class.forName("oracle.jdbc.driver.OracleDriver");
-            //  cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
                cn.setAutoCommit(false);
 
 
             String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?)";
             st = cn.prepareStatement(sql);
 
-            st.setString(1, p.getUser_name());
-            st.setString(2, p.getReal_name());
-            st.setString(3, p.getAddress());
-            st.setString(4, p.getTell());
-            st.setString(5, p.getMail());
-            st.setString(6, p.getProfile());
-            st.setString(7, p.getPoint());
+            st.setString(1, u.getUser_name());
+            st.setString(2, u.getReal_name());
+            st.setString(3, u.getAddress());
+            st.setString(4, u.getTell());
+            st.setString(5, u.getMail());
+            st.setString(6, u.getProfile());
+            st.setString(7, u.getPoint());
 
             st.executeUpdate();
             cn.commit();
@@ -77,27 +73,23 @@ public class UserDao implements UsersDao{
         ArrayList users =new ArrayList();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-             cn = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST",
-                "info", "pro");
-            //  Class.forName("oracle.jdbc.driver.OracleDriver");
-            //  cn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","info","pro");
+             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
             cn.setAutoCommit(false);
             String sql = "select user_id,user_name,real_name,address,tel,mail,profile,point from user";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
             while (rs.next()) {
-                User p = new User();
-                p.setUser_id(rs.getString(1));
-                p.setUser_name(rs.getString(2));
-                p.setReal_name(rs.getString(3));
-                p.setAddress(rs.getString(4));
-                p.setTell(rs.getString(5));
-                p.setMail(rs.getString(6));
-                p.setProfile(rs.getString(7));
-                p.setPoint(rs.getString(8));
-                users.add(p);
+                User u = new User();
+                u.setUser_id(rs.getString(1));
+                u.setUser_name(rs.getString(2));
+                u.setReal_name(rs.getString(3));
+                u.setAddress(rs.getString(4));
+                u.setTell(rs.getString(5));
+                u.setMail(rs.getString(6));
+                u.setProfile(rs.getString(7));
+                u.setPoint(rs.getString(8));
+                users.add(u);
             }
             cn.commit();
 
