@@ -10,7 +10,7 @@
 <h1>ユーザー一覧</h1>
 <table border="1">
 	<tr><th>ユーザー番号</th><th>ユーザー名</th><th>本名</th></tr>
-	<c:forEach var="user" items="${date}">
+	<c:forEach var="user" items="${data}">
 		<tr><td>${user.user_id}</td><td>${user.user_name}</td><td>${user.real_name}</td></tr>
 	</c:forEach>
 </table>

@@ -10,7 +10,6 @@ public class GetUsersCommand extends AbstractCommand{
 
     public  ResponseContext execute(ResponseContext rec){
 
-    	System.out.println("getuser");
     	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UsersDao dao=factory.getUsersDao();
 

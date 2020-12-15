@@ -114,7 +114,6 @@ public class UserDao implements UsersDao{
             }
 
         }
-        System.out.println("getuser");
         return users;
     }
 
