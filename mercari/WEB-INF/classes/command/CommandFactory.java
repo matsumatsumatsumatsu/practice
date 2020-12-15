@@ -1,5 +1,6 @@
 package command;
-import java.util.ResourceBundle;
+import java.io.IOException;
+import java.util.Properties;
 
 import context.RequestContext;
 
@@ -11,12 +12,16 @@ public abstract class CommandFactory {
 		AbstractCommand command = null;
 
 		try {
-			// プロパティファイルを読み込む
-			ResourceBundle rb = ResourceBundle.getBundle("property\\commands");
+			Properties prop = new Properties();
+			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property/commands.properties"));
+			String name = prop.getProperty(rc.getCommandPath());
+			System.out.println(name);
+//			// プロパティファイルを読み込む
+//			ResourceBundle rb = ResourceBundle.getBundle("property\\commands");
 
 
-			// パスに対応した文字列を取得します
-			String name = rb.getString(rc.getCommandPath());
+//			// パスに対応した文字列を取得します
+//			String name = rb.getString(rc.getCommandPath());
 
 			// 指定された名前のクラスに対応したClassクラスの
 			// インスタンスを取得する（名前は完全限定名であること）
@@ -33,6 +38,9 @@ public abstract class CommandFactory {
 			// 実際には独自例外にラップしてスローする
 			throw new RuntimeException(e.getMessage(), e);
 		} catch (IllegalAccessException e) {
+			// 実際には独自例外にラップしてスローする
+			throw new RuntimeException(e.getMessage(), e);
+		} catch (IOException e) {
 			// 実際には独自例外にラップしてスローする
 			throw new RuntimeException(e.getMessage(), e);
 		}
