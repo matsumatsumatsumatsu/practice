@@ -6,7 +6,7 @@
  version="2.4">
 
 	<welcome-file-list>
-		<welcome-file>\WEB-INF\jsp\start.jsp</welcome-file>
+		<welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
 	</welcome-file-list>
   <!-- <servlet>
 		<servlet-name>FrontServlet</servlet-name>
