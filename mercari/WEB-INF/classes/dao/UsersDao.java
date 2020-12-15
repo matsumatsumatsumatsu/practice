@@ -1,7 +1,7 @@
 package dao;
 import java.util.List;
 
-import tera.User;
+import bean.User;
 
 public interface UsersDao{
     public void addUser(User p);

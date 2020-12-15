@@ -1,8 +1,12 @@
 <!-- <?xml version="1.0" encoding="UTF-8"> -->
 
-<web-app>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
+ version="2.4">
+
 <welcome-file-list>
-    <welcome-file>\WEB-INF\jsp\input.jsp</welcome-file>
+    <welcome-file>\WEB-INF\jsp\start.jsp</welcome-file>
    
   </welcome-file-list>
   <!-- <servlet>
@@ -16,17 +20,17 @@
 	</servlet-mapping> -->
 
     <servlet>
-		<servlet-name>tera.FrontServlet</servlet-name>
-		<servlet-class>tera.FrontServlet</servlet-class>
+		<servlet-name>front.FrontServlet</servlet-name>
+		<servlet-class>front.FrontServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>tera.FrontServlet</servlet-name>
+		<servlet-name>front.FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
   <!-- <servlet>
-    <servlet-name>tera.FrontServlet</servlet-name>
+    <servlet-name>front.FrontServlet</servlet-name>
     <jsp-file>/input.jap</jsp-file>
   </servlet>
 

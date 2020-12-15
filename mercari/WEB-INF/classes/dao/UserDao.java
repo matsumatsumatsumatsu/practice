@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 
-import tera.User;
+import bean.User;
 
 public class UserDao implements UsersDao{
 	public void addUser(User u) {
@@ -114,6 +114,7 @@ public class UserDao implements UsersDao{
             }
 
         }
+        System.out.println("getuser");
         return users;
     }
 
