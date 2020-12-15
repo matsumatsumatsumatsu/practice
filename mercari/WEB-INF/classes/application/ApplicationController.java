@@ -6,7 +6,7 @@ import context.ResponseContext;
 public interface ApplicationController{
     RequestContext getRequest(Object request);
 
-    ResponseContext handleRepuest(RequestContext req);
+    ResponseContext handleRequest(RequestContext req);
 
     void handleResponse(RequestContext req,ResponseContext res);
 }

@@ -15,14 +15,14 @@ import context.ResponseContext;
 import context.WebRequestContext;
 import context.WebResponseContext;
 
-public class WebApplicationControler implements ApplicationController{
+public class WebApplicationController implements ApplicationController{
     public RequestContext getRequest(Object request){
         RequestContext reqc = new WebRequestContext();
         reqc.setRequest(request);
 
         return reqc;
     }
-    public ResponseContext handleRepuest(RequestContext req){
+    public ResponseContext handleRequest(RequestContext req){
         AbstractCommand command = CommandFactory.getCommand(req);
         command.init(req);
 

@@ -19,7 +19,6 @@ public abstract class CommandFactory {
 //			// プロパティファイルを読み込む
 //			ResourceBundle rb = ResourceBundle.getBundle("property\\commands");
 
-
 //			// パスに対応した文字列を取得します
 //			String name = rb.getString(rc.getCommandPath());
 

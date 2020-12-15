@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import application.ApplicationController;
-import application.WebApplicationControler;
+import application.WebApplicationController;
 import context.RequestContext;
 import context.ResponseContext;
 
@@ -23,9 +23,9 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
 			throws IOException, ServletException {
 
 		req.setCharacterEncoding("UTF-8");
-		ApplicationController app=new WebApplicationControler();
+		ApplicationController app=new WebApplicationController();
 		RequestContext reqc = app.getRequest(req);
-		ResponseContext resc= app.handleRepuest(reqc);
+		ResponseContext resc= app.handleRequest(reqc);
 
 		resc.setResponse(res);
 		app.handleResponse(reqc,resc);
