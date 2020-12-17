@@ -7,7 +7,7 @@ public class User implements Serializable{
 	private String user_name;
 	private String real_name;
 	private String address;
-	private String tell;
+	private String tel;
 	private String mail;
 	private String profile;
 	private String point;
@@ -16,11 +16,6 @@ public class User implements Serializable{
 	}
 	public void setProfile(String profile) {
 		this.profile = profile;
-	}
-	public String getuser_id() {
-			System.out.println("user_id");
-			System.out.println(user_id);
-		return user_id;
 	}
 	public String getUser_id() {
 		return user_id;
@@ -46,11 +41,11 @@ public class User implements Serializable{
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getTell() {
-		return tell;
+	public String getTel() {
+		return tel;
 	}
-	public void setTell(String tell) {
-		this.tell = tell;
+	public void setTel(String tel) {
+		this.tel = tel;
 	}
 	public String getMail() {
 		return mail;
@@ -63,11 +58,6 @@ public class User implements Serializable{
 	}
 	public void setPoint(String point) {
 		this.point = point;
-	}
-	public void setPid(String user_id) {
-		System.out.println("user_id");
-		System.out.println(user_id);
-		this.user_id = user_id;
 	}
 }
 
