@@ -1,10 +1,10 @@
 create table user(
 user_id int UNSIGNED auto_increment,
-user_name varchar(20),
-real_name varchar(10),
-address varchar(20),
-tel varchar(10),
-mail varchar(25),
+user_name varchar(30),
+real_name varchar(30),
+address varchar(50),
+tel varchar(15),
+mail varchar(40),
 profile varchar(500),
 point int UNSIGNED,
  primary key(user_id),
@@ -123,3 +123,14 @@ CONSTRAINT fk_chat_seller_id
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 commit;
+
+
+
+
+
+
+
+
+
+
+
