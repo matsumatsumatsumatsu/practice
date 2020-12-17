@@ -7,8 +7,7 @@ tel varchar(15),
 mail varchar(40),
 profile varchar(500),
 point int UNSIGNED,
- primary key(user_id),
- UNIQUE(address)
+ primary key(user_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 CREATE table hardware(
@@ -34,6 +33,8 @@ hardware_id int UNSIGNED,
 category_id int UNSIGNED,
 seller_id int UNSIGNED,
 buyer_address varchar(30),
+stock int default 1,
+listing_date datetime,
 term datetime,
 CONSTRAINT fk_hardware_id
     FOREIGN KEY hardware_id(hardware_id) 
@@ -45,6 +46,10 @@ CONSTRAINT fk_category_id
     ON DELETE RESTRICT ON UPDATE RESTRICT,
 CONSTRAINT fk_buyer_address
     FOREIGN KEY (buyer_address) 
+    REFERENCES user(address)
+    ON DELETE RESTRICT ON UPDATE RESTRICT
+CONSTRAINT fk_item_seller_id
+    FOREIGN KEY (seller_id) 
     REFERENCES user(address)
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
