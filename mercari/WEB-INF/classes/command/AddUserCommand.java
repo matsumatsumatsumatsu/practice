@@ -19,14 +19,14 @@ public class AddUserCommand extends AbstractCommand{
         String address=addresses[0];
     	String tels[] =rq.getParameter("tel");
         String tel=tels[0];
-    	String malis[] =rq.getParameter("mali");
-        String mali=malis[0];
+    	String mails[] =rq.getParameter("mail");
+        String mail=mails[0];
         User u= new User();
         u.setUser_name(user_name);
         u.setReal_name(real_name);
         u.setAddress(address);
     	u.setTel(tel);
-    	u.setMail(mali);
+    	u.setMail(mail);
 
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
