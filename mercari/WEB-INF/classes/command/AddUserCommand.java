@@ -17,16 +17,16 @@ public class AddUserCommand extends AbstractCommand{
         String real_name=real_names[0];
         String addresses[] =rq.getParameter("address");
         String address=addresses[0];
-    	String tells[] =rq.getParameter("tell");
-        String tell=tells[0];
-    	String malis[] =rq.getParameter("mali");
-        String mali=malis[0];
+    	String tels[] =rq.getParameter("tel");
+        String tel=tels[0];
+    	String mails[] =rq.getParameter("mail");
+        String mail=mails[0];
         User u= new User();
         u.setUser_name(user_name);
         u.setReal_name(real_name);
         u.setAddress(address);
-    	u.setTell(tell);
-    	u.setMail(mali);
+    	u.setTel(tel);
+    	u.setMail(mail);
 
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();

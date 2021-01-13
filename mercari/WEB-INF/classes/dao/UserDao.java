@@ -28,7 +28,7 @@ public class UserDao implements UserInterfaceDao{
             st.setString(1, u.getUser_name());
             st.setString(2, u.getReal_name());
             st.setString(3, u.getAddress());
-            st.setString(4, u.getTell());
+            st.setString(4, u.getTel());
             st.setString(5, u.getMail());
             st.setString(6, u.getProfile());
             st.setString(7, u.getPoint());
@@ -85,7 +85,7 @@ public class UserDao implements UserInterfaceDao{
                 u.setUser_name(rs.getString(2));
                 u.setReal_name(rs.getString(3));
                 u.setAddress(rs.getString(4));
-                u.setTell(rs.getString(5));
+                u.setTel(rs.getString(5));
                 u.setMail(rs.getString(6));
                 u.setProfile(rs.getString(7));
                 u.setPoint(rs.getString(8));
