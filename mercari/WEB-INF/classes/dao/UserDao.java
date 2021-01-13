@@ -9,7 +9,7 @@ import java.util.List;
 
 import bean.User;
 
-public class UserDao implements UsersDao{
+public class UserDao implements UserInterfaceDao{
 	public void addUser(User u) {
         Connection cn = null;
         PreparedStatement st = null;

@@ -4,14 +4,14 @@ import java.util.List;
 
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
-import dao.UsersDao;
+import dao.UserInterfaceDao;
 
 public class GetUsersCommand extends AbstractCommand{
 
     public  ResponseContext execute(ResponseContext rec){
 
     	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-        UsersDao dao=factory.getUsersDao();
+        UserInterfaceDao dao=factory.getUserInterfaceDao();
 
         List products = dao.getAllProducts();
 

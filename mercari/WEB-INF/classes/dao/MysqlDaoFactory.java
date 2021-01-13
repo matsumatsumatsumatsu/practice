@@ -1,6 +1,6 @@
 package dao;
 public class MysqlDaoFactory extends AbstractMysqlFactory{
-    public UsersDao getUsersDao(){
+    public UserInterfaceDao getUserInterfaceDao(){
         return new UserDao();
     }
 

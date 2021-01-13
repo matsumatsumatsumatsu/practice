@@ -3,7 +3,7 @@ import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
-import dao.UsersDao;
+import dao.UserInterfaceDao;
 
 public class AddUserCommand extends AbstractCommand{
     public  ResponseContext execute(ResponseContext rec){
@@ -30,7 +30,7 @@ public class AddUserCommand extends AbstractCommand{
 
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-        UsersDao dao=factory.getUsersDao();
+        UserInterfaceDao dao=factory.getUserInterfaceDao();
 
         System.out.println("DAO"+dao.getClass().getName());
         //呼ばれていない
