@@ -1,5 +1,5 @@
 @echo off
-mysql -u root -p humie < MySQLCreate.sql
+mysql -u kirisuto -p humie < MySQLCreate.sql
 
 
 

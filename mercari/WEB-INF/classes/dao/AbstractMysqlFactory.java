@@ -46,5 +46,5 @@ public abstract class AbstractMysqlFactory {
 
         return factory;
     }
-    public abstract UsersDao getUsersDao();
+    public abstract UserInterfaceDao getUserInterfaceDao();
 }
