@@ -4,7 +4,6 @@ import java.util.List;
 import bean.User;
 
 public interface UsersDao{
-    public void addUser(User p);
-    public User getUser(String pid);
-    public List getAllProducts();
+    public void addUser(User user);
+    public List getAllUsers();
 }

@@ -3,9 +3,9 @@ package bean;
 import java.io.Serializable;
 
 public class User implements Serializable{
-	private String user_id;
-	private String user_name;
-	private String real_name;
+	private String userId;
+	private String userName;
+	private String realName;
 	private String address;
 	private String tel;
 	private String mail;
@@ -17,23 +17,23 @@ public class User implements Serializable{
 	public void setProfile(String profile) {
 		this.profile = profile;
 	}
-	public String getUser_id() {
-		return user_id;
+	public String getUserId() {
+		return userId;
 	}
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getUser_name() {
-		return user_name;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getReal_name() {
-		return real_name;
+	public String getRealName() {
+		return realName;
 	}
-	public void setReal_name(String real_name) {
-		this.real_name = real_name;
+	public void setRealName(String realName) {
+		this.realName = realName;
 	}
 	public String getAddress() {
 		return address;
@@ -60,6 +60,3 @@ public class User implements Serializable{
 		this.point = point;
 	}
 }
-
-
-//商品を意味するBeanです。

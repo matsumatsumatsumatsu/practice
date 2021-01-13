@@ -14,8 +14,6 @@ public class UserDao implements UsersDao{
         Connection cn = null;
         PreparedStatement st = null;
          ResultSet rs = null;
-         String user_id ;
-        System.out.println("MySQLProductsです");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
@@ -25,8 +23,8 @@ public class UserDao implements UsersDao{
             String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?)";
             st = cn.prepareStatement(sql);
 
-            st.setString(1, u.getUser_name());
-            st.setString(2, u.getReal_name());
+            st.setString(1, u.getUserName());
+            st.setString(2, u.getRealName());
             st.setString(3, u.getAddress());
             st.setString(4, u.getTel());
             st.setString(5, u.getMail());
@@ -62,11 +60,7 @@ public class UserDao implements UsersDao{
         }
 
     }
-    public User getUser(String user_id) {
-        return null;
-    }
-    public List getAllProducts() {
-        System.out.print("getAllProducts");
+    public List getAllUsers() {
         Connection cn = null;
         PreparedStatement st = null;
         ResultSet rs = null;
@@ -81,9 +75,9 @@ public class UserDao implements UsersDao{
 
             while (rs.next()) {
                 User u = new User();
-                u.setUser_id(rs.getString(1));
-                u.setUser_name(rs.getString(2));
-                u.setReal_name(rs.getString(3));
+                u.setUserId(rs.getString(1));
+                u.setUserName(rs.getString(2));
+                u.setRealName(rs.getString(3));
                 u.setAddress(rs.getString(4));
                 u.setTel(rs.getString(5));
                 u.setMail(rs.getString(6));

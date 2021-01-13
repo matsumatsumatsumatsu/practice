@@ -13,9 +13,9 @@ public class GetUsersCommand extends AbstractCommand{
     	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UsersDao dao=factory.getUsersDao();
 
-        List products = dao.getAllProducts();
+        List users = dao.getAllUsers();
 
-        rec.setResult(products);
+        rec.setResult(users);
         rec.setTarget("view");
         return rec;
     }
