@@ -19,7 +19,6 @@ public class AddUserCommand extends AbstractCommand{
         String address=addresses[0];
     	String tels[] =rq.getParameter("tel");
         String tel=tels[0];
-        //修正
     	String mails[] =rq.getParameter("mail");
         String mail=mails[0];
         User u= new User();
