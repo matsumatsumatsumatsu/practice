@@ -32,7 +32,7 @@ item_explanation varchar(500),
 hardware_id int UNSIGNED,
 category_id int UNSIGNED,
 seller_id int UNSIGNED,
-buyer_address varchar(30),
+buyer_address varchar(50),
 stock int default 1,
 listing_date datetime,
 term datetime,
@@ -44,13 +44,9 @@ CONSTRAINT fk_category_id
     FOREIGN KEY category_id(category_id) 
     REFERENCES category(category_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
-CONSTRAINT fk_buyer_address
-    FOREIGN KEY (buyer_address) 
-    REFERENCES user(address)
-    ON DELETE RESTRICT ON UPDATE RESTRICT
 CONSTRAINT fk_item_seller_id
-    FOREIGN KEY (seller_id) 
-    REFERENCES user(address)
+    FOREIGN KEY seller_id(seller_id) 
+    REFERENCES user(user_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
