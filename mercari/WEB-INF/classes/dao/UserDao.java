@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,15 +14,31 @@ public class UserDao implements UserInterfaceDao{
 	public void addUser(User u) {
         Connection cn = null;
         PreparedStatement st = null;
-        ResultSet rs = null;
+         ResultSet rs = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
+<<<<<<< HEAD
+             cn.setAutoCommit(false);
+
+
+            String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?)";
+=======
                cn.setAutoCommit(false);
 
             String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
+>>>>>>> refs/remotes/origin/master
             st = cn.prepareStatement(sql);
 
+<<<<<<< HEAD
+            st.setString(1, u.getUserName());
+            st.setString(2, u.getRealName());
+            st.setString(3, u.getAddress());
+            st.setString(4, u.getTel());
+            st.setString(5, u.getMail());
+            st.setString(6, u.getProfile());
+            st.setString(7, u.getPoint());
+=======
             st.setString(1, u.getUserName());
             st.setString(2, u.getUserPassword());
             st.setString(3, u.getRealName());
@@ -30,30 +47,35 @@ public class UserDao implements UserInterfaceDao{
             st.setString(6, u.getMail());
             st.setString(7, u.getProfile());
             st.setString(8, u.getPoint());
+>>>>>>> refs/remotes/origin/master
 
             st.executeUpdate();
             cn.commit();
-        } catch (Exception e) {
+        }catch(ClassNotFoundException e) {
+        	throw new RuntimeException();
+        }
+
+        catch (SQLException e) {
             e.printStackTrace();
                         try {
                 cn.rollback();
-            } catch (Exception ex) {
+            } catch (SQLException ex) {
                 //TODO: handle exception
             }
 
-        } finally {
+        }finally {
             try {
                 if (st != null) {
                     st.close();
                 }
-            } catch (Exception e) {
+            } catch (SQLException e) {
 
             } finally {
                 try {
                     if (cn != null) {
                         cn.close();
                     }
-                } catch (Exception e) {
+                } catch (SQLException e) {
 
                 }
             }
@@ -90,20 +112,22 @@ public class UserDao implements UserInterfaceDao{
 
 
 
-        } catch (Exception e) {
+        }catch(ClassNotFoundException e) {
+        	throw new RuntimeException();
+        }catch (SQLException e) {
              e.printStackTrace();
             try {
                 if (st != null) {
                     st.close();
                 }
-            } catch (Exception ex) {
+            } catch (SQLException ex) {
 
             } finally {
                 try {
                     if (cn != null) {
                         cn.close();
                     }
-                } catch (Exception ex) {
+                } catch (SQLException ex) {
 
                 }
             }

@@ -4,7 +4,7 @@ public class MysqlDaoFactory extends AbstractMysqlFactory{
         return new UserDao();
     }
 
-    public ListingInterfaceDao getListingInterfaceDao() {
-    	return new ListingDao();
+    public ItemInterfaceDao getListingInterfaceDao() {
+    	return new ItemDao();
     }
 }
