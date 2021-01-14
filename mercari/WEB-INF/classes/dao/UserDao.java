@@ -18,27 +18,12 @@ public class UserDao implements UserInterfaceDao{
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-<<<<<<< HEAD
-             cn.setAutoCommit(false);
-
-
-            String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?)";
-=======
                cn.setAutoCommit(false);
 
             String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
->>>>>>> refs/remotes/origin/master
+
             st = cn.prepareStatement(sql);
 
-<<<<<<< HEAD
-            st.setString(1, u.getUserName());
-            st.setString(2, u.getRealName());
-            st.setString(3, u.getAddress());
-            st.setString(4, u.getTel());
-            st.setString(5, u.getMail());
-            st.setString(6, u.getProfile());
-            st.setString(7, u.getPoint());
-=======
             st.setString(1, u.getUserName());
             st.setString(2, u.getUserPassword());
             st.setString(3, u.getRealName());
@@ -47,7 +32,6 @@ public class UserDao implements UserInterfaceDao{
             st.setString(6, u.getMail());
             st.setString(7, u.getProfile());
             st.setString(8, u.getPoint());
->>>>>>> refs/remotes/origin/master
 
             st.executeUpdate();
             cn.commit();
