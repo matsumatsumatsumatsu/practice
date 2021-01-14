@@ -6,7 +6,7 @@ import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
 
 public class AddUserCommand extends AbstractCommand{
-    public  ResponseContext execute(ResponseContext rec){
+    public  ResponseContext execute(ResponseContext resc){
         RequestContext rq=  getRequestContext();
 
         System.out.println("AddUser Command");
@@ -36,7 +36,7 @@ public class AddUserCommand extends AbstractCommand{
 
         dao.addUser(u);
 
-        rec.setTarget("start");
-        return rec;
+        resc.setTarget("start");
+        return resc;
     }
 }
