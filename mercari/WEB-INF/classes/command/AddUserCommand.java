@@ -31,11 +31,8 @@ public class AddUserCommand extends AbstractCommand{
     	u.setTel(tel);
     	u.setMail(mail);
 
-
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UserInterfaceDao dao=factory.getUserInterfaceDao();
-
-        System.out.println("DAO"+dao.getClass().getName());
 
         dao.addUser(u);
 

@@ -7,6 +7,7 @@ pageEncoding="UTF-8"%>
 <h1>メルカリもどき</h1>
 <p><a href="input">ユーザー登録画面へ</a></p>
 <p><a href="view">ユーザー確認画面へ</a></p>
+<p><a href="sell">出品画面へ</a></p>
 </body>
 </html>
 
