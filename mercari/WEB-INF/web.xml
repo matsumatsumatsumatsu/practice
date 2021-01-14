@@ -15,12 +15,12 @@
 	</servlet-mapping> -->
 
     <servlet>
-		<servlet-name>front.FrontServlet</servlet-name>
-		<servlet-class>front.FrontServlet</servlet-class>
+		<servlet-name>FrontServlet</servlet-name>
+		<servlet-class>FrontServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>front.FrontServlet</servlet-name>
+		<servlet-name>FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
