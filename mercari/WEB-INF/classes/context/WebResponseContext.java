@@ -2,14 +2,14 @@ package context;
 import javax.servlet.http.HttpServletResponse;
 public class WebResponseContext implements ResponseContext{
     private Object result;
-    private String tage;
+    private String target;
     public WebResponseContext(){}
     private HttpServletResponse _reponse;
-    public void setTarget(String transeforInfo){
-        tage="/WEB-INF/jsp/"+transeforInfo+".jsp";
+    public void setTarget(String transferInfo){
+        target="/WEB-INF/jsp/"+transferInfo+".jsp";
     }
     public String getTarget(){
-        return tage;
+        return target;
     }
     public void setResult(Object bean){
         result=bean;

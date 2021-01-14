@@ -6,8 +6,8 @@ pageEncoding="UTF-8"%>
 <body>
 <h1>ユーザー登録</h1>
 <form method='post' action='add'>
-ユーザー名<input type='text' name='user_name'><br>
-本名<input type='text' name='real_name'><br>
+ユーザー名<input type='text' name='userName'><br>
+本名<input type='text' name='realName'><br>
 住所<input type='text' name='address'><br>
 電話番号<input type='text' name='tel'><br>
 メールアドレス<input type='text' name='mail'><br>
