@@ -13,18 +13,17 @@ public class UserDao implements UserInterfaceDao{
 	public void addUser(User u) {
         Connection cn = null;
         PreparedStatement st = null;
-         ResultSet rs = null;
+        ResultSet rs = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
                cn.setAutoCommit(false);
 
-
-            String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
+            String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
             st = cn.prepareStatement(sql);
 
             st.setString(1, u.getUserName());
-            st.setString(2, u.getPassword());
+            st.setString(2, u.getUserPassword());
             st.setString(3, u.getRealName());
             st.setString(4, u.getAddress());
             st.setString(5, u.getTel());
@@ -78,7 +77,7 @@ public class UserDao implements UserInterfaceDao{
                 User u = new User();
                 u.setUserId(rs.getString(1));
                 u.setUserName(rs.getString(2));
-                u.setPassword(rs.getString(3));
+                u.setUserPassword(rs.getString(3));
                 u.setRealName(rs.getString(4));
                 u.setAddress(rs.getString(5));
                 u.setTel(rs.getString(6));

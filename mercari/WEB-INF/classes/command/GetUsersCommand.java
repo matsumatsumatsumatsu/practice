@@ -8,15 +8,15 @@ import dao.UserInterfaceDao;
 
 public class GetUsersCommand extends AbstractCommand{
 
-    public  ResponseContext execute(ResponseContext rec){
+    public  ResponseContext execute(ResponseContext resc){
 
     	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UserInterfaceDao dao=factory.getUserInterfaceDao();
 
         List users = dao.getAllUsers();
 
-        rec.setResult(users);
-        rec.setTarget("view");
-        return rec;
+        resc.setResult(users);
+        resc.setTarget("view");
+        return resc;
     }
 }

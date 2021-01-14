@@ -6,15 +6,15 @@ import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
 
 public class AddUserCommand extends AbstractCommand{
-    public  ResponseContext execute(ResponseContext rec){
+    public  ResponseContext execute(ResponseContext resc){
         RequestContext rq=  getRequestContext();
 
         System.out.println("AddUser Command");
 
         String userNames[] =rq.getParameter("userName");
         String userName=userNames[0];
-        String passwords[] = rq.getParameter("password");
-        String password=passwords[0];
+        String userPasswords[] =rq.getParameter("userPassword");
+        String userPassword=userPasswords[0];
         String realNames[] =rq.getParameter("realName");
         String realName=realNames[0];
         String addresses[] =rq.getParameter("address");
@@ -25,7 +25,7 @@ public class AddUserCommand extends AbstractCommand{
         String mail=mails[0];
         User u= new User();
         u.setUserName(userName);
-        u.setPassword(password);
+        u.setUserPassword(userPassword);
         u.setRealName(realName);
         u.setAddress(address);
     	u.setTel(tel);
@@ -39,7 +39,7 @@ public class AddUserCommand extends AbstractCommand{
 
         dao.addUser(u);
 
-        rec.setTarget("start");
-        return rec;
+        resc.setTarget("start");
+        return resc;
     }
 }
