@@ -7,6 +7,7 @@ pageEncoding="UTF-8"%>
 <h1>ユーザー登録</h1>
 <form method='post' action='add'>
 ユーザー名<input type='text' name='userName'><br>
+パスワード<input type='text' name='password'><br>
 本名<input type='text' name='realName'><br>
 住所<input type='text' name='address'><br>
 電話番号<input type='text' name='tel'><br>

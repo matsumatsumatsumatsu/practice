@@ -20,16 +20,17 @@ public class UserDao implements UserInterfaceDao{
                cn.setAutoCommit(false);
 
 
-            String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?)";
+            String sql = "insert into user(user_name,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
             st = cn.prepareStatement(sql);
 
             st.setString(1, u.getUserName());
-            st.setString(2, u.getRealName());
-            st.setString(3, u.getAddress());
-            st.setString(4, u.getTel());
-            st.setString(5, u.getMail());
-            st.setString(6, u.getProfile());
-            st.setString(7, u.getPoint());
+            st.setString(2, u.getPassword());
+            st.setString(3, u.getRealName());
+            st.setString(4, u.getAddress());
+            st.setString(5, u.getTel());
+            st.setString(6, u.getMail());
+            st.setString(7, u.getProfile());
+            st.setString(8, u.getPoint());
 
             st.executeUpdate();
             cn.commit();
@@ -69,7 +70,7 @@ public class UserDao implements UserInterfaceDao{
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
             cn.setAutoCommit(false);
-            String sql = "select user_id,user_name,real_name,address,tel,mail,profile,point from user";
+            String sql = "select user_id,user_name,user_password,real_name,address,tel,mail,profile,point from user";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
@@ -77,12 +78,13 @@ public class UserDao implements UserInterfaceDao{
                 User u = new User();
                 u.setUserId(rs.getString(1));
                 u.setUserName(rs.getString(2));
-                u.setRealName(rs.getString(3));
-                u.setAddress(rs.getString(4));
-                u.setTel(rs.getString(5));
-                u.setMail(rs.getString(6));
-                u.setProfile(rs.getString(7));
-                u.setPoint(rs.getString(8));
+                u.setPassword(rs.getString(3));
+                u.setRealName(rs.getString(4));
+                u.setAddress(rs.getString(5));
+                u.setTel(rs.getString(6));
+                u.setMail(rs.getString(7));
+                u.setProfile(rs.getString(8));
+                u.setPoint(rs.getString(9));
                 users.add(u);
             }
             cn.commit();

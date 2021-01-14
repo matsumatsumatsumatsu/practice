@@ -5,6 +5,17 @@
  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
  version="2.4">
 
+  <filter>
+    <filter-name>authenticatefilter</filter-name>
+    <filter-class>filter.AuthenticateFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>authenticatefilter</filter-name>
+    <url-pattern>/sell</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
 	</welcome-file-list>
