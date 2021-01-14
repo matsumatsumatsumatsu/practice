@@ -1,6 +1,7 @@
 create table user(
 user_id int UNSIGNED auto_increment,
 user_name varchar(30),
+user_password varchar(30),
 real_name varchar(30),
 address varchar(50),
 tel varchar(15),
@@ -34,7 +35,7 @@ category_id int UNSIGNED,
 seller_id int UNSIGNED,
 stock int default 1,
 listing_date datetime,
-term datetime,
+term int,
 CONSTRAINT fk_hardware_id
     FOREIGN KEY hardware_id(hardware_id) 
     REFERENCES hardware(hardware_id)
