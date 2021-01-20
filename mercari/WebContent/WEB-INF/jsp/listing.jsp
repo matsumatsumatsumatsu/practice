@@ -8,7 +8,7 @@
 </head>
 <body>
      <h1>出品</h1>
-     <form action="authenticate" method="post">
+     <form action="listing" method="post">
        商品の画像：<input type="file" name="itemImage">
        商品名：<input type="text" name="itemName"/><br>
        商品の説明：<input type="text" name="itemExplanation"/><br>

@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
 <head><title>ユーザー登録</title></head>
 <body>
 <h1>ユーザー登録</h1>
-<form method='post' action='add'>
+<form method='post' action='signup'>
 ユーザー名<input type='text' name='userName'><br>
 パスワード<input type='text' name='userPassword'><br>
 本名<input type='text' name='realName'><br>
