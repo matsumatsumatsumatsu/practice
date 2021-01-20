@@ -5,10 +5,11 @@ import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
 
-public class AddUserCommand extends AbstractCommand{
+public class SignupCommand extends AbstractCommand{
     public  ResponseContext execute(ResponseContext resc){
         RequestContext rq=  getRequestContext();
 
+        System.out.println("AddUser Command");
 
         String userNames[] =rq.getParameter("userName");
         String userName=userNames[0];

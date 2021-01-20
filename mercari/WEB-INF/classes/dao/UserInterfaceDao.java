@@ -5,5 +5,5 @@ import bean.User;
 
 public interface UserInterfaceDao{
 	  public void addUser(User user);
-	    public List getAllUsers();
+	  public List getAllUsers();
 }
