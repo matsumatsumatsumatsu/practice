@@ -10,9 +10,6 @@ public class ListingCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext rq=  getRequestContext();
 
-		String itemIds[] = rq.getParameter("itemId");
-		int itemId = Integer.parseInt(itemIds[0]);
-
 		String itemNames[] = rq.getParameter("itemName");
 		String itemName = itemNames[0];
 
@@ -31,22 +28,17 @@ public class ListingCommand extends AbstractCommand{
 		String categoryIds[] = rq.getParameter("categoryId");
 		int categoryId = Integer.parseInt(categoryIds[0]);
 
-		String sellerIds[] = rq.getParameter("sellerId");
-		int sellerId = Integer.parseInt(sellerIds[0]);
-
 		String terms[] = rq.getParameter("term");
 		int term = Integer.parseInt(terms[0]);
 
 		//beanインスタンス化
 		Item i = new Item();
-		i.setItemId(itemId);
 		i.setItemName(itemName);
 		i.setPrice(price);
 		i.setItemImage(itemImage);
 		i.setItemExplanation(itemExplanation);
 		i.setHardwareId(hardwareId);
 		i.setCategoryId(categoryId);
-		i.setSellerId(sellerId);
 		i.setTerm(term);
 
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();

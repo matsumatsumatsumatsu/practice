@@ -18,7 +18,7 @@ public class ItemDao implements ItemInterfaceDao {
         	cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
         	cn.setAutoCommit(false);
 
-        	String sql = "insert into item(item_id, item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) " + "values(?,?,?,?,?,?,?,?,cast ( now() as date),?)";
+        	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) " + "values(?,?,?,?,?,?,?,cast ( now() as date),?)";
         	st = cn.prepareStatement(sql);
 
         	st.setInt(1, item.getItemId());
