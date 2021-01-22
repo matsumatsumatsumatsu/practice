@@ -23,7 +23,7 @@ public class AuthenticateFilter implements Filter{
 
     if(flag==null){
       System.out.println("tokenがNULLなんですけど");
-      RequestDispatcher dis=req.getRequestDispatcher("/login");
+      RequestDispatcher dis=req.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
       dis.forward(req,res);
     }else{
       System.out.println("token="+flag);
