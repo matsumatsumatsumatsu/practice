@@ -4,7 +4,7 @@ import context.ResponseContext;
 
 public class ForwardSignupCommand extends AbstractCommand{
     public  ResponseContext execute(ResponseContext resc){
-        resc.setTarget("input");
+        resc.setTarget("signup");
         return resc;
     }
 }
