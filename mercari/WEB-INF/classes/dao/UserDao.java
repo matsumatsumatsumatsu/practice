@@ -11,10 +11,12 @@ import java.util.List;
 import bean.User;
 
 public class UserDao implements UserInterfaceDao{
+
+	Connection cn = null;
+    PreparedStatement st = null;
+    ResultSet rs = null;
+
 	public void addUser(User u) {
-        Connection cn = null;
-        PreparedStatement st = null;
-         ResultSet rs = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
              cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
@@ -53,14 +55,14 @@ public class UserDao implements UserInterfaceDao{
                     st.close();
                 }
             } catch (SQLException e) {
-
+            	e.printStackTrace();
             } finally {
                 try {
                     if (cn != null) {
                         cn.close();
                     }
                 } catch (SQLException e) {
-
+                	e.printStackTrace();
                 }
             }
         }
@@ -68,9 +70,6 @@ public class UserDao implements UserInterfaceDao{
     }
 
 	public User getUser(String userName) {
-        Connection cn = null;
-        PreparedStatement st = null;
-        ResultSet rs = null;
         User u = new User();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -93,9 +92,6 @@ public class UserDao implements UserInterfaceDao{
                 u.setPoint(rs.getString(9));
             }
             cn.commit();
-
-
-
         }catch(ClassNotFoundException e) {
         	throw new RuntimeException();
         }catch (SQLException e) {
@@ -105,14 +101,14 @@ public class UserDao implements UserInterfaceDao{
                     st.close();
                 }
             } catch (SQLException ex) {
-
+            	e.printStackTrace();
             } finally {
                 try {
                     if (cn != null) {
                         cn.close();
                     }
                 } catch (SQLException ex) {
-
+                	e.printStackTrace();
                 }
             }
 
@@ -122,9 +118,6 @@ public class UserDao implements UserInterfaceDao{
 
 
     public List getAllUsers() {
-        Connection cn = null;
-        PreparedStatement st = null;
-        ResultSet rs = null;
         ArrayList users =new ArrayList();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -148,9 +141,6 @@ public class UserDao implements UserInterfaceDao{
                 users.add(u);
             }
             cn.commit();
-
-
-
         }catch(ClassNotFoundException e) {
         	throw new RuntimeException();
         }catch (SQLException e) {
@@ -160,19 +150,89 @@ public class UserDao implements UserInterfaceDao{
                     st.close();
                 }
             } catch (SQLException ex) {
-
+            	e.printStackTrace();
             } finally {
                 try {
                     if (cn != null) {
                         cn.close();
                     }
                 } catch (SQLException ex) {
-
+                	e.printStackTrace();
                 }
             }
-
         }
         return users;
     }
 
+    public void updateUser(User u) {
+    	try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
+            cn.setAutoCommit(false);
+            String sql = "update user set user_name = ?, user_password = ?, real_name = ?, address = ?, tel = ?, mail = ?, profile = ?";
+            st = cn.prepareStatement(sql);
+
+            st.setString(1, u.getUserName());
+            st.setString(2, u.getUserPassword());
+            st.setString(3, u.getRealName());
+            st.setString(4, u.getAddress());
+            st.setString(5, u.getTel());
+            st.setString(6, u.getMail());
+            st.setString(7, u.getProfile());
+
+            st.executeUpdate();
+            cn.commit();
+        }catch(ClassNotFoundException e) {
+        	throw new RuntimeException();
+        }catch (SQLException e) {
+             e.printStackTrace();
+            try {
+                if (st != null) {
+                    st.close();
+                }
+            } catch (SQLException ex) {
+            	e.printStackTrace();
+            } finally {
+                try {
+                    if (cn != null) {
+                        cn.close();
+                    }
+                } catch (SQLException ex) {
+                	e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void deleteUser(String userName) {
+    	try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
+            cn.setAutoCommit(false);
+            String sql = "delete from user where user_name = ?";
+            st = cn.prepareStatement(sql);
+            st.setString(1, userName);
+            st.executeUpdate();
+            cn.commit();
+        }catch(ClassNotFoundException e) {
+        	throw new RuntimeException();
+        }catch (SQLException e) {
+             e.printStackTrace();
+            try {
+                if (st != null) {
+                    st.close();
+                }
+            } catch (SQLException ex) {
+            	e.printStackTrace();
+            } finally {
+                try {
+                    if (cn != null) {
+                        cn.close();
+                    }
+                } catch (SQLException ex) {
+                	e.printStackTrace();
+                }
+            }
+        }
+    }
 }
