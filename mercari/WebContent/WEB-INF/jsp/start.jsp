@@ -9,7 +9,6 @@ pageEncoding="UTF-8"%>
 <p><a href="view">ユーザー確認画面へ</a></p>
 <p><a href="f_listing">出品画面へ</a></p>
 
-<p><a href="jspa">サンプルjsp</a></p>
 </body>
 </html>
 
