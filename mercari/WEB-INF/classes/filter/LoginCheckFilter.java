@@ -12,9 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class LoginCheckFilter implements Filter{
-    private FilterConfig config;
     public void init(FilterConfig config)throws ServletException{
-        this.config=config;
     }
     public void destroy(){}
     public void doFilter(ServletRequest req,ServletResponse res,FilterChain chain)
