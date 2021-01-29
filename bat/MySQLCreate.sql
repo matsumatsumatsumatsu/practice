@@ -1,10 +1,10 @@
 create table user(
 user_id int UNSIGNED auto_increment,
-user_name varchar(30),
+user_name varchar(30) unique,
 user_password varchar(30),
 real_name varchar(30),
-address varchar(50),
-tel varchar(15),
+address varchar(50) unique,
+tel varchar(15) unique,
 mail varchar(40),
 profile varchar(500),
 point int UNSIGNED,
