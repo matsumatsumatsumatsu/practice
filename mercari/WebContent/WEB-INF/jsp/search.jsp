@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
+    pageEncoding="UTF-8"%>
+   <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 <html>
-<head><title>スタート画面</title>
+<head>
+
+<meta charset="UTF-8">
+<title>Insert title here</title>
 	<div class="search">
 		<form name="itemsearch" method='post' action='SearchItem' onSubmit="return check()">
   	 	<p>商品名検索</p>
@@ -14,12 +17,8 @@ pageEncoding="UTF-8"%>
 </head>
 
 <body>
-<h1>メルカリもどき</h1>
-<p><a href="f_signup">ユーザー登録画面へ</a></p>
-<p><a href="view">ユーザー確認画面へ</a></p>
-<p><a href="f_listing">出品画面へ</a></p>
-<p><a href="f_login">ログイン</a></p>
-<p><a href="search">けんさく</a></p>
+<div id="searh">
+<div id="categorysearh">
 <ul class="gnav">
     <li>
         <a href="category">カテゴリから探す</a>
@@ -34,12 +33,25 @@ pageEncoding="UTF-8"%>
                     <li><a href="category">Child4</a></li>
                     <li><a href="category">Child5</a></li>
                 </ul>
+
             </li>
 
         </ul>
     </li>
 
 </ul>
+</div>
+<div id="pricesearh">
+<input type="text" name="minvalu">
+<input type="text" name="maxvalu">
+</div>
+<div id="stockserah">
+<input type="checkbox" name="sale"><label for="sale">販売中</label>
+<input type="checkbox" name="sold"><label for="sold">売りきれ</label>
+</div>
+<button type='submit' value='検索！'></button>
+</div>
+<p><a href="f_listing">出品画面へ</a></p>
 
 <table border="1">
 	<tr><th>商品名</th><th>価格</th><th>画像</th><th>itemid</th></tr>
@@ -50,6 +62,3 @@ pageEncoding="UTF-8"%>
 
 </body>
 </html>
-
-<!-- HTMLでは、href属性の値として、相対パスを指定する場合は、スラッシュをつけません。「/input」のようにスラッシュを記述した場合は、「http://lcoalhost:9999/input」のように、コンテキストパスとして解釈されます。これは、javax.servlet.ServletRequestインターフェイスのgetRequestDispatcherメソッドの引数の指定の仕方とは異なります。 -->
-
