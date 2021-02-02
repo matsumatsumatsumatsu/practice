@@ -28,7 +28,7 @@
 		</c:forEach>
 	</table>
 
-	<!-- 仮 -->>
+	<!-- 仮の -->>
 	<c:form action = "" method = "post">
 		<input type = "text" name = "openChat"><br>
 		<input type = "submit" value = "コメントする">
