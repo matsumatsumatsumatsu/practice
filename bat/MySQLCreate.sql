@@ -126,12 +126,31 @@ CONSTRAINT fk_chat_seller_id
 commit;
 
 
+insert into hardware (hardware_id, hardware)
+values(1, 'DS');
 
+insert into hardware (hardware_id, hardware)
+values(2, 'PSP');
 
+insert into hardware (hardware_id, hardware)
+values(3, 'PS4');
 
+insert into hardware (hardware_id, hardware)
+values(4, 'switch');
 
+insert into category(category_id, category)
+values(1, 'RPG');
 
+insert into category(category_id, category)
+values(2, 'アクション');
 
+insert into category(category_id, category)
+values(3, 'パズル');
+
+insert into category(category_id, category)
+values(4, 'アドベンチャー');
+
+commit;
 
 
 
