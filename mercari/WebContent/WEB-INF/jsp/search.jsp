@@ -21,10 +21,10 @@
 <div id="categorysearch">
 <ul class="gnav">
     <li>
-        <a href="category">カテゴリから探す</a>
+        <a>カテゴリから探す</a>
         <ul>
             <li>
-                <a href="">DS</a>
+                <a href="category">DS</a>
                 <ul>
 
                     <li><a href="category">アクション</a></li>
