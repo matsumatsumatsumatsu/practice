@@ -15,7 +15,7 @@ public class ShowItemListCommand  extends AbstractCommand {
         List items = dao.getAllItems();
 
         resc.setResult(items);
-        resc.setTarget("view");
+        resc.setTarget("start");
         return resc;
     }
 }
