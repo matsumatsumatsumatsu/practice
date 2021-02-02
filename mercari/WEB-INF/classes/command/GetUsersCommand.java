@@ -7,7 +7,6 @@ import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
 
 public class GetUsersCommand extends AbstractCommand{
-
     public  ResponseContext execute(ResponseContext resc){
 
     	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
