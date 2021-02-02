@@ -10,6 +10,7 @@ import application.ApplicationController;
 import application.WebApplicationController;
 import context.RequestContext;
 import context.ResponseContext;
+import exception.PresentationException;
 
 
 public class FrontServlet extends javax.servlet.http.HttpServlet {
@@ -22,12 +23,16 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws IOException, ServletException {
 
-		req.setCharacterEncoding("UTF-8");
-		ApplicationController app=new WebApplicationController();
-		RequestContext reqc = app.getRequest(req);
-		ResponseContext resc= app.handleRequest(reqc);
+		try {
+			req.setCharacterEncoding("UTF-8");
+			ApplicationController app=new WebApplicationController();
+			RequestContext reqc = app.getRequest(req);
+			ResponseContext resc= app.handleRequest(reqc);
 
-		resc.setResponse(res);
-		app.handleResponse(reqc,resc);
+			resc.setResponse(res);
+			app.handleResponse(reqc,resc);
+		}catch(PresentationException e){
+			e.printStackTrace();
+		}
 	}
 }

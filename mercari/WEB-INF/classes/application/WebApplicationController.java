@@ -13,6 +13,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import context.WebRequestContext;
 import context.WebResponseContext;
+import exception.PresentationException;
 
 public class WebApplicationController implements ApplicationController{
     public RequestContext getRequest(Object request){
@@ -21,7 +22,7 @@ public class WebApplicationController implements ApplicationController{
 
         return reqc;
     }
-    public ResponseContext handleRequest(RequestContext req){
+    public ResponseContext handleRequest(RequestContext req) throws PresentationException{
         AbstractCommand command = CommandFactory.getCommand(req);
         command.init(req);
 

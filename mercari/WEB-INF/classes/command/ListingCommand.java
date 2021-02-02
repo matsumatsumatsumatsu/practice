@@ -23,10 +23,10 @@ public class ListingCommand extends AbstractCommand{
 		String itemExplanation = itemExplanations[0];
 
 		String hardwareIds[] = rq.getParameter("hardwareId");
-		int hardwareId = Integer.parseInt(hardwareIds[0]);
+		String hardwareId = hardwareIds[0];
 
 		String categoryIds[] = rq.getParameter("categoryId");
-		int categoryId = Integer.parseInt(categoryIds[0]);
+		String categoryId = categoryIds[0];
 
 		String terms[] = rq.getParameter("term");
 		int term = Integer.parseInt(terms[0]);
