@@ -23,9 +23,12 @@ public class LoginCommand extends AbstractCommand{
             SessionManager session = new SessionManager(rq);
         	session.setAttribute("token",ub);
         	System.out.println("token取得");
+        	resc.setTarget("start");
+        }
+        else {
+        	resc.setTarget("login");
         }
 
-		resc.setTarget("start");
         return resc;
 	}
 }
