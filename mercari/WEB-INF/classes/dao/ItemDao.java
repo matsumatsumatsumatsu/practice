@@ -22,7 +22,7 @@ public class ItemDao implements ItemInterfaceDao {
         	cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
         	cn.setAutoCommit(false);
 
-        	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) " + "values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
+        	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
         	st = cn.prepareStatement(sql);
 
         	st.setString(1, item.getItemName());
@@ -121,7 +121,7 @@ public class ItemDao implements ItemInterfaceDao {
 	            Class.forName("com.mysql.cj.jdbc.Driver");
 	             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
 	            cn.setAutoCommit(false);
-	            String sql = "select item_id,item_name,price,item_image,tem_explanation,hard_ware";
+	            String sql = "select item_id,item_name,price,item_image,item_explanation from item";
 	            st = cn.prepareStatement(sql);
 	            rs = st.executeQuery();
 

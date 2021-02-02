@@ -42,9 +42,9 @@ pageEncoding="UTF-8"%>
 </ul>
 
 <table border="1">
-	<tr><th>商品名</th><th>価格</th><th>画像</th><th>itemid</th></tr>
+	<tr><th>itemid</th><th>商品名</th><th>価格</th><th>画像</th><th>説明</th></tr>
 	<c:forEach var="item" items="${data}">
-		<tr><td>${item.itemName}</td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemId}</td></tr>
+		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemExplanation}</td></tr>
 	</c:forEach>
 </table>
 
