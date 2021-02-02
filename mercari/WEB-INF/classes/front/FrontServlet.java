@@ -12,7 +12,6 @@ import context.RequestContext;
 import context.ResponseContext;
 import exception.PresentationException;
 
-
 public class FrontServlet extends javax.servlet.http.HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse res)
 			throws ServletException, IOException {

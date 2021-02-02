@@ -1,5 +1,5 @@
 <!-- <?xml version="1.0" encoding="UTF-8"> -->
-
+<!-- いじる方 -->
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
@@ -12,6 +12,17 @@
   <filter-mapping>
     <filter-name>authenticatefilter</filter-name>
     <url-pattern>/f_listing</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>reloaditemlistfilter</filter-name>
+    <filter-class>filter.ReLoadItemListFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>reloaditemlistfilter</filter-name>
+    <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
