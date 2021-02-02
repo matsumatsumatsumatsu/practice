@@ -1,5 +1,10 @@
 package command;
 
-public class ForwardLoginCommand {
+import context.ResponseContext;
 
+public class ForwardLoginCommand extends AbstractCommand{
+	public  ResponseContext execute(ResponseContext resc){
+		resc.setTarget("login");
+        return resc;
+	}
 }
