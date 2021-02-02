@@ -5,7 +5,7 @@ pageEncoding="UTF-8"%>
 <html>
 <head><title>スタート画面</title>
 	<div class="search">
-		<form name="itemsearch" method='post' action='SearchItem' onSubmit="return check()">
+		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
   	 	<p>商品名検索</p>
     	<input type='text' name='itemName'>
     	<input type='submit' value='検索！'>
@@ -19,13 +19,13 @@ pageEncoding="UTF-8"%>
 <p><a href="view">ユーザー確認画面へ</a></p>
 <p><a href="f_listing">出品画面へ</a></p>
 <p><a href="f_login">ログイン</a></p>
-<p><a href="search">けんさく</a></p>
+<p><a href="f_logout">ログアウト</a></p>
 <ul class="gnav">
     <li>
-        <a href="category">カテゴリから探す</a>
+        <a>カテゴリから探す</a>
         <ul>
             <li>
-                <a href="">DS</a>
+                <a href="category">DS</a>
                 <ul>
 
                     <li><a href="category">アクション</a></li>

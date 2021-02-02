@@ -8,11 +8,11 @@ import dao.ItemInterfaceDao;
 
 public class ShowItemInfoCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
-    	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-        ItemInterfaceDao dao=factory.getItemInterfaceDao();
-        RequestContext reqc=getRequestContext();
+    	AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
+        ItemInterfaceDao dao = factory.getItemInterfaceDao();
+        RequestContext reqc = getRequestContext();
 
-        String itemId=reqc.getParameter("itemId")[0];
+        String itemId = reqc.getParameter("itemId")[0];
         Item item = dao.getItem(itemId);
 
         resc.setResult(item);

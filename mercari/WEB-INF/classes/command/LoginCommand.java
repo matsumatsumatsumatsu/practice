@@ -1,12 +1,9 @@
 package command;
 
-import java.util.List;
-
 import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
-import dao.ItemInterfaceDao;
 import dao.UserInterfaceDao;
 import util.SessionManager;
 
@@ -32,11 +29,6 @@ public class LoginCommand extends AbstractCommand{
         	resc.setTarget("login");
         }
 
-        ItemInterfaceDao dao2=factory.getItemInterfaceDao();
-
-        List items = dao2.getAllItems();
-
-        resc.setResult(items);
         return resc;
 	}
 }
