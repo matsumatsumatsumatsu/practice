@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-    <%@ page isELIgnored="false" %>
+
 
 <!DOCTYPE html>
 <html>
@@ -15,20 +15,20 @@
 
 <body>
 	<table border="1">
-		<c:forEach var = "Item" items = "${data}">
+		<c:forEach var = "item" items = "${data}">
 		<tr>
-			<td>Item.itemImage</td>
-			<td>Item.itemName</td>
-			<td>Item.itemExplanation</td>
-			<td>Item.hardwareId</td>
-			<td>Item.categoryId</td>
-			<td>Item.term</td>
-			<td>Item.price</td>
-		</tr>>
+			<td>item.itemImage</td>
+			<td>item.itemName</td>
+			<td>item.itemExplanation</td>
+			<td>item.hardwareId</td>
+			<td>item.categoryId</td>
+			<td>item.term</td>
+			<td>item.price</td>
+		</tr>
 		</c:forEach>
 	</table>
 
-	<!-- 仮の -->>
+	<!-- 仮のやつ -->
 	<c:form action = "" method = "post">
 		<input type = "text" name = "openChat"><br>
 		<input type = "submit" value = "コメントする">
