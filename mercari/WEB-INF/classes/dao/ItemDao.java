@@ -22,18 +22,17 @@ public class ItemDao implements ItemInterfaceDao {
         	cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
         	cn.setAutoCommit(false);
 
-        	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) " + "values(?,?,?,?,?,?,?,cast ( now() as date),?)";
+        	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) " + "values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
         	st = cn.prepareStatement(sql);
 
-        	st.setString(1, item.getItemId());
-        	st.setString(2, item.getItemName());
-        	st.setInt(3, item.getPrice());
-        	st.setString(4, item.getItemImage());
-        	st.setString(5, item.getItemExplanation());
-        	st.setString(6, item.getHardwareId());
-        	st.setString(7, item.getCategoryId());
-        	st.setString(8, item.getSellerId());
-        	st.setInt(10, item.getTerm());
+        	st.setString(1, item.getItemName());
+        	st.setInt(2, item.getPrice());
+        	st.setString(3, item.getItemImage());
+        	st.setString(4, item.getItemExplanation());
+        	st.setString(5, item.getHardwareId());
+        	st.setString(6, item.getCategoryId());
+        	st.setString(7, item.getSellerId());
+        	st.setInt(8, item.getTerm());
 
             st.executeUpdate();
             cn.commit();

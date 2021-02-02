@@ -1,7 +1,5 @@
 package command;
 
-import java.util.List;
-
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;

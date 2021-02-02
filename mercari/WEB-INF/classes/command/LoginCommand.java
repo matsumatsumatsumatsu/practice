@@ -21,7 +21,7 @@ public class LoginCommand extends AbstractCommand{
 
         if(userPassword.equals(ub.getUserPassword())) {
             SessionManager session = new SessionManager(rq);
-        	session.setAttribute("token","OK");
+        	session.setAttribute("token",ub);
         	System.out.println("token取得");
         }
 

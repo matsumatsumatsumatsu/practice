@@ -1,10 +1,12 @@
 package command;
 
 import bean.Item;
+import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
+import util.SessionManager;
 
 public class ListingCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
@@ -31,6 +33,14 @@ public class ListingCommand extends AbstractCommand{
 		String terms[] = rq.getParameter("term");
 		int term = Integer.parseInt(terms[0]);
 
+		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
+		ItemInterfaceDao dao = factory.getItemInterfaceDao();
+
+		SessionManager session = new SessionManager(rq);
+		System.out.println("token:"+session.getAttribute("token"));
+
+		String sessionUserId=((User)session.getAttribute("token")).getUserId();
+
 		//beanインスタンス化
 		Item i = new Item();
 		i.setItemName(itemName);
@@ -40,9 +50,7 @@ public class ListingCommand extends AbstractCommand{
 		i.setHardwareId(hardwareId);
 		i.setCategoryId(categoryId);
 		i.setTerm(term);
-
-		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-		ItemInterfaceDao dao = factory.getItemInterfaceDao();
+		i.setSellerId(sessionUserId);
 
 		dao.listing(i);
 		resc.setTarget("start");

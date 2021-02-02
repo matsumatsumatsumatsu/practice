@@ -19,7 +19,7 @@ public class AuthenticateFilter implements Filter{
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain)throws IOException, ServletException{
     HttpSession session=((HttpServletRequest) req).getSession();
 
-    String flag=(String)session.getAttribute("token");
+    Object flag=session.getAttribute("token");
 
     if(flag==null){
       System.out.println("tokenがNULLなんですけど");
