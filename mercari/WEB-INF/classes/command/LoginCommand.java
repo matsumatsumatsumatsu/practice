@@ -1,23 +1,30 @@
 package command;
 
+import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
+import util.SessionManager;
+
 
 public class LoginCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
 		RequestContext rq=  getRequestContext();
 
-		String userNames[] =rq.getParameter("userName");
-        String userName=userNames[0];
-        String userPasswords[] =rq.getParameter("userPassword");
-        String userPassword=userPasswords[0];
+        String userName =rq.getParameter("userName")[0];
+        String userPassword =rq.getParameter("userPassword")[0];
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UserInterfaceDao dao=factory.getUserInterfaceDao();
+        User ub = dao.getUser(userName);
 
-        dao.getUser(userName);
+        if(userPassword.equals(ub.getUserPassword())) {
+            SessionManager session = new SessionManager(rq);
+        	session.setAttribute("token","OK");
+        	System.out.println("token取得");
+        }
+
 		resc.setTarget("start");
         return resc;
 	}

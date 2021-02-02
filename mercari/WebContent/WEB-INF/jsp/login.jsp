@@ -7,9 +7,9 @@
     </head>
     <body>
       <h1>ログイン</h1>
-      <form action="authenticate" method="post">
-        名前：<input type="text" name="name"/><br>
-        パスワード：<input type="text" name="pass"/><br><br>
+      <form action="login" method="post">
+        名前：<input type="text" name="userName"/><br>
+        パスワード：<input type="text" name="userPassword"/><br><br>
         <input type="submit" value="ログイン">
       </form>
     </body>
