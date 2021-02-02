@@ -67,7 +67,7 @@ public class ItemDao implements ItemInterfaceDao {
         }
 	}
 
-	public Item getItem(String itemName) {
+	public Item getItem(String itemId) {
         Item i = new Item();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -75,7 +75,7 @@ public class ItemDao implements ItemInterfaceDao {
             cn.setAutoCommit(false);
             String sql = "select * from item where item_name = ?";
             st = cn.prepareStatement(sql);
-            st.setString(1, itemName);
+            st.setString(1, itemId);
             rs = st.executeQuery();
 
             while (rs.next()) {
