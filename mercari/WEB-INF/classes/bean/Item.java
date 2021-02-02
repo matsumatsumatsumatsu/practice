@@ -3,22 +3,22 @@ package bean;
 import java.io.Serializable;
 
 public class Item implements Serializable{
-	private int itemId;
+	private String itemId;
 	private String itemName;
 	private int price;
 	private String itemImage;
 	private String itemExplanation;
-	private int hardwareId;
-	private int categoryId;
-	private int sellerId;
+	private String hardwareId;
+	private String categoryId;
+	private String sellerId;
 	private int term;
 	private int stock;
 	private int listingDate;
 
-	public int getItemId() {
+	public String getItemId() {
 		return itemId;
 	}
-	public void setItemId(int itemId) {
+	public void setItemId(String itemId) {
 		this.itemId = itemId;
 	}
 	public String getItemName() {
@@ -45,22 +45,22 @@ public class Item implements Serializable{
 	public void setItemExplanation(String itemExplanation) {
 		this.itemExplanation = itemExplanation;
 	}
-	public int getHardwareId() {
+	public String getHardwareId() {
 		return hardwareId;
 	}
-	public void setHardwareId(int hardwareId) {
+	public void setHardwareId(String hardwareId) {
 		this.hardwareId = hardwareId;
 	}
-	public int getCategoryId() {
+	public String getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-	public int getSellerId() {
+	public String getSellerId() {
 		return sellerId;
 	}
-	public void setSellerId(int sellerId) {
+	public void setSellerId(String sellerId) {
 		this.sellerId = sellerId;
 	}
 	public int getTerm() {
