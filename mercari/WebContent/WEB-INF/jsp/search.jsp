@@ -17,8 +17,8 @@
 </head>
 
 <body>
-<div id="searh">
-<div id="categorysearh">
+<div id="search">
+<div id="categorysearch">
 <ul class="gnav">
     <li>
         <a href="category">カテゴリから探す</a>
@@ -41,11 +41,11 @@
 
 </ul>
 </div>
-<div id="pricesearh">
-<input type="text" name="minvalu">
-<input type="text" name="maxvalu">
+<div id="pricesearch">
+<input type="text" name="minvalue">
+<input type="text" name="maxvalue">
 </div>
-<div id="stockserah">
+<div id="stocksearch">
 <input type="checkbox" name="sale"><label for="sale">販売中</label>
 <input type="checkbox" name="sold"><label for="sold">売りきれ</label>
 </div>

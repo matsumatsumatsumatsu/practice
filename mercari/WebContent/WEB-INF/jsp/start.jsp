@@ -19,7 +19,7 @@ pageEncoding="UTF-8"%>
 <p><a href="view">ユーザー確認画面へ</a></p>
 <p><a href="f_listing">出品画面へ</a></p>
 <p><a href="f_login">ログイン</a></p>
-<p><a href="search">けんさく</a></p>
+<p><a href="f_logout">ログアウト</a></p>
 <ul class="gnav">
     <li>
         <a href="category">カテゴリから探す</a>
