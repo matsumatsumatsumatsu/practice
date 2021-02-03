@@ -44,7 +44,7 @@ pageEncoding="UTF-8"%>
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>価格</th><th>画像</th><th>説明</th></tr>
 	<c:forEach var="item" items="${itemlist}">
-		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemExplanation}</td></tr>
+		<tr><td>${item.itemId}</td><td><a href="showiteminfo?item_id=${item.itemId}">${item.itemName}</a></td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemExplanation}</td></tr>
 	</c:forEach>
 </table>
 
