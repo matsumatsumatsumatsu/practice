@@ -36,6 +36,7 @@ seller_id int UNSIGNED,
 stock int default 1,
 listing_date datetime,
 term int,
+
 CONSTRAINT fk_hardware_id
     FOREIGN KEY hardware_id(hardware_id) 
     REFERENCES hardware(hardware_id)
