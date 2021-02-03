@@ -158,4 +158,52 @@ public class ItemDao implements ItemInterfaceDao {
 	        }
 	        return items;
 	    }
+	 public Item search(String itemName) {
+	        Item i = new Item();
+	        try {
+	            Class.forName("com.mysql.cj.jdbc.Driver");
+	            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
+	            cn.setAutoCommit(false);
+	            String sql = "select * from item where item_name like '%?%'";
+	            st = cn.prepareStatement(sql);
+	            st.setString(1, itemName);
+	            rs = st.executeQuery();
+
+	            while (rs.next()) {
+	                i.setItemId(rs.getString(1));
+	                i.setItemName(rs.getString(2));
+	                i.setPrice(rs.getInt(3));
+	                i.setItemImage(rs.getString(4));
+	                i.setItemExplanation(rs.getString(5));
+	                i.setHardwareId(rs.getString(6));
+	                i.setCategoryId(rs.getString(7));
+	                i.setSellerId(rs.getString(8));
+	                i.setTerm(rs.getInt(9));
+	                i.setStock(rs.getInt(10));
+	                i.setListingDate(rs.getInt(11));
+	            }
+	            cn.commit();
+	        }catch(ClassNotFoundException e) {
+	        	throw new RuntimeException();
+	        }catch (SQLException e) {
+	             e.printStackTrace();
+	            try {
+	                if (st != null) {
+	                    st.close();
+	                }
+	            } catch (SQLException ex) {
+	            	e.printStackTrace();
+	            } finally {
+	                try {
+	                    if (cn != null) {
+	                        cn.close();
+	                    }
+	                } catch (SQLException ex) {
+	                	e.printStackTrace();
+	                }
+	            }
+
+	        }
+	        return i;
+	    }
 }
