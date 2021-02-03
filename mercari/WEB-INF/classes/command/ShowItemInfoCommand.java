@@ -17,7 +17,7 @@ public class ShowItemInfoCommand extends AbstractCommand{
         Item item = dao.getItem(itemId);
 
         resc.setResult(item);
-        resc.setTarget("start");
+        resc.setTarget("item");
 		return resc;
 	}
 }
