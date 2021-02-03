@@ -12,32 +12,40 @@
     	<input type='submit' value='検索！'>
   	</form>
 	</div>
+	<ul class="category">
+    <li>
+        <a>カテゴリから探す</a>
+        <ul>
+            <li>
+                <a href="category">DS</a>
+                <ul>
+
+                    <li><a href="category">アクション</a></li>
+                    <li><a href="category">Child2</a></li>
+      			    <li><a href="category">Child3</a></li>
+                    <li><a href="category">Child4</a></li>
+                    <li><a href="category">Child5</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+
+</ul>
 </head>
 <body>
+<div id="user">
 <table border="1">
-	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
+	<tr><th>ポイント</th></tr>
 	<c:forEach var="user" items="${data}">
-		<tr><td>${user.userId}</td><td>${user.userName}</td></tr>
+		<tr><td>${user.point}</td></tr>
 	</c:forEach>
 </table>
-<div id="buyer">
-<h4>購入した商品</h4>
-<h4>取引中</h4>
-<table border="1">
-	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
-	<c:forEach var="item" items="${data}">
-		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.itemImage}</td></tr>
-	</c:forEach>
-</table>
-<h4>過去の取引</h4>
-<table border="1">
-	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
-	<c:forEach var="item" items="${data}">
-		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.itemImage}</td></tr>
-	</c:forEach>
-</table>
-
 </div>
+<form action="point" method="post">
+ ポイントくれ：<input type="text" name="userpoint"/><br>
+ <input type='submit' value='くれ'>
+</form>
 
 <div id="l-side">
 <ul>

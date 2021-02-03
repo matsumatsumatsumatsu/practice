@@ -21,5 +21,18 @@ pageEncoding="UTF-8"%>
 			</tr>
 		</c:forEach>
 	</table>
+
+
+	<!-- 仮のやつ -->
+	<form action = "showItemInfo" method = "post">
+		<input type = "text" name = "openChat"><br>
+		<input type = "submit" value = "コメントする">
+	</form>
+
+	<p><a href = "/pay/">商品購入</a></p>
+	<p><a href = "/listingEdit/">出品物の編集</a></p>
+	<p><a href = "/userInfo/">ユーザーの確認</a></p>
+	<p><a href = "/category/">カテゴリー検索</a></p>
+
 </body>
 </html>

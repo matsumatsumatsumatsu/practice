@@ -11,16 +11,7 @@ pageEncoding="UTF-8"%>
     	<input type='submit' value='検索！'>
   	</form>
 	</div>
-</head>
-
-<body>
-<h1>メルカリもどき</h1>
-<p><a href="f_signup">ユーザー登録画面へ</a></p>
-<p><a href="view">ユーザー確認画面へ</a></p>
-<p><a href="f_listing">出品画面へ</a></p>
-<p><a href="f_login">ログイン</a></p>
-<p><a href="f_logout">ログアウト</a></p>
-<ul class="gnav">
+	<ul class="category">
     <li>
         <a>カテゴリから探す</a>
         <ul>
@@ -40,11 +31,40 @@ pageEncoding="UTF-8"%>
     </li>
 
 </ul>
+</head>
+
+<body>
+<h1>メルカリもどき</h1>
+<p><a href="f_signup">ユーザー登録画面へ</a></p>
+<p><a href="view">ユーザー確認画面へ</a></p>
+<p><a href="f_listing">出品画面へ</a></p>
+<p><a href="f_login">ログイン</a></p>
+<p><a href="f_logout">ログアウト</a></p>
+<ul class="gnav">
+    <li>
+        <a>カテゴリから探す</a>
+        <ul>
+            <li>
+                <a href="category">DS</a>
+                <ul>
+                    <li><a href="category">アクション</a></li>
+                    <li><a href="category">Child2</a></li>
+      			    <li><a href="category">Child3</a></li>
+                    <li><a href="category">Child4</a></li>
+                    <li><a href="category">Child5</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+
+</ul>
 
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>価格</th><th>画像</th><th>説明</th></tr>
 	<c:forEach var="item" items="${itemlist}">
-		<tr><td>${item.itemId}</td><td><a href="showiteminfo?item_id=${item.itemId}">${item.itemName}</a></td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemExplanation}</td></tr>
+		<tr><td>${item.itemId}</td><td><a href="showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</a></td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemExplanation}</td></tr>
+	<!-- urlをf_showiteminfoにすると一応飛びます -->
 	</c:forEach>
 </table>
 
