@@ -39,14 +39,14 @@
 <h4>取引中</h4>
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
-	<c:forEach var="" items="${data}">
+	<c:forEach var="item" items="${data}">
 		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.itemImage}</td></tr>
 	</c:forEach>
 </table>
 <h4>過去の取引</h4>
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
-	<c:forEach var="" items="${data}">
+	<c:forEach var="item" items="${data}">
 		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.itemImage}</td></tr>
 	</c:forEach>
 </table>
