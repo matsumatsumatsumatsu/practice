@@ -13,6 +13,7 @@ public class ShowItemInfoCommand extends AbstractCommand{
         RequestContext reqc = getRequestContext();
 
         String itemId = reqc.getParameter("itemId")[0];
+        System.out.println("itemId="+itemId);
         Item item = dao.getItem(itemId);
 
         resc.setResult(item);
