@@ -29,10 +29,10 @@
 	</table>
 
 	<!-- 仮のやつ -->
-	<c:form action = "" method = "post">
+	<form action = "showItemInfo" method = "post">
 		<input type = "text" name = "openChat"><br>
 		<input type = "submit" value = "コメントする">
-	</c:form>
+	</form>
 
 	<p><a href = "/pay/">商品購入</a></p>
 	<p><a href = "/listingEdit/">出品物の編集</a></p>
