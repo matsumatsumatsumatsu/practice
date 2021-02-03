@@ -14,11 +14,11 @@
 		<th>プロフィール</th>
 		<th>出品物</th>
 		<c:forEach var = "user" items = "${data}">
-			<td>user.userName</td>
-			<td>user.profile</td>
+			<td>${user.userName}</td>
+			<td>${user.profile}</td>
 			<!-- ここでループさせたい -->
 			<a href = "">
-			<td>user.listingInfo</td>
+			<td>${user.listingInfo}</td>
 			</a>
 		</c:forEach>
 		</tr>
