@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
-<!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<link href = "css/ThreadStyle.css" rel = "stylesheet">
-
-<title>商品閲覧</title>
+<head><title>商品表示</title>
 
 </head>
 

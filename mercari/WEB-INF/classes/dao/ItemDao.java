@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,7 +74,7 @@ public class ItemDao implements ItemInterfaceDao {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
             cn.setAutoCommit(false);
-            String sql = "select * from item where item_name = ?";
+            String sql = "select * from item where item_id = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, itemId);
             rs = st.executeQuery();
@@ -86,9 +88,14 @@ public class ItemDao implements ItemInterfaceDao {
                 i.setHardwareId(rs.getString(6));
                 i.setCategoryId(rs.getString(7));
                 i.setSellerId(rs.getString(8));
-                i.setTerm(rs.getInt(9));
-                i.setStock(rs.getInt(10));
-                i.setListingDate(rs.getInt(11));
+                i.setStock(rs.getInt(9));
+
+                Timestamp timestamp = rs.getTimestamp(10);
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+                String str = sdf.format(timestamp);
+
+                i.setListingDate(str);
+                i.setTerm(rs.getInt(11));
             }
             cn.commit();
         }catch(ClassNotFoundException e) {
@@ -216,9 +223,13 @@ public class ItemDao implements ItemInterfaceDao {
 	                i.setHardwareId(rs.getString(6));
 	                i.setCategoryId(rs.getString(7));
 	                i.setSellerId(rs.getString(8));
-	                i.setTerm(rs.getInt(9));
-	                i.setStock(rs.getInt(10));
-	                i.setListingDate(rs.getInt(11));
+	                i.setStock(rs.getInt(9));
+
+	                Timestamp timestamp = rs.getTimestamp(10);
+	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	                String str = sdf.format(timestamp);
+	                i.setListingDate(str);
+	                i.setTerm(rs.getInt(11));
 	            }
 	            cn.commit();
 	        }catch(ClassNotFoundException e) {
@@ -265,9 +276,13 @@ public class ItemDao implements ItemInterfaceDao {
 	                i.setHardwareId(rs.getString(6));
 	                i.setCategoryId(rs.getString(7));
 	                i.setSellerId(rs.getString(8));
-	                i.setTerm(rs.getInt(9));
-	                i.setStock(rs.getInt(10));
-	                i.setListingDate(rs.getInt(11));
+	                i.setStock(rs.getInt(9));
+
+	                Timestamp timestamp = rs.getTimestamp(10);
+	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+	                String str = sdf.format(timestamp);
+	                i.setListingDate(str);
+	                i.setTerm(rs.getInt(11));
 	            }
 	            cn.commit();
 	        }catch(ClassNotFoundException e) {

@@ -12,12 +12,12 @@ public class ShowItemInfoCommand extends AbstractCommand{
         ItemInterfaceDao dao = factory.getItemInterfaceDao();
         RequestContext reqc = getRequestContext();
 
-        String itemId = reqc.getParameter("itemId")[0];
+        String itemId = reqc.getParameter("item_id")[0];
         System.out.println("itemId="+itemId);
         Item item = dao.getItem(itemId);
 
         resc.setResult(item);
-        resc.setTarget("start");
+        resc.setTarget("item");
 		return resc;
 	}
 }

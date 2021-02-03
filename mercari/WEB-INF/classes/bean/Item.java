@@ -13,7 +13,7 @@ public class Item implements Serializable{
 	private String sellerId;
 	private int term;
 	private int stock;
-	private int listingDate;
+	private String listingDate;
 
 	public String getItemId() {
 		return itemId;
@@ -75,10 +75,10 @@ public class Item implements Serializable{
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public int getListingDate() {
+	public String getListingDate() {
 		return listingDate;
 	}
-	public void setListingDate(int listingDate) {
+	public void setListingDate(String listingDate) {
 		this.listingDate = listingDate;
 	}
 }
