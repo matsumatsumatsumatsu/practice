@@ -36,10 +36,10 @@ public class ListingCommand extends AbstractCommand{
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		ItemInterfaceDao dao = factory.getItemInterfaceDao();
 
-		SessionManager session = new SessionManager(rq);
-		System.out.println("token:"+session.getAttribute("token"));
+		SessionManager.getSession(rq);
+		System.out.println("token:"+SessionManager.getAttribute("token"));
 
-		String sessionUserId=((User)session.getAttribute("token")).getUserId();
+		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
 
 		//beanインスタンス化
 		Item i = new Item();

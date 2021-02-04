@@ -6,19 +6,23 @@ import javax.servlet.http.HttpSession;
 import context.RequestContext;
 
 public class SessionManager {
-	private HttpServletRequest req;
-	private HttpSession session;
-	public SessionManager(RequestContext reqc){
+	private static HttpServletRequest req;
+	private static HttpSession session;
+
+	private SessionManager(){}
+
+	public static void getSession(RequestContext reqc) {
 		req=(HttpServletRequest)reqc.getRequest();
 		session=req.getSession();
 	}
-	public void setAttribute(String name,Object result){
+
+	public static void setAttribute(String name,Object result){
 		session.setAttribute(name,result);
 	}
-	public Object getAttribute(String name){
+	public static Object getAttribute(String name){
 		return session.getAttribute(name);
 	}
-	public void invalidate(){
+	public static void invalidate(){
 		session.invalidate();
 	}
 }
