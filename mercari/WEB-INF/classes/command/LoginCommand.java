@@ -17,7 +17,7 @@ public class LoginCommand extends AbstractCommand{
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UserInterfaceDao dao=factory.getUserInterfaceDao();
-        User ub = dao.getUser(userName);
+        User ub = (User)dao.getUser(userName).get(0);
 
         System.out.println("user:"+ub);
 
