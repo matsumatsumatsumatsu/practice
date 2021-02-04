@@ -68,7 +68,8 @@ public class ItemDao implements ItemInterfaceDao {
         }
 	}
 
-	public Item getItem(String itemId) {
+	public List getItem(String itemId) {
+		ArrayList items = new ArrayList();
         Item i = new Item();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -96,7 +97,10 @@ public class ItemDao implements ItemInterfaceDao {
 
                 i.setListingDate(str);
                 i.setTerm(rs.getInt(11));
+
+                items.add(i);
             }
+
             cn.commit();
         }catch(ClassNotFoundException e) {
         	throw new RuntimeException();
@@ -119,7 +123,7 @@ public class ItemDao implements ItemInterfaceDao {
             }
 
         }
-        return i;
+        return items;
     }
 
 	 public List getAllItems() {

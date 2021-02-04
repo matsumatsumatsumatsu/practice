@@ -19,6 +19,8 @@ public class LoginCommand extends AbstractCommand{
         UserInterfaceDao dao=factory.getUserInterfaceDao();
         User ub = dao.getUser(userName);
 
+        System.out.println("user:"+ub);
+
         if(userPassword.equals(ub.getUserPassword())) {
             SessionManager session = new SessionManager(rq);
         	session.setAttribute("token",ub);

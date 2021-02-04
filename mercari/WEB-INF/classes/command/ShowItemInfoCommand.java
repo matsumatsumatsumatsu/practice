@@ -1,6 +1,7 @@
 package command;
 
-import bean.Item;
+import java.util.List;
+
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
@@ -13,8 +14,9 @@ public class ShowItemInfoCommand extends AbstractCommand{
         RequestContext reqc = getRequestContext();
 
         String itemId = reqc.getParameter("item_id")[0];
-        System.out.println("itemId="+itemId);
-        Item item = dao.getItem(itemId);
+        List item = dao.getItem(itemId);
+
+//        System.out.println("itemid:"+((Item)item.get(0)).getItemId());
 
         resc.setResult(item);
         resc.setTarget("item");

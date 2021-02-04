@@ -15,7 +15,10 @@ public abstract class CommandFactory {
 			Properties prop = new Properties();
 			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property/commands.properties"));
 			String name = prop.getProperty(rc.getCommandPath());
+			System.out.println("!---");
 			System.out.println(name);
+			System.out.println(rc.getCommandPath());
+			System.out.println("!---");
 //			// プロパティファイルを読み込む
 //			ResourceBundle rb = ResourceBundle.getBundle("property\\commands");
 
