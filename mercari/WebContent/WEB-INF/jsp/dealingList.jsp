@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>マイページ</title>
+<title>取引中の一覧表示</title>
 <div class="search">
 		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
   	 	<p>商品名検索</p>
