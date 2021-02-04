@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
+import exception.IntegrationException;
 import util.SessionManager;
 
 public class ListingCommand extends AbstractCommand{
@@ -52,7 +53,11 @@ public class ListingCommand extends AbstractCommand{
 		i.setTerm(term);
 		i.setSellerId(sessionUserId);
 
-		dao.listing(i);
+		try {
+			dao.listing(i);
+		}catch(IntegrationException e) {
+
+		}
 		resc.setTarget("start");
 
 		return resc;

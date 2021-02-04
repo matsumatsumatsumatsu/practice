@@ -1,11 +1,13 @@
 package command;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
+import exception.IntegrationException;
 
 public class ShowItemInfoCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
@@ -13,9 +15,14 @@ public class ShowItemInfoCommand extends AbstractCommand{
         ItemInterfaceDao dao = factory.getItemInterfaceDao();
         RequestContext reqc = getRequestContext();
 
-        String itemId = reqc.getParameter("item_id")[0];
-        List item = dao.getItem(itemId);
+        List item = new ArrayList();
 
+        String itemId = reqc.getParameter("item_id")[0];
+        try {
+        	item = dao.getItem(itemId);
+        }catch(IntegrationException e) {
+
+        }
 //        System.out.println("itemid:"+((Item)item.get(0)).getItemId());
 
         resc.setResult(item);

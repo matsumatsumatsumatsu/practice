@@ -26,6 +26,8 @@ public class MysqlConnector{
 
 			cn.setAutoCommit(false);
 
+			System.out.println("cd:"+cn);
+
 		}catch(ClassNotFoundException e) {
 			throw new IntegrationException(e.getMessage(),e);
 		}catch(SQLException e) {
