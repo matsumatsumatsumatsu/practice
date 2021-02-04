@@ -5,8 +5,7 @@ import bean.User;
 
 public interface UserInterfaceDao{
 	  public void addUser(User user);
-	  public User getUser(String userName);
-	  public List showUser(String userName);
+	  public List getUser(String userName);
 	  public void updateUser(User u);
 	  public void deleteUser(String userId);
 	  public List getAllUsers();

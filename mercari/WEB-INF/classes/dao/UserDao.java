@@ -69,54 +69,9 @@ public class UserDao implements UserInterfaceDao{
 
     }
 
-	public User getUser(String userName) {
-		User u = new User();
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-            cn.setAutoCommit(false);
-            String sql = "select * from user where user_name = ?";
-            st = cn.prepareStatement(sql);
-            st.setString(1, userName);
-            rs = st.executeQuery();
 
-            while (rs.next()) {
-                u.setUserId(rs.getString(1));
-                u.setUserName(rs.getString(2));
-                u.setUserPassword(rs.getString(3));
-                u.setRealName(rs.getString(4));
-                u.setAddress(rs.getString(5));
-                u.setTel(rs.getString(6));
-                u.setMail(rs.getString(7));
-                u.setProfile(rs.getString(8));
-                u.setPoint(rs.getString(9));
-            }
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
-        }catch (SQLException e) {
-             e.printStackTrace();
-            try {
-                if (st != null) {
-                    st.close();
-                }
-            } catch (SQLException ex) {
-            	e.printStackTrace();
-            } finally {
-                try {
-                    if (cn != null) {
-                        cn.close();
-                    }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
-                }
-            }
 
-        }
-        return u;
-    }
-
-	public List showUser(String userName) {
+	public List getUser(String userName) {
         List users = new ArrayList();
 		User u = new User();
         try {
