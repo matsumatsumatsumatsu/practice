@@ -10,7 +10,7 @@ public interface ItemInterfaceDao {
 	public List getAllItems() throws IntegrationException;
 	public List getItem(String itemName) throws IntegrationException;
 	public Item manageStock(String itemId) throws IntegrationException;
-	//public Item search(String itemName);
+	public Item search(String itemName) throws IntegrationException;
 	//public Item category(String categoryId);
 	//public Item sort(String col, String order);
 }

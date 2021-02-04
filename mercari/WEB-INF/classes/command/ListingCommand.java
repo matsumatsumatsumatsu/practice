@@ -9,7 +9,7 @@ import dao.ItemInterfaceDao;
 import util.SessionManager;
 
 public class ListingCommand extends AbstractCommand{
-	public ResponseContext execute(ResponseContext resc) {
+	public ResponseContext execute(ResponseContext resc){
 		RequestContext rq=  getRequestContext();
 
 		String itemNames[] = rq.getParameter("itemName");
