@@ -32,6 +32,7 @@ public class LoginCommand extends AbstractCommand{
             SessionManager.getSession(rq);;
         	SessionManager.setAttribute("token",ub);
         	System.out.println("token取得");
+        	System.out.println("ログインユーザー名：");
         	resc.setTarget("start");
         }
         else {

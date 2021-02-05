@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 <div>
 	<h4>購入内容の確認</h4>
 <table border="1">
-		<tr><td>画像</td><td>商品名</td><td>値段</td>></tr>
+		<tr><td>画像</td><td>商品名</td><td>値段</td></tr>
 		<c:forEach var="item" items="${data}">
 			<tr>
 				<td>${item.itemImage}</td>
@@ -21,8 +22,8 @@
 		</c:forEach>
 		</table>
 		<table border="1">
-		<tr><td>残高</td><td>住所</td>></tr>
-				<c:forEach var="user" items="${user}">
+		<tr><td>残高</td><td>住所</td></tr>
+		<c:forEach var="user" items="${user}">
 			<tr>
 
 				<td>${user.point}</td>
