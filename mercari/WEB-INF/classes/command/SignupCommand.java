@@ -4,6 +4,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
+import exception.IntegrationException;
 
 public class SignupCommand extends AbstractCommand{
     public  ResponseContext execute(ResponseContext resc){
@@ -34,7 +35,12 @@ public class SignupCommand extends AbstractCommand{
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UserInterfaceDao dao=factory.getUserInterfaceDao();
 
-        dao.addUser(u);
+        try {
+			dao.addUser(u);
+		} catch (IntegrationException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
         resc.setTarget("start");
         return resc;

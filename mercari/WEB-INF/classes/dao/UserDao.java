@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.User;
+import exception.IntegrationException;
+import util.MysqlConnector;
 
 public class UserDao implements UserInterfaceDao{
 
@@ -16,11 +17,9 @@ public class UserDao implements UserInterfaceDao{
     PreparedStatement st = null;
     ResultSet rs = null;
 
-	public void addUser(User u) {
+	public void addUser(User u) throws IntegrationException {
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-               cn.setAutoCommit(false);
+        	cn = MysqlConnector.getInstance().getConnection();
 
             String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
 
@@ -36,12 +35,8 @@ public class UserDao implements UserInterfaceDao{
             st.setString(8, u.getPoint());
 
             st.executeUpdate();
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
-        }
-
-        catch (SQLException e) {
+            MysqlConnector.getInstance().commit();
+        }catch (SQLException e) {
             e.printStackTrace();
                         try {
                 cn.rollback();
@@ -57,13 +52,10 @@ public class UserDao implements UserInterfaceDao{
             } catch (SQLException e) {
             	e.printStackTrace();
             } finally {
-                try {
                     if (cn != null) {
-                        cn.close();
+                    	MysqlConnector.getInstance().closeConnection();
                     }
-                } catch (SQLException e) {
-                	e.printStackTrace();
-                }
+
             }
         }
 
@@ -71,13 +63,12 @@ public class UserDao implements UserInterfaceDao{
 
 
 
-	public List getUser(String userName) {
+	public List getUser(String userName) throws IntegrationException {
         List users = new ArrayList();
 		User u = new User();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-            cn.setAutoCommit(false);
+        	cn = MysqlConnector.getInstance().getConnection();
+
             String sql = "select * from user where user_name = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, userName);
@@ -96,9 +87,7 @@ public class UserDao implements UserInterfaceDao{
 
                 users.add(u);
             }
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
+            MysqlConnector.getInstance().commit();
         }catch (SQLException e) {
              e.printStackTrace();
             try {
@@ -108,12 +97,8 @@ public class UserDao implements UserInterfaceDao{
             } catch (SQLException ex) {
             	e.printStackTrace();
             } finally {
-                try {
                     if (cn != null) {
-                        cn.close();
-                    }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
+                    	MysqlConnector.getInstance().closeConnection();
                 }
             }
 
@@ -122,12 +107,11 @@ public class UserDao implements UserInterfaceDao{
     }
 
 
-    public List getAllUsers() {
+    public List getAllUsers() throws IntegrationException {
         ArrayList users =new ArrayList();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-            cn.setAutoCommit(false);
+        	cn = MysqlConnector.getInstance().getConnection();
+
             String sql = "select user_id,user_name,user_password,real_name,address,tel,mail,profile,point from user";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
@@ -145,9 +129,8 @@ public class UserDao implements UserInterfaceDao{
                 u.setPoint(rs.getString(9));
                 users.add(u);
             }
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
+
+            MysqlConnector.getInstance().commit();
         }catch (SQLException e) {
              e.printStackTrace();
             try {
@@ -157,23 +140,18 @@ public class UserDao implements UserInterfaceDao{
             } catch (SQLException ex) {
             	e.printStackTrace();
             } finally {
-                try {
                     if (cn != null) {
-                        cn.close();
+                    	MysqlConnector.getInstance().closeConnection();
                     }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
-                }
             }
         }
         return users;
     }
 
-    public void updateUser(User u) {
+    public void updateUser(User u) throws IntegrationException {
     	try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-            cn.setAutoCommit(false);
+    		cn = MysqlConnector.getInstance().getConnection();
+
             String sql = "update user set user_name = ?, user_password = ?, real_name = ?, address = ?, tel = ?, mail = ?, profile = ?";
             st = cn.prepareStatement(sql);
 
@@ -186,9 +164,7 @@ public class UserDao implements UserInterfaceDao{
             st.setString(7, u.getProfile());
 
             st.executeUpdate();
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
+            MysqlConnector.getInstance().commit();
         }catch (SQLException e) {
              e.printStackTrace();
             try {
@@ -198,29 +174,21 @@ public class UserDao implements UserInterfaceDao{
             } catch (SQLException ex) {
             	e.printStackTrace();
             } finally {
-                try {
                     if (cn != null) {
-                        cn.close();
+                    	MysqlConnector.getInstance().closeConnection();
                     }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
-                }
             }
         }
     }
 
-    public void deleteUser(String userName) {
+    public void deleteUser(String userName) throws IntegrationException {
     	try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-            cn.setAutoCommit(false);
+            cn = MysqlConnector.getInstance().getConnection();
             String sql = "delete from user where user_name = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, userName);
             st.executeUpdate();
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
+            MysqlConnector.getInstance().commit();
         }catch (SQLException e) {
              e.printStackTrace();
             try {
@@ -230,13 +198,10 @@ public class UserDao implements UserInterfaceDao{
             } catch (SQLException ex) {
             	e.printStackTrace();
             } finally {
-                try {
                     if (cn != null) {
-                        cn.close();
+                    	MysqlConnector.getInstance().closeConnection();
                     }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
-                }
+
             }
         }
     }

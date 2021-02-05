@@ -35,9 +35,11 @@ public class WebApplicationController implements ApplicationController{
         HttpServletResponse res=(HttpServletResponse)resc.getResponse();
 
         List resultlist =(List)resc.getResult();
-        for(int i=0; i<resultlist.size(); i++) {
-        	List result=(List) resultlist.get(i);
-        	req.setAttribute((String)result.get(0),result.get(1));
+        if(resultlist != null) {
+	        for(int i=0; i<resultlist.size(); i++) {
+	        	List result=(List) resultlist.get(i);
+	        	req.setAttribute((String)result.get(0),result.get(1));
+	        }
         }
         RequestDispatcher rd= req.getRequestDispatcher(resc.getTarget());
         try{

@@ -5,6 +5,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
+import exception.IntegrationException;
 import util.SessionManager;
 
 
@@ -17,7 +18,13 @@ public class LoginCommand extends AbstractCommand{
 
         AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
         UserInterfaceDao dao=factory.getUserInterfaceDao();
-        User ub = (User)dao.getUser(userName).get(0);
+        User ub = null;
+		try {
+			ub = (User)dao.getUser(userName).get(0);
+		} catch (IntegrationException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
 
         System.out.println("user:"+ub);
 
