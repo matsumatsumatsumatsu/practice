@@ -124,6 +124,15 @@ CONSTRAINT fk_chat_seller_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+
+create table admin(
+admin_id int UNSIGNED auto_increment,
+admin_name varchar(30) unique,
+admin_password varchar(30),
+mail varchar(40) unique,
+ primary key(admin_id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 commit;
 
 
@@ -143,13 +152,16 @@ insert into category(category_id, category)
 values(1, 'RPG');
 
 insert into category(category_id, category)
-values(2, 'アクション');
+values(2, '繧｢繧ｯ繧ｷ繝ｧ繝ｳ');
 
 insert into category(category_id, category)
-values(3, 'パズル');
+values(3, '繝代ぜ繝ｫ');
 
 insert into category(category_id, category)
-values(4, 'アドベンチャー');
+values(4, '繧｢繝峨�吶Φ繝√Ε繝ｼ');
+
+insert into admin(admin_name,admin_password,mail) 
+values('admin','P@ssw0rd','info@gmail.com');
 
 commit;
 
