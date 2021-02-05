@@ -36,7 +36,7 @@ pageEncoding="UTF-8"%>
 <body>
 <h1>メルカリもどき</h1>
 <p><a href="f_signup">ユーザー登録画面へ</a></p>
-<p><a href="view">ユーザー確認画面へ</a></p>
+<p><a href="showprofile">マイページ</a></p>
 <p><a href="f_listing">出品画面へ</a></p>
 <p><a href="f_login">ログイン</a></p>
 <p><a href="f_logout">ログアウト</a></p>
