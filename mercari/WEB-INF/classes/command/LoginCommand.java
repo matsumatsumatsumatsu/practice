@@ -20,7 +20,7 @@ public class LoginCommand extends AbstractCommand{
         UserInterfaceDao dao=factory.getUserInterfaceDao();
         User ub = null;
 		try {
-			ub = (User)dao.getUser(userName).get(0);
+			ub = (User)dao.getUserPass(userName).get(0);
 		} catch (IntegrationException e) {
 			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
