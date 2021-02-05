@@ -15,6 +15,12 @@
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
+  <filter-mapping>
+    <filter-name>authenticatefilter</filter-name>
+    <url-pattern>/pay</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
 
   <filter>
     <filter-name>reloaditemlistfilter</filter-name>
