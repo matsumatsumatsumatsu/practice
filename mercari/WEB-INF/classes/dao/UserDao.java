@@ -110,7 +110,7 @@ public class UserDao implements UserInterfaceDao{
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select * from user where user_name = ?";
+            String sql = "select * from user where user_name = ?" ;
             st = cn.prepareStatement(sql);
             st.setString(1, userName);
             rs = st.executeQuery();
