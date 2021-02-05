@@ -21,11 +21,15 @@ public class ShowItemInfoCommand extends AbstractCommand{
         try {
         	item = dao.getItem(itemId);
         }catch(IntegrationException e) {
-
         }
-//        System.out.println("itemid:"+((Item)item.get(0)).getItemId());
 
-        resc.setResult(item);
+        List<Object> first=new ArrayList<>();
+		first.add("data");
+		first.add(item);
+		List<List> result=new ArrayList<>();
+		result.add(first);
+
+        resc.setResult(result);
         resc.setTarget("item");
 		return resc;
 	}

@@ -11,7 +11,6 @@ public class ShowProfileCommand extends AbstractCommand{
 
 		String sessionToken = reqc.getParameter("user_session")[0];	//ログインしてるユーザーのsessionToken
 
-
 		resc.setTarget("");
 		return resc;
 	}
