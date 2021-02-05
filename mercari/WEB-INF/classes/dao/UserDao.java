@@ -69,8 +69,11 @@ public class UserDao implements UserInterfaceDao{
 
     }
 
-	public User getUser(String userName) {
-        User u = new User();
+
+
+	public List getUser(String userName) {
+        List users = new ArrayList();
+		User u = new User();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
@@ -90,6 +93,8 @@ public class UserDao implements UserInterfaceDao{
                 u.setMail(rs.getString(7));
                 u.setProfile(rs.getString(8));
                 u.setPoint(rs.getString(9));
+
+                users.add(u);
             }
             cn.commit();
         }catch(ClassNotFoundException e) {
@@ -113,7 +118,7 @@ public class UserDao implements UserInterfaceDao{
             }
 
         }
-        return u;
+        return users;
     }
 
 

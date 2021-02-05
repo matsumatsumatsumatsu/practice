@@ -7,8 +7,8 @@ import util.SessionManager;
 public class LogoutCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext reqc = getRequestContext();
-		SessionManager session = new SessionManager(reqc);
-		session.invalidate();
+		SessionManager.getSession(reqc);
+		SessionManager.invalidate();
 		resc.setTarget("start");
 		return resc;
 	}

@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import bean.Item;
+import exception.IntegrationException;
+import util.MysqlConnector;
 
 public class ItemDao implements ItemInterfaceDao {
 
@@ -18,11 +19,9 @@ public class ItemDao implements ItemInterfaceDao {
 	PreparedStatement st = null;
 	ResultSet rs = null;
 
-	public void listing(Item item) {
+	public void listing(Item item) throws IntegrationException {
         try {
-        	Class.forName("com.mysql.cj.jdbc.Driver");
-        	cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-        	cn.setAutoCommit(false);
+        	cn = MysqlConnector.getInstance().getConnection();
 
         	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
         	st = cn.prepareStatement(sql);
@@ -37,17 +36,11 @@ public class ItemDao implements ItemInterfaceDao {
         	st.setInt(8, item.getTerm());
 
             st.executeUpdate();
-            cn.commit();
+            MysqlConnector.getInstance().commit();
 
-        }catch(ClassNotFoundException e){
-        	throw new RuntimeException();
-		}catch (SQLException e) {
+        }catch (SQLException e) {
             e.printStackTrace();
-            try {
-            	cn.rollback();
-            } catch (SQLException ex) {
-            	//TODO: handle exception
-            }
+            MysqlConnector.getInstance().rollback();
 
         } finally {
         	try {
@@ -68,12 +61,12 @@ public class ItemDao implements ItemInterfaceDao {
         }
 	}
 
-	public Item getItem(String itemId) {
+	public List getItem(String itemId) throws IntegrationException {
+		ArrayList items = new ArrayList();
         Item i = new Item();
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-            cn.setAutoCommit(false);
+        	cn = MysqlConnector.getInstance().getConnection();
+
             String sql = "select * from item where item_id = ?";
             st = cn.prepareStatement(sql);
             st.setString(1, itemId);
@@ -96,10 +89,11 @@ public class ItemDao implements ItemInterfaceDao {
 
                 i.setListingDate(str);
                 i.setTerm(rs.getInt(11));
+
+                items.add(i);
             }
-            cn.commit();
-        }catch(ClassNotFoundException e) {
-        	throw new RuntimeException();
+
+            MysqlConnector.getInstance().commit();
         }catch (SQLException e) {
              e.printStackTrace();
             try {
@@ -109,25 +103,20 @@ public class ItemDao implements ItemInterfaceDao {
             } catch (SQLException ex) {
             	e.printStackTrace();
             } finally {
-                try {
-                    if (cn != null) {
-                        cn.close();
-                    }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
-                }
+	            if (cn != null) {
+	            	MysqlConnector.getInstance().closeConnection();
+	            }
             }
 
         }
-        return i;
+        return items;
     }
 
-	 public List getAllItems() {
+	 public List getAllItems() throws IntegrationException {
 	        ArrayList items =new ArrayList();
 	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
-	             cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-	            cn.setAutoCommit(false);
+	        	cn = MysqlConnector.getInstance().getConnection();
+
 	            String sql = "select item_id,item_name,price,item_image,item_explanation from item";
 	            st = cn.prepareStatement(sql);
 	            rs = st.executeQuery();
@@ -142,9 +131,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	                items.add(i);
 	            }
-	            cn.commit();
-	        }catch(ClassNotFoundException e) {
-	        	throw new RuntimeException();
+	            MysqlConnector.getInstance().commit();
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -154,32 +141,25 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
+                    if (cn != null) {
+                    	MysqlConnector.getInstance().closeConnection();
+                    }
 	            }
 	        }
 	        return items;
 	    }
 
-	 public Item manageStock(String itemId) {
+	 public Item manageStock(String itemId) throws IntegrationException {
 	        Item i = new Item();
 	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
-	            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-	            cn.setAutoCommit(false);
+	        	cn = MysqlConnector.getInstance().getConnection();
+
 	            String sql = "update item set stock = 0 where item_id = ?";
 	            st = cn.prepareStatement(sql);
 	            st.setString(1, itemId);
 	            rs = st.executeQuery();
 
-	            cn.commit();
-	        }catch(ClassNotFoundException e) {
-	        	throw new RuntimeException();
+	            MysqlConnector.getInstance().commit();
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -189,13 +169,9 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
+                    if (cn != null) {
+                    	MysqlConnector.getInstance().closeConnection();
+                    }
 	            }
 
 	        }
@@ -203,12 +179,12 @@ public class ItemDao implements ItemInterfaceDao {
 	    }
 
 
-	 public Item search(String keyword) {
-	        Item i = new Item();
+	 public List search(String keyword) throws IntegrationException {
+	        List items= new ArrayList();
+		 	Item i = new Item();
 	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
-	            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-	            cn.setAutoCommit(false);
+	        	cn = MysqlConnector.getInstance().getConnection();
+
 	            String sql = "select * from item where item_name like '%?%'" + "";
 	            st = cn.prepareStatement(sql);
 	            st.setString(1, keyword);
@@ -230,10 +206,10 @@ public class ItemDao implements ItemInterfaceDao {
 	                String str = sdf.format(timestamp);
 	                i.setListingDate(str);
 	                i.setTerm(rs.getInt(11));
+
+	                items.add(i);
 	            }
-	            cn.commit();
-	        }catch(ClassNotFoundException e) {
-	        	throw new RuntimeException();
+	            MysqlConnector.getInstance().commit();
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -243,107 +219,97 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
+                    if (cn != null) {
+                    	MysqlConnector.getInstance().closeConnection();
+                    }
 	            }
 
 	        }
-	        return i;
+	        return items;
 	    }
 
-	 public Item category(String categoryId) {
-	        Item i = new Item();
-	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
-	            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-	            cn.setAutoCommit(false);
-	            String sql = "select * from item where category_id = ?";
-	            st = cn.prepareStatement(sql);
-	            st.setString(1, categoryId);
-	            rs = st.executeQuery();
-
-	            while (rs.next()) {
-	                i.setItemId(rs.getString(1));
-	                i.setItemName(rs.getString(2));
-	                i.setPrice(rs.getInt(3));
-	                i.setItemImage(rs.getString(4));
-	                i.setItemExplanation(rs.getString(5));
-	                i.setHardwareId(rs.getString(6));
-	                i.setCategoryId(rs.getString(7));
-	                i.setSellerId(rs.getString(8));
-	                i.setStock(rs.getInt(9));
-
-	                Timestamp timestamp = rs.getTimestamp(10);
-	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-	                String str = sdf.format(timestamp);
-	                i.setListingDate(str);
-	                i.setTerm(rs.getInt(11));
-	            }
-	            cn.commit();
-	        }catch(ClassNotFoundException e) {
-	        	throw new RuntimeException();
-	        }catch (SQLException e) {
-	             e.printStackTrace();
-	            try {
-	                if (st != null) {
-	                    st.close();
-	                }
-	            } catch (SQLException ex) {
-	            	e.printStackTrace();
-	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
-	            }
-
-	        }
-	        return i;
-	    }
-
-
-	 public Item sort(String col, String order) {
-	        Item i = new Item();
-	        try {
-	            Class.forName("com.mysql.cj.jdbc.Driver");
-	            cn = DriverManager.getConnection("jdbc:mysql://localhost:3306/humie?characterEncoding=UTF-8&serverTimezone=JST","kirisuto", "zabieru");
-	            cn.setAutoCommit(false);
-	            String sql = "select * from item order by ? ?";
-	            st = cn.prepareStatement(sql);
-	            st.setString(1, col);
-	            st.setString(2, order);
-	            rs = st.executeQuery();
-
-	            cn.commit();
-	        }catch(ClassNotFoundException e) {
-	        	throw new RuntimeException();
-	        }catch (SQLException e) {
-	             e.printStackTrace();
-	            try {
-	                if (st != null) {
-	                    st.close();
-	                }
-	            } catch (SQLException ex) {
-	            	e.printStackTrace();
-	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
-	            }
-
-	        }
-	        return i;
-	    }
+//	 public Item category(String categoryId) throws IntegrationException {
+//	        Item i = new Item();
+//	        try {
+//	        	MysqlConnector.getConnection();
+//
+//	            String sql = "select * from item where category_id = ?";
+//	            st = cn.prepareStatement(sql);
+//	            st.setString(1, categoryId);
+//	            rs = st.executeQuery();
+//
+//	            while (rs.next()) {
+//	                i.setItemId(rs.getString(1));
+//	                i.setItemName(rs.getString(2));
+//	                i.setPrice(rs.getInt(3));
+//	                i.setItemImage(rs.getString(4));
+//	                i.setItemExplanation(rs.getString(5));
+//	                i.setHardwareId(rs.getString(6));
+//	                i.setCategoryId(rs.getString(7));
+//	                i.setSellerId(rs.getString(8));
+//	                i.setStock(rs.getInt(9));
+//
+//	                Timestamp timestamp = rs.getTimestamp(10);
+//	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//	                String str = sdf.format(timestamp);
+//	                i.setListingDate(str);
+//	                i.setTerm(rs.getInt(11));
+//	            }
+//	            cn.commit();
+//	        }catch (SQLException e) {
+//	             e.printStackTrace();
+//	            try {
+//	                if (st != null) {
+//	                    st.close();
+//	                }
+//	            } catch (SQLException ex) {
+//	            	e.printStackTrace();
+//	            } finally {
+//	                try {
+//	                    if (cn != null) {
+//	                        cn.close();
+//	                    }
+//	                } catch (SQLException ex) {
+//	                	e.printStackTrace();
+//	                }
+//	            }
+//
+//	        }
+//	        return i;
+//	    }
+//
+//
+//	 public Item sort(String col, String order) throws IntegrationException {
+//	        Item i = new Item();
+//	        try {
+//	        	MysqlConnector.getConnection();
+//
+//	            String sql = "select * from item order by ? ?";
+//	            st = cn.prepareStatement(sql);
+//	            st.setString(1, col);
+//	            st.setString(2, order);
+//	            rs = st.executeQuery();
+//
+//	            cn.commit();
+//	        }catch (SQLException e) {
+//	             e.printStackTrace();
+//	            try {
+//	                if (st != null) {
+//	                    st.close();
+//	                }
+//	            } catch (SQLException ex) {
+//	            	e.printStackTrace();
+//	            } finally {
+//	                try {
+//	                    if (cn != null) {
+//	                        cn.close();
+//	                    }
+//	                } catch (SQLException ex) {
+//	                	e.printStackTrace();
+//	                }
+//	            }
+//
+//	        }
+//	        return i;
+//	    }
 }

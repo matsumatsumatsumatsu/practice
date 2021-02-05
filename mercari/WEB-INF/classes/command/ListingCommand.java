@@ -6,10 +6,11 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
+import exception.IntegrationException;
 import util.SessionManager;
 
 public class ListingCommand extends AbstractCommand{
-	public ResponseContext execute(ResponseContext resc) {
+	public ResponseContext execute(ResponseContext resc){
 		RequestContext rq=  getRequestContext();
 
 		String itemNames[] = rq.getParameter("itemName");
@@ -36,10 +37,10 @@ public class ListingCommand extends AbstractCommand{
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		ItemInterfaceDao dao = factory.getItemInterfaceDao();
 
-		SessionManager session = new SessionManager(rq);
-		System.out.println("token:"+session.getAttribute("token"));
+		SessionManager.getSession(rq);
+		System.out.println("token:"+SessionManager.getAttribute("token"));
 
-		String sessionUserId=((User)session.getAttribute("token")).getUserId();
+		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
 
 		//beanインスタンス化
 		Item i = new Item();
@@ -52,7 +53,11 @@ public class ListingCommand extends AbstractCommand{
 		i.setTerm(term);
 		i.setSellerId(sessionUserId);
 
-		dao.listing(i);
+		try {
+			dao.listing(i);
+		}catch(IntegrationException e) {
+
+		}
 		resc.setTarget("start");
 
 		return resc;

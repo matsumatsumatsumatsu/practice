@@ -9,6 +9,7 @@ pageEncoding="UTF-8"%>
 
 <body>
 	<table border="1">
+		<tr><td>画像</td><td>商品名</td><td>商品説明</td><td>ハード</td><td>ジャンル</td><td>発送期間</td><td>値段</td></tr>
 		<c:forEach var="item" items="${data}">
 			<tr>
 				<td>${item.itemImage}</td>
@@ -21,7 +22,7 @@ pageEncoding="UTF-8"%>
 			</tr>
 		</c:forEach>
 	</table>
-
+	<br>
 
 	<!-- 仮のやつ -->
 	<form action = "showItemInfo" method = "post">
