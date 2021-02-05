@@ -21,7 +21,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	public void listing(Item item) throws IntegrationException {
         try {
-        	MysqlConnector.getConnection();
+        	cn = MysqlConnector.getInstance().getConnection();
 
         	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
         	st = cn.prepareStatement(sql);
@@ -36,15 +36,11 @@ public class ItemDao implements ItemInterfaceDao {
         	st.setInt(8, item.getTerm());
 
             st.executeUpdate();
-            cn.commit();
+            MysqlConnector.getInstance().commit();
 
         }catch (SQLException e) {
             e.printStackTrace();
-            try {
-            	cn.rollback();
-            } catch (SQLException ex) {
-            	//TODO: handle exception
-            }
+            MysqlConnector.getInstance().rollback();
 
         } finally {
         	try {
@@ -69,7 +65,7 @@ public class ItemDao implements ItemInterfaceDao {
 		ArrayList items = new ArrayList();
         Item i = new Item();
         try {
-        	MysqlConnector.getConnection();
+        	cn = MysqlConnector.getInstance().getConnection();
 
             String sql = "select * from item where item_id = ?";
             st = cn.prepareStatement(sql);
@@ -97,7 +93,7 @@ public class ItemDao implements ItemInterfaceDao {
                 items.add(i);
             }
 
-            cn.commit();
+            MysqlConnector.getInstance().commit();
         }catch (SQLException e) {
              e.printStackTrace();
             try {
@@ -107,13 +103,9 @@ public class ItemDao implements ItemInterfaceDao {
             } catch (SQLException ex) {
             	e.printStackTrace();
             } finally {
-                try {
-                    if (cn != null) {
-                        cn.close();
-                    }
-                } catch (SQLException ex) {
-                	e.printStackTrace();
-                }
+	            if (cn != null) {
+	            	MysqlConnector.getInstance().closeConnection();
+	            }
             }
 
         }
@@ -123,7 +115,7 @@ public class ItemDao implements ItemInterfaceDao {
 	 public List getAllItems() throws IntegrationException {
 	        ArrayList items =new ArrayList();
 	        try {
-	        	MysqlConnector.getConnection();
+	        	cn = MysqlConnector.getInstance().getConnection();
 
 	            String sql = "select item_id,item_name,price,item_image,item_explanation from item";
 	            st = cn.prepareStatement(sql);
@@ -139,7 +131,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	                items.add(i);
 	            }
-	            cn.commit();
+	            MysqlConnector.getInstance().commit();
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -149,13 +141,9 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
+                    if (cn != null) {
+                    	MysqlConnector.getInstance().closeConnection();
+                    }
 	            }
 	        }
 	        return items;
@@ -164,14 +152,14 @@ public class ItemDao implements ItemInterfaceDao {
 	 public Item manageStock(String itemId) throws IntegrationException {
 	        Item i = new Item();
 	        try {
-	        	MysqlConnector.getConnection();
+	        	cn = MysqlConnector.getInstance().getConnection();
 
 	            String sql = "update item set stock = 0 where item_id = ?";
 	            st = cn.prepareStatement(sql);
 	            st.setString(1, itemId);
 	            rs = st.executeQuery();
 
-	            cn.commit();
+	            MysqlConnector.getInstance().commit();
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -181,13 +169,9 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
+                    if (cn != null) {
+                    	MysqlConnector.getInstance().closeConnection();
+                    }
 	            }
 
 	        }
@@ -199,7 +183,7 @@ public class ItemDao implements ItemInterfaceDao {
 	        List items= new ArrayList();
 		 	Item i = new Item();
 	        try {
-	        	MysqlConnector.getConnection();
+	        	cn = MysqlConnector.getInstance().getConnection();
 
 	            String sql = "select * from item where item_name like '%?%'" + "";
 	            st = cn.prepareStatement(sql);
@@ -225,7 +209,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	                items.add(i);
 	            }
-	            cn.commit();
+	            MysqlConnector.getInstance().commit();
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -235,13 +219,9 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-	                try {
-	                    if (cn != null) {
-	                        cn.close();
-	                    }
-	                } catch (SQLException ex) {
-	                	e.printStackTrace();
-	                }
+                    if (cn != null) {
+                    	MysqlConnector.getInstance().closeConnection();
+                    }
 	            }
 
 	        }
