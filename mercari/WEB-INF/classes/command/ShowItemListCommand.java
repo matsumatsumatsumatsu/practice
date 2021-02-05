@@ -18,11 +18,16 @@ public class ShowItemListCommand  extends AbstractCommand {
         try {
         	items = dao.getAllItems();
         }catch(IntegrationException e) {
-
         }
 
-        resc.setResult(items);
-        resc.setTarget("start");
+        List<Object> first=new ArrayList<>();
+		first.add("data");
+		first.add(items);
+		List<List> result=new ArrayList<>();
+		result.add(first);
+
+        resc.setResult(result);
+        resc.setTarget("search");
         return resc;
     }
 }

@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -33,7 +34,11 @@ public class WebApplicationController implements ApplicationController{
         HttpServletRequest req=(HttpServletRequest)reqc.getRequest();
         HttpServletResponse res=(HttpServletResponse)resc.getResponse();
 
-        req.setAttribute("data",resc.getResult());
+        List resultlist =(List)resc.getResult();
+        for(int i=0; i<resultlist.size(); i++) {
+        	List result=(List) resultlist.get(i);
+        	req.setAttribute((String)result.get(0),result.get(1));
+        }
         RequestDispatcher rd= req.getRequestDispatcher(resc.getTarget());
         try{
             rd.forward(req,res);
