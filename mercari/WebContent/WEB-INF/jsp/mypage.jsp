@@ -22,7 +22,7 @@
 	</c:forEach>
 </table>
 <div id="buyer">
-<h4>購入した商品</h4>
+<h4>購入した商品</h4><!-- コメント -->>
 <h4>取引中</h4>
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
