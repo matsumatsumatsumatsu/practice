@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
 
 <html>
-<head><title>商品表示</title>
-
+<head>
+<meta charset="UTF-8">
+<title>出品した商品の個別閲覧</title>
 </head>
 
 <body>
@@ -24,16 +26,15 @@ pageEncoding="UTF-8"%>
 	</table>
 	<br>
 
+
 	<!-- forEach問題 -->
-	<form action = "showItemInfo" method = "post">
+	<form action = "showOpenChat" method = "post">
 		<input type = "text" name = "openChat"><br>
 		<input type = "submit" value = "コメントする">
 	</form>
 
-	<p><a href = "/pay/">商品購入</a></p>
-	<p><a href = "/listingEdit/">出品物の編集</a></p>
-	<p><a href = "/userInfo/">ユーザーの確認</a></p>
-	<p><a href = "/category/">カテゴリー検索</a></p>
-
+	<p><a href = "userInfo">ユーザーの確認</a></p>
+	<p><a href = "category">カテゴリー検索</a></p>
+	<p><a href="listingEdit">出品した商品の編集</a></p>
 </body>
 </html>
