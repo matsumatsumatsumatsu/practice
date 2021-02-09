@@ -13,6 +13,8 @@ public class User implements Serializable{
 	private String profile;
 	private int point;
 
+	public User() {}
+
 	public String getProfile() {
 		return profile;
 	}

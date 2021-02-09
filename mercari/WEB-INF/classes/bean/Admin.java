@@ -8,6 +8,8 @@ public class Admin implements Serializable{
 	private String adminPassword;
 	private String mail;
 
+	public Admin() {}
+
 	public String getAdminId() {
 		return adminId;
 	}

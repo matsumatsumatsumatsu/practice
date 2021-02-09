@@ -6,6 +6,8 @@ public class Category implements Serializable {
 	private String categoryId;
 	private String category;
 
+	public Category() {}
+
 	public String getCategoryId() {
 		return categoryId;
 	}

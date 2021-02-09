@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Deal implements Serializable {
 	private String dealId;
@@ -8,7 +9,9 @@ public class Deal implements Serializable {
 	private String depositId;
 	private String itemId;
 	private String dealState;
-	private String timeLimit;
+	private Timestamp timeLimit;
+
+	public Deal() {}
 
 	public String getDealId() {
 		return dealId;
@@ -40,10 +43,10 @@ public class Deal implements Serializable {
 	public void setDealState(String dealState) {
 		this.dealState = dealState;
 	}
-	public String getTimeLimit() {
+	public Timestamp getTimeLimit() {
 		return timeLimit;
 	}
-	public void setTimeLimit(String timeLimit) {
+	public void setTimeLimit(Timestamp timeLimit) {
 		this.timeLimit = timeLimit;
 	}
 }

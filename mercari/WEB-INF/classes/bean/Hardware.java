@@ -6,6 +6,8 @@ public class Hardware implements Serializable {
 	private String hardwareId;
 	private String hardware;
 
+	public Hardware() {}
+
 	public String getHardwareId() {
 		return hardwareId;
 	}
