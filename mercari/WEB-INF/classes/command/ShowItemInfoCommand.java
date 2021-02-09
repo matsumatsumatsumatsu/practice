@@ -3,11 +3,14 @@ package command;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Item;
+import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
 import exception.IntegrationException;
+import util.SessionManager;
 
 public class ShowItemInfoCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
@@ -30,7 +33,27 @@ public class ShowItemInfoCommand extends AbstractCommand{
 		result.add(first);
 
         resc.setResult(result);
-        resc.setTarget("item");
+
+        //user情報の所得
+        List user = new ArrayList();
+
+        //sessionからuserIdを持ってくる
+        SessionManager.getSession(reqc);
+        //ログインユーザーかそうでないかの判定
+		if(SessionManager.getAttribute("token")==null) {
+			resc.setTarget("item");
+		}else {
+	        //出品者のidとログインユーザーのidが一致したらlisting、
+			//違ったらitemに飛ばす
+			if(((User)SessionManager.getAttribute("token")).getUserId().equals(((Item)item.get(0)).getSellerId())) {
+				resc.setTarget("listingInfo");
+			}else {
+		        resc.setTarget("item");
+		    }
+			System.out.println("((User)SessionManager.getAttribute(\"token\")).getUserId()="+((User)SessionManager.getAttribute("token")).getUserId());
+			System.out.println("((Item)item.get(0)).getSellerId()="+((Item)item.get(0)).getSellerId());
+
+		}
 		return resc;
 	}
 }

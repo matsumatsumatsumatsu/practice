@@ -51,7 +51,7 @@ public class PayCommand extends AbstractCommand {
 		}catch(IntegrationException e) {
 		}
 
-		resc.setTarget("buyerDealingInfo");
+		resc.setTarget("sellerDealingInfo");
 		return resc;
 	}
 
