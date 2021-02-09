@@ -11,4 +11,5 @@ public interface UserInterfaceDao{
 	  public void updateUser(User u) throws IntegrationException;
 	  public void deleteUser(String userId) throws IntegrationException;
 	  public List getAllUsers() throws IntegrationException;
+	  public void pay(String userId,int point) throws IntegrationException;
 }
