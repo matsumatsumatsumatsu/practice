@@ -248,7 +248,7 @@ public class UserDao implements UserInterfaceDao{
     public void pay(String userId,int point) throws IntegrationException{
     	try {
             cn = MysqlConnector.getInstance().getConnection();
-            String sql = "update user set point = point - ? where user_id = ?";
+            String sql = "update user set point = ? where user_id = ?";
             st = cn.prepareStatement(sql);
             st.setInt(1,point);
             st.setString(2, userId);
