@@ -32,7 +32,7 @@ public class UserDao implements UserInterfaceDao{
             st.setString(5, u.getTel());
             st.setString(6, u.getMail());
             st.setString(7, u.getProfile());
-            st.setString(8, u.getPoint());
+            st.setInt(8, u.getPoint());
 
             st.executeUpdate();
             MysqlConnector.getInstance().commit();
@@ -81,7 +81,7 @@ public class UserDao implements UserInterfaceDao{
                 u.setTel(rs.getString(6));
                 u.setMail(rs.getString(7));
                 u.setProfile(rs.getString(8));
-                u.setPoint(rs.getString(9));
+                u.setPoint(rs.getInt(9));
 
                 users.add(u);
             }
@@ -124,7 +124,7 @@ public class UserDao implements UserInterfaceDao{
                 u.setTel(rs.getString(6));
                 u.setMail(rs.getString(7));
                 u.setProfile(rs.getString(8));
-                u.setPoint(rs.getString(9));
+                u.setPoint(rs.getInt(9));
 
                 users.add(u);
             }
@@ -166,7 +166,7 @@ public class UserDao implements UserInterfaceDao{
                 u.setTel(rs.getString(6));
                 u.setMail(rs.getString(7));
                 u.setProfile(rs.getString(8));
-                u.setPoint(rs.getString(9));
+                u.setPoint(rs.getInt(9));
                 users.add(u);
             }
 

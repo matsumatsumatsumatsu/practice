@@ -31,7 +31,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="sellerdealingInfo">購入する</a><!-- 個別の取引ページ -->
+	<a href = "pay?item_id=${item.itemId}">購入する</a><!-- 個別の取引ページ -->
 </div>
 </body>
 </html>
