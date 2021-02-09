@@ -22,11 +22,12 @@ public class PayCommand extends AbstractCommand {
 		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
 		UserInterfaceDao userDao = factory.getUserInterfaceDao();
 
+		//商品情報の取得
         List item = new ArrayList();
 
         String itemId = reqc.getParameter("item_id")[0];
         try {
-        	item = itemDao.getItem(itemId);
+        	item = itemDao.getItem(" where item_id = ", itemId);
         }catch(IntegrationException e) {}
         System.out.println(item.get(0));
 
@@ -46,12 +47,15 @@ public class PayCommand extends AbstractCommand {
 		int itemPrice = ((Item)item.get(0)).getPrice();
 
 		int point = userPoint - itemPrice;
+
 		try {
 			userDao.pay(sessionUserId,point);
+			//在庫を減らす
+			itemDao.manageStock(itemId);
 		}catch(IntegrationException e) {
 		}
 
-		resc.setTarget("sellerDealingInfo");
+		resc.setTarget("buyerDealingInfo");
 		return resc;
 	}
 

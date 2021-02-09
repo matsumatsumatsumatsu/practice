@@ -43,7 +43,7 @@
 <div id="list-side">
 <ul>
 	<li>
-	<a href="listings">出品した商品</a>
+	<a href="listingList">出品した商品</a>
 	</li>
 	<li>
 	<a href="purchase">購入した商品</a>

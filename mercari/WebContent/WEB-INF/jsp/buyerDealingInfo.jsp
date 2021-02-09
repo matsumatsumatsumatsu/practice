@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>売り手の商品取引画面</title>
+<title>買い手の商品取引画面</title>
 </head>
 <body>
 	<table border="1">
@@ -22,7 +22,7 @@
 	</table>
 
 	<form action = "showDealingInfo" method = "post">
-		<input type = "submit" value = "発送しました">
+		<input type = "submit" value = "受け取りました">
 	</form>
 
 	<form action = "sendMessage" method = "post">
@@ -31,6 +31,7 @@
 	</form>
 
 	<p><a href="cancel">取引をキャンセルする</a></p>
+	<p><a href="f_start">TOPページへ</a></p>
 
 </body>
 </html>

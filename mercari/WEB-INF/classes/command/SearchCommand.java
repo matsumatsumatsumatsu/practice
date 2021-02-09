@@ -17,16 +17,16 @@ public class SearchCommand extends AbstractCommand{
         RequestContext reqc = getRequestContext();
         List items = new ArrayList();
 
-        String itemName = reqc.getParameter("itemName")[0];
+        String itemName = reqc.getParameter("keyword")[0];
 
         try {
-        	items = dao.search(itemName);
+        	items = dao.getItem("where item_name like '%", itemName+ "%'");
         }catch(IntegrationException e) {
 
         }
 
         resc.setResult(items);
-        resc.setTarget("");// 検索結果を表示するページへ
+        resc.setTarget("search");// 検索結果を表示するページへ
         return resc;
     }
 }
