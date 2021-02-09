@@ -27,7 +27,7 @@
 	<br>
 
 
-	<!-- forEach問題 -->
+
 	<form action = "showOpenChat" method = "post">
 		<input type = "text" name = "openChat"><br>
 		<input type = "submit" value = "コメントする">
