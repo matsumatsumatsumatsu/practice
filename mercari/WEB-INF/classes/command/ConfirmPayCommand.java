@@ -25,7 +25,7 @@ public class ConfirmPayCommand extends AbstractCommand{
 
         String itemId = reqc.getParameter("item_id")[0];
         try {
-        	item = itemDao.getItem(itemId);
+        	item = itemDao.getItem(" where item_id = ", itemId);
         }catch(IntegrationException e) {}
         System.out.println(item.get(0));
 
