@@ -5,8 +5,11 @@ import java.sql.Timestamp;
 
 public class OpenChat implements Serializable{
 	private String openChatId;
+	private String userId;
+	private String itemId;
 	private String text;
 	private Timestamp date;
+
 
 	public OpenChat() {
 
@@ -17,6 +20,20 @@ public class OpenChat implements Serializable{
 	}
 	public void setOpenChatId(String openChatId) {
 		this.openChatId = openChatId;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getItemId() {
+		return itemId;
+	}
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 
 	public String getText() {

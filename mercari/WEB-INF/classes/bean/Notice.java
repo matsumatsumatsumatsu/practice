@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class Notice implements Serializable{
 	private String noticeId;
+	private String userId;
 	private String comment;
 
 	public Notice() {
@@ -22,5 +23,12 @@ public class Notice implements Serializable{
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 }
