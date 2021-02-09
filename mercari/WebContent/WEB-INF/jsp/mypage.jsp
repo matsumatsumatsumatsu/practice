@@ -55,7 +55,7 @@
 	<a href="profile">プロフィール</a>
 	</li>
 	<li>
-	<a href="logout">ログアウト</a>
+	<a href="f_logout">ログアウト</a>
 	</li>
 </ul>
 </div>

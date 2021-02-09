@@ -102,14 +102,13 @@ CONSTRAINT fk_user_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table chat(
-chat_id int UNSIGNED auto_increment,
+create table private_chat(
+chat_id int UNSIGNED  PRIMARY KEY auto_increment,
 payment_id int UNSIGNED,
 buyer_id int UNSIGNED,
 seller_id int UNSIGNED,
 text varchar(500),
 date datetime,
-primary key(chat_id),
 CONSTRAINT fk_chat_payment_id
     FOREIGN KEY (payment_id) 
     REFERENCES paymentlog(payment_id)
@@ -124,6 +123,21 @@ CONSTRAINT fk_chat_seller_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+create table open_chat(
+open_chat_id int unsigned PRIMARY KEY auto_increment,
+user_id int UNSIGNED,
+text varchar(500),
+date datetime,
+item_id int UNSIGNED,
+CONSTRAINT fk_chat_user_id
+    FOREIGN KEY (user_id) 
+    REFERENCES user(user_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+CONSTRAINT fk_chat_item_id
+    FOREIGN KEY (item_id) 
+    REFERENCES item(item_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 create table admin(
 admin_id int UNSIGNED auto_increment,
@@ -152,13 +166,13 @@ insert into category(category_id, category)
 values(1, 'RPG');
 
 insert into category(category_id, category)
-values(2, '繧｢繧ｯ繧ｷ繝ｧ繝ｳ');
+values(2, 'アクション');
 
 insert into category(category_id, category)
-values(3, '繝代ぜ繝ｫ');
+values(3, 'パズル');
 
 insert into category(category_id, category)
-values(4, '繧｢繝峨�吶Φ繝√Ε繝ｼ');
+values(4, 'アドベンチャー');
 
 insert into admin(admin_name,admin_password,mail) 
 values('admin','P@ssw0rd','info@gmail.com');

@@ -1,0 +1,2 @@
+insert into category(category_id, category)
+values(4, 'アドベンチャー');
