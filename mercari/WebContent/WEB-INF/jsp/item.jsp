@@ -32,7 +32,6 @@ pageEncoding="UTF-8"%>
 
 	<p><a href = "confirmpay?item_id=${item.itemId}">商品購入</a></p>
 	</c:forEach>
-	<p><a href = "/listingEdit/">出品物の編集</a></p>
 	<p><a href = "/userInfo/">ユーザーの確認</a></p>
 	<p><a href = "/category/">カテゴリー検索</a></p>
 
