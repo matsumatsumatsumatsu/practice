@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>マイページ</title>
+<title>取引履歴の閲覧</title>
 <div class="search">
 		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
   	 	<p>商品名検索</p>
@@ -15,49 +15,26 @@
 	</div>
 </head>
 <body>
-<table border="1">
-	<tr><th>ユーザー名</th></tr>
-	<c:forEach var="user" items="${data}">
-	<tr><td>${user.userName}</td></tr>
-	</c:forEach>
-</table>
-
-<div id="buyer">
-<h4>購入した商品</h4>
 <h4>取引中</h4>
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
-	<c:forEach var="item" items="${item}">
+	<c:forEach var="item" items="${data}">
+		
 		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.itemImage}</td></tr>
+		
+		</table>
+		<form action="terminate" method='post'>
+			<input type='submit' value='削除'>
+		</form>
 	</c:forEach>
 </table>
 <h4>過去の取引</h4>
 <table border="1">
 	<tr><th>itemid</th><th>商品名</th><th>画像</th></tr>
-	<c:forEach var="item" items="${item}">
+	<c:forEach var="item" items="${data}">
 		<tr><td>${item.itemId}</td><td>${item.itemName}</td><td>${item.itemImage}</td></tr>
 	</c:forEach>
 </table>
-</div>
-
-<div id="list-side">
-<ul>
-	<li>
-	<a href="listingList">出品した商品</a>
-	</li>
-	<li>
-	<a href="purchase">購入した商品</a>
-	</li>
-	<li>
-	<a href="point">ポイント</a>
-	</li>
-	<li>
-	<a href="profile">プロフィール</a>
-	</li>
-	<li>
-	<a href="f_logout">ログアウト</a>
-	</li>
-</ul>
 </div>
 </body>
 </html>

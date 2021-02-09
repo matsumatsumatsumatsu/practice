@@ -19,7 +19,6 @@
 				<td>${item.price}</td>
 
 			</tr>
-		</c:forEach>
 		</table>
 		<table border="1">
 		<tr><td>残高</td><td>住所</td></tr>
@@ -31,7 +30,8 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<a href="sellerdealingInfo">購入する</a><!-- 個別の取引ページ -->
+	<a href = "pay?item_id=${item.itemId}">購入する</a><!-- 個別の取引ページ -->
+		</c:forEach>
 </div>
 </body>
 </html>

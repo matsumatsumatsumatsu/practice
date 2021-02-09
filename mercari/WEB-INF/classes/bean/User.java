@@ -11,7 +11,7 @@ public class User implements Serializable{
 	private String tel;
 	private String mail;
 	private String profile;
-	private String point;
+	private int point;
 
 	public String getProfile() {
 		return profile;
@@ -61,10 +61,10 @@ public class User implements Serializable{
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
-	public String getPoint() {
+	public int getPoint() {
 		return point;
 	}
-	public void setPoint(String point) {
+	public void setPoint(int point) {
 		this.point = point;
 	}
 }
