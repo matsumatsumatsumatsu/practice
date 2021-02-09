@@ -28,6 +28,7 @@ public class PayCommand extends AbstractCommand {
         try {
         	item = itemDao.getItem(itemId);
         }catch(IntegrationException e) {}
+        System.out.println(item.get(0));
 
         //user情報の所得
         List user = new ArrayList();
