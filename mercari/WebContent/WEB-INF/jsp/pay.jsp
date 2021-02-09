@@ -24,7 +24,6 @@
 		<tr><td>残高</td><td>住所</td></tr>
 		<c:forEach var="user" items="${user}">
 			<tr>
-
 				<td>${user.point}</td>
 				<td>${user.address}</td>
 			</tr>
