@@ -19,17 +19,19 @@
 <body>
 	<div id="search">
 		<form method='post' action="search">
+			<p>ハードウェア</p>
 			<div id="categorysearch">
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
 			</c:forEach>
-			
+			<br>
+			<p>カテゴリ</p>
 			<c:forEach var="category" items="${category}">
 				<input type="radio" name="category" value="${category.categoryId}">${category.category}
 			</c:forEach>
-				
+
 			</div>
-			
+
 			<!-- 値段の絞り込み用のテキストボックス -->
 			<div id="pricesearch">
 				<input type="text" name="minvalue" placeholder="minvalue" > <input type="text"

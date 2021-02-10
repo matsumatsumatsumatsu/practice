@@ -6,6 +6,8 @@ import java.util.List;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
+import dao.CategoryInterfaceDao;
+import dao.HardwareInterfaceDao;
 import dao.ItemInterfaceDao;
 import exception.IntegrationException;
 
@@ -13,24 +15,44 @@ public class SearchCommand extends AbstractCommand{
 	public  ResponseContext execute(ResponseContext resc){
 
     	AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-        ItemInterfaceDao dao=factory.getItemInterfaceDao();
+        ItemInterfaceDao itemdao=factory.getItemInterfaceDao();
+        CategoryInterfaceDao categorydao=factory.getCategoryInterfaceDao();
+        HardwareInterfaceDao hardwaredao=factory.getHardwareInterfaceDao();
+
         RequestContext reqc = getRequestContext();
+
         List items = new ArrayList();
+        List hardwares = new ArrayList();
+        List categorys = new ArrayList();
 
         String itemName = reqc.getParameter("keyword")[0];
 
         try {
-        	items = dao.getItem("where item_name like '%", itemName+ "%'");
+        	items = itemdao.getItem("where item_name like '%", itemName+ "%'");
+        	hardwares = hardwaredao.getAllHardware();
+        	categorys = categorydao.getAllCategory();
         	System.out.println("検索結果："+items);
+
         }catch(IntegrationException e) {
 
         }
 
+		List<List> result=new ArrayList<>();
+
         List<Object> first=new ArrayList<>();
 		first.add("data");
 		first.add(items);
-		List<List> result=new ArrayList<>();
 		result.add(first);
+
+		List<Object> second=new ArrayList<>();
+		second.add("hardware");
+		second.add(hardwares);
+		result.add(second);
+
+        List<Object> third=new ArrayList<>();
+		third.add("category");
+		third.add(categorys);
+		result.add(third);
 
         resc.setResult(result);
 
