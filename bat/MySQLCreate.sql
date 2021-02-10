@@ -51,28 +51,7 @@ CONSTRAINT fk_item_seller_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table deal(
-deal_id int unsigned PRIMARY KEY auto_increment,
-before_payment_id int UNSIGNED,
-after_payment_id int UNSIGNED,
-item_id int UNSIGNED,
-deal_state int UNSIGNED,
-time_limit DATETIME,
-CONSTRAINT fk_before_payment_id
-    FOREIGN KEY before_payment_id(payment_id) 
-    REFERENCES payment_log(payment_id)
-    ON DELETE RESTRICT ON UPDATE RESTRICT,
- CONSTRAINT fk_after_payment_id
-    FOREIGN KEY after_payment_id(payment_id) 
-    REFERENCES payment_log(payment_id)
-    ON DELETE RESTRICT ON UPDATE RESTRICT,
-CONSTRAINT fk_item_id
-    FOREIGN KEY (item_id) 
-    REFERENCES item(item_id)
-    ON DELETE RESTRICT ON UPDATE RESTRICT
-)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
-create table payment_Log(
+create table payment_log(
 payment_id int unsigned PRIMARY KEY auto_increment,
 seller_id int UNSIGNED,
 buyer_id int UNSIGNED,
@@ -86,6 +65,27 @@ CONSTRAINT fk_seller_id
 CONSTRAINT fk_buyer_id
     FOREIGN KEY buyer_id(buyer_id) 
     REFERENCES user(user_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+create table deal(
+deal_id int unsigned PRIMARY KEY auto_increment,
+before_payment_id int UNSIGNED,
+after_payment_id int UNSIGNED,
+item_id int UNSIGNED,
+deal_state int UNSIGNED,
+time_limit DATETIME,
+CONSTRAINT fk_before_payment_id
+    FOREIGN KEY before_payment_id(before_payment_id) 
+    REFERENCES payment_log(payment_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+ CONSTRAINT fk_after_payment_id
+    FOREIGN KEY after_payment_id(after_payment_id) 
+    REFERENCES payment_log(payment_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+CONSTRAINT fk_item_id
+    FOREIGN KEY (item_id) 
+    REFERENCES item(item_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
