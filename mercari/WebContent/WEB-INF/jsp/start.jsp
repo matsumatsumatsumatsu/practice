@@ -5,9 +5,9 @@ pageEncoding="UTF-8"%>
 <html>
 <head><title>スタート画面</title>
 	<div class="search">
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
+		<form name="itemsearch" method='post' action='search'>
   	 	<p>商品名検索</p>
-    	<input type='text' name='itemName'>
+    	<input type='text' name='keyword'>
     	<input type='submit' value='検索！'>
   	</form>
 	</div>
