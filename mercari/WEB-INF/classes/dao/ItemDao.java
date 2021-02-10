@@ -61,15 +61,16 @@ public class ItemDao implements ItemInterfaceDao {
         }
 	}
 
-	public List getItem(String itemId) throws IntegrationException {
+	public List getItem(String key, String value) throws IntegrationException {
 		ArrayList items = new ArrayList();
         Item i = new Item();
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select * from item where item_id = ?";
+            String sql = "select * from item " + key + value;
+            System.out.println("確認用SQL文:"+sql);
+
             st = cn.prepareStatement(sql);
-            st.setString(1, itemId);
             rs = st.executeQuery();
 
             while (rs.next()) {
@@ -157,9 +158,9 @@ public class ItemDao implements ItemInterfaceDao {
 	            String sql = "update item set stock = 0 where item_id = ?";
 	            st = cn.prepareStatement(sql);
 	            st.setString(1, itemId);
-	            rs = st.executeQuery();
-
+	            st.executeUpdate();
 	            MysqlConnector.getInstance().commit();
+
 	        }catch (SQLException e) {
 	             e.printStackTrace();
 	            try {
@@ -169,9 +170,9 @@ public class ItemDao implements ItemInterfaceDao {
 	            } catch (SQLException ex) {
 	            	e.printStackTrace();
 	            } finally {
-                    if (cn != null) {
-                    	MysqlConnector.getInstance().closeConnection();
-                    }
+                 if (cn != null) {
+                 	MysqlConnector.getInstance().closeConnection();
+                 }
 	            }
 
 	        }

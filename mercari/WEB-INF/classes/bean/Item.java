@@ -15,6 +15,8 @@ public class Item implements Serializable{
 	private int stock;
 	private String listingDate;
 
+	public Item() {}
+
 	public String getItemId() {
 		return itemId;
 	}

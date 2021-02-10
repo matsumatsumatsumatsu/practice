@@ -22,7 +22,7 @@ public class ShowItemInfoCommand extends AbstractCommand{
 
         String itemId = reqc.getParameter("item_id")[0];
         try {
-        	item = dao.getItem(itemId);
+        	item = dao.getItem("where item_id = ", itemId);
         }catch(IntegrationException e) {
         }
 

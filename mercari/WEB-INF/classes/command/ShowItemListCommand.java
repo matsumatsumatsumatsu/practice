@@ -27,7 +27,7 @@ public class ShowItemListCommand  extends AbstractCommand {
 		result.add(first);
 
         resc.setResult(result);
-        resc.setTarget("search");
+        resc.setTarget("");
         return resc;
     }
 }
