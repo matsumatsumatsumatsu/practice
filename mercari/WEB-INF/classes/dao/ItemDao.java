@@ -93,6 +93,7 @@ public class ItemDao implements ItemInterfaceDao {
 
                 items.add(i);
             }
+            System.out.println("DAOサイド：search結果："+items);
 
             MysqlConnector.getInstance().commit();
         }catch (SQLException e) {

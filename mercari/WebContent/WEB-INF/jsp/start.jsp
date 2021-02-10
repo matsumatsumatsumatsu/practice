@@ -3,30 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
-<<<<<<< HEAD
-<head><title>スタート画面</title>
-	<div class="search">
-		<form name="itemsearch" method='post' action='search'>
-  	 	<p>商品名検索</p>
-    	<input type='text' name='keyword'>
-    	<input type='submit' value='検索！'>
-  	</form>
-	</div>
-	<ul class="category">
-    <li>
-        <a>カテゴリから探す</a>
-        <ul>
-            <li>
-                <a href="category">DS</a>
-                <ul>
-=======
+
 <head>
 <title>スタート画面</title>
 <div class="search">
 	<form name="itemsearch" method='post' action='search'
 		onSubmit="return check()">
 		<p>商品名検索</p>
-		<input type='text' name='itemName'> <input type='submit'
+		<input type='text' name='keyword'> <input type='submit'
 			value='検索！'>
 	</form>
 </div>
@@ -35,8 +19,6 @@
 		<ul>
 			<li><a href="category">DS</a>
 				<ul>
->>>>>>> refs/remotes/origin/master
-
 					<li><a href="category">アクション</a></li>
 					<li><a href="category">Child2</a></li>
 					<li><a href="category">Child3</a></li>
