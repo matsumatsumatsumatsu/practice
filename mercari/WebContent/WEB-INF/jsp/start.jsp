@@ -1,71 +1,87 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
-<head><title>スタート画面</title>
-	<div class="search">
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
-  	 	<p>商品名検索</p>
-    	<input type='text' name='itemName'>
-    	<input type='submit' value='検索！'>
-  	</form>
-	</div>
-	<ul class="category">
-    <li>
-        <a>カテゴリから探す</a>
-        <ul>
-            <li>
-                <a href="category">DS</a>
-                <ul>
+<head>
+<title>スタート画面</title>
+<div class="search">
+	<form name="itemsearch" method='post' action='search'
+		onSubmit="return check()">
+		<p>商品名検索</p>
+		<input type='text' name='itemName'> <input type='submit'
+			value='検索！'>
+	</form>
+</div>
+<ul class="category">
+	<li><a>カテゴリから探す</a>
+		<ul>
+			<li><a href="category">DS</a>
+				<ul>
 
-                    <li><a href="category">アクション</a></li>
-                    <li><a href="category">Child2</a></li>
-      			    <li><a href="category">Child3</a></li>
-                    <li><a href="category">Child4</a></li>
-                    <li><a href="category">Child5</a></li>
-                </ul>
-            </li>
+					<li><a href="category">アクション</a></li>
+					<li><a href="category">Child2</a></li>
+					<li><a href="category">Child3</a></li>
+					<li><a href="category">Child4</a></li>
+					<li><a href="category">Child5</a></li>
+				</ul></li>
 
-        </ul>
-    </li>
+		</ul></li>
 
 </ul>
 </head>
 
 <body>
-<h1>メルカリもどき</h1>
-<p><a href="f_signup">ユーザー登録画面へ</a></p>
-<p><a href="showprofile">マイページ</a></p>
-<p><a href="f_listing">出品画面へ</a></p>
-<p><a href="f_login">ログイン</a></p>
-<p><a href="f_logout">ログアウト</a></p>
-<ul class="gnav">
-    <li>
-        <a>カテゴリから探す</a>
-        <ul>
-            <li>
-                <a href="category">DS</a>
-                <ul>
-                    <li><a href="category">アクション</a></li>
-                    <li><a href="category">Child2</a></li>
-      			    <li><a href="category">Child3</a></li>
-                    <li><a href="category">Child4</a></li>
-                    <li><a href="category">Child5</a></li>
-                </ul>
-            </li>
+	<h1>メルカリもどき</h1>
+	<p>
+		<a href="f_signup">ユーザー登録画面へ</a>
+	</p>
+	<p>
+		<a href="showprofile">マイページ</a>
+	</p>
+	<p>
+		<a href="f_listing">出品画面へ</a>
+	</p>
+	<p>
+		<a href="f_login">ログイン</a>
+	</p>
+	<p>
+		<a href="f_logout">ログアウト</a>
+	</p>
+	<ul class="gnav">
+		<li><a>カテゴリから探す</a>
+			<ul>
+				<li><a href="category">DS</a>
+					<ul>
+						<li><a href="category">アクション</a></li>
+						<li><a href="category">Child2</a></li>
+						<li><a href="category">Child3</a></li>
+						<li><a href="category">Child4</a></li>
+						<li><a href="category">Child5</a></li>
+					</ul></li>
 
-        </ul>
-    </li>
+			</ul></li>
 
-</ul>
+	</ul>
 
-<table border="1">
-	<tr><th>itemid</th><th>商品名</th><th>価格</th><th>画像</th><th>説明</th></tr>
-	<c:forEach var="item" items="${itemlist}">
-		<tr><td>${item.itemId}</td><td><a href="showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</a></td><td>${item.price}</td><td>${item.itemImage}</td><td>${item.itemExplanation}</td></tr>
-	</c:forEach>
-</table>
+	<table border="1">
+		<tr>
+			<th>itemid</th>
+			<th>商品名</th>
+			<th>価格</th>
+			<th>画像</th>
+			<th>説明</th>
+		</tr>
+		<c:forEach var="item" items="${itemlist}">
+			<tr>
+				<td>${item.itemId}</td>
+				<td><a href="showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</a></td>
+				<td>${item.price}</td>
+				<td>${item.itemImage}</td>
+				<td>${item.itemExplanation}</td>
+			</tr>
+		</c:forEach>
+	</table>
 
 </body>
 </html>
