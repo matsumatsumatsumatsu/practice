@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,17 +21,21 @@
 		</c:forEach>
 	</table>
 
-	<form action = "showDealingInfo" method = "post">
-		<input type = "submit" value = "受け取りました">
+	<form action="showDealingInfo" method="post">
+		<input type="submit" value="受け取りました">
 	</form>
 
-	<form action = "sendMessage" method = "post">
-		<input type = "text" name = "privateChat"><br>
-		<input type = "submit" value = "コメントする">
+	<form action="sendMessage" method="post">
+		<input type="text" name="privateChat"><br> <input
+			type="submit" value="コメントする">
 	</form>
 
-	<p><a href="cancel">取引をキャンセルする</a></p>
-	<p><a href="f_start">TOPページへ</a></p>
+	<p>
+		<a href="cancel">取引をキャンセルする</a>
+	</p>
+	<p>
+		<a href="f_start">TOPページへ</a>
+	</p>
 
 </body>
 </html>

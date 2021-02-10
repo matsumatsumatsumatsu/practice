@@ -21,11 +21,20 @@ public class SearchCommand extends AbstractCommand{
 
         try {
         	items = dao.getItem("where item_name like '%", itemName+ "%'");
+        	System.out.println("検索結果："+items);
         }catch(IntegrationException e) {
 
         }
 
-        resc.setResult(items);
+        List<Object> first=new ArrayList<>();
+		first.add("data");
+		first.add(items);
+		List<List> result=new ArrayList<>();
+		result.add(first);
+
+        resc.setResult(result);
+
+
         resc.setTarget("search");// 検索結果を表示するページへ
         return resc;
     }
