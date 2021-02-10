@@ -18,6 +18,7 @@
 
 <body>
 	<div id="search">
+	<form method='post' action="category">
 		<div id="categorysearch">
 			<ul class="gnav">
 				<li><a>カテゴリから探す</a>
@@ -46,6 +47,7 @@
 			<input type="checkbox" name="sold"><label for="sold">売りきれ</label>
 		</div>
 		<button type='submit' value='検索！'></button>
+		</form>
 	</div>
 	<p>
 		<a href="f_listing">出品画面へ</a>
