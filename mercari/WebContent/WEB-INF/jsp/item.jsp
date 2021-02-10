@@ -55,8 +55,10 @@
 	</p>
 
 	<script>
-		if (<c:out value="${stockCheck}" /> == 0) {
+		if (<c:out value="${stockCheck}" /> == 1) {
 			document.getElementById("stockCheck").innerText = "売り切れ";
+			document.getElementById("stockCheck").removeAttribute("href");
+			document.getElementById("stockCheck").style.color = "gray";
 		}
 	</script>
 
