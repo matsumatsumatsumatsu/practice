@@ -46,6 +46,14 @@ public abstract class AbstractMysqlFactory {
 
         return factory;
     }
-    public abstract UserInterfaceDao getUserInterfaceDao();
+    public abstract AdminInterfaceDao getAdminInterfaceDao();
+    public abstract CategoryInterfaceDao getCategoryInterfaceDao();
+    public abstract DealInterfaceDao getDealInterfaceDao();
+    public abstract HardwareInterfaceDao getHardwareInterfaceDao();
     public abstract ItemInterfaceDao getItemInterfaceDao();
+    public abstract NoticeInterfaceDao getNoticeInterfaceDao();
+    public abstract OpenChatInterfaceDao getOpenChatInterfaceDao();
+    public abstract PaymentLogInterfaceDao getPaymentLogInterfaceDao();
+    public abstract PrivateChatInterfaceDao getPrivateChatInterfaceDao();
+    public abstract UserInterfaceDao getUserInterfaceDao();
 }
