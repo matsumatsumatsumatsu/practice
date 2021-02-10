@@ -63,7 +63,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	public List getItem(String key, String value) throws IntegrationException {
 		ArrayList items = new ArrayList();
-        Item i = new Item();
+
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
@@ -74,6 +74,7 @@ public class ItemDao implements ItemInterfaceDao {
             rs = st.executeQuery();
 
             while (rs.next()) {
+            	Item i = new Item();
                 i.setItemId(rs.getString(1));
                 i.setItemName(rs.getString(2));
                 i.setPrice(rs.getInt(3));

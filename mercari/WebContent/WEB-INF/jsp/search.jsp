@@ -10,7 +10,7 @@
 <div class="search">
 	<form name="itemsearch" method='post' action='search'>
 		<p>商品名検索</p>
-		<input type='text' name='keyword'> <input type='submit'
+		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
 			value='検索！'>
 	</form>
 </div>
@@ -36,9 +36,10 @@
 
 			</ul>
 		</div>
+		<!-- 値段の絞り込み用のテキストボックス -->
 		<div id="pricesearch">
-			<input type="text" name="minvalue"> <input type="text"
-				name="maxvalue">
+			<input type="text" name="minvalue" placeholder="minvalue" > <input type="text"
+				name="maxvalue" placeholder="maxvalue">
 		</div>
 		<div id="stocksearch">
 			<input type="checkbox" name="sale"><label for="sale">販売中</label>
