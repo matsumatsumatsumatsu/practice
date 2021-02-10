@@ -52,7 +52,7 @@ CONSTRAINT fk_item_seller_id
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-create table BeforePaymentLog(
+create table before_payment_log(
 payment_id int unsigned PRIMARY KEY auto_increment,
 seller_id int UNSIGNED,
 buyer_id int UNSIGNED,
@@ -69,7 +69,7 @@ CONSTRAINT fk_buyer_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table AfterPaymentLog(
+create table after_payment_Log(
 payment_id int unsigned PRIMARY KEY auto_increment,
 seller_id int UNSIGNED,
 buyer_id int UNSIGNED,
@@ -86,20 +86,20 @@ CONSTRAINT fk_buyer_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table Deal(
+create table deal(
 deal_id int unsigned PRIMARY KEY auto_increment,
-payment_id int UNSIGNED,
-deposit_id int UNSIGNED,
+before_payment_id int UNSIGNED,
+after_payment_id int UNSIGNED,
 item_id int UNSIGNED,
 deal_state int UNSIGNED,
 time_limit DATETIME,
-CONSTRAINT fk_payment_id
+CONSTRAINT fk_before_payment_id
     FOREIGN KEY payment_id(payment_id) 
-    REFERENCES PaymentLog(payment_id)
+    REFERENCES before_payment_log(payment_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
-CONSTRAINT fk_deposit_id
-    FOREIGN KEY payment_id(deposit_id) 
-    REFERENCES PaymentLog(payment_id)
+ CONSTRAINT fk_after_payment_id
+    FOREIGN KEY payment_id(payment_id) 
+    REFERENCES after_payment_log(payment_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
 CONSTRAINT fk_item_id
     FOREIGN KEY (item_id) 
@@ -107,7 +107,7 @@ CONSTRAINT fk_item_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table Notice(
+create table notice(
 notice_id int UNSIGNED auto_increment,
 user_id int UNSIGNED,
 comment varchar(500),
@@ -120,14 +120,14 @@ CONSTRAINT fk_user_id
 
 create table private_chat(
 chat_id int UNSIGNED  PRIMARY KEY auto_increment,
-payment_id int UNSIGNED,
+deal_id int UNSIGNED,
 buyer_id int UNSIGNED,
 seller_id int UNSIGNED,
 text varchar(500),
 date datetime,
 CONSTRAINT fk_chat_payment_id
-    FOREIGN KEY (payment_id) 
-    REFERENCES paymentlog(payment_id)
+    FOREIGN KEY (deal_id) 
+    REFERENCES deal(deal_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
 CONSTRAINT fk_chat_buyer_id
     FOREIGN KEY (buyer_id) 
