@@ -17,6 +17,7 @@
 				<td>${item.itemImage}</td>
 				<td>${item.itemName}</td>
 				<td>${item.price}</td>
+				<c:set var="price" value="${item.price }"></c:set>
 
 			</tr>
 		</table>
@@ -27,11 +28,19 @@
 
 				<td>${user.point}</td>
 				<td>${user.address}</td>
+				<c:set var="point" value="${user.point }"></c:set>
 			</tr>
 		</c:forEach>
 	</table>
-	<a href = "pay?item_id=${item.itemId}">購入する</a><!-- 個別の取引ページ -->
+	<a id="pointCheck" href = "pay?item_id=${item.itemId}">購入する</a><!-- 個別の取引ページ -->
 		</c:forEach>
 </div>
+<script>
+if(<c:out value="${price}" /> > <c:out value="${point}" />){
+	document.getElementById("pointCheck").removeAttribute("href");
+	document.getElementById("pointCheck").style.color = "gray";
+}
+
+</script>
 </body>
 </html>
