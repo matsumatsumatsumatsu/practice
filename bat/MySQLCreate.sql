@@ -52,7 +52,7 @@ CONSTRAINT fk_item_seller_id
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-create table PaymentLog(
+create table BeforePaymentLog(
 payment_id int unsigned PRIMARY KEY auto_increment,
 seller_id int UNSIGNED,
 buyer_id int UNSIGNED,
@@ -69,6 +69,22 @@ CONSTRAINT fk_buyer_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+create table AfterPaymentLog(
+payment_id int unsigned PRIMARY KEY auto_increment,
+seller_id int UNSIGNED,
+buyer_id int UNSIGNED,
+item_id int UNSIGNED,
+price int UNSIGNED,
+date DATETIME,
+CONSTRAINT fk_seller_id
+    FOREIGN KEY seller_id(seller_id) 
+    REFERENCES user(user_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+CONSTRAINT fk_buyer_id
+    FOREIGN KEY buyer_id(buyer_id) 
+    REFERENCES user(user_id)
+    ON DELETE RESTRICT ON UPDATE RESTRICT
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 create table Deal(
 deal_id int unsigned PRIMARY KEY auto_increment,
@@ -166,13 +182,13 @@ insert into category(category_id, category)
 values(1, 'RPG');
 
 insert into category(category_id, category)
-values(2, 'アクション');
+values(2, '繧｢繧ｯ繧ｷ繝ｧ繝ｳ');
 
 insert into category(category_id, category)
-values(3, 'パズル');
+values(3, '繝代ぜ繝ｫ');
 
 insert into category(category_id, category)
-values(4, 'アドベンチャー');
+values(4, '繧｢繝峨�吶Φ繝√Ε繝ｼ');
 
 insert into admin(admin_name,admin_password,mail) 
 values('admin','P@ssw0rd','info@gmail.com');
