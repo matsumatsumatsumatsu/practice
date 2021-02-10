@@ -10,7 +10,7 @@
 	<form name="itemsearch" method='post' action='search'
 		onSubmit="return check()">
 		<p>商品名検索</p>
-		<input type='text' name='keyword'> <input type='submit'
+		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
 			value='検索！'>
 	</form>
 </div>
