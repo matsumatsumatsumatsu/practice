@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<from action = "notifyUser">
-’Ê’m“à—e<input type ='text'>
-<input type='submit' value='‘—M'>
-</from>
+	<from action="notifyUser"> é€šçŸ¥å†…å®¹<input type='text'> <input
+		type='submit' value='é€ä¿¡'> </from>
 </body>
 </html>
