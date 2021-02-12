@@ -59,9 +59,7 @@
 						<li><a href="category">Child4</a></li>
 						<li><a href="category">Child5</a></li>
 					</ul></li>
-
 			</ul></li>
-
 	</ul>
 
 	<table border="1">

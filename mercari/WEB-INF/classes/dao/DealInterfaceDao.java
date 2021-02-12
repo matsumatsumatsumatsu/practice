@@ -1,5 +1,7 @@
 package dao;
 
-public interface DealInterfaceDao {
+import exception.IntegrationException;
 
+public interface DealInterfaceDao {
+	public void  insertDeal() throws IntegrationException;
 }

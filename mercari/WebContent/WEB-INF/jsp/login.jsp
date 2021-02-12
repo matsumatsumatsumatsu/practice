@@ -1,16 +1,16 @@
-<%@page pageEncoding="WIndows-31J"
-	contentType="text/html;charset=Windows-31J"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <html>
 <head>
-<title>ƒƒOƒCƒ“</title>
+<title>ãƒ­ã‚°ã‚¤ãƒ³</title>
 </head>
 <body>
-	<h1>ƒƒOƒCƒ“</h1>
+	<h1>ãƒ­ã‚°ã‚¤ãƒ³</h1>
 	<form action="login" method="post">
-		–¼‘OF<input type="text" name="userName" /><br> ƒpƒXƒ[ƒhF<input
+		åå‰ï¼š<input type="text" name="userName" /><br> ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ï¼š<input
 			type="text" name="userPassword" /><br>
-		<br> <input type="submit" value="ƒƒOƒCƒ“">
+		<br> <input type="submit" value="ãƒ­ã‚°ã‚¤ãƒ³">
 	</form>
 </body>
 </html>
