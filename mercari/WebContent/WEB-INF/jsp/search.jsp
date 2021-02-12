@@ -21,11 +21,13 @@
 		<form method='post' action="search">
 			<p>ハードウェア</p>
 			<div id="categorysearch">
+			<input type="radio" name="hardware" value="0">選択しない
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
 			</c:forEach>
 			<br>
 			<p>カテゴリ</p>
+			<input type="radio" name="category" value="0">選択しない
 			<c:forEach var="category" items="${category}">
 				<input type="radio" name="category" value="${category.categoryId}">${category.category}
 			</c:forEach>
