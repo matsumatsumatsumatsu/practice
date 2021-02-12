@@ -1,12 +1,44 @@
 <!-- <?xml version="1.0" encoding="UTF-8"> -->
+<!-- いじる方 -->
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee web-app_2_4.xsd"
+ version="2.4">
 
-<web-app>
+  <filter>
+    <filter-name>authenticatefilter</filter-name>
+    <filter-class>filter.AuthenticateFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>authenticatefilter</filter-name>
+    <url-pattern>/f_listing</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>authenticatefilter</filter-name>
+    <url-pattern>/confirmpay</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>reloaditemlistfilter</filter-name>
+    <filter-class>filter.ReLoadItemListFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>reloaditemlistfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
 	<welcome-file-list>
-    	<welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
-    </welcome-file-list>
+		<welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
+	</welcome-file-list>
   <!-- <servlet>
 		<servlet-name>FrontServlet</servlet-name>
-		<servlet-class>front.FrontServlet</servlet-class>
+		<servlet-class>FrontServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
@@ -15,18 +47,18 @@
 	</servlet-mapping> -->
 
     <servlet>
-		<servlet-name>FrontServlet</servlet-name>
-		<servlet-class>FrontServlet</servlet-class>
+		<servlet-name>front.FrontServlet</servlet-name>
+		<servlet-class>front.FrontServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>FrontServlet</servlet-name>
+		<servlet-name>front.FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
   <!-- <servlet>
     <servlet-name>front.FrontServlet</servlet-name>
-    <jsp-file>/start.jap</jsp-file>
+    <jsp-file>/input.jap</jsp-file>
   </servlet>
 
   <servlet-mapping>
