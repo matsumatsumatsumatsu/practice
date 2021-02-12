@@ -43,7 +43,6 @@ public class SearchCommand extends AbstractCommand{
         	hardwares = hardwaredao.getAllHardware();
         	categorys = categorydao.getAllCategory();
         	System.out.println("検索結果："+items);
-
         }catch(IntegrationException e) {
 
         }
