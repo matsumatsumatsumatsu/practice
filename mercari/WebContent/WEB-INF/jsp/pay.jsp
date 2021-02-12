@@ -47,6 +47,7 @@
 
 	<script>
 		if (<c:out value="${price}" /> > <c:out value="${point}" />) {
+			alert("ポイントが足りません");
 			document.getElementById("pointCheck").removeAttribute("href");
 			document.getElementById("pointCheck").style.color = "gray";
 		}
