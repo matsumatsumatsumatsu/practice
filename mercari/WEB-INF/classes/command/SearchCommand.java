@@ -27,16 +27,21 @@ public class SearchCommand extends AbstractCommand{
 
         String itemName = reqc.getParameter("keyword")[0];
 
-//        if(reqc.getParameter("hardware")[0] != null) {
-//        	String hardName = reqc.getParameter("hardware")[0];
-//
-//        	if(hardName.equals("0")) {
-//        		if(reqc.getParameter("hardware")[0] != null) {
-//
-//        		}
-//        	}
-//        }
-        //String cateName = reqc.getParameter("category")[0];
+        if(reqc.getParameter("hardware")[0] != null) {
+        	
+        }
+
+
+        String hardName = reqc.getParameter("hardware")[0];
+        if(hardName.equals("0")) {
+
+        }
+
+		if(reqc.getParameter("hardware")[0] != null) {
+
+		}
+
+        String cateName = reqc.getParameter("category")[0];
 
         try {
         	items = itemdao.getItem("where item_name like '%", itemName+ "%'");

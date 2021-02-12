@@ -21,8 +21,9 @@ public class ShowItemInfoCommand extends AbstractCommand{
         List item = new ArrayList();
 
         String itemId = reqc.getParameter("item_id")[0];
+        String key = "where item_id = " + itemId;
         try {
-        	item = dao.getItem("where item_id = ", itemId);
+        	item = dao.getItem(key);
         }catch(IntegrationException e) {
         }
 

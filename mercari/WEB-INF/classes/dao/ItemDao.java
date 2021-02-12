@@ -61,13 +61,13 @@ public class ItemDao implements ItemInterfaceDao {
         }
 	}
 
-	public List getItem(String key, String value) throws IntegrationException {
+	public List getItem(String key) throws IntegrationException {
 		ArrayList items = new ArrayList();
 
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select * from item " + key + value;
+            String sql = "select * from item " + key;
             System.out.println("確認用SQL文:"+sql);
 
             st = cn.prepareStatement(sql);
