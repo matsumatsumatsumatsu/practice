@@ -62,7 +62,4 @@ public class PaymentLog implements Serializable{
 		this.date = date;
 	}
 
-
-
-
 }

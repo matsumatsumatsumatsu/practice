@@ -1,14 +1,14 @@
-<%@page pageEncoding="WIndows-31J"
-	contentType="text/html;charset=Windows-31J"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <html>
 <head>
-<title>ƒƒOƒAƒEƒg</title>
+<title>ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</title>
 </head>
 <body>
-	<h1>ƒƒOƒAƒEƒg</h1>
+	<h1>ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</h1>
 	<form action="logout" method="post">
-		<button type="submit">ƒƒOƒAƒEƒg</button>
+		<button type="submit">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</button>
 	</form>
 
 </body>

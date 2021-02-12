@@ -1,14 +1,14 @@
-<%@page pageEncoding="WIndows-31J"
-	contentType="text/html;charset=Windows-31J"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 <html>
 <head>
-<title>‘Þ‰ï</title>
+<title>é€€ä¼š</title>
 </head>
 <body>
-	<h1>‘Þ‰ï</h1>
+	<h1>é€€ä¼š</h1>
 	<form action="withdraw" method="post">
-		<button type="submit">‘Þ‰ï</button>
+		<button type="submit">é€€ä¼š</button>
 	</form>
 
 </body>
