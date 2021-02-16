@@ -34,12 +34,21 @@
 	</table>
 	<br>
 
+	<div class="openChatTable">
+		<table border="1">
+			<c:forEach var="chat" items="${open}">
+				<tr>
+					<td>${open.text}</td>
+					<td>${open.date}</td>
+				</tr>
+			</c:forEach>
+		</table>
 
-	<!-- forEach問題 -->
-	<form action="showOpenChat" method="post">
-		<input type="text" name="openChat"><br> <input
-			type="submit" value="コメントする">
-	</form>
+		<form action="sendopenchat" method="post">
+			<input type="text" name="openChat"><br>
+			<input type="submit" value="コメントする">
+		</form>
+	</div>
 
 	<p>
 		<a href="userInfo">ユーザーの確認</a>

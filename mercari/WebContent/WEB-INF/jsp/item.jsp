@@ -30,22 +30,29 @@
 				<td>${item.price}</td>
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
 			</tr>
+			</c:forEach>
 	</table>
 	<br>
 
-	<!-- forEach問題 -->
-	<form action="showItemInfo" method="post">
-		<input type="text" name="openChat"><br> <input
-			type="submit" value="コメントする">
-	</form>
+	<div class="openChatTable">
+		<table border="1">
+			<c:forEach var="chat" items="${open}">
+				<tr>
+					<td>${open.text}</td>
+					<td>${open.date}</td>
+				</tr>
+			</c:forEach>
+		</table>
 
+		<form action="sendopenchat" method="post">
+			<input type="text" name="openChat"><br>
+			<input type="submit" value="コメントする">
+		</form>
+	</div>
 
 	<p>
 		<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
 	</p>
-	</c:forEach>
-
-
 
 	<p>
 		<a href="/userInfo/">ユーザーの確認</a>
