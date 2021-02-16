@@ -28,7 +28,7 @@ public class ConfirmPayCommand extends AbstractCommand{
         try {
         	item = itemDao.getItem(key);
         }catch(IntegrationException e) {}
-        System.out.println(item.get(0));
+//        System.out.println(item.get(0));
 
         //user情報の所得
         List user = new ArrayList();

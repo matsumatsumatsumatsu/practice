@@ -28,7 +28,7 @@ public class SearchCommand extends AbstractCommand{
         String itemName = reqc.getParameter("keyword")[0];
 
         if(reqc.getParameter("hardware")[0] != null) {
-        	
+
         }
 
 
@@ -44,7 +44,7 @@ public class SearchCommand extends AbstractCommand{
         String cateName = reqc.getParameter("category")[0];
 
         try {
-        	items = itemdao.getItem("where item_name like '%", itemName+ "%'");
+        	items = itemdao.getItem("where item_name like '%"+ itemName+ "%'");
         	hardwares = hardwaredao.getAllHardware();
         	categorys = categorydao.getAllCategory();
         	System.out.println("検索結果："+items);
