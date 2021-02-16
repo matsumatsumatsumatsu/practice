@@ -22,6 +22,7 @@ public class SendOpenChatCommand extends AbstractCommand{
         String sessionUserId =  ((User)SessionManager.getAttribute("token")).getUserId();
 
         String texts[] = reqc.getParameter("text");
+        System.out.println(reqc.getParameter("text"));
         String text = texts[0];
 
         String dates[] = reqc.getParameter("date");
