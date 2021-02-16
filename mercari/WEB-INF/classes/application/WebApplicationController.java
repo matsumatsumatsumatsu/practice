@@ -39,11 +39,11 @@ public class WebApplicationController implements ApplicationController{
 	        for(int i=0; i<resultlist.size(); i++) {
 	        	List result=(List) resultlist.get(i);
 	        	req.setAttribute((String)result.get(0),result.get(1));
-	        	System.out.println(result.get(0));
+	        	System.out.println("result:"+result.get(0));
 	        }
         }
 
-        System.out.println(resultlist);
+        System.out.println("resultlist:"+resultlist);
 
         RequestDispatcher rd= req.getRequestDispatcher(resc.getTarget());
         try{
