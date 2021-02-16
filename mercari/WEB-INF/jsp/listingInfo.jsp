@@ -46,7 +46,7 @@
 		</table>
 
 		<form action="sendopenchat" method="post">
-			<input type="text" name="openChat"><br>
+			<input type="text" name="openChatText"><br>
 			<input type="submit" value="コメントする">
 		</form>
 	</div>
