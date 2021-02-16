@@ -17,7 +17,7 @@ public class ShowOpenChatCommand extends AbstractCommand{
 
         List chat = new ArrayList();
 
-        String itemId = reqc.getParameter("item_id")[0];
+        String itemId = reqc.getParameter("itemId")[0];
         try {
         	chat = dao.getAllMessage(itemId);
         }catch(IntegrationException e) {

@@ -1,10 +1,5 @@
 package command;
 
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import bean.OpenChat;
 import bean.User;
 import context.RequestContext;
@@ -22,20 +17,11 @@ public class SendOpenChatCommand extends AbstractCommand{
         String sessionUserId =  ((User)SessionManager.getAttribute("token")).getUserId();
 
         String texts[] = reqc.getParameter("text");
-        System.out.println(reqc.getParameter("text"));
+        System.out.println("SendOpenChatCommand.java:"+reqc.getParameter("text"));
         String text = texts[0];
 
-        String dates[] = reqc.getParameter("date");
-        System.out.println(reqc.getParameter("date"));
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-        Date parsedDate = null;
-		try {
-			parsedDate = sdf.parse(dates[0]);
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
-
-        String itemIds[] = reqc.getParameter("itemId");
+        String itemIds[] = reqc.getParameter("item_id");
+        System.out.println("user_id="+reqc.getParameter("item_id"));
         String itemId = itemIds[0];
 
 		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
@@ -46,9 +32,8 @@ public class SendOpenChatCommand extends AbstractCommand{
         OpenChat oc = new OpenChat();
         oc.setUserId(sessionUserId);
         oc.setText(text);
-        oc.setDate((Timestamp)parsedDate);
 
-		resc.setResult("");
+        resc.setTarget("listingInfo");
 		return resc;
 	}
 }

@@ -44,10 +44,12 @@
 			</c:forEach>
 		</table>
 
-		<form action="sendopenchat" method="post">
-			<input type="text" name="openChat"><br>
-			<input type="submit" value="コメントする">
-		</form>
+		<c:forEach var="item" items="${data}">
+			<form action="sendopenchat?item_id=${item.itemId}" method="post">
+				<input type="text" name="text"><br>
+				<input type="submit" value="コメントする">
+			</form>
+		</c:forEach>
 	</div>
 
 	<p>
