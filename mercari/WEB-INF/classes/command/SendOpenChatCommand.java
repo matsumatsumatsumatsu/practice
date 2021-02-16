@@ -6,6 +6,7 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.OpenChatInterfaceDao;
+import exception.IntegrationException;
 import util.SessionManager;
 
 public class SendOpenChatCommand extends AbstractCommand{
@@ -21,7 +22,7 @@ public class SendOpenChatCommand extends AbstractCommand{
         String text = texts[0];
 
         String itemIds[] = reqc.getParameter("item_id");
-        System.out.println("user_id="+reqc.getParameter("item_id"));
+        System.out.println("item_id="+reqc.getParameter("item_id"));
         String itemId = itemIds[0];
 
 		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
@@ -29,9 +30,16 @@ public class SendOpenChatCommand extends AbstractCommand{
 
         System.out.println("token:"+SessionManager.getAttribute("token"));
 
-        OpenChat oc = new OpenChat();
-        oc.setUserId(sessionUserId);
-        oc.setText(text);
+        OpenChat op = new OpenChat();
+        op.setUserId(sessionUserId);
+        op.setText(text);
+        op.setItemId(itemId);
+
+		try {
+	        dao.send(op);
+		}catch(IntegrationException e) {
+
+		}
 
         resc.setTarget("listingInfo");
 		return resc;
