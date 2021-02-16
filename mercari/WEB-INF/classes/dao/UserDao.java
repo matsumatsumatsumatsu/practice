@@ -216,12 +216,22 @@ public class UserDao implements UserInterfaceDao{
 		}
 	}
 
-	public void deleteUser(String userName) throws IntegrationException {
+	public void deleteUser(String userId) throws IntegrationException {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
-			String sql = "delete from user where user_name = ?";
-			st = cn.prepareStatement(sql);
-			st.setString(1, userName);
+
+			String sql1 = "SET FOREIGN_KEY_CHECKS = 0";
+			String sql2 = "delete from user where user_id = ?";
+			String sql3 = "SET FOREIGN_KEY_CHECKS = 1";
+
+			st = cn.prepareStatement(sql1);
+			st.executeUpdate();
+			MysqlConnector.getInstance();
+			st = cn.prepareStatement(sql2);
+			st.setString(1, userId);
+			MysqlConnector.getInstance();
+			st.executeUpdate();
+			st = cn.prepareStatement(sql3);
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();
 		}catch (SQLException e) {
