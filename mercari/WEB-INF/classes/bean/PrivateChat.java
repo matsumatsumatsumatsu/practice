@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 
 public class PrivateChat implements Serializable{
 	private String chatId;
-	private String paymentId;
+	private String dealId;
 	private String buyerId;
 	private String sellerId;
 	private String text;
@@ -21,12 +21,12 @@ public class PrivateChat implements Serializable{
 		this.chatId = chatId;
 	}
 
-	public String getPaymentId() {
-		return paymentId;
+	public String getDealId() {
+		return dealId;
 	}
 
-	public void setPaymentId(String paymentId) {
-		this.paymentId = paymentId;
+	public void setDealId(String dealId) {
+		this.dealId = dealId;
 	}
 
 	public String getBuyerId() {
