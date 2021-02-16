@@ -5,8 +5,8 @@ import java.sql.Timestamp;
 
 public class Deal implements Serializable {
 	private String dealId;
-	private String paymentId;
-	private String depositId;
+	private String beforePaymentId;
+	private String afterPaymentId;
 	private String itemId;
 	private String dealState;
 	private Timestamp timeLimit;
@@ -19,17 +19,17 @@ public class Deal implements Serializable {
 	public void setDealId(String dealId) {
 		this.dealId = dealId;
 	}
-	public String getPaymentId() {
-		return paymentId;
+	public String getBeforePaymentId() {
+		return beforePaymentId;
 	}
-	public void setPaymentId(String paymentId) {
-		this.paymentId = paymentId;
+	public void setBeforePaymentId(String beforePaymentId) {
+		this.beforePaymentId = beforePaymentId;
 	}
-	public String getDepositId() {
-		return depositId;
+	public String getAfterPaymentId() {
+		return afterPaymentId;
 	}
-	public void setDepositId(String depositId) {
-		this.depositId = depositId;
+	public void setAfterPaymentId(String afterPaymentId) {
+		this.afterPaymentId = afterPaymentId;
 	}
 	public String getItemId() {
 		return itemId;
