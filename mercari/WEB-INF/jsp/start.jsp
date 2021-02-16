@@ -73,7 +73,7 @@
 		<c:forEach var="item" items="${itemlist}">
 			<tr>
 				<td>${item.itemId}</td>
-				<td><a href="showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</a></td>
+				<td><a href="f_showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</a></td>
 				<td>${item.price}</td>
 				<td>${item.itemImage}</td>
 				<td>${item.itemExplanation}</td>

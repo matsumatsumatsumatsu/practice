@@ -4,7 +4,10 @@ import context.ResponseContext;
 
 public class ForwardShowItemInfoCommand extends AbstractCommand{
 	public  ResponseContext execute(ResponseContext resc){
-		resc.setTarget("item");
+		ShowOpenChatCommand showChat = new ShowOpenChatCommand();
+		ShowItemInfoCommand showItem = new ShowItemInfoCommand();
+		showChat.execute(resc);
+		showItem.execute(resc);
         return resc;
 	}
 }

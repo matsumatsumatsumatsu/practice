@@ -131,7 +131,6 @@ public class ItemDao implements ItemInterfaceDao {
 	                i.setPrice(rs.getInt(3));
 	                i.setItemImage(rs.getString(4));
 	                i.setItemExplanation(rs.getString(5));
-
 	                items.add(i);
 	            }
 	            MysqlConnector.getInstance().commit();

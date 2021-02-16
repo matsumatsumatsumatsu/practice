@@ -53,7 +53,6 @@ public class ShowItemInfoCommand extends AbstractCommand{
 		    }
 			System.out.println("((User)SessionManager.getAttribute(\"token\")).getUserId()="+((User)SessionManager.getAttribute("token")).getUserId());
 			System.out.println("((Item)item.get(0)).getSellerId()="+((Item)item.get(0)).getSellerId());
-
 		}
 		return resc;
 	}
