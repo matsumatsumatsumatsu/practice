@@ -34,24 +34,28 @@
 	</table>
 	<br>
 
-	<div class="openChatTable">
+		<div class="openChatTable">
 		<table border="1">
 			<c:forEach var="chat" items="${open}">
 				<tr>
-					<td>${open.text}</td>
-					<td>${open.date}</td>
+					<td>${chat.text}</td>
+					<td>${chat.date}</td>
 				</tr>
 			</c:forEach>
 		</table>
 
-		<form action="sendopenchat" method="post">
-			<input type="text" name="openChatText"><br>
-			<input type="submit" value="コメントする">
-		</form>
+		<c:forEach var="item" items="${data}">
+			<form action="sendopenchat?item_id=${item.itemId}" method="post">
+				<input type="text" name="text"><br>
+				<input type="submit" value="コメントする">
+			</form>
+		</c:forEach>
 	</div>
 
 	<p>
-		<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
+		<c:forEach var="item" items="${data}">
+			<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
+		</c:forEach>
 	</p>
 
 	<p>

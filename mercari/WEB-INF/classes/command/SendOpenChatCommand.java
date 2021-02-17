@@ -41,7 +41,10 @@ public class SendOpenChatCommand extends AbstractCommand{
 
 		}
 
-        resc.setTarget("listingInfo");
+        ShowItemInfoCommand show = new ShowItemInfoCommand();
+        show.init(reqc);
+        resc = show.execute(resc);
+
 		return resc;
 	}
 }
