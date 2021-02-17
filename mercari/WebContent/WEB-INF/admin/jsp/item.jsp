@@ -4,11 +4,12 @@
 
 <html>
 <head>
-<title>商品一覧</title>
+<title>ADMIN商品一覧</title>
 
 </head>
 
 <body>
+
 	<table border="1">
 		<tr>
 			<td>画像</td>
@@ -28,24 +29,13 @@
 				<td>${item.categoryId}</td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
+				<td>${item.itemId}</td>
+				<td><a href="banitem?item_id=${item.itemId}">削除</a></td>
 			</tr>
 	</table>
-	<br>
-
-	<!-- forEach��� -->
-	<form action="showItemInfo" method="post">
-		<input type="text" name="openChat"><br> <input
-			type="submit" value="コメントする">
-	</form>
-
-	<p>
-		<a href="confirmpay?item_id=${item.itemId}">商品購入</a>
-	</p>
 	</c:forEach>
 
-	<form action="banItem" method="post">
-		<input type="submit" name="banItem">
-	</form>
+
 	<p>
 		<a href="/userInfo/">ユーザーの確認</a>
 	</p>

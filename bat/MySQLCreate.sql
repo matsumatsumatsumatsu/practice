@@ -75,18 +75,25 @@ after_payment_id int UNSIGNED,
 item_id int UNSIGNED,
 deal_state int UNSIGNED,
 time_limit DATETIME,
+user_id int UNSIGNED,
+user_state int UNSIGNED,
+
 CONSTRAINT fk_before_payment_id
     FOREIGN KEY before_payment_id(before_payment_id) 
     REFERENCES payment_log(payment_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
- CONSTRAINT fk_after_payment_id
+CONSTRAINT fk_after_payment_id
     FOREIGN KEY after_payment_id(after_payment_id) 
     REFERENCES payment_log(payment_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT,
 CONSTRAINT fk_item_id
     FOREIGN KEY (item_id) 
     REFERENCES item(item_id)
-    ON DELETE RESTRICT ON UPDATE RESTRICT
+    ON DELETE RESTRICT ON UPDATE RESTRICT,
+CONSTRAINT fk_user_id
+     FOREIGN KEY (user_id)
+     REFERENCES user(user_id)
+     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 create table notice(
@@ -94,7 +101,7 @@ notice_id int UNSIGNED auto_increment,
 user_id int UNSIGNED,
 comment varchar(500),
  primary key(notice_id),
-CONSTRAINT fk_user_id
+CONSTRAINT fk_notice_user_id
     FOREIGN KEY (user_id) 
     REFERENCES user(user_id)
     ON DELETE RESTRICT ON UPDATE RESTRICT
