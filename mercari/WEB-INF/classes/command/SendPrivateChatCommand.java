@@ -15,6 +15,7 @@ public class SendPrivateChatCommand extends AbstractCommand {
 		String dealId = reqc.getParameter("deal_id")[0];
 		String buyerId = null;
 		String sellerId = null;
+
         //sessionからuserIdを持ってくる
         SessionManager.getSession(reqc);
         String sessionUserId =  ((User)SessionManager.getAttribute("token")).getUserId();

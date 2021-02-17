@@ -137,7 +137,48 @@ public class UserDao implements UserInterfaceDao{
 					MysqlConnector.getInstance().closeConnection();
 				}
 			}
+		}
+		return users;
+	}
 
+	public List getCurrentUserPass(String sessionUserId) throws IntegrationException {
+		List users = new ArrayList();
+		User u = new User();
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+
+			String sql = "select * from user where user_id = ?" ;
+			st = cn.prepareStatement(sql);
+			st.setString(1, sessionUserId);
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				u.setUserId(rs.getString(1));
+				u.setUserName(rs.getString(2));
+				u.setUserPassword(rs.getString(3));
+				u.setRealName(rs.getString(4));
+				u.setAddress(rs.getString(5));
+				u.setTel(rs.getString(6));
+				u.setMail(rs.getString(7));
+				u.setProfile(rs.getString(8));
+				u.setPoint(rs.getInt(9));
+
+				users.add(u);
+			}
+			MysqlConnector.getInstance().commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				if (st != null) {
+					st.close();
+				}
+			} catch (SQLException ex) {
+				e.printStackTrace();
+			} finally {
+				if (cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
 		}
 		return users;
 	}

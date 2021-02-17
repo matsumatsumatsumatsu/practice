@@ -20,7 +20,7 @@ public class OpenChatDao implements OpenChatInterfaceDao {
 		try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "insert into open_chat(user_id,text,date,item_id) " + "values(?,?,cast( now() as datetime),?)";
+            String sql = "insert into open_chat(user_id,text,date,item_id)  values(?,?,cast( now() as datetime),?)";
 
             st = cn.prepareStatement(sql);
 

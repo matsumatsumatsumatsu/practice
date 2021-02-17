@@ -27,7 +27,6 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
 			ApplicationController app=new WebApplicationController();
 			RequestContext reqc = app.getRequest(req);
 			ResponseContext resc= app.handleRequest(reqc);
-
 			resc.setResponse(res);
 			app.handleResponse(reqc,resc);
 		}catch(PresentationException e){

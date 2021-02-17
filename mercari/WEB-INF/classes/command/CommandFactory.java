@@ -1,9 +1,9 @@
 package command;
+
 import java.io.IOException;
 import java.util.Properties;
 
 import context.RequestContext;
-
 
 public abstract class CommandFactory {
 	public static AbstractCommand getCommand(RequestContext rc) {
