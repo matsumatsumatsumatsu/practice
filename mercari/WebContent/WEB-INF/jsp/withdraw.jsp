@@ -10,7 +10,7 @@
 	<form action="withdraw" method="post">
 		<label>パスワードを入力</label>
 		<input type="text" name="userPassword" />
-		<button type="submit">退会</button>
+		<button type="submit" >退会</button>
 	</form>
 </body>
 </html>

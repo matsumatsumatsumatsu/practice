@@ -16,11 +16,12 @@ public class WithdrawCommand extends AbstractCommand{
 		UserInterfaceDao userDao = factory.getUserInterfaceDao();
 
 		//ログイン中のユーザーidから登録しているパスワードを取得する
+		//sessionからuserIdを取得
 		SessionManager.getSession(reqc);
 		String sessionUserId = ((User)SessionManager.getAttribute("token")).getUserId();
 		User ub = null;
 		try {
-			ub = (User)userDao.getUserPass(sessionUserId).get(0);
+			ub = (User)userDao.getCurrentUserPass(sessionUserId).get(0);
 		} catch (IntegrationException e) {
 			e.printStackTrace();
 		}
