@@ -16,11 +16,27 @@ public class DealDao implements DealInterfaceDao {
 	PreparedStatement st = null;
 	ResultSet rs = null;
 
-	public void insertDeal() throws IntegrationException{
+	public void insertDeal(Deal deal) throws IntegrationException{
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
-        	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
+        	String sql = "insert into deal(before_payment_id,after_payment_id,item_id,deal_state,time_limit,user_id,user_state) values(?,?,?,?,null,?,?)";
         	st = cn.prepareStatement(sql);
+
+        	System.out.println("-DealDao-");
+        	System.out.println("sql:"+sql);
+
+        	//購入者のpayment_log列のid
+        	st.setString(1,deal.getBeforePaymentId());
+        	//出品者のpayment_log列のid
+        	st.setString(2,deal.getAfterPaymentId());
+        	st.setString(3,deal.getItemId());
+        	st.setString(4,deal.getDealState());
+        	st.setString(5,deal.getUserId());
+        	st.setString(6,deal.getUserState());
+
+            st.executeUpdate();
+            MysqlConnector.getInstance().commit();
+
 		}catch (SQLException e) {
             e.printStackTrace();
             MysqlConnector.getInstance().rollback();
@@ -48,7 +64,7 @@ public class DealDao implements DealInterfaceDao {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "select deal_id,before_payment_id,after_payment_id,item_id,deal_state,time_limit from deal where deal_id = "+ dealId ;
+			String sql = "select deal_id,before_payment_id,after_payment_id,item_id,deal_state,time_limit,user_id,user_state from deal where deal_id = "+ dealId ;
 	        st = cn.prepareStatement(sql);
 	        rs = st.executeQuery();
 
@@ -60,6 +76,8 @@ public class DealDao implements DealInterfaceDao {
 	        	deal.setItemId(rs.getString(4));
 	        	deal.setDealState(rs.getString(5));
 	        	deal.setTimeLimit(rs.getTimestamp(6));
+	        	deal.setUserId(rs.getString(7));
+	        	deal.setUserState(rs.getString(8));
 	        }
 		}catch (SQLException e) {
             e.printStackTrace();

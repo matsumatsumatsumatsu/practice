@@ -10,6 +10,8 @@ public class Deal implements Serializable {
 	private String itemId;
 	private String dealState;
 	private Timestamp timeLimit;
+	private String userId;
+	private String userState;
 
 	public Deal() {}
 
@@ -48,5 +50,21 @@ public class Deal implements Serializable {
 	}
 	public void setTimeLimit(Timestamp timeLimit) {
 		this.timeLimit = timeLimit;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public String getUserState() {
+		return userState;
+	}
+
+	public void setUserState(String userState) {
+		this.userState = userState;
 	}
 }

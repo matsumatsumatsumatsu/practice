@@ -7,6 +7,8 @@ import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
+import dao.DealInterfaceDao;
+import dao.ItemInterfaceDao;
 import dao.UserInterfaceDao;
 import exception.IntegrationException;
 import util.SessionManager;
@@ -22,13 +24,18 @@ public class ShowProfileCommand extends AbstractCommand{
 	    System.out.println("user_id="+sessionUserId);
 
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-		UserInterfaceDao dao = factory.getUserInterfaceDao();
+		UserInterfaceDao userdao = factory.getUserInterfaceDao();
+		ItemInterfaceDao itemdao = factory.getItemInterfaceDao();
+		DealInterfaceDao dealdao = factory.getDealInterfaceDao();
+
 
 		List user = new ArrayList(); //ユーザーの情報
 		List item = new ArrayList(); //商品の情報
+		List deal = new ArrayList();
 
         try {
-        	user = dao.getUser(sessionUserId);
+        	user = userdao.getUser(sessionUserId);
+        	deal = dealdao.getDealInfo(sessionUserId);
         }catch(IntegrationException e) {
         }
 

@@ -1,11 +1,14 @@
 package command;
 
+import bean.Deal;
+import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.DealInterfaceDao;
 import exception.BusinessLogicException;
 import exception.IntegrationException;
+import util.SessionManager;
 
 public class RegistDealCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) throws BusinessLogicException{
@@ -16,8 +19,21 @@ public class RegistDealCommand extends AbstractCommand{
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		DealInterfaceDao dao = factory.getDealInterfaceDao();
 
+		SessionManager.getSession(reqc);
+		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
+
+		Deal deal = new Deal();
+		deal.setBeforePaymentId(null);
+		deal.setBeforePaymentId(null);
+		deal.setItemId(itemId);
+		//1は取引中
+		deal.setDealState("1");
+		deal.setUserId(sessionUserId);
+		//1は購入者の取引中
+		deal.setUserState("1");
+
 		try{
-			dao.insertDeal(itemId);
+			dao.insertDeal(deal);
 		}catch(IntegrationException e) {
 			//例外処理
 		}

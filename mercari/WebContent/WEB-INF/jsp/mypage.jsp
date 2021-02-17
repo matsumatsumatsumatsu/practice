@@ -36,11 +36,11 @@
 				<th>商品名</th>
 				<th>画像</th>
 			</tr>
-			<c:forEach var="item" items="${item}">
+			<c:forEach var="deal" items="${deal}">
 				<tr>
-					<td>${item.itemId}</td>
-					<td>${item.itemName}</td>
-					<td>${item.itemImage}</td>
+					<td>${deal.dealId}</td>
+					<td>${deal.itemName}</td>
+					<td>${deal.itemImage}</td>
 				</tr>
 			</c:forEach>
 		</table>
