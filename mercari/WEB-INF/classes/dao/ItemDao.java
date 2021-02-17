@@ -314,4 +314,37 @@ public class ItemDao implements ItemInterfaceDao {
 //	        }
 //	        return i;
 //	    }
+	 public void deleteItem(String itemid) throws IntegrationException{
+		 try {
+				cn = MysqlConnector.getInstance().getConnection();
+
+				String sql1 = "SET FOREIGN_KEY_CHECKS = 0";
+				String sql2 = "delete from item where item_id = ?";
+				String sql3 = "SET FOREIGN_KEY_CHECKS = 1";
+
+				st = cn.prepareStatement(sql1);
+				st.executeUpdate();
+				MysqlConnector.getInstance();
+				st = cn.prepareStatement(sql2);
+				st.setString(1, itemid);
+				MysqlConnector.getInstance();
+				st.executeUpdate();
+				st = cn.prepareStatement(sql3);
+				st.executeUpdate();
+				MysqlConnector.getInstance().commit();
+			}catch (SQLException e) {
+				e.printStackTrace();
+				try {
+					if (st != null) {
+						st.close();
+					}
+				} catch (SQLException ex) {
+					e.printStackTrace();
+				} finally {
+					if (cn != null) {
+						MysqlConnector.getInstance().closeConnection();
+					}
+				}
+			}
+	 }
 }

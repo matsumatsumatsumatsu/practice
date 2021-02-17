@@ -13,4 +13,5 @@ public interface ItemInterfaceDao {
 	public List search(String keyword) throws IntegrationException;
 	//public Item category(String categoryId);
 	//public Item sort(String col, String order);
+	public void deleteItem(String itemid) throws IntegrationException;
 }
