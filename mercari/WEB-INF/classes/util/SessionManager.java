@@ -15,7 +15,6 @@ public class SessionManager {
 		req=(HttpServletRequest)reqc.getRequest();
 		session=req.getSession();
 	}
-
 	public static void setAttribute(String name,Object result){
 		session.setAttribute(name,result);
 	}

@@ -18,7 +18,7 @@ public class PayCommand extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) throws BusinessLogicException {
 		RequestContext reqc = getRequestContext();
 
-		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
+		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
 		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
 		UserInterfaceDao userDao = factory.getUserInterfaceDao();
 
@@ -37,7 +37,7 @@ public class PayCommand extends AbstractCommand {
 
         //sessionからuserIdを持ってくる
         SessionManager.getSession(reqc);
-		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
+		String sessionUserId = ((User)SessionManager.getAttribute("token")).getUserId();
 
 		try {
 			user = userDao.getUser(sessionUserId);
