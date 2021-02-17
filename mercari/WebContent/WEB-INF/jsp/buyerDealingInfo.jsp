@@ -25,10 +25,12 @@
 		<input type="submit" value="受け取りました">
 	</form>
 
-	<form action="sendMessage" method="post">
-		<input type="text" name="privateChat"><br> <input
-			type="submit" value="コメントする">
-	</form>
+	<c:forEach var="deal" items="${data}">
+		<form action="sendPrivateChat?=deal_id=${deal.dealId}" method="post">
+			<input type="text" name="text"><br> <input
+				type="submit" value="コメントする">
+		</form>
+	</c:forEach>
 
 	<p>
 		<a href="cancel">取引をキャンセルする</a>
