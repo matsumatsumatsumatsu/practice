@@ -9,34 +9,49 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
+import dao.OpenChatInterfaceDao;
 import exception.IntegrationException;
 import util.SessionManager;
 
 public class ShowItemInfoCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) {
     	AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
-        ItemInterfaceDao dao = factory.getItemInterfaceDao();
+        ItemInterfaceDao itemdao = factory.getItemInterfaceDao();
+        OpenChatInterfaceDao chatdao = factory.getOpenChatInterfaceDao();
         RequestContext reqc = getRequestContext();
 
+        System.out.println("--ShowItemInfo--");
+
         List item = new ArrayList();
+        List chat = new ArrayList();
 
         String itemId = reqc.getParameter("item_id")[0];
         String key = "where item_id = " + itemId;
         try {
-        	item = dao.getItem(key);
+        	item = itemdao.getItem(key);
         }catch(IntegrationException e) {
         }
 
-        List<Object> first=new ArrayList<>();
-		first.add("data");
-		first.add(item);
+        try {
+        	chat = chatdao.getAllMessage(itemId);
+        }catch(IntegrationException e) {
+        }
+
+        System.out.println("chat:"+chat);
+
 		List<List> result=new ArrayList<>();
+
+        List<Object> first=new ArrayList<>();
+		first.add("open");
+		first.add(chat);
 		result.add(first);
 
-        resc.setResult(result);
+        List<Object> second=new ArrayList<>();
+		second.add("data");
+		second.add(item);
+		result.add(second);
 
-        //user情報の所得
-        List user = new ArrayList();
+        resc.setResult(result);
 
         //sessionからuserIdを持ってくる
         SessionManager.getSession(reqc);

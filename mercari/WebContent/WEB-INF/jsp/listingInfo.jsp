@@ -38,8 +38,8 @@
 		<table border="1">
 			<c:forEach var="chat" items="${open}">
 				<tr>
-					<td>${open.text}</td>
-					<td>${open.date}</td>
+					<td>${chat.text}</td>
+					<td>${chat.date}</td>
 				</tr>
 			</c:forEach>
 		</table>
