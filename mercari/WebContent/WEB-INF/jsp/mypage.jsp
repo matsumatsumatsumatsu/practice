@@ -68,6 +68,7 @@
 			<li><a href="point">ポイント</a></li>
 			<li><a href="profile">プロフィール</a></li>
 			<li><a href="f_logout">ログアウト</a></li>
+			<li><a href="withdraw">退会</a></li>
 		</ul>
 	</div>
 </body>
