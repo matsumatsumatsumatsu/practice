@@ -47,7 +47,7 @@ public class GrantPointCommand extends AbstractCommand{
 
         }
         System.out.println(userId+"|"+point);
-		resc.setTarget("admin/userInfo");
+		resc.setTarget("admin/admin");
 		return resc;
 	}
 }
