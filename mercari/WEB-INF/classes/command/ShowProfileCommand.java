@@ -32,7 +32,7 @@ public class ShowProfileCommand extends AbstractCommand{
 
         try {
         	user = userdao.getUser(sessionUserId);
-        	deal = dealdao.getDealInfo(sessionUserId);
+        	deal = dealdao.getAllDeals(sessionUserId);
 
         }catch(IntegrationException e) {
         }

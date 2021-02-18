@@ -59,7 +59,7 @@ public class DealDao implements DealInterfaceDao {
         }
 	}
 
-	public List getDealInfo(String userId) throws IntegrationException{
+	public List getAllDeals(String userId) throws IntegrationException{
 		ArrayList deals = new ArrayList();
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
@@ -102,4 +102,46 @@ public class DealDao implements DealInterfaceDao {
 		return deals;
 	}
 
+	public List getDeal(String dealId) throws IntegrationException {
+		List deal = new ArrayList();
+		Deal d = new Deal();
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+
+			String sql = "select * from deal where deal_id = ?";
+			st = cn.prepareStatement(sql);
+			st.setString(1, dealId);
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+	        	d.setDealId(rs.getString(1));
+	        	d.setBeforePaymentId(rs.getString(2));
+	        	d.setAfterPaymentId(rs.getString(3));
+	        	d.setItemId(rs.getString(4));
+	        	d.setItemName(rs.getString(5));
+	        	d.setDealState(rs.getString(6));
+	        	d.setTimeLimit(rs.getTimestamp(7));
+	        	d.setUserId(rs.getString(8));
+	        	d.setUserState(rs.getString(9));
+
+				deal.add(d);
+			}
+			MysqlConnector.getInstance().commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				if (st != null) {
+					st.close();
+				}
+			} catch (SQLException ex) {
+				e.printStackTrace();
+			} finally {
+				if (cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+
+		}
+		return deal;
+	}
 }
