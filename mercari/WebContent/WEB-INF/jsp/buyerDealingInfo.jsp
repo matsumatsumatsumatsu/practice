@@ -31,7 +31,7 @@
 		<c:forEach var="chat" items="${chat}">
 			<tr>
 				<td>${chat.chatId}</td>
-				<td>${chat.text}</td>
+				<td>${chat.	text}</td>
 				<td>${chat.date}</td>
 			</tr>
 		</c:forEach>
@@ -41,8 +41,8 @@
 		<input type="submit" value="受け取りました">
 	</form>
 
-	<c:forEach var="deal" items="${data}">
-		<form action="sendPrivateChat?=deal_id=${deal.dealId}" method="post">
+	<c:forEach var="deal" items="${deal}">
+		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=${deal.userState}" method="post">
 			<input type="text" name="text"><br> <input
 				type="submit" value="コメントする">
 		</form>
