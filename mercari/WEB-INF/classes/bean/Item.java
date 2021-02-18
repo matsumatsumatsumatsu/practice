@@ -14,6 +14,7 @@ public class Item implements Serializable{
 	private int term;
 	private int stock;
 	private String listingDate;
+	private String userId;
 
 	public Item() {}
 

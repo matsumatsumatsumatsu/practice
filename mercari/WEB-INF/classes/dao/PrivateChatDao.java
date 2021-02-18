@@ -54,12 +54,12 @@ public class PrivateChatDao implements PrivateChatInterfaceDao {
             }
         }
 	}
-	public List getAllMessage(String deal_id) throws IntegrationException{
+	public List getAllMessage(String dealId) throws IntegrationException{
 		ArrayList chat =new ArrayList();
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select chat_id,deal_id,buyer_id,seller_id,text,date from private_chat where deal_id = "+deal_id+" order by chat_id";
+            String sql = "select chat_id,deal_id,buyer_id,seller_id,text,date from private_chat where deal_id = "+dealId+" order by chat_id";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 

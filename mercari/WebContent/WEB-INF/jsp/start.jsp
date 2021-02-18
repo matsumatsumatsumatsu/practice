@@ -52,6 +52,7 @@
 			<th>価格</th>
 			<th>画像</th>
 			<th>説明</th>
+			<th>在庫</th>
 		</tr>
 		<c:forEach var="item" items="${itemlist}">
 			<tr>
@@ -60,6 +61,7 @@
 				<td>${item.price}</td>
 				<td>${item.itemImage}</td>
 				<td>${item.itemExplanation}</td>
+				<td>${item.stock}</td>
 			</tr>
 		</c:forEach>
 	</table>

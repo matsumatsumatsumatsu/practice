@@ -9,14 +9,30 @@
 </head>
 <body>
 	<table border="1">
-		<c:forEach var="user" items="${data}">
+		<tr>
+			<td>dealId</td>
+			<td>itemId</td>
+			<td>dealState</td>
+		</tr>
+		<c:forEach var="deal" items="${deal}">
 			<tr>
-				<td>${user.itemImage}</td>
-				<td>${user.itemName}</td>
-				<td>${user.price}</td>
-				<td>${user.data}</td>
-				<td>${user.address}</td>
-				<td>${user.realName}</td>
+				<td>${deal.dealId}</td>
+				<td>${deal.itemId}</td>
+				<td>${deal.dealState}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<table border="1">
+		<tr>
+			<td>chatId</td>
+			<td>text</td>
+			<td>date</td>
+		</tr>
+		<c:forEach var="chat" items="${chat}">
+			<tr>
+				<td>${chat.chatId}</td>
+				<td>${chat.text}</td>
+				<td>${chat.date}</td>
 			</tr>
 		</c:forEach>
 	</table>

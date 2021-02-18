@@ -315,4 +315,28 @@ public class UserDao implements UserInterfaceDao{
 			}
 		}
 	}
+	public void grantPoint(String userId,int point) throws IntegrationException{
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+			String sql = "update user set point = ? where user_id = ?";
+			st = cn.prepareStatement(sql);
+			st.setInt(1,point);
+			st.setString(2, userId);
+			st.executeUpdate();
+			MysqlConnector.getInstance().commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				if (st != null) {
+					st.close();
+				}
+			} catch (SQLException ex) {
+				e.printStackTrace();
+			} finally {
+				if (cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+		}
+	}
 }
