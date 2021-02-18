@@ -8,7 +8,7 @@ public class PaymentLog implements Serializable{
 	private String paymentId;
 	private String sellerId;
 	private String buyerId;
-	private String itemid;
+	private String itemId;
 	private int price;
 	private Timestamp date;
 
@@ -38,12 +38,12 @@ public class PaymentLog implements Serializable{
 		this.buyerId = buyerId;
 	}
 
-	public String getItemid() {
-		return itemid;
+	public String getItemId() {
+		return itemId;
 	}
 
-	public void setItemid(String itemid) {
-		this.itemid = itemid;
+	public void setItemId(String itemId) {
+		this.itemId = itemId;
 	}
 
 	public int getPrice() {
