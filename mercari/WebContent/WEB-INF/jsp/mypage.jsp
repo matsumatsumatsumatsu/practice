@@ -19,10 +19,12 @@
 	<table border="1">
 		<tr>
 			<th>ユーザー名</th>
+			<th>ポイント</th>
 		</tr>
 		<c:forEach var="user" items="${data}">
 			<tr>
 				<td>${user.userName}</td>
+				<td>${user.point}</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -65,7 +67,7 @@
 
 	<div id="list-side">
 		<ul>
-			<li><a href="listingList">出品した商品</a></li>
+			<li><a href="showownlistinglist">出品した商品</a></li>
 			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>
 			<li><a href="profile">プロフィール</a></li>
