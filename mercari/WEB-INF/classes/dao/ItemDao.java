@@ -120,7 +120,7 @@ public class ItemDao implements ItemInterfaceDao {
 	        try {
 	        	cn = MysqlConnector.getInstance().getConnection();
 
-	            String sql = "select item_id,item_name,price,item_image,item_explanation from item";
+	            String sql = "select item_id,item_name,price,item_image,item_explanation,stock from item";
 	            st = cn.prepareStatement(sql);
 	            rs = st.executeQuery();
 
@@ -131,6 +131,7 @@ public class ItemDao implements ItemInterfaceDao {
 	                i.setPrice(rs.getInt(3));
 	                i.setItemImage(rs.getString(4));
 	                i.setItemExplanation(rs.getString(5));
+	                i.setStock(rs.getInt(6));
 	                items.add(i);
 	            }
 	            MysqlConnector.getInstance().commit();
