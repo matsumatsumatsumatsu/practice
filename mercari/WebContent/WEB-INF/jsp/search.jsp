@@ -8,26 +8,26 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <div class="search">
-	<form name="itemsearch" method='post' action='search'>
+	<form name="itemsearch" method='post' action='narrow'>
 		<p>商品名検索</p>
 		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
 			value='検索！'>
-	</form>
+
 </div>
 </head>
 
 <body>
 	<div id="search">
-		<form method='post' action="search">
+
 			<p>ハードウェア</p>
 			<div id="categorysearch">
-			<input type="radio" name="hardware" value="0">選択しない
+			<input type="radio" name="hardware" value="0" checked>すべて
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
 			</c:forEach>
 			<br>
 			<p>カテゴリ</p>
-			<input type="radio" name="category" value="0">選択しない
+			<input type="radio" name="category" value="0" checked>すべて
 			<c:forEach var="category" items="${category}">
 				<input type="radio" name="category" value="${category.categoryId}">${category.category}
 			</c:forEach>
@@ -43,7 +43,7 @@
 				<input type="checkbox" name="sale"><label for="sale">販売中</label>
 				<input type="checkbox" name="sold"><label for="sold">売りきれ</label>
 			</div>
-			<button type='submit' value='検索！'></button>
+			<button type='submit' value='検索！'>検索</button>
 		</form>
 	</div>
 	<p>

@@ -8,7 +8,6 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.DealInterfaceDao;
-import dao.ItemInterfaceDao;
 import dao.UserInterfaceDao;
 import exception.IntegrationException;
 import util.SessionManager;
@@ -25,17 +24,16 @@ public class ShowProfileCommand extends AbstractCommand{
 
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		UserInterfaceDao userdao = factory.getUserInterfaceDao();
-		ItemInterfaceDao itemdao = factory.getItemInterfaceDao();
 		DealInterfaceDao dealdao = factory.getDealInterfaceDao();
 
 
 		List user = new ArrayList(); //ユーザーの情報
-		List item = new ArrayList(); //商品の情報
 		List deal = new ArrayList();
 
         try {
         	user = userdao.getUser(sessionUserId);
         	deal = dealdao.getDealInfo(sessionUserId);
+
         }catch(IntegrationException e) {
         }
 
@@ -45,14 +43,14 @@ public class ShowProfileCommand extends AbstractCommand{
 		System.out.println(first.get(0));
 
 		List<Object> second=new ArrayList<>();
-		second.add("item");
-		second.add(item);
+		second.add("deal");
+		second.add(deal);
 		System.out.println(second.get(0));
+
 
 		List<List> result=new ArrayList<>();
 		result.add(first);
 		result.add(second);
-		System.out.println(result.get(0));
 
 		resc.setResult(result);
 		resc.setTarget("mypage");

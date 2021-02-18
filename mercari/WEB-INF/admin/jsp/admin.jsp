@@ -3,47 +3,37 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <html>
-
 <head>
-<title>スタート画面</title>
+<title>管理者用ページ</title>
 <div class="search">
 	<form name="itemsearch" method='post' action='search'
 		onSubmit="return check()">
 		<p>商品名検索</p>
-		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
+		<input type='text' name='itemName'> <input type='submit'
 			value='検索！'>
 	</form>
 </div>
-	<div class="search">
-			<c:forEach var="hardware" items="${hardware}">
-				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
-			</c:forEach>
-			<br>
-			<p>カテゴリ</p>
-			<input type="radio" name="category" value="0" checked>すべて
-			<c:forEach var="category" items="${category}">
-				<input type="radio" name="category" value="${category.categoryId}">${category.category}
-			</c:forEach>
-	</div>
+<ul class="category">
+	<li><a>カテゴリから探す</a>
+		<ul>
+			<li><a href="category">DS</a>
+				<ul>
+
+					<li><a href="category">アクション</a></li>
+					<li><a href="category">Child2</a></li>
+					<li><a href="category">Child3</a></li>
+					<li><a href="category">Child4</a></li>
+					<li><a href="category">Child5</a></li>
+				</ul></li>
+
+		</ul></li>
+
+</ul>
 </head>
 
 <body>
-	<h1>メルカリもどき</h1>
-	<p>
-		<a href="f_signup">ユーザー登録画面へ</a>
-	</p>
-	<p>
-		<a href="showprofile">マイページ</a>
-	</p>
-	<p>
-		<a href="f_listing">出品画面へ</a>
-	</p>
-	<p>
-		<a href="f_login">ログイン</a>
-	</p>
-	<p>
-		<a href="f_logout">ログアウト</a>
-	</p>
+	<h1>メルカリ管理者</h1>
+
 
 	<table border="1">
 		<tr>
@@ -56,14 +46,23 @@
 		<c:forEach var="item" items="${itemlist}">
 			<tr>
 				<td>${item.itemId}</td>
-				<td><a href="showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</a></td>
+				<td><a href="adminshowiteminfo?item_id=${item.itemId}">${item.itemName}</a></td>
 				<td>${item.price}</td>
 				<td>${item.itemImage}</td>
 				<td>${item.itemExplanation}</td>
+
 			</tr>
+			<!-- urlをf_showiteminfoにすると一応飛びます -->
+
 		</c:forEach>
 	</table>
 
+	<p>
+		<a href="show">ユーザ一覧</a>
+	</p>
+	<p>
+		<a href="paymentLogList">全ユーザーの取引履歴の閲覧</a>
+	</p>
 </body>
 </html>
 
