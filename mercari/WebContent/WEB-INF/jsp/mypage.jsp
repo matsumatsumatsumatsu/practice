@@ -38,7 +38,7 @@
 			</tr>
 			<c:forEach var="deal" items="${deal}">
 					<tr>
-						<td><a href="showiteminfo?item_id=${deal.dealId}" name="itemId">${deal.dealId}</a></td>
+						<td><a href="buyerDealingInfo?item_id=${deal.itemId}" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
 						<!-- <td>${item.ItemImage}</td> -->
 					</tr>
