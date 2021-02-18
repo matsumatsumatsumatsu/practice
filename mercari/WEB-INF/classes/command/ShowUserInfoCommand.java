@@ -15,7 +15,7 @@ public class ShowUserInfoCommand extends AbstractCommand{
 		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
 		UserInterfaceDao dao = factory.getUserInterfaceDao();
 
-		System.out.println("--ShowItemInfo--");
+		System.out.println("--ShowUserInfo--");
 
 		List user = new ArrayList();
 
@@ -29,9 +29,14 @@ public class ShowUserInfoCommand extends AbstractCommand{
 		first.add("data");
 		first.add(user);
 
-		resc.setResult(result);
+		System.out.println("わわわわわわ！！！" + first);
+		result.add(first);
 
-		System.out.println("--ShowItemInfo--");
+
+		resc.setResult(result);
+		System.out.println("--ShowUserInfo--");
+
+		resc.setTarget("userInfo");
 		return resc;
 	}
 }
