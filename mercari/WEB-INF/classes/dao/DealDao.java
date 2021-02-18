@@ -108,9 +108,10 @@ public class DealDao implements DealInterfaceDao {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "select * from deal where deal_id = ?";
+			String sql = "select * from deal where deal_id = "+dealId;
+			System.out.println("sql="+sql);
 			st = cn.prepareStatement(sql);
-			st.setString(1, dealId);
+			System.out.println("sql="+sql);
 			rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -118,11 +119,10 @@ public class DealDao implements DealInterfaceDao {
 	        	d.setBeforePaymentId(rs.getString(2));
 	        	d.setAfterPaymentId(rs.getString(3));
 	        	d.setItemId(rs.getString(4));
-	        	d.setItemName(rs.getString(5));
-	        	d.setDealState(rs.getString(6));
-	        	d.setTimeLimit(rs.getTimestamp(7));
-	        	d.setUserId(rs.getString(8));
-	        	d.setUserState(rs.getString(9));
+	        	d.setDealState(rs.getString(5));
+	        	d.setTimeLimit(rs.getTimestamp(6));
+	        	d.setUserId(rs.getString(7));
+	        	d.setUserState(rs.getString(8));
 
 				deal.add(d);
 			}
