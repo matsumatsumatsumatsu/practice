@@ -1,3 +1,4 @@
+//dealを挿入するcommand
 package command;
 
 import bean.Deal;

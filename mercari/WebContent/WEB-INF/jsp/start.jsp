@@ -14,7 +14,7 @@
 			value='検索！'>
 	</form>
 </div>
-	<div class="search">
+	<!-- <div class="search">
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
 			</c:forEach>
@@ -24,7 +24,7 @@
 			<c:forEach var="category" items="${category}">
 				<input type="radio" name="category" value="${category.categoryId}">${category.category}
 			</c:forEach>
-	</div>
+	</div> -->
 </head>
 
 <body>
