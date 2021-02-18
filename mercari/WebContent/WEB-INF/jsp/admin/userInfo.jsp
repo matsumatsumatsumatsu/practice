@@ -39,6 +39,5 @@
 		<input type='text' placeholder='追加ポイント' name='point'>
 		<input type='submit' value='追加'>
 	</form>
-
 </body>
 </html>
