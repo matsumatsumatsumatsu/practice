@@ -53,7 +53,7 @@
 	</div>
 
 	<p>
-		<a href="userInfo">ユーザーの確認</a>
+		<a href="showprofile">マイページへ</a>
 	</p>
 	<p>
 		<a href="category">カテゴリー検索</a>

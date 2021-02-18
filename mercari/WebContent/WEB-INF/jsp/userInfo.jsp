@@ -16,7 +16,7 @@
 			<c:forEach var="user" items="${data}">
 				<td>${user.userName}</td>
 				<td>${user.profile}</td>
-				<!-- ここでループさせたい -->
+				<!-- ここでループさせたい Comman側で之の処理を書く -->
 				<a href="">
 					<td>${user.listingInfo}</td>
 				</a>

@@ -11,13 +11,14 @@
 <body>
 	<table border="1">
 		<tr>
-			<td>画像</td>
-			<td>商品名</td>
-			<td>商品説明</td>
-			<td>ハード</td>
-			<td>ジャンル</td>
-			<td>発送期間</td>
-			<td>値段</td>
+			<th>画像</th>
+			<th>商品名</th>
+			<th>商品説明</th>
+			<th>ハード</th>
+			<th>ジャンル</th>
+			<th>発送期間</th>
+			<th>値段</th>
+			<th>ユーザID</th>
 		</tr>
 		<c:forEach var="item" items="${data}">
 			<tr>
@@ -28,6 +29,7 @@
 				<td>${item.categoryId}</td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
+				<td>${item.sellerId}</td>
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
 			</tr>
 			</c:forEach>
@@ -57,9 +59,10 @@
 			<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
 		</c:forEach>
 	</p>
-
 	<p>
-		<a href="/userInfo/">ユーザーの確認</a>
+		<c:forEach var="item" items="${data}">
+			<a href="showuserinfo?user_id=${item.sellerId}">ユーザーの確認</a>
+		</c:forEach>
 	</p>
 	<p>
 		<a href="/category/">カテゴリー検索</a>
