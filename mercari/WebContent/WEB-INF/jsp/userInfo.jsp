@@ -10,18 +10,21 @@
 <body>
 	<table border="1">
 		<tr>
-			<th>出品者の名前</th>
-			<th>プロフィール</th>
-			<th>出品物</th>
-			<c:forEach var="user" items="${data}">
+			<th>出品者</th>
+			<c:forEach var="user" items="${user}">
 				<td>${user.userName}</td>
-				<td>${user.profile}</td>
-				<!-- ここでループさせたい -->
-				<a href="">
-					<td>${user.listingInfo}</td>
-				</a>
 			</c:forEach>
 		</tr>
 	</table>
+
+	<table border="1">
+		<tr>
+			<th>この出品者の商品</th>
+			<c:forEach var="item" items="${item}">
+					<td><a href="showiteminfo?item_id=${item.itemId}">${item.itemName}</a></td>
+			</c:forEach>
+		</tr>
+	</table>
+
 </body>
 </html>

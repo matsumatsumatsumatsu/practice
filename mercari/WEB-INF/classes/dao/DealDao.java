@@ -22,8 +22,8 @@ public class DealDao implements DealInterfaceDao {
         	String sql = "insert into deal(before_payment_id,after_payment_id,item_id,deal_state,time_limit,user_id,user_state) values(?,?,?,?,null,?,?)";
         	st = cn.prepareStatement(sql);
 
-        	System.out.println("-DealDao-");
-        	System.out.println("sql:"+sql);
+//        	System.out.println("-DealDao-");
+//        	System.out.println("sql:"+sql);
 
         	//購入者のpayment_log列のid
         	st.setString(1,deal.getBeforePaymentId());
