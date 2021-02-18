@@ -48,19 +48,6 @@
 	<p>
 		<a href="f_logout">ログアウト</a>
 	</p>
-	<ul class="gnav">
-		<li><a>カテゴリから探す</a>
-			<ul>
-				<li><a href="category">DS</a>
-					<ul>
-						<li><a href="category">アクション</a></li>
-						<li><a href="category">Child2</a></li>
-						<li><a href="category">Child3</a></li>
-						<li><a href="category">Child4</a></li>
-						<li><a href="category">Child5</a></li>
-					</ul></li>
-			</ul></li>
-	</ul>
 
 	<table border="1">
 		<tr>
