@@ -32,9 +32,12 @@
 		</c:forEach>
 	</table>
 
-	<form action="grantPoints" method='post'>
-		<input type='text' placeholder='追加ポイント'> <input type='submit'
-			value='追加'>
+	<form action="grantPoint" method='post'>
+		<c:forEach var="user" items="${data}">
+			<input type = 'hidden' name = 'user_id' value="${user.userId}">
+		</c:forEach>
+		<input type='text' placeholder='追加ポイント' name='point'>
+		<input type='submit' value='追加'>
 	</form>
 
 </body>

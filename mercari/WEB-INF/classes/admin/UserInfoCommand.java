@@ -27,7 +27,6 @@ public class UserInfoCommand extends AbstractCommand{
 
 
         String userId = reqc.getParameter("user_id")[0];
-        System.out.println("BanItem"+userId);
 
 
         try {
