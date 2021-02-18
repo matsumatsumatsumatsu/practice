@@ -13,10 +13,10 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 
 import dao.AbstractMysqlFactory;
-import dao.ItemInterfaceDao;
+import dao.CategoryInterfaceDao;
 import exception.IntegrationException;
 
-public class ReLoadItemListFilter implements Filter{
+public class ReLoadCategoryFilter implements Filter{
 	  public void init(FilterConfig config)throws ServletException{}
 	  public void destroy(){}
 
@@ -24,17 +24,17 @@ public class ReLoadItemListFilter implements Filter{
 		  HttpServletRequest hreq = (HttpServletRequest)req;
 
 		  AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-	      ItemInterfaceDao dao=factory.getItemInterfaceDao();
+	      CategoryInterfaceDao dao=factory.getCategoryInterfaceDao();
 
-	      List items = new ArrayList();
+	      List categorys = new ArrayList();
 
 	      try {
-	    	  items = dao.getAllItems();
+	    	  categorys = dao.getAllCategory();
 	      }catch(IntegrationException e) {
 
 	      }
-	      hreq.setAttribute("itemlist", items);
-//	      System.out.println("items:"+items);
+	      hreq.setAttribute("category", categorys);
+
 
 		  chain.doFilter(req,res);
 	  }
