@@ -33,6 +33,29 @@
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
 
+  <!-- <filter>
+    <filter-name>reloadcategoryfilter</filter-name>
+    <filter-class>filter.ReLoadCategoryFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>reloadcategoryfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>reloadhardwarefilter</filter-name>
+    <filter-class>filter.ReLoadHardwareFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>reloadhardwarefilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping> -->
+
+
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
 	</welcome-file-list>

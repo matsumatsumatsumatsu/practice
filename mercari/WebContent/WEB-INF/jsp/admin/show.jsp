@@ -26,7 +26,7 @@
 		</tr>
 		<c:forEach var="user" items="${data}">
 			<tr>
-				<a href=""><td>${user.userId}</td></a>
+				<td><a href="userInfo?user_id=${user.userId }">${user.userId}</a></td>
 
 				<!-- リンク -->
 				<td>${user.userName}</td>

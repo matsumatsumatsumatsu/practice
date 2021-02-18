@@ -14,7 +14,7 @@
 			value='検索！'>
 	</form>
 </div>
-	<div class="search">
+	<!-- <div class="search">
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
 			</c:forEach>
@@ -24,7 +24,7 @@
 			<c:forEach var="category" items="${category}">
 				<input type="radio" name="category" value="${category.categoryId}">${category.category}
 			</c:forEach>
-	</div>
+	</div> -->
 </head>
 
 <body>
@@ -52,6 +52,7 @@
 			<th>価格</th>
 			<th>画像</th>
 			<th>説明</th>
+			<th>在庫</th>
 		</tr>
 		<c:forEach var="item" items="${itemlist}">
 			<tr>
@@ -60,6 +61,7 @@
 				<td>${item.price}</td>
 				<td>${item.itemImage}</td>
 				<td>${item.itemExplanation}</td>
+				<td>${item.stock}</td>
 			</tr>
 		</c:forEach>
 	</table>

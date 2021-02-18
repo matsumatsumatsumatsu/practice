@@ -34,13 +34,15 @@
 			<tr>
 				<th>itemid</th>
 				<th>商品名</th>
+				<th>購入/出品</th>
 				<th>画像</th>
 			</tr>
 			<c:forEach var="deal" items="${deal}">
 					<tr>
-						<td><a href="showiteminfo?item_id=${deal.dealId}" name="itemId">${deal.dealId}</a></td>
+						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=${deal.userState}" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
 						<!-- <td>${item.ItemImage}</td> -->
+						<td>${deal.userState}</td>
 					</tr>
 			</c:forEach>
 		</table>

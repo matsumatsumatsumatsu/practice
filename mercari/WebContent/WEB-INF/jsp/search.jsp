@@ -8,17 +8,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <div class="search">
-	<form name="itemsearch" method='post' action='search'>
+	<form name="itemsearch" method='post' action='narrow'>
 		<p>商品名検索</p>
 		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
 			value='検索！'>
-	</form>
+
 </div>
 </head>
 
 <body>
 	<div id="search">
-		<form method='post' action="search">
+
 			<p>ハードウェア</p>
 			<div id="categorysearch">
 			<input type="radio" name="hardware" value="0" checked>すべて
