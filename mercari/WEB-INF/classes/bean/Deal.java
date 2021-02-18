@@ -8,6 +8,7 @@ public class Deal implements Serializable {
 	private String beforePaymentId;
 	private String afterPaymentId;
 	private String itemId;
+	private String itemName;
 	private String dealState;
 	private Timestamp timeLimit;
 	private String userId;
@@ -66,5 +67,19 @@ public class Deal implements Serializable {
 
 	public void setUserState(String userState) {
 		this.userState = userState;
+	}
+
+	/**
+	 * @return itemName
+	 */
+	public String getItemName() {
+		return itemName;
+	}
+
+	/**
+	 * @param itemName セットする itemName
+	 */
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
 	}
 }

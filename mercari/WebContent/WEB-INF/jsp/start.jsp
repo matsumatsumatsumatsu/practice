@@ -14,21 +14,17 @@
 			value='検索！'>
 	</form>
 </div>
-<ul class="category">
-	<li><a>カテゴリから探す</a>
-		<ul>
-			<li><a href="category">DS</a>
-				<ul>
-					<li><a href="category">アクション</a></li>
-					<li><a href="category">Child2</a></li>
-					<li><a href="category">Child3</a></li>
-					<li><a href="category">Child4</a></li>
-					<li><a href="category">Child5</a></li>
-				</ul></li>
-
-		</ul></li>
-
-</ul>
+	<div class="search">
+			<c:forEach var="hardware" items="${hardware}">
+				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
+			</c:forEach>
+			<br>
+			<p>カテゴリ</p>
+			<input type="radio" name="category" value="0" checked>すべて
+			<c:forEach var="category" items="${category}">
+				<input type="radio" name="category" value="${category.categoryId}">${category.category}
+			</c:forEach>
+	</div>
 </head>
 
 <body>

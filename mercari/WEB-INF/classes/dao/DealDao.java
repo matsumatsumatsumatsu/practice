@@ -59,25 +59,31 @@ public class DealDao implements DealInterfaceDao {
         }
 	}
 
-	public List getDealInfo(String dealId) throws IntegrationException{
-		ArrayList chat = new ArrayList();
+	public List getDealInfo(String userId) throws IntegrationException{
+		ArrayList deals = new ArrayList();
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "select deal_id,before_payment_id,after_payment_id,item_id,deal_state,time_limit,user_id,user_state from deal where deal_id = "+ dealId ;
-	        st = cn.prepareStatement(sql);
+			//deal表とitem表を表結合（内部結合）、item表のitem_nameをdealのbeanに挿入する。user_idで識別。
+			String sql = "select deal.deal_id,deal.before_payment_id,deal.after_payment_id,deal.item_id,item.item_name,deal.deal_state,deal.time_limit,deal.user_id,deal.user_state "
+					+ "from deal inner join item on deal.item_id = item.item_id"
+					+ " where user_id = "+ userId;
+			st = cn.prepareStatement(sql);
 	        rs = st.executeQuery();
 
 	        while(rs.next()) {
-	        	Deal deal = new Deal();
-	        	deal.setDealId(rs.getString(1));
-	        	deal.setBeforePaymentId(rs.getString(2));
-	        	deal.setAfterPaymentId(rs.getString(3));
-	        	deal.setItemId(rs.getString(4));
-	        	deal.setDealState(rs.getString(5));
-	        	deal.setTimeLimit(rs.getTimestamp(6));
-	        	deal.setUserId(rs.getString(7));
-	        	deal.setUserState(rs.getString(8));
+	        	Deal d = new Deal();
+	        	d.setDealId(rs.getString(1));
+	        	d.setBeforePaymentId(rs.getString(2));
+	        	d.setAfterPaymentId(rs.getString(3));
+	        	d.setItemId(rs.getString(4));
+	        	d.setItemName(rs.getString(5));
+	        	d.setDealState(rs.getString(6));
+	        	d.setTimeLimit(rs.getTimestamp(7));
+	        	d.setUserId(rs.getString(8));
+	        	d.setUserState(rs.getString(9));
+
+	        	deals.add(d);
 	        }
 		}catch (SQLException e) {
             e.printStackTrace();
@@ -93,7 +99,7 @@ public class DealDao implements DealInterfaceDao {
                }
            }
        }
-		return chat;
+		return deals;
 	}
 
 }

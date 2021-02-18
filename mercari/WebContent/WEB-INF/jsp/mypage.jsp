@@ -37,11 +37,11 @@
 				<th>画像</th>
 			</tr>
 			<c:forEach var="deal" items="${deal}">
-				<tr>
-					<td>${deal.dealId}</td>
-					<td>${deal.itemName}</td>
-					<td>${deal.itemImage}</td>
-				</tr>
+					<tr>
+						<td><a href="showiteminfo?item_id=${deal.dealId}" name="itemId">${deal.dealId}</a></td>
+						<td>${deal.itemName}</td>
+						<!-- <td>${item.ItemImage}</td> -->
+					</tr>
 			</c:forEach>
 		</table>
 		<h4>過去の取引</h4>
