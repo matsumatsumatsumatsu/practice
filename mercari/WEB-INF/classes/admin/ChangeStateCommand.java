@@ -29,7 +29,7 @@ public class ChangeStateCommand extends AbstractCommand{
 
 
 
-        resc.setTarget("admin/userInfo");
+        resc.setTarget("admin/admin");
         return resc;
     }
 }

@@ -47,13 +47,17 @@
 				<td>${deal.itemName}</td>
 				<!-- <td>${item.ItemImage}</td> -->
 				<td>${deal.userState}</td>
-			</tr>
+							<td>
 			<form action="changeState" method='post'>
 
-					<input type='hidden' name="deal_id" value="${deal.dealId}">
 
+				<input type='hidden' name="deal_id" value="${deal.dealId}">
 				<input type='submit' value='キャンセル'>
+
 			</form>
+			</td>
+			</tr>
+
 		</c:forEach>
 	</table>
 
@@ -61,8 +65,8 @@
 		<c:forEach var="user" items="${data}">
 			<input type='hidden' name='user_id' value="${user.userId}">
 		</c:forEach>
-		<input type='text' placeholder='追加ポイント' name='point'>
-		<input type='submit' value='追加'>
+		<input type='text' placeholder='追加ポイント' name='point'> <input
+			type='submit' value='追加'>
 	</form>
 
 </body>
