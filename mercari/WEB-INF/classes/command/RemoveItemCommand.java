@@ -9,5 +9,4 @@ public class RemoveItemCommand extends AbstractCommand {
 
 		return resc;
 	}
-
 }
