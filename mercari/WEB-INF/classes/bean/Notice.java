@@ -7,8 +7,8 @@ public class Notice implements Serializable{
 	private String noticeId;
 	private String userId;
 	private String comment;
-	private Timestamp date;
 	private int isRead;
+	private Timestamp date;
 
 	public Notice() {
 
@@ -35,17 +35,17 @@ public class Notice implements Serializable{
 		this.userId = userId;
 	}
 
-	public Timestamp getDate() {
-		return date;
-	}
-	public void setDate(Timestamp date) {
-		this.date = date;
-	}
-
 	public int getIsRead() {
 		return isRead;
 	}
 	public void setIsRead(int isRead) {
 		this.isRead = isRead;
+	}
+
+	public Timestamp getDate() {
+		return date;
+	}
+	public void setDate(Timestamp date) {
+		this.date = date;
 	}
 }

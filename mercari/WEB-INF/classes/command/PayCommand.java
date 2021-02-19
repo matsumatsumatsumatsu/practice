@@ -120,6 +120,23 @@ public class PayCommand extends AbstractCommand {
 		}catch(IntegrationException e) {
 		}
 
+		//通知処理
+		//購入者と出品者双方に決済を通達する
+		/*		String buyerComment = itemDao.getItemName() + "を購入しました";
+				String sellerComment = itemDao.getItemName() + "が購入されました";
+
+				//売り手のID
+				String userId = payDao.getUserName();
+
+				NotifyCommand notifyBuyer  = new NotifyCommand(sessionUserId,buyerComment);
+				NotifyCommand notifySeller  = new NotifyCommand(userId,sellerComment);
+
+				notifyBuyer.init(reqc);
+				notifySeller.init(reqc);
+
+				resc = notifyBuyer.execute(resc);
+				resc = notifySeller.execute(resc);*/
+
 		resc.setTarget("buyerDealingInfo");
 		return resc;
 	}

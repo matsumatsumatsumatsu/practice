@@ -17,11 +17,11 @@ public class NoticeDao implements NoticeInterfaceDao {
 	ResultSet rs = null;
 
 	//Notice表に通知の詳細を登録する
-	public void notify(String key) throws IntegrationException {
+	public void registNotice(String userId,String comment) throws IntegrationException {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "insert ";
+			String sql = "insert into notice(user_id,comment,is_read,date)  values(" + userId + "," + comment + ",cast( now() as datetime))";
 
 			st = cn.prepareStatement(sql);
 
@@ -49,12 +49,12 @@ public class NoticeDao implements NoticeInterfaceDao {
 	}
 
 	//お知らせの一覧などで通知を表示する
-	public List getNotice(String key) throws IntegrationException {
+	public List getNotice(String userId) throws IntegrationException {
 		ArrayList notices = new ArrayList();
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "select ";
+			String sql = "select comment, date from notice where user_id = " + userId;
 
 			st = cn.prepareStatement(sql);
 
@@ -79,7 +79,6 @@ public class NoticeDao implements NoticeInterfaceDao {
 				}
 			}
 		}
-
 		return notices;
 	}
 }

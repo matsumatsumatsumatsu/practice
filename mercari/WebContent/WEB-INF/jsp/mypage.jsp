@@ -43,8 +43,8 @@
 					<tr>
 						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=1" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
-						<!-- <td>${item.ItemImage}</td> -->
 						<td>${deal.userState}</td>
+						<td>${item.ItemImage}</td>
 					</tr>
 			</c:forEach>
 		</table>
@@ -89,7 +89,7 @@
 			<li><a href="showownlistinglist">出品した商品</a></li>
 			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>
-			<li><a href="profile">プロフィール</a></li>
+			<li><a href="editProfile">プロフィール</a></li>
 			<li><a href="f_logout">ログアウト</a></li>
 			<li><a href="f_withdraw">退会</a></li>
 		</ul>
