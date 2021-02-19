@@ -10,17 +10,16 @@
 <div class="search">
 	<form name="itemsearch" method='post' action='narrow'>
 		<p>商品名検索</p>
-		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
-			value='検索！'>
-
+		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input
+			type='submit' value='検索！'>
 </div>
 </head>
 
 <body>
 	<div id="search">
 
-			<p>ハードウェア</p>
-			<div id="categorysearch">
+		<p>ハードウェア</p>
+		<div id="categorysearch">
 			<input type="radio" name="hardware" value="0" checked>すべて
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
@@ -31,19 +30,23 @@
 			<c:forEach var="category" items="${category}">
 				<input type="radio" name="category" value="${category.categoryId}">${category.category}
 			</c:forEach>
+			<br>
 
-			</div>
+		</div>
 
-			<!-- 値段の絞り込み用のテキストボックス -->
-			<div id="pricesearch">
-				<input type="text" name="minvalue" placeholder="minvalue" > <input type="text"
-					name="maxvalue" placeholder="maxvalue">
-			</div>
-			<div id="stocksearch">
-				<input type="checkbox" name="sale"><label for="sale">販売中</label>
-				<input type="checkbox" name="sold"><label for="sold">売りきれ</label>
-			</div>
-			<button type='submit' value='検索！'>検索</button>
+		<!-- 値段の絞り込み用のテキストボックス -->
+		<div id="pricesearch">
+		<br>
+			値段下限：<input type="text" name="minprice"><br>
+			値段上限：<input type="text" name="maxprice">
+		</div>
+		<div id="stocksearch">
+			<br>
+			<input type="radio" name="stock" value="0" checked>すべて
+			<input type="radio" name="stock" value="sale">販売中
+			<input type="radio" name="stock" value="sold">売りきれ
+		</div>
+		<button type='submit' value='検索！'>検索</button>
 		</form>
 	</div>
 	<p>
@@ -59,7 +62,7 @@
 		</tr>
 		<c:forEach var="item" items="${data}">
 			<tr>
-				<td>${item.itemName}</td>
+				<td><a href="showiteminfo?item_id=${item.itemId}" name="itemId">${item.itemName}</td>
 				<td>${item.price}</td>
 				<td>${item.itemImage}</td>
 				<td>${item.itemId}</td>

@@ -45,16 +45,16 @@ public class NarrowDownSearchCommand extends AbstractCommand{
 
 	        			//hardware× category×
 	        			if(categoryId.equals("0")) {
-	        				items = itemdao.getItem(search);
+	        				//items = itemdao.getItem(search);
 	        			}
 	        			//hardware× category〇
 	        			else {
-	        				items = itemdao.getItem(search + "AND category_Id = " + categoryId);
+	        				search += "AND category_Id = " + categoryId;
 	        			}
 	        		}
 	        		//hardware× category = null
 	        		else {
-	        			items = itemdao.getItem(search);
+	        			//items = itemdao.getItem(search);
 	        		}
 	        	}
 
@@ -67,16 +67,16 @@ public class NarrowDownSearchCommand extends AbstractCommand{
 
 	        			//hardware〇 category×
 	        			if(categoryId.equals("0")) {
-	        				items = itemdao.getItem(search + "AND hardware_Id = " + hardwareId);
+	        				search += "AND hardware_Id = " + hardwareId;
 	        			}
 	        			//hardware〇 category〇
 	        			else {
-	        				items = itemdao.getItem(search + "AND category_Id = " + categoryId + " AND hardware_Id = " + hardwareId);
+	        				search += "AND category_Id = " + categoryId + " AND hardware_Id = " + hardwareId;
 	        			}
 	        		}
 	        		//hardware〇 category = null
 	        		else {
-	        			items = itemdao.getItem(search + "AND hardware_Id = " + hardwareId);
+	        			search += "AND hardware_Id = " + hardwareId;
 	        		}
 	        	}
 	        }
@@ -88,19 +88,41 @@ public class NarrowDownSearchCommand extends AbstractCommand{
 
         			//hardware = null category×
         			if(categoryId.equals("0")) {
-        				items = itemdao.getItem(search);
+        				//items = itemdao.getItem(search);
         			}
         			//hardware = null category〇
         			else {
-        				items = itemdao.getItem(search + "AND category_Id = " + categoryId);
+        				search += "AND category_Id = " + categoryId;
         			}
         		}
         		//hardware = null category = null
         		else {
-        			items = itemdao.getItem(search);
+        			//items = itemdao.getItem(search);
         		}
 	        }
 
+	        if(!reqc.getParameter("minprice")[0].equals("")) {
+	        	String minprice = reqc.getParameter("minprice")[0];
+	        	search += " AND price >= " + minprice;
+	        }
+
+	        if(!reqc.getParameter("maxprice")[0].equals("")) {
+	        	String maxprice = reqc.getParameter("maxprice")[0];
+	        	search += " AND price <= " + maxprice;
+	        }
+
+	        if(!reqc.getParameter("stock")[0].equals("0")) {
+	        	String stock = reqc.getParameter("stock")[0];
+
+	        	if(stock.equals("sold")) {
+	        		search += " AND stock = 0";
+	        	}else {
+	        		search += " AND stock = 1";
+	        	}
+	        }
+
+
+	        items = itemdao.getItem(search);
         	hardwares = hardwaredao.getAllHardware();
         	categorys = categorydao.getAllCategory();
         	System.out.println("検索結果："+items);
