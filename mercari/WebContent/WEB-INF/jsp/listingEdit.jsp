@@ -10,7 +10,6 @@
 </head>
 <body>
 	<form action="editListing" method="post">
-		<tr>
 			<input type="text" placeholder="商品画像の変更">
 			<br>
 			<input type="text" placeholder="商品名の変更">
@@ -20,12 +19,13 @@
 			<input type="text" placeholder="ゲームのジャンルの変更">
 			<br>
 			<input type="text" placeholder="ハードの変更">
+			<br>
 			<input type="text" placeholder="発送までの期間の変更">
 			<br>
 			<input type="text" placeholder="値段の変更">
+			<br>
 			<input type="submit" value="変更">
 			<input type="submit" value="キャンセル">
-		</tr>
 	</form>
 </body>
 </html>
