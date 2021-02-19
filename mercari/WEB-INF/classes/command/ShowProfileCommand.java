@@ -28,29 +28,46 @@ public class ShowProfileCommand extends AbstractCommand{
 
 
 		List user = new ArrayList(); //ユーザーの情報
-		List deal = new ArrayList();
+		//購入した取引中の取引一覧
+		List buyDeal = new ArrayList();
 
         try {
         	user = userdao.getUser(sessionUserId);
-        	deal = dealdao.getAllDeals(sessionUserId);
+        	buyDeal = dealdao.getAllDeals(sessionUserId);
+
+        }catch(IntegrationException e) {
+        	//例外処理
+
+        }
+
+		List sellDeal = new ArrayList();
+
+        try {
+        	user = userdao.getUser(sessionUserId);
+        	sellDeal = dealdao.getSellAllDeals(sessionUserId);
 
         }catch(IntegrationException e) {
         }
 
+		//出品した取引中の取引一覧
+
+
         List<Object> first=new ArrayList<>();
 		first.add("data");
 		first.add(user);
-		System.out.println(first.get(0));
 
 		List<Object> second=new ArrayList<>();
-		second.add("deal");
-		second.add(deal);
-		System.out.println(second.get(0));
+		second.add("buyDeal");
+		second.add(buyDeal);
 
+		List<Object> third=new ArrayList<>();
+		third.add("sellDeal");
+		third.add(sellDeal);
 
 		List<List> result=new ArrayList<>();
 		result.add(first);
 		result.add(second);
+		result.add(third);
 
 		resc.setResult(result);
 		resc.setTarget("mypage");
