@@ -1,3 +1,4 @@
+//詳細検索
 package command;
 
 import java.util.ArrayList;

@@ -1,3 +1,4 @@
+//商品の購入の確認
 package command;
 
 import java.util.ArrayList;
