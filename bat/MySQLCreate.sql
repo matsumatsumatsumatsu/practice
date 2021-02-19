@@ -100,6 +100,8 @@ create table notice(
 notice_id int UNSIGNED auto_increment,
 user_id int UNSIGNED,
 comment varchar(500),
+is_read int default 1,
+date datetime,
  primary key(notice_id),
 CONSTRAINT fk_notice_user_id
     FOREIGN KEY (user_id) 
@@ -171,13 +173,13 @@ insert into category(category_id, category)
 values(1, 'RPG');
 
 insert into category(category_id, category)
-values(2, 'アクション');
+values(2, '繧｢繧ｯ繧ｷ繝ｧ繝ｳ');
 
 insert into category(category_id, category)
-values(3, 'パズル');
+values(3, '繝代ぜ繝ｫ');
 
 insert into category(category_id, category)
-values(4, 'アドベンチャー');
+values(4, '繧｢繝峨�吶Φ繝√Ε繝ｼ');
 
 insert into admin(admin_name,admin_password,mail) 
 values('admin','P@ssw0rd','info@gmail.com');
