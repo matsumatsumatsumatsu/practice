@@ -16,7 +16,11 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
 	PreparedStatement st = null;
 	ResultSet rs = null;
 
-	public void insertPaymentLog(PaymentLog payment) throws IntegrationException{
+	public String insertPaymentLog(PaymentLog payment) throws IntegrationException{
+        String payId = "";
+
+        System.out.println("---PaymentLogDao---");
+
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 			String sql = "insert into payment_log(seller_id,buyer_id,item_id,price,date) values(?,?,?,?,cast( now() as datetime))";
@@ -30,6 +34,16 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
 
             st.executeUpdate();
             MysqlConnector.getInstance().commit();
+
+            String selectId = "select LAST_INSERT_ID()";
+			st = cn.prepareStatement(selectId);
+	        rs = st.executeQuery();
+
+	        while(rs.next()) {
+	        	 payId = rs.getString(1);
+	        }
+
+	        System.out.println("payId"+payId);
 
 		}catch (SQLException e) {
             e.printStackTrace();
@@ -51,7 +65,10 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
         		}
         	}
         }
+
+		return payId;
 	}
+
 	public List getAllPaymentLogs(String paymentLogId) throws IntegrationException{
 		List paymentLogs = new ArrayList();
 		try {

@@ -39,10 +39,6 @@ public class RegistDealCommand extends AbstractCommand{
 			//例外処理
 		}
 
-		PayCommand pay = new PayCommand();
-		pay.init(reqc);
-		resc = pay.execute(resc);
-
 		resc.setTarget("buyerDealingInfo");
 
 		return resc;

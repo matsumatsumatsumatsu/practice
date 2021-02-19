@@ -1,3 +1,4 @@
+//商品のチャットを送るコマンド、使用していない？
 package command;
 
 import java.util.ArrayList;

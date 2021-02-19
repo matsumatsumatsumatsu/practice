@@ -3,12 +3,14 @@ package command;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Deal;
 import bean.Item;
 import bean.PaymentLog;
 import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
+import dao.DealInterfaceDao;
 import dao.ItemInterfaceDao;
 import dao.PaymentLogInterfaceDao;
 import dao.UserInterfaceDao;
@@ -24,6 +26,7 @@ public class PayCommand extends AbstractCommand {
 		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
 		UserInterfaceDao userDao = factory.getUserInterfaceDao();
 		PaymentLogInterfaceDao payDao = factory.getPaymentLogInterfaceDao();
+		DealInterfaceDao dealDao = factory.getDealInterfaceDao();
 
 		//商品情報の格納
         List item = new ArrayList();
@@ -46,7 +49,9 @@ public class PayCommand extends AbstractCommand {
 		try {
 			user = userDao.getUser(sessionUserId);
 		}catch(IntegrationException e) {}
-		System.out.println(((User)user.get(0)).getUserId());
+
+//		System.out.println("---PayCommand---");
+//		System.out.println("userId"+((User)user.get(0)).getUserId());
 
 		int userPoint = ((User)user.get(0)).getPoint();
 		int itemPrice = ((Item)item.get(0)).getPrice();
@@ -54,7 +59,7 @@ public class PayCommand extends AbstractCommand {
 		//userのポイントから商品ポイントを減らす
 		int point = userPoint - itemPrice;
 
-		//paymentlogのインスタンス化
+		//PaymentLogのインスタンス化
 		PaymentLog p = new PaymentLog();
 		//sellerは仮ユーザーとして、管理者を挿入
 		p.setSellerId("1");
@@ -63,11 +68,49 @@ public class PayCommand extends AbstractCommand {
 		//商品の値段
 		p.setPrice(((Item)item.get(0)).getPrice());
 
+		String payId = null;
+
 		try {
-			payDao.insertPaymentLog(p);
+			payId = payDao.insertPaymentLog(p);
+
 		}catch(IntegrationException e) {
 			//例外処理
 
+		}
+
+
+
+		//Dealのインスタンス化（購入者側）
+		Deal deal = new Deal();
+		deal.setBeforePaymentId(payId);
+		deal.setAfterPaymentId(null);
+		deal.setItemId(itemId);
+		//1は取引中
+		deal.setDealState("1");
+		deal.setUserId(sessionUserId);
+		//1は購入者の取引中
+		deal.setUserState("1");
+
+		try{
+			dealDao.insertDeal(deal);
+		}catch(IntegrationException e) {
+			//例外処理
+		}
+
+		//Dealのインスタンス化（出品者側）
+		deal.setBeforePaymentId(payId);
+		deal.setAfterPaymentId(null);
+		deal.setItemId(itemId);
+		//1は取引中
+		deal.setDealState("1");
+		deal.setUserId(((Item)item.get(0)).getSellerId());
+		//1は購入者の取引中
+		deal.setUserState("2");
+
+		try{
+			dealDao.insertDeal(deal);
+		}catch(IntegrationException e) {
+			//例外処理
 		}
 
 		try {

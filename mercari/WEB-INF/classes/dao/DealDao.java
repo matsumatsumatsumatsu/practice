@@ -27,6 +27,9 @@ public class DealDao implements DealInterfaceDao {
 
         	//購入者のpayment_log列のid
         	st.setString(1,deal.getBeforePaymentId());
+//        	System.out.println("---DealDao---");
+//        	System.out.println("payId:"+deal.getBeforePaymentId());
+
         	//出品者のpayment_log列のid
         	st.setString(2,deal.getAfterPaymentId());
         	st.setString(3,deal.getItemId());

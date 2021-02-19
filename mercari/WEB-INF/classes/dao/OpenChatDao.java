@@ -29,7 +29,9 @@ public class OpenChatDao implements OpenChatInterfaceDao {
             st.setString(3, op.getItemId());
 
             st.executeUpdate();
+
             MysqlConnector.getInstance().commit();
+
         }catch (SQLException e) {
             e.printStackTrace();
                         try {
