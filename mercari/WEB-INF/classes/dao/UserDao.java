@@ -224,11 +224,11 @@ public class UserDao implements UserInterfaceDao{
 		return users;
 	}
 
-	public void updateUser(User u) throws IntegrationException {
+	public void updateUser(User u,String id) throws IntegrationException {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "update user set user_name = ?, user_password = ?, real_name = ?, address = ?, tel = ?, mail = ?, profile = ?";
+			String sql = "update user set user_name = ?, user_password = ?, real_name = ?, address = ?, tel = ?, profile = ? where user_id = "+id;
 			st = cn.prepareStatement(sql);
 
 			st.setString(1, u.getUserName());
@@ -236,8 +236,7 @@ public class UserDao implements UserInterfaceDao{
 			st.setString(3, u.getRealName());
 			st.setString(4, u.getAddress());
 			st.setString(5, u.getTel());
-			st.setString(6, u.getMail());
-			st.setString(7, u.getProfile());
+			st.setString(6, u.getProfile());
 
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();

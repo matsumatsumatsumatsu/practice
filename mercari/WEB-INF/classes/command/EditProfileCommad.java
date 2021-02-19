@@ -5,23 +5,44 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.UserInterfaceDao;
+import exception.IntegrationException;
 import util.SessionManager;
 
 public class EditProfileCommad extends AbstractCommand {
 	public ResponseContext execute(ResponseContext resc) {
 
 		RequestContext reqc = getRequestContext();
+		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
+		UserInterfaceDao userDao = factory.getUserInterfaceDao();
 
 		//ログインしているユーザーのIDを取得する
 		SessionManager.getSession(reqc);
-		System.out.println("token:"+SessionManager.getAttribute("token"));
 		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
-	    System.out.println("user_id="+sessionUserId);
 
-		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-		UserInterfaceDao dao = factory.getUserInterfaceDao();
+        String userName = reqc.getParameter("name")[0];
+        String password = reqc.getParameter("pass")[0];
+        String realName = reqc.getParameter("real")[0];
+        String tel = reqc.getParameter("tel")[0];
+        String address = reqc.getParameter("address")[0];
+        String profile = reqc.getParameter("prof")[0];
 
-		String profile = reqc.getParameter("profile");
+        User u= new User();
+        u.setUserName(userName);
+        u.setUserPassword(password);
+        u.setRealName(realName);
+        u.setAddress(address);
+    	u.setTel(tel);
+    	u.setMail(profile);
+
+    	try {
+			userDao.updateUser(u,sessionUserId);
+		} catch (IntegrationException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		}
+
+
+    	resc.setTarget("mypage");
 		return resc;
 	}
 

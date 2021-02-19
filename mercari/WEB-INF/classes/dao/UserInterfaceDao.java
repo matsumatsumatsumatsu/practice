@@ -9,7 +9,7 @@ public interface UserInterfaceDao{
 	  public List getUser(String userId) throws IntegrationException;
 	  public List getUserPass(String userName) throws IntegrationException;
 	  public List getCurrentUserPass(String userName) throws IntegrationException;
-	  public void updateUser(User u) throws IntegrationException;
+	  public void updateUser(User u,String id) throws IntegrationException;
 	  public void deleteUser(String userId) throws IntegrationException;
 	  public List getAllUsers() throws IntegrationException;
 	  public void pay(String userId,int point) throws IntegrationException;
