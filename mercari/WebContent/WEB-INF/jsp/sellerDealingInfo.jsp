@@ -36,6 +36,11 @@
 			</tr>
 		</c:forEach>
 	</table>
+
+	<form action="showDealingInfo" method="post">
+		<input type="submit" value="発送しました">
+	</form>
+
 	<table border="1">
 		<tr>
 			<td>chatId</td>
@@ -51,12 +56,8 @@
 		</c:forEach>
 	</table>
 
-	<form action="showDealingInfo" method="post">
-		<input type="submit" value="発送しました">
-	</form>
-
-	<c:forEach var="deal" items="${data}">
-		<form action="sendPrivateChat?=deal_id=${deal.dealId}&user_state=${deal.userState}" method="post">
+	<c:forEach var="deal" items="${deal}">
+		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=${deal.userState}" method="post">
 			<input type="text" name="text"><br> <input
 				type="submit" value="コメントする">
 		</form>
