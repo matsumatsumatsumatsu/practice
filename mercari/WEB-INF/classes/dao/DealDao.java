@@ -202,8 +202,7 @@ public class DealDao implements DealInterfaceDao {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "update deal set user_state = "+state+" where deal_id = "+dealId;
-			System.out.println("update deal set user_state = "+state+" where = deal_id = "+dealId);
+			String sql = "update deal set deal_state = "+state+" where deal_id = "+dealId;
 			st = cn.prepareStatement(sql);
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();
