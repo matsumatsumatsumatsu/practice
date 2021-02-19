@@ -43,8 +43,8 @@
 					<tr>
 						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=1" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
-						<!-- <td>${item.ItemImage}</td> -->
 						<td>${deal.userState}</td>
+						<td>${item.ItemImage}</td>
 					</tr>
 			</c:forEach>
 		</table>
