@@ -37,9 +37,11 @@
 		</c:forEach>
 	</table>
 
-	<form action="showDealingInfo" method="post">
-		<input type="submit" value="発送しました">
-	</form>
+	<c:forEach var="deal" items="${deal}">
+		<form action="dispatch?deal_id=${deal.dealId}&user_state=2" method="post">
+			<input type="submit" value="発送しました">
+		</form>
+	</c:forEach>
 
 	<table border="1">
 		<tr>

@@ -62,6 +62,9 @@ public class ShowDealingInfoCommand extends AbstractCommand {
 
         resc.setResult(result);
         String userState= reqc.getParameter("user_state")[0];
+
+        System.out.println("userState:"+userState);
+
         if(userState.equals("1")) {
         	resc.setTarget("buyerDealingInfo");
         }else {
