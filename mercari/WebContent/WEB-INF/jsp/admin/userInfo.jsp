@@ -42,7 +42,7 @@
 		<c:forEach var="deal" items="${deal}">
 			<tr>
 				<td><a
-					href="showDealingInfo?deal_id=${deal.dealId}&user_state=${deal.userState}"
+					href="adminshowiteminfo?item_id=${deal.itemId}"
 					name="itemId">${deal.itemId}</a></td>
 				<td>${deal.itemName}</td>
 				<!-- <td>${item.ItemImage}</td> -->
