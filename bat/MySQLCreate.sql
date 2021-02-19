@@ -173,13 +173,13 @@ insert into category(category_id, category)
 values(1, 'RPG');
 
 insert into category(category_id, category)
-values(2, '繧｢繧ｯ繧ｷ繝ｧ繝ｳ');
+values(2, 'アクション');
 
 insert into category(category_id, category)
-values(3, '繝代ぜ繝ｫ');
+values(3, 'パズル');
 
 insert into category(category_id, category)
-values(4, '繧｢繝峨�吶Φ繝√Ε繝ｼ');
+values(4, 'アドベンチャー');
 
 insert into admin(admin_name,admin_password,mail) 
 values('admin','P@ssw0rd','info@gmail.com');
