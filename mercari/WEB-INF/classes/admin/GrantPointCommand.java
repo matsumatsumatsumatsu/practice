@@ -19,7 +19,7 @@ public class GrantPointCommand extends AbstractCommand{
 
 		List user = new ArrayList(); //ユーザーの情報
 
-		String userId 	=reqc.getParameter("user_id")[0];
+		String userId 	=reqc.getParameter("userId")[0];
 //		int userPoint = reqc.getParameter()
 		//int grantPoint;
 		String point 	=reqc.getParameter("point")[0];

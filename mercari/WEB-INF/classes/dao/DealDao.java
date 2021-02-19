@@ -198,4 +198,28 @@ public class DealDao implements DealInterfaceDao {
 		}
 		return deal;
 	}
+	public void changeState(String dealId,String state) throws IntegrationException {
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+
+			String sql = "update deal set user_state = "+state+" where deal_id = "+dealId;
+			System.out.println("update deal set user_state = "+state+" where = deal_id = "+dealId);
+			st = cn.prepareStatement(sql);
+			st.executeUpdate();
+			MysqlConnector.getInstance().commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				if (st != null) {
+					st.close();
+				}
+			} catch (SQLException ex) {
+				e.printStackTrace();
+			} finally {
+				if (cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+		}
+	}
 }
