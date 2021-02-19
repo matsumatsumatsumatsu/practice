@@ -19,6 +19,7 @@
 			<td>ジャンル</td>
 			<td>発送期間</td>
 			<td>値段</td>
+			<td>ＩＤ</td>
 		</tr>
 		<c:forEach var="item" items="${data}">
 			<tr>
@@ -30,6 +31,7 @@
 				<td>${item.term}</td>
 				<td>${item.price}</td>
 				<td>${item.itemId}</td>
+				<c:set var="userId" value="${item.sellerId}"></c:set>
 				<td><a href="banitem?item_id=${item.itemId}">削除</a></td>
 			</tr>
 	</table>
@@ -37,7 +39,7 @@
 
 
 	<p>
-		<a href="/userInfo/">ユーザーの確認</a>
+		<a href="userInfo?user_id=<c:out value="${userId}" />">ユーザーの確認</a>
 	</p>
 	<p>
 		<a href="/category/">カテゴリー検索</a>
