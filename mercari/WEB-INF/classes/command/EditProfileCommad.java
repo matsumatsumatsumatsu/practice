@@ -21,6 +21,7 @@ public class EditProfileCommad extends AbstractCommand {
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		UserInterfaceDao dao = factory.getUserInterfaceDao();
 
+		String profile = reqc.getParameter("profile");
 		return resc;
 	}
 
