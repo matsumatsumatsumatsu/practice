@@ -339,4 +339,27 @@ public class UserDao implements UserInterfaceDao{
 			}
 		}
 	}
+	public void editProfile(String userId, String profile) throws IntegrationException{
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+			String sql = "update user set profile = "+profile+"where user_id = "+userId;
+			System.out.println(sql);
+			st = cn.prepareStatement(sql);
+			st.executeUpdate();
+			MysqlConnector.getInstance().commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				if (st != null) {
+					st.close();
+				}
+			} catch (SQLException ex) {
+				e.printStackTrace();
+			} finally {
+				if (cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+		}
+	}
 }

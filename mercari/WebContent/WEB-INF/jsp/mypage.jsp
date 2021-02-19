@@ -89,7 +89,7 @@
 			<li><a href="showownlistinglist">出品した商品</a></li>
 			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>
-			<li><a href="profile">プロフィール</a></li>
+			<li><a href="editProfile">プロフィール</a></li>
 			<li><a href="f_logout">ログアウト</a></li>
 			<li><a href="f_withdraw">退会</a></li>
 		</ul>
