@@ -9,6 +9,9 @@ public class Deal implements Serializable {
 	private String afterPaymentId;
 	private String itemId;
 	private String itemName;
+	private String itemImage;
+	private String sellerId;
+	private int term;
 	private String dealState;
 	private Timestamp timeLimit;
 	private String userId;
@@ -81,5 +84,47 @@ public class Deal implements Serializable {
 	 */
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
+	}
+
+	/**
+	 * @return itemImage
+	 */
+	public String getItemImage() {
+		return itemImage;
+	}
+
+	/**
+	 * @param itemImage セットする itemImage
+	 */
+	public void setItemImage(String itemImage) {
+		this.itemImage = itemImage;
+	}
+
+	/**
+	 * @return sellerId
+	 */
+	public String getSellerId() {
+		return sellerId;
+	}
+
+	/**
+	 * @param sellerId セットする sellerId
+	 */
+	public void setSellerId(String sellerId) {
+		this.sellerId = sellerId;
+	}
+
+	/**
+	 * @return term
+	 */
+	public int getTerm() {
+		return term;
+	}
+
+	/**
+	 * @param term セットする term
+	 */
+	public void setTerm(int term) {
+		this.term = term;
 	}
 }

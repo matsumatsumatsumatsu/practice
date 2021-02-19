@@ -45,9 +45,12 @@ public class MysqlConnector{
 	}
 
 	public void closeConnection(){
+		System.out.println("---MysqlConnection---");
 		    try{
 		      if(cn != null){
 		        //Connectionのインスタンスの破棄ができてないっぽい
+
+		    	  System.out.println("close");
 		        cn.close();
 		        cn=null;
 		      }
