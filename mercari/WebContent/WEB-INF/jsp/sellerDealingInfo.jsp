@@ -9,14 +9,44 @@
 </head>
 <body>
 	<table border="1">
-		<c:forEach var="user" items="${data}">
+		<tr>
+			<td>itemId</td>
+			<td>itemName</td>
+			<td>price</td>
+		</tr>
+		<c:forEach var="item" items="${item}">
 			<tr>
-				<td>${user.itemImage}</td>
-				<td>${user.itemName}</td>
-				<td>${user.price}</td>
-				<td>${user.data}</td>
-				<td>${user.address}</td>
-				<td>${user.realName}</td>
+				<td>${item.itemId}</td>
+				<td>${item.itemName}</td>
+				<td>${item.price}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<table border="1">
+		<tr>
+			<td>dealId</td>
+			<td>itemId</td>
+			<td>dealState</td>
+		</tr>
+		<c:forEach var="deal" items="${deal}">
+			<tr>
+				<td>${deal.dealId}</td>
+				<td>${deal.itemId}</td>
+				<td>${deal.dealState}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<table border="1">
+		<tr>
+			<td>chatId</td>
+			<td>text</td>
+			<td>date</td>
+		</tr>
+		<c:forEach var="chat" items="${chat}">
+			<tr>
+				<td>${chat.chatId}</td>
+				<td>${chat.	text}</td>
+				<td>${chat.date}</td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -26,7 +56,7 @@
 	</form>
 
 	<c:forEach var="deal" items="${data}">
-		<form action="sendPrivateChat?=deal_id=${deal.dealId}" method="post">
+		<form action="sendPrivateChat?=deal_id=${deal.dealId}&user_state=${deal.userState}" method="post">
 			<input type="text" name="text"><br> <input
 				type="submit" value="コメントする">
 		</form>
