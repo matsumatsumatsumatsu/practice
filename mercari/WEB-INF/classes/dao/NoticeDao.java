@@ -57,7 +57,7 @@ public class NoticeDao implements NoticeInterfaceDao {
 
 			String sql = "select notice_id, user_id, comment, is_read, date from notice where user_id = " + userId;
 			st = cn.prepareStatement(sql);
-			st.executeQuery();
+			rs = st.executeQuery();
 
 			while (rs.next()) {
 				Notice n = new Notice();

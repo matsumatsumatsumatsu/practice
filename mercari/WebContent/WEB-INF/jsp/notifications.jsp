@@ -8,6 +8,8 @@
 <title>通知の閲覧</title>
 </head>
 <body>
+	<h1>お知らせ</h1>
+
 	<div class="l-content">
 		<table border="1">
 			<c:forEach var="notice" items="${notice}">
@@ -18,5 +20,9 @@
 			</c:forEach>
 		</table>
 	</div>
+
+	<p>
+		<a href="f_start">TOPページへ</a>
+	</p>
 </body>
 </html>
