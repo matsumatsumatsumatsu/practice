@@ -297,90 +297,6 @@ public class ItemDao implements ItemInterfaceDao {
 	        return items;
 	    }
 
-//	 public Item category(String categoryId) throws IntegrationException {
-//	        Item i = new Item();
-//	        try {
-//	        	MysqlConnector.getConnection();
-//
-//	            String sql = "select * from item where category_id = ?";
-//	            st = cn.prepareStatement(sql);
-//	            st.setString(1, categoryId);
-//	            rs = st.executeQuery();
-//
-//	            while (rs.next()) {
-//	                i.setItemId(rs.getString(1));
-//	                i.setItemName(rs.getString(2));
-//	                i.setPrice(rs.getInt(3));
-//	                i.setItemImage(rs.getString(4));
-//	                i.setItemExplanation(rs.getString(5));
-//	                i.setHardwareId(rs.getString(6));
-//	                i.setCategoryId(rs.getString(7));
-//	                i.setSellerId(rs.getString(8));
-//	                i.setStock(rs.getInt(9));
-//
-//	                Timestamp timestamp = rs.getTimestamp(10);
-//	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-//	                String str = sdf.format(timestamp);
-//	                i.setListingDate(str);
-//	                i.setTerm(rs.getInt(11));
-//	            }
-//	            cn.commit();
-//	        }catch (SQLException e) {
-//	             e.printStackTrace();
-//	            try {
-//	                if (st != null) {
-//	                    st.close();
-//	                }
-//	            } catch (SQLException ex) {
-//	            	e.printStackTrace();
-//	            } finally {
-//	                try {
-//	                    if (cn != null) {
-//	                        cn.close();
-//	                    }
-//	                } catch (SQLException ex) {
-//	                	e.printStackTrace();
-//	                }
-//	            }
-//
-//	        }
-//	        return i;
-//	    }
-//
-//
-//	 public Item sort(String col, String order) throws IntegrationException {
-//	        Item i = new Item();
-//	        try {
-//	        	MysqlConnector.getConnection();
-//
-//	            String sql = "select * from item order by ? ?";
-//	            st = cn.prepareStatement(sql);
-//	            st.setString(1, col);
-//	            st.setString(2, order);
-//	            rs = st.executeQuery();
-//
-//	            cn.commit();
-//	        }catch (SQLException e) {
-//	             e.printStackTrace();
-//	            try {
-//	                if (st != null) {
-//	                    st.close();
-//	                }
-//	            } catch (SQLException ex) {
-//	            	e.printStackTrace();
-//	            } finally {
-//	                try {
-//	                    if (cn != null) {
-//	                        cn.close();
-//	                    }
-//	                } catch (SQLException ex) {
-//	                	e.printStackTrace();
-//	                }
-//	            }
-//
-//	        }
-//	        return i;
-//	    }
 	 public void deleteItem(String itemid) throws IntegrationException{
 		 try {
 				cn = MysqlConnector.getInstance().getConnection();
@@ -414,4 +330,37 @@ public class ItemDao implements ItemInterfaceDao {
 				}
 			}
 	 }
+
+	 public void updateItem(Item i,String id) throws IntegrationException {
+			try {
+				cn = MysqlConnector.getInstance().getConnection();
+
+				String sql = "update item set item_name = ?, price = ?, item_image = ?, item_explanation = ?, hardware_id = ?, category_id = ?, term = ? where item_id = "+id;
+				st = cn.prepareStatement(sql);
+
+				st.setString(1, i.getItemName());
+	        	st.setInt(2, i.getPrice());
+	        	st.setString(3, i.getItemImage());
+	        	st.setString(4, i.getItemExplanation());
+	        	st.setString(5, i.getHardwareId());
+	        	st.setString(6, i.getCategoryId());
+	        	st.setInt(7, i.getTerm());
+
+				st.executeUpdate();
+				MysqlConnector.getInstance().commit();
+			}catch (SQLException e) {
+				e.printStackTrace();
+				try {
+					if (st != null) {
+						st.close();
+					}
+				} catch (SQLException ex) {
+					e.printStackTrace();
+				} finally {
+					if (cn != null) {
+						MysqlConnector.getInstance().closeConnection();
+					}
+				}
+			}
+		}
 }

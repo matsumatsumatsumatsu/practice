@@ -14,4 +14,5 @@ public interface ItemInterfaceDao {
 	public Item manageStock(String itemId) throws IntegrationException;
 	public List search(String keyword) throws IntegrationException;
 	public void deleteItem(String itemid) throws IntegrationException;
+	public void updateItem(Item i,String id) throws IntegrationException;
 }

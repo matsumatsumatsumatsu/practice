@@ -46,8 +46,8 @@
 
 		<c:forEach var="item" items="${data}">
 			<form action="sendopenchat?item_id=${item.itemId}" method="post">
-				<input type="text" name="text"><br>
-				<input type="submit" value="コメントする">
+				<input type="text" name="text"><br> <input
+					type="submit" value="コメントする">
 			</form>
 		</c:forEach>
 	</div>
@@ -59,7 +59,9 @@
 		<a href="category">カテゴリー検索</a>
 	</p>
 	<p>
-		<a href="f_listingEdit">出品した商品の編集</a>
+		<c:forEach var="item" items="${data}">
+			<a href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>
+		</c:forEach>
 	</p>
 </body>
 </html>

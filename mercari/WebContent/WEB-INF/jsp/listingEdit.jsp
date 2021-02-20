@@ -9,23 +9,29 @@
 <title>出品物の編集</title>
 </head>
 <body>
+
+
+
 	<form action="editListing" method="post">
-			<input type="text" placeholder="商品画像の変更">
-			<br>
-			<input type="text" placeholder="商品名の変更">
-			<br>
-			<input type="text" placeholder="商品説明の変更">
-			<br>
-			<input type="text" placeholder="ゲームのジャンルの変更">
-			<br>
-			<input type="text" placeholder="ハードの変更">
-			<br>
-			<input type="text" placeholder="発送までの期間の変更">
-			<br>
-			<input type="text" placeholder="値段の変更">
-			<br>
-			<input type="submit" value="変更">
-			<input type="submit" value="キャンセル">
+		<c:forEach var="item" items="${data}">
+			<input type="hidden" name="itemId" value="${item.itemId}">
+		</c:forEach>
+		<input type="file" name="image" placeholder="商品画像の変更">
+		<br>
+		<input type="text" name="name" placeholder="商品名の変更">
+		<br>
+		<input type="text" name="explanation" placeholder="商品説明の変更">
+		<br>
+		<input type="text" name="category" placeholder="ゲームのジャンルの変更">
+		<br>
+		<input type="text" name="hardware" placeholder="ハードの変更">
+		<br>
+		<input type="text" name="term" placeholder="発送までの期間の変更">
+		<br>
+		<input type="text" name="price" placeholder="値段の変更">
+		<br>
+		<input type="submit" value="変更">
+
 	</form>
 </body>
 </html>
