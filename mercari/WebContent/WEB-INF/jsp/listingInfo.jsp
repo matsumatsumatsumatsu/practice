@@ -59,7 +59,7 @@
 		<a href="category">カテゴリー検索</a>
 	</p>
 	<p>
-		<a href="listingEdit">出品した商品の編集</a>
+		<a href="f_listingEdit">出品した商品の編集</a>
 	</p>
 </body>
 </html>
