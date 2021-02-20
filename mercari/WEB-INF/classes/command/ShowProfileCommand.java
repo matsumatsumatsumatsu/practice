@@ -38,8 +38,8 @@ public class ShowProfileCommand extends AbstractCommand{
         try {
         	user = userDao.getUser(sessionUserId);
 
-        	buyDeal = dealDao.getAllDeals(sessionUserId," and deal_state = 1 or deal_state = 4");
-        	sellDeal = dealDao.getSellAllDeals(sessionUserId," and deal_state = 1 or deal_state = 4");
+        	buyDeal = dealDao.getAllDeals(sessionUserId," and (deal_state = 1 or deal_state = 4)");
+        	sellDeal = dealDao.getSellAllDeals(sessionUserId," and (deal_state = 1 or deal_state = 4)");
         	buyHistory = dealDao.getAllDeals(sessionUserId," and deal_state = 3");
         	sellHistory = dealDao.getSellAllDeals(sessionUserId," and deal_state = 3");
 

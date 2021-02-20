@@ -20,8 +20,8 @@ public class DispatchItemCommand extends AbstractCommand{
 
 		try{
 			//考えもの
-			//dao.changeState(dealId, "4");
-			dao.changeState(dealId, "1");
+			dao.changeState(dealId, "4");
+//			dao.changeState(dealId, "1");
 		}catch(IntegrationException e) {
 			//例外処理
 		}

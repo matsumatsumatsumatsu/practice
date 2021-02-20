@@ -74,6 +74,8 @@ public class DealDao implements DealInterfaceDao {
 			st = cn.prepareStatement(sql);
 	        rs = st.executeQuery();
 
+	        System.out.println(sql);
+
 	        while(rs.next()) {
 	        	Deal d = new Deal();
 	        	d.setDealId(rs.getString(1));
