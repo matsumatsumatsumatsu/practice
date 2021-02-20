@@ -72,7 +72,6 @@ public class PayCommand extends AbstractCommand {
 
 		try {
 			payId = payDao.insertPaymentLog(p);
-
 		}catch(IntegrationException e) {
 			//例外処理
 
@@ -97,21 +96,21 @@ public class PayCommand extends AbstractCommand {
 			//例外処理
 		}
 
-//		//Dealのインスタンス化（出品者側）
-//		deal.setBeforePaymentId(payId);
-//		deal.setAfterPaymentId(null);
-//		deal.setItemId(itemId);
-//		//1は取引中
-//		deal.setDealState("1");
-//		deal.setUserId(((Item)item.get(0)).getSellerId());
-//		//1は購入者の取引中
-//		deal.setUserState("2");
+		//Dealのインスタンス化（出品者側）
+		deal.setBeforePaymentId(payId);
+		deal.setAfterPaymentId(null);
+		deal.setItemId(itemId);
+		//1は取引中
+		deal.setDealState("1");
+		deal.setUserId(((Item)item.get(0)).getSellerId());
+		//1は購入者の取引中
+		deal.setUserState("2");
 
-//		try{
-//			dealDao.insertDeal(deal);
-//		}catch(IntegrationException e) {
-//			//例外処理
-//		}
+		try{
+			dealDao.insertDeal(deal);
+		}catch(IntegrationException e) {
+			//例外処理
+		}
 
 		try {
 			userDao.pay(sessionUserId,point);
@@ -121,21 +120,23 @@ public class PayCommand extends AbstractCommand {
 		}
 
 		//通知処理
+		//売り手のID
+		System.out.println("商品ID確認ーーーーーー"+itemId);
+		String sellerId = itemDao.getSellerId(itemId);
 		//購入者と出品者双方に決済を通達する
-		/*		String buyerComment = itemDao.getItemName() + "を購入しました";
-				String sellerComment = itemDao.getItemName() + "が購入されました";
+		String buyerComment = itemDao.getItemName(sellerId) + "を購入しました";
+		String sellerComment = itemDao.getItemName(sellerId) + "が購入されました";
+		System.out.println(buyerComment);
+		System.out.println(sellerComment);
 
-				//売り手のID
-				String userId = payDao.getUserName();
+		NotifyCommand notifyBuyer  = new NotifyCommand(sessionUserId,buyerComment);
+		NotifyCommand notifySeller  = new NotifyCommand(sellerId,sellerComment);
 
-				NotifyCommand notifyBuyer  = new NotifyCommand(sessionUserId,buyerComment);
-				NotifyCommand notifySeller  = new NotifyCommand(userId,sellerComment);
+		notifyBuyer.init(reqc);
+		notifySeller.init(reqc);
 
-				notifyBuyer.init(reqc);
-				notifySeller.init(reqc);
-
-				resc = notifyBuyer.execute(resc);
-				resc = notifySeller.execute(resc);*/
+		resc = notifyBuyer.execute(resc);
+		resc = notifySeller.execute(resc);
 
 		resc.setTarget("buyerDealingInfo");
 		return resc;

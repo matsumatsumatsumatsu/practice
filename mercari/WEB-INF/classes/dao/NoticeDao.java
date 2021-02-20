@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import bean.Notice;
 import exception.IntegrationException;
 import util.MysqlConnector;
 
@@ -21,10 +22,10 @@ public class NoticeDao implements NoticeInterfaceDao {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "insert into notice(user_id,comment,is_read,date)  values(" + userId + "," + comment + ",cast( now() as datetime))";
+			//commentにシングルクォーテーション注意
+			String sql = "insert into notice(user_id,comment,date)  values(" + userId + ", '" + comment + "', cast( now() as datetime))";
 
 			st = cn.prepareStatement(sql);
-
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();
 		} catch (SQLException e) {
@@ -54,11 +55,19 @@ public class NoticeDao implements NoticeInterfaceDao {
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "select comment, date from notice where user_id = " + userId;
-
+			String sql = "select notice_id, user_id, comment, is_read, date from notice where user_id = " + userId;
 			st = cn.prepareStatement(sql);
+			st.executeQuery();
 
-			st.executeUpdate();
+			while (rs.next()) {
+				Notice n = new Notice();
+				n.setNoticeId(rs.getString(1));
+				n.setUserId(rs.getString(2));
+				n.setComment(rs.getString(3));
+				n.setIsRead(rs.getInt(4));
+				n.setDate(rs.getTimestamp(5));
+				notices.add(n);
+			}
 			MysqlConnector.getInstance().commit();
 		} catch (SQLException e) {
 			e.printStackTrace();

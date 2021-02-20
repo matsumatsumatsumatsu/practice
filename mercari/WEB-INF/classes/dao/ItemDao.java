@@ -152,6 +152,72 @@ public class ItemDao implements ItemInterfaceDao {
 	        return items;
 	    }
 
+	 public String getItemName(String userId) throws IntegrationException {
+		 String itemName= "";
+		 try {
+			 cn = MysqlConnector.getInstance().getConnection();
+			 String sql = "select item_name from item where seller_id = " + userId;
+			 System.out.println("確認用SQL文:"+sql);
+
+			 st = cn.prepareStatement(sql);
+			 rs = st.executeQuery();
+
+			 //カーソルを使うので取るデータが一つでもwhile文を回したい
+			 while (rs.next()) {
+				 itemName = rs.getString(1);
+			 }
+
+			 MysqlConnector.getInstance().commit();
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+			 try {
+				 if (st != null) {
+					 st.close();
+				 }
+			 } catch (SQLException ex) {
+				 e.printStackTrace();
+			 } finally {
+				 if (cn != null) {
+					 MysqlConnector.getInstance().closeConnection();
+				 }
+			 }
+		 }
+
+		 return itemName;
+	 }
+
+	public String  getSellerId(String itemId) throws IntegrationException {
+		 String sellerId = "";
+		 try {
+			 cn = MysqlConnector.getInstance().getConnection();
+			 String sql = "select seller_id from item where item_id = " + itemId;
+			 System.out.println("確認用SQL文:"+sql);
+
+			 st = cn.prepareStatement(sql);
+			 rs = st.executeQuery();
+
+			 while (rs.next()) {
+				 sellerId = rs.getString(1);
+			 }
+
+			 MysqlConnector.getInstance().commit();
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+			 try {
+				 if (st != null) {
+					 st.close();
+				 }
+			 } catch (SQLException ex) {
+				 e.printStackTrace();
+			 } finally {
+				 if (cn != null) {
+					 MysqlConnector.getInstance().closeConnection();
+				 }
+			 }
+		 }
+		 return sellerId;
+	 }
+
 	 public Item manageStock(String itemId) throws IntegrationException {
 	        Item i = new Item();
 	        try {

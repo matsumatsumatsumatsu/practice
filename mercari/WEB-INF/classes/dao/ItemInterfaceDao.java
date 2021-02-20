@@ -9,9 +9,9 @@ public interface ItemInterfaceDao {
 	public void listing(Item item) throws IntegrationException;
 	public List getAllItems() throws IntegrationException;
 	public List getItem(String key) throws IntegrationException;
+	public String getItemName(String userId) throws IntegrationException;
+	public String  getSellerId(String itemId) throws IntegrationException;
 	public Item manageStock(String itemId) throws IntegrationException;
 	public List search(String keyword) throws IntegrationException;
-	//public Item category(String categoryId);
-	//public Item sort(String col, String order);
 	public void deleteItem(String itemid) throws IntegrationException;
 }
