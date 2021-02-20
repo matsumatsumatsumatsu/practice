@@ -152,11 +152,11 @@ public class ItemDao implements ItemInterfaceDao {
 	        return items;
 	    }
 
-	 public String getItemName(String userId) throws IntegrationException {
+	 public String getItemName(String itemId) throws IntegrationException {
 		 String itemName= "";
 		 try {
 			 cn = MysqlConnector.getInstance().getConnection();
-			 String sql = "select item_name from item where seller_id = " + userId;
+			 String sql = "select item_name from item where item_id = " + itemId;
 			 System.out.println("確認用SQL文:"+sql);
 
 			 st = cn.prepareStatement(sql);

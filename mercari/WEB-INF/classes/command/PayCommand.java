@@ -124,8 +124,8 @@ public class PayCommand extends AbstractCommand {
 		System.out.println("商品ID確認ーーーーーー"+itemId);
 		String sellerId = itemDao.getSellerId(itemId);
 		//購入者と出品者双方に決済を通達する
-		String buyerComment = itemDao.getItemName(sellerId) + "を購入しました";
-		String sellerComment = itemDao.getItemName(sellerId) + "が購入されました";
+		String buyerComment = itemDao.getItemName(itemId) + "を購入しました";
+		String sellerComment = itemDao.getItemName(itemId) + "が購入されました";
 		System.out.println(buyerComment);
 		System.out.println(sellerComment);
 
