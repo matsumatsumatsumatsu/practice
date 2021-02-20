@@ -86,7 +86,7 @@
 
 	<div id="list-side">
 		<ul>
-			<li><a href="f_showOwnListingList">出品した商品</a></li>
+			<li><a href="showownlistinglist">出品した商品</a></li>
 			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>
 			<li><a href="f_editProfile">プロフィール</a></li>
