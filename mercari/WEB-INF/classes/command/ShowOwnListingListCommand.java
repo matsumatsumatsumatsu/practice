@@ -24,7 +24,7 @@ public class ShowOwnListingListCommand extends AbstractCommand {
 		//ログインしているユーザーのIDを取得する
 		SessionManager.getSession(reqc);
 		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
-		String key = "where seller_id = " + sessionUserId;
+		String key = "where seller_id = " + sessionUserId + " and stock = " + "1";
 
 		//出品中
 		List itemList = new ArrayList();
@@ -37,8 +37,8 @@ public class ShowOwnListingListCommand extends AbstractCommand {
 
 		try {
         	itemList = dao.getItem(key);
-        	sellDeal = dealDao.getSellAllDeals(sessionUserId,"1");
-        	sellHistory = dealDao.getSellAllDeals(sessionUserId,"3");
+        	sellDeal = dealDao.getSellAllDeals(sessionUserId," and deal_state = 1 or deal_state = 4");
+        	sellHistory = dealDao.getSellAllDeals(sessionUserId," and deal_state = 3");
         }catch(IntegrationException e) {
         }
 
