@@ -28,7 +28,7 @@ public class UserInfoCommand extends AbstractCommand{
 
         try {
             user = userdao.getUser(userId);
-            deal = dealdao.getAllDeals(userId);
+            deal = dealdao.getAllDeals(userId,"1");
         }catch(IntegrationException e) {
         }
 

@@ -96,21 +96,21 @@ public class PayCommand extends AbstractCommand {
 			//例外処理
 		}
 
-		//Dealのインスタンス化（出品者側）
-		deal.setBeforePaymentId(payId);
-		deal.setAfterPaymentId(null);
-		deal.setItemId(itemId);
-		//1は取引中
-		deal.setDealState("1");
-		deal.setUserId(((Item)item.get(0)).getSellerId());
-		//1は購入者の取引中
-		deal.setUserState("2");
+//		//Dealのインスタンス化（出品者側）
+//		deal.setBeforePaymentId(payId);
+//		deal.setAfterPaymentId(null);
+//		deal.setItemId(itemId);
+//		//1は取引中
+//		deal.setDealState("1");
+//		deal.setUserId(((Item)item.get(0)).getSellerId());
+//		//1は購入者の取引中
+//		deal.setUserState("2");
 
-		try{
-			dealDao.insertDeal(deal);
-		}catch(IntegrationException e) {
-			//例外処理
-		}
+//		try{
+//			dealDao.insertDeal(deal);
+//		}catch(IntegrationException e) {
+//			//例外処理
+//		}
 
 		try {
 			userDao.pay(sessionUserId,point);
@@ -138,7 +138,7 @@ public class PayCommand extends AbstractCommand {
 		resc = notifyBuyer.execute(resc);
 		resc = notifySeller.execute(resc);
 
-		resc.setTarget("buyerDealingInfo");
+		resc.setTarget("start");
 		return resc;
 	}
 

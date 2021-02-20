@@ -1,3 +1,4 @@
+//購入した取引中の取引一覧、過去の取引一覧
 package command;
 
 import java.util.ArrayList;
@@ -8,7 +9,6 @@ import context.RequestContext;
 import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.DealInterfaceDao;
-import dao.UserInterfaceDao;
 import exception.IntegrationException;
 import util.SessionManager;
 
@@ -18,34 +18,37 @@ public class ShowPurchaseCommand extends AbstractCommand {
 
 		//ログインしているユーザーのIDを取得する
 		SessionManager.getSession(reqc);
-
 		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
 
-
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-		UserInterfaceDao userdao = factory.getUserInterfaceDao();
-		DealInterfaceDao dealdao = factory.getDealInterfaceDao();
+		DealInterfaceDao dealDao = factory.getDealInterfaceDao();
 
-		//ユーザーの情報
-//		List user = new ArrayList();
 		//購入した取引中の取引一覧
 		List buyDeal = new ArrayList();
+		List buyHistory = new ArrayList();
+
 
         try {
-//        	user = userdao.getUser(sessionUserId);
-        	buyDeal = dealdao.getAllDeals(sessionUserId);
-
+        	buyDeal = dealDao.getAllDeals(sessionUserId,"1");
+        	buyHistory = dealDao.getAllDeals(sessionUserId,"3");
         }catch(IntegrationException e) {
         	//例外処理
 
         }
+
+
 		List<Object> first=new ArrayList<>();
 		first.add("buyDeal");
 		first.add(buyDeal);
 
+		List<Object> second=new ArrayList<>();
+		second.add("buyHistory");
+		second.add(buyHistory);
+
 
 		List<List> result=new ArrayList<>();
 		result.add(first);
+		result.add(second);
 
 		resc.setResult(result);
 		resc.setTarget("purchase");

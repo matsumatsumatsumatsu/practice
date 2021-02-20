@@ -23,32 +23,30 @@ public class ShowProfileCommand extends AbstractCommand{
 //	    System.out.println("user_id="+sessionUserId);
 
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
-		UserInterfaceDao userdao = factory.getUserInterfaceDao();
-		DealInterfaceDao dealdao = factory.getDealInterfaceDao();
+		UserInterfaceDao userDao = factory.getUserInterfaceDao();
+		DealInterfaceDao dealDao = factory.getDealInterfaceDao();
 
 
 		List user = new ArrayList(); //ユーザーの情報
 		//購入した取引中の取引一覧
 		List buyDeal = new ArrayList();
+		List buyHistory = new ArrayList();
+		//出品した取引中の取引一覧
+		List sellDeal = new ArrayList();
+		List sellHistory = new ArrayList();
 
         try {
-        	user = userdao.getUser(sessionUserId);
-        	buyDeal = dealdao.getAllDeals(sessionUserId);
+        	user = userDao.getUser(sessionUserId);
+
+        	buyDeal = dealDao.getAllDeals(sessionUserId,"1");
+        	sellDeal = dealDao.getSellAllDeals(sessionUserId,"1");
+        	buyHistory = dealDao.getAllDeals(sessionUserId,"3");
+        	sellHistory = dealDao.getSellAllDeals(sessionUserId,"3");
 
         }catch(IntegrationException e) {
         	//例外処理
 
         }
-
-		List sellDeal = new ArrayList();
-
-        try {
-        	sellDeal = dealdao.getSellAllDeals(sessionUserId);
-
-        }catch(IntegrationException e) {
-        }
-
-		//出品した取引中の取引一覧
 
 
         List<Object> first=new ArrayList<>();
@@ -63,10 +61,20 @@ public class ShowProfileCommand extends AbstractCommand{
 		third.add("sellDeal");
 		third.add(sellDeal);
 
+		List<Object> fourth=new ArrayList<>();
+		fourth.add("buyHistory");
+		fourth.add(buyHistory);
+
+		List<Object> fifth=new ArrayList<>();
+		fifth.add("sellHistory");
+		fifth.add(sellHistory);
+
 		List<List> result=new ArrayList<>();
 		result.add(first);
 		result.add(second);
 		result.add(third);
+		result.add(fourth);
+		result.add(fifth);
 
 		resc.setResult(result);
 		resc.setTarget("mypage");

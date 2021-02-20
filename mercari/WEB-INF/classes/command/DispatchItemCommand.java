@@ -19,7 +19,9 @@ public class DispatchItemCommand extends AbstractCommand{
 		String  dealId= reqc.getParameter("deal_id")[0];
 
 		try{
-			dao.changeState(dealId, "4");
+			//考えもの
+			//dao.changeState(dealId, "4");
+			dao.changeState(dealId, "1");
 		}catch(IntegrationException e) {
 			//例外処理
 		}

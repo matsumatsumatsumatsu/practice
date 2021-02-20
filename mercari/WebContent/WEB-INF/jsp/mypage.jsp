@@ -29,22 +29,20 @@
 		</c:forEach>
 	</table>
 
-	<div id="buyer">
+	<div id="dealing">
 		<h4>取引中</h4>
 		<h4>購入した商品</h4>
 		<table border="1">
 			<tr>
 				<th>itemid</th>
 				<th>商品名</th>
-				<th>購入/出品</th>
 				<th>画像</th>
 			</tr>
 			<c:forEach var="deal" items="${buyDeal}">
 					<tr>
 						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=1" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
-						<td>${deal.userState}</td>
-						<td>${item.ItemImage}</td>
+						<td>${deal.itemImage}</td>
 					</tr>
 			</c:forEach>
 		</table>
@@ -54,38 +52,56 @@
 			<tr>
 				<th>itemid</th>
 				<th>商品名</th>
-				<th>購入/出品</th>
 				<th>画像</th>
 			</tr>
 			<c:forEach var="deal" items="${sellDeal}">
 					<tr>
 						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=2" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
-						<!-- <td>${item.ItemImage}</td> -->
-						<td>${deal.userState}</td>
+						<td>${deal.itemImage}</td>
 					</tr>
 			</c:forEach>
 		</table>
+	</div>
 
+	<div id="history">
 		<h4>過去の取引</h4>
+		<h4>購入した商品</h4>
 		<table border="1">
 			<tr>
 				<th>itemid</th>
 				<th>商品名</th>
 				<th>画像</th>
 			</tr>
-			<c:forEach var="item" items="${item}">
-				<tr>
-					<td>${item.itemId}</td>
-					<td>${item.itemName}</td>
-					<td>${item.itemImage}</td>
-				</tr>
+			<c:forEach var="history" items="${buyHistory}">
+					<tr>
+						<td><a href="showDealingInfo?deal_id=${history.dealId}&user_state=1" name="itemId">${history.itemId}</a></td>
+						<td>${history.itemName}</td>
+						<td>${history.itemImage}</td>
+					</tr>
+			</c:forEach>
+		</table>
+
+		<h4>出品した商品</h4>
+		<table border="1">
+			<tr>
+				<th>itemid</th>
+				<th>商品名</th>
+				<th>画像</th>
+			</tr>
+			<c:forEach var="history" items="${sellHistory}">
+					<tr>
+						<td><a href="showDealingInfo?deal_id=${history.dealId}&user_state=2" name="itemId">${history.itemId}</a></td>
+						<td>${history.itemName}</td>
+						<td>${history.itemImage}</td>
+					</tr>
 			</c:forEach>
 		</table>
 	</div>
 
 	<div id="list-side">
 		<ul>
+			<li><a href="shownoticelist">通知</a></li>
 			<li><a href="showownlistinglist">出品した商品</a></li>
 			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>

@@ -62,7 +62,7 @@ public class DealDao implements DealInterfaceDao {
         }
 	}
 
-	public List getAllDeals(String userId) throws IntegrationException{
+	public List getAllDeals(String userId, String dealState) throws IntegrationException{
 		ArrayList deals = new ArrayList();
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
@@ -70,7 +70,7 @@ public class DealDao implements DealInterfaceDao {
 			//deal表とitem表を表結合（内部結合）、item表のitem_nameをdealのbeanに挿入する。user_idで識別。
 			String sql = "select deal.deal_id,deal.before_payment_id,deal.after_payment_id,deal.item_id,item.item_name,item.item_image,item.seller_id,item.term,deal.deal_state,deal.time_limit,deal.user_id,deal.user_state "
 					+ "from deal inner join item on deal.item_id = item.item_id"
-					+ " where user_id = "+ userId;
+					+ " where user_id = "+ userId +" and deal_state = "+ dealState;
 			st = cn.prepareStatement(sql);
 	        rs = st.executeQuery();
 
@@ -109,7 +109,7 @@ public class DealDao implements DealInterfaceDao {
 		return deals;
 	}
 
-	public List getSellAllDeals(String userId) throws IntegrationException{
+	public List getSellAllDeals(String userId, String dealState) throws IntegrationException{
 		ArrayList deals = new ArrayList();
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
@@ -117,7 +117,7 @@ public class DealDao implements DealInterfaceDao {
 			//deal表とitem表を表結合（内部結合）、item表のitem_nameをdealのbeanに挿入する。user_idで識別。
 			String sql = "select deal.deal_id,deal.before_payment_id,deal.after_payment_id,deal.item_id,item.item_name,item.item_image,item.seller_id,item.term,deal.deal_state,deal.time_limit,deal.user_id,deal.user_state "
 					+ "from deal inner join item on deal.item_id = item.item_id"
-					+ " where item.seller_id = "+ userId;
+					+ " where item.seller_id = "+ userId +" and deal_state = "+ dealState;
 			st = cn.prepareStatement(sql);
 	        rs = st.executeQuery();
 

@@ -14,22 +14,7 @@
 			value='検索！'>
 	</form>
 </div>
-<ul class="category">
-	<li><a>カテゴリから探す</a>
-		<ul>
-			<li><a href="category">DS</a>
-				<ul>
 
-					<li><a href="category">アクション</a></li>
-					<li><a href="category">Child2</a></li>
-					<li><a href="category">Child3</a></li>
-					<li><a href="category">Child4</a></li>
-					<li><a href="category">Child5</a></li>
-				</ul></li>
-
-		</ul></li>
-
-</ul>
 </head>
 <body>
 	<div id="buyer">
@@ -39,15 +24,13 @@
 			<tr>
 				<th>itemid</th>
 				<th>商品名</th>
-				<th>購入/出品</th>
 				<th>画像</th>
 			</tr>
 			<c:forEach var="deal" items="${buyDeal}">
 					<tr>
 						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=1" name="itemId">${deal.itemId}</a></td>
 						<td>${deal.itemName}</td>
-						<td>${deal.userState}</td>
-						<td>${item.ItemImage}</td>
+						<td>${deal.itemImage}</td>
 					</tr>
 			</c:forEach>
 		</table>
@@ -59,12 +42,12 @@
 				<th>商品名</th>
 				<th>画像</th>
 			</tr>
-			<c:forEach var="item" items="${data}">
-				<tr>
-					<td>${item.itemId}</td>
-					<td>${item.itemName}</td>
-					<td>${item.itemImage}</td>
-				</tr>
+			<c:forEach var="history" items="${buyHistory}">
+					<tr>
+						<td><a href="showDealingInfo?deal_id=${history.dealId}&user_state=1" name="itemId">${history.itemId}</a></td>
+						<td>${history.itemName}</td>
+						<td>${history.itemImage}</td>
+					</tr>
 			</c:forEach>
 		</table>
 	</div>
@@ -72,7 +55,6 @@
 	<div id="l-side">
 		<ul>
 			<li><a href="showownlistinglist">出品した商品</a></li>
-			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>
 			<li><a href="profile">プロフィール</a></li>
 			<li><a href="logout">ログアウト</a></li>
