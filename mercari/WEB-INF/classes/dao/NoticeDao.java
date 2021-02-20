@@ -50,7 +50,7 @@ public class NoticeDao implements NoticeInterfaceDao {
 	}
 
 	//お知らせの一覧などで通知を表示する
-	public List getNotice(String userId) throws IntegrationException {
+	public List getAllNotices(String userId) throws IntegrationException {
 		ArrayList notices = new ArrayList();
 		try {
 			cn = MysqlConnector.getInstance().getConnection();

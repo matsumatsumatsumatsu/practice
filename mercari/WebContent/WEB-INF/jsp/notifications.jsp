@@ -10,19 +10,13 @@
 <body>
 	<div class="l-content">
 		<table border="1">
-			<tr>
-				<th>notice_id</th>
-				<th>通知を受け取るユーザー</th>
-				<th>通知内容</th>
-			</tr>
-			<c:forEach var="notice" items="${data}">
+			<c:forEach var="notice" items="${notice}">
 				<tr>
-					<td>${notice.noticeId}</td>
-					<td>${notice.noticeId}</td>
 					<td>${notice.comment}</td>
+					<td>${notice.date}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<div>
+	</div>
 </body>
 </html>
