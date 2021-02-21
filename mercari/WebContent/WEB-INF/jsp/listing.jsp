@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,14 +9,45 @@
 </head>
 <body>
 	<h1>出品</h1>
-	<form action="listing" method="post">
-		商品の画像：<input type="file" name="itemImage"> 商品名：<input
-			type="text" name="itemName" /><br> 商品の説明：<input type="text"
-			name="itemExplanation" /><br> ゲームのジャンル：<input type="text"
-			name="hardwareId" /><br> ハードの種類：<input type="text"
-			name="categoryId" /><br> 発送までの期間：<input type="text" name="term" /><br>
-		値段：<input type="text" name="price" /><br>
-		<br> <input type="submit" value="出品する">
+	<form name="listing" action="listing" method="post" onSubmit="return check()">
+		商品の画像：<input type="file" name="itemImage">
+		<br>商品名：<input type="text" name="itemName" />
+		<br> 商品の説明：<input type="text"name="itemExplanation" />
+		<br> ハードの種類：
+		<select name="hardwareId">
+			<option value="">選択してください</option>
+			<c:forEach var="hardware" items="${hardware}">
+				<option value="${hardware.hardwareId}">${hardware.hardware}</option>
+			</c:forEach>
+		</select>
+		<br> ゲームのジャンル：
+		<select name="categoryId">
+			<option value="">選択してください</option>
+			<c:forEach var="category" items="${category}">
+				<option value="${category.categoryId}">${category.category}</option>
+			</c:forEach>
+		</select>
+		<br> 発送までの期間：<input type="text" name="term" />
+		<br>値段：<input type="text" name="price" />
+		<br><br> <input type="submit" value="出品する">
 	</form>
+
+	<script>
+	    function check() {
+	        if(document.listing.hardwareId.value == "") {
+	            alert("ハードウェアを選択して下さい");
+	            return false;
+	        }
+	        if(document.listing.categoryId.value == "") {
+	            alert("ジャンルを選択して下さい");
+	            return false;
+	        }
+
+	        if(document.listing.itemExplanation.value == "") {
+	            alert("説明を入力してください");
+	            return false;
+	        }
+	    }
+    </script>
 </body>
 </html>
