@@ -20,7 +20,7 @@
 			<th>値段</th>
 			<th>ユーザID</th>
 		</tr>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<tr>
 				<td>${item.itemImage}</td>
 				<td>${item.itemName}</td>
@@ -46,7 +46,7 @@
 			</c:forEach>
 		</table>
 
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<form action="sendopenchat?item_id=${item.itemId}" method="post">
 				<input type="text" name="text"><br>
 				<input type="submit" value="コメントする">
@@ -55,12 +55,12 @@
 	</div>
 
 	<p>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
 		</c:forEach>
 	</p>
 	<p>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<a href="showuserinfo?user_id=${item.sellerId}">ユーザーの確認</a>
 		</c:forEach>
 	</p>
