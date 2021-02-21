@@ -66,11 +66,13 @@
 			<input type="text" name="text"><br> <input
 				type="submit" value="コメントする">
 		</form>
-	</c:forEach>
 
-	<p>
-		<a href="cancel">取引をキャンセルする</a>
-	</p>
+		<div id = "cancel">
+			<p>
+				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1"">取引をキャンセルする</a>
+			</p>
+		</div>
+	</c:forEach>
 	<p>
 		<a href="f_start">TOPページへ</a>
 	</p>
@@ -92,6 +94,10 @@
 		if (<c:out value="${stateCheck}" /> == 3) {
 			$("#dispatch").empty();
 			$("#dispatch").html('<p>商品の受け取りが完了しました。</p>');
+		}
+
+		if (<c:out value="${stateCheck}" /> == 2 ||<c:out value="${stateCheck}" /> == 4) {
+			$("#cancel").empty();
 		}
 	</script>
 

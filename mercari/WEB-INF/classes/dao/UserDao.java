@@ -314,9 +314,23 @@ public class UserDao implements UserInterfaceDao{
 			}
 		}
 	}
+
 	public void grantPoint(String userId,int point) throws IntegrationException{
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
+
+			String selectsql = "select point from user where user_id = " + userId ;
+			st = cn.prepareStatement(selectsql);
+			rs = st.executeQuery();
+
+			int userPoint = 0;
+
+			while (rs.next()) {
+				userPoint = rs.getInt(1);
+			}
+
+			point += userPoint;
+
 			String sql = "update user set point = ? where user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setInt(1,point);
@@ -342,7 +356,7 @@ public class UserDao implements UserInterfaceDao{
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 			String sql = "update user set profile = "+profile+"where user_id = "+userId;
-			System.out.println(sql);
+//			System.out.println(sql);
 			st = cn.prepareStatement(sql);
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();

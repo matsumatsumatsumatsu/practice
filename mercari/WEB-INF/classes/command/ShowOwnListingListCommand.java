@@ -38,7 +38,7 @@ public class ShowOwnListingListCommand extends AbstractCommand {
 		try {
         	itemList = dao.getItem(key);
         	sellDeal = dealDao.getSellAllDeals(sessionUserId," and (deal_state = 1 or deal_state = 4)");
-        	sellHistory = dealDao.getSellAllDeals(sessionUserId," and deal_state = 3");
+        	sellHistory = dealDao.getSellAllDeals(sessionUserId," and (deal_state = 3 or deal_state = 3)");
         }catch(IntegrationException e) {
         }
 

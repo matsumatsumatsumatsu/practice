@@ -23,7 +23,7 @@ public class ChangeStateCommand extends AbstractCommand{
 
 
         try {
-           dealdao.changeState(dealId,"3");
+           dealdao.changeState(dealId,"2");
         }catch(IntegrationException e) {
         }
 
