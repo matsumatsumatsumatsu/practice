@@ -30,7 +30,7 @@ public class ShowPurchaseCommand extends AbstractCommand {
 
         try {
         	buyDeal = dealDao.getAllDeals(sessionUserId," and (deal_state = 1 or deal_state = 4)");
-        	buyHistory = dealDao.getAllDeals(sessionUserId," and deal_state = 3");
+        	buyHistory = dealDao.getAllDeals(sessionUserId," and (deal_state = 3 or deal_state = 3)");
         }catch(IntegrationException e) {
         	//例外処理
 

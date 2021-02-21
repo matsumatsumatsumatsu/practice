@@ -113,6 +113,7 @@ public class PayCommand extends AbstractCommand {
 //		}
 
 		try {
+			//userのポイントを減らす
 			userDao.pay(sessionUserId,point);
 			//在庫を減らす
 			itemDao.manageStock(itemId);
