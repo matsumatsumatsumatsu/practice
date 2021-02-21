@@ -34,13 +34,16 @@
 				<td>${deal.itemId}</td>
 				<td>${deal.dealState}</td>
 			</tr>
+			<c:set var="stateCheck" value="${deal.dealState}"></c:set>
 		</c:forEach>
 	</table>
 
 	<c:forEach var="deal" items="${deal}">
-		<form action="receive?deal_id=${deal.dealId}&user_state=1" method="post">
-			<input type="submit" value="受け取りました">
-		</form>
+		<div id="receive">
+			<form action="receive?deal_id=${deal.dealId}&user_state=1" method="post">
+				<input type="submit" value="受け取りました">
+			</form>
+		</div>
 	</c:forEach>
 
 	<table border="1">
@@ -71,6 +74,25 @@
 	<p>
 		<a href="f_start">TOPページへ</a>
 	</p>
+
+	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script>
+		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
+		if (<c:out value="${stateCheck}" /> == 1) {
+			$("#receive").empty();
+			$("#receive").html('<p>商品の発送をお待ちください。</p>');
+		}
+
+		if (<c:out value="${stateCheck}" /> == 2) {
+			$("#receive").empty();
+			$("#receive").html('<p>取引がキャンセルされました。</p>');
+		}
+
+		if (<c:out value="${stateCheck}" /> == 3) {
+			$("#receive").empty();
+			$("#receive").html('<p>商品の受け取りが完了しました。</p>');
+		}
+	</script>
 
 </body>
 </html>

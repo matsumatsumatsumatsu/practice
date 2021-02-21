@@ -32,15 +32,20 @@
 	<p>
 		<a href="f_signup">ユーザー登録画面へ</a>
 	</p>
+	<!-- 後々コメントアウト -->
 	<p>
 		<a href="showprofile">マイページ</a>
 	</p>
 	<p>
 		<a href="f_listing">出品画面へ</a>
 	</p>
-	<p>
-		<a href="f_login">ログイン</a>
-	</p>
+	<!-- 非login→ログインjsp、login→マイページjsp -->
+	<div id="login">
+		<p>
+			<a href="f_login">ログイン</a>
+		</p>
+	</div>
+	<!-- 後々コメントアウト -->
 	<p>
 		<a href="f_logout">ログアウト</a>
 	</p>
@@ -65,6 +70,15 @@
 			</tr>
 		</c:forEach>
 	</table>
+
+	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script>
+		if (<c:out value="${loginCheck}" /> != null) {
+			$("#login").empty();
+			$("#login").html('<a href="showprofile">マイページ</a>');
+			<!-- document.getElementById("stockCheck").style.color = "gray"; -->
+		}
+	</script>
 
 </body>
 </html>
