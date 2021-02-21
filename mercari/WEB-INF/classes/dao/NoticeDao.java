@@ -90,4 +90,78 @@ public class NoticeDao implements NoticeInterfaceDao {
 		}
 		return notices;
 	}
+
+	//既読の有無だけ確認
+	public int getIsRead(String userId) throws IntegrationException {
+		int isRead = 0;
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+
+			String sql = "select  is_read, from notice where user_id = " + userId;
+			st = cn.prepareStatement(sql);
+			rs = st.executeQuery();
+
+			while (rs.next()) {
+				isRead = rs.getInt(1);
+			}
+
+			MysqlConnector.getInstance().commit();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				cn.rollback();
+			}catch(SQLException ex) {
+			}
+		}finally {
+			try {
+				if(st != null) {
+					st.close();
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				if(cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+		}
+		return isRead;
+	}
+
+	//未読を既読にする処理
+	public String readCheck(String userId) throws IntegrationException{
+		String notices = "";
+
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+
+			String sql = "update notice set is_read = 0 where user_id = " + userId;
+			st = cn.prepareStatement(sql);
+
+			st.executeUpdate();
+
+			MysqlConnector.getInstance().commit();
+
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				cn.rollback();
+			}catch(SQLException ex) {
+			}
+		}finally {
+			try {
+				if(st != null) {
+					st.close();
+				}
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}finally {
+				if(cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+		}
+
+		return notices;
+	}
 }

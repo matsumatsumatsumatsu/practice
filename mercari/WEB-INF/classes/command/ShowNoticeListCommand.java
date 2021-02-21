@@ -26,6 +26,7 @@ public class ShowNoticeListCommand extends AbstractCommand {
 		List notices = new ArrayList();
 		try {
 			notices = noticeDao.getAllNotices(sessionUserId);
+			noticeDao.readCheck(sessionUserId);
 		}catch(IntegrationException e) {
 		}
 
@@ -34,8 +35,6 @@ public class ShowNoticeListCommand extends AbstractCommand {
 		first.add(notices);
 		List<List> result = new ArrayList();
 		result.add(first);
-
-		//既読判定まだ
 
 		resc.setResult(result);
 		resc.setTarget("notifications");

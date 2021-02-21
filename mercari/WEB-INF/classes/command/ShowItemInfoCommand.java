@@ -47,7 +47,7 @@ public class ShowItemInfoCommand extends AbstractCommand{
 		result.add(first);
 
         List<Object> second=new ArrayList<>();
-		second.add("data");
+		second.add("item");
 		second.add(item);
 		result.add(second);
 

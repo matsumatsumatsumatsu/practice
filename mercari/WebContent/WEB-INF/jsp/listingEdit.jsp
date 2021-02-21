@@ -13,7 +13,7 @@
 
 
 	<form action="editListing" method="post">
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<input type="hidden" name="itemId" value="${item.itemId}">
 		</c:forEach>
 		<input type="file" name="image" placeholder="商品画像の変更">
@@ -31,7 +31,6 @@
 		<input type="text" name="price" placeholder="値段の変更">
 		<br>
 		<input type="submit" value="変更">
-
 	</form>
 </body>
 </html>

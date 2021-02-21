@@ -20,7 +20,7 @@
 			<td>発送期間</td>
 			<td>値段</td>
 		</tr>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<tr>
 				<td>${item.itemImage}</td>
 				<td>${item.itemName}</td>
@@ -44,7 +44,7 @@
 			</c:forEach>
 		</table>
 
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<form action="sendopenchat?item_id=${item.itemId}" method="post">
 				<input type="text" name="text"><br> <input
 					type="submit" value="コメントする">
@@ -59,9 +59,17 @@
 		<a href="category">カテゴリー検索</a>
 	</p>
 	<p>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<a href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>
 		</c:forEach>
+	</p>
+	<p>
+		<c:forEach var="item" items="${item}">
+			<a href="remove?item_id=${item.itemId}">出品を取り消す</a>
+		</c:forEach>
+	</p>
+	<p>
+		<a href="f_start">TOP画面へ</a>
 	</p>
 </body>
 </html>

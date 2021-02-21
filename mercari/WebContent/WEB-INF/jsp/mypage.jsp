@@ -108,6 +108,7 @@
 			<li><a href="f_editProfile">プロフィール</a></li>
 			<li><a href="f_logout">ログアウト</a></li>
 			<li><a href="f_withdraw">退会</a></li>
+			<li><a href="f_start">TOP画面へ</a></li>
 		</ul>
 	</div>
 </body>
