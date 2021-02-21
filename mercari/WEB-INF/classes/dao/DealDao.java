@@ -250,4 +250,71 @@ public class DealDao implements DealInterfaceDao {
 			}
 		}
 	}
+
+	//deal表のuser_idは買い手のID
+	public String getBuyerId(String dealId) throws IntegrationException {
+		String buyerId = "";
+		 try {
+			 cn = MysqlConnector.getInstance().getConnection();
+			 String sql = "select user_id from deal where deal_id = " + dealId;
+			 System.out.println("確認用SQL文:"+sql);
+
+			 st = cn.prepareStatement(sql);
+			 rs = st.executeQuery();
+
+			 //カーソルを使うので取るデータが一つでもwhile文を回したい
+			 while (rs.next()) {
+				 buyerId = rs.getString(1);
+			 }
+
+			 MysqlConnector.getInstance().commit();
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+			 try {
+				 if (st != null) {
+					 st.close();
+				 }
+			 } catch (SQLException ex) {
+				 e.printStackTrace();
+			 } finally {
+				 if (cn != null) {
+					 MysqlConnector.getInstance().closeConnection();
+				 }
+			 }
+		 }
+		return buyerId;
+	}
+
+	public String getItemId(String dealId) throws IntegrationException{
+		String itemId = "";
+		 try {
+			 cn = MysqlConnector.getInstance().getConnection();
+			 String sql = "select item_id from deal where deal_id = " + dealId;
+			 System.out.println("確認用SQL文:"+sql);
+
+			 st = cn.prepareStatement(sql);
+			 rs = st.executeQuery();
+
+			 //カーソルを使うので取るデータが一つでもwhile文を回したい
+			 while (rs.next()) {
+				 itemId = rs.getString(1);
+			 }
+
+			 MysqlConnector.getInstance().commit();
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+			 try {
+				 if (st != null) {
+					 st.close();
+				 }
+			 } catch (SQLException ex) {
+				 e.printStackTrace();
+			 } finally {
+				 if (cn != null) {
+					 MysqlConnector.getInstance().closeConnection();
+				 }
+			 }
+		 }
+		return itemId;
+	}
 }

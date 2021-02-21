@@ -21,7 +21,7 @@ public class ReceiveItemCommand extends AbstractCommand{
 
 
 
-		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
+		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
 		DealInterfaceDao dealDao = factory.getDealInterfaceDao();
 		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
 		PaymentLogInterfaceDao payDao=factory.getPaymentLogInterfaceDao();
@@ -68,11 +68,6 @@ public class ReceiveItemCommand extends AbstractCommand{
 			//例外処理
 		}
 
-		ShowDealingInfoCommand show = new ShowDealingInfoCommand();
-		show.init(reqc);
-		resc = show.execute(resc);
-
-		//通知
 		//売り手の発送した商品が受け取られた旨を通知する
 		String itemId = ((Deal)deal.get(0)).getItemId();
 		String sellerId = itemDao.getSellerId(itemId);
@@ -81,6 +76,10 @@ public class ReceiveItemCommand extends AbstractCommand{
 		NotifyCommand notify  = new NotifyCommand(sellerId,sellerComment);
 		notify.init(reqc);
 		resc = notify.execute(resc);
+
+		ShowDealingInfoCommand show = new ShowDealingInfoCommand();
+		show.init(reqc);
+		resc = show.execute(resc);
 
 		return resc;
 	}

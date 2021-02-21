@@ -106,4 +106,70 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
 
 		return paymentLogs;
 	}
+
+	public String getBuyerId(String itemId) throws IntegrationException{
+		String buyerId = "";
+		 try {
+			 cn = MysqlConnector.getInstance().getConnection();
+			 String sql = "select buyer_id from payment_log where item_id = " + itemId;
+			 System.out.println("確認用SQL文:"+sql);
+
+			 st = cn.prepareStatement(sql);
+			 rs = st.executeQuery();
+
+			 //カーソルを使うので取るデータが一つでもwhile文を回したい
+			 while (rs.next()) {
+				 buyerId = rs.getString(1);
+			 }
+
+			 MysqlConnector.getInstance().commit();
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+			 try {
+				 if (st != null) {
+					 st.close();
+				 }
+			 } catch (SQLException ex) {
+				 e.printStackTrace();
+			 } finally {
+				 if (cn != null) {
+					 MysqlConnector.getInstance().closeConnection();
+				 }
+			 }
+		 }
+		return buyerId;
+	}
+
+	public String getSellerId(String itemId) throws IntegrationException {
+		String sellerId = "";
+		 try {
+			 cn = MysqlConnector.getInstance().getConnection();
+			 String sql = "select seller_id from payment_log where item_id = " + itemId;
+			 System.out.println("確認用SQL文:"+sql);
+
+			 st = cn.prepareStatement(sql);
+			 rs = st.executeQuery();
+
+			 //カーソルを使うので取るデータが一つでもwhile文を回したい
+			 while (rs.next()) {
+				sellerId = rs.getString(1);
+			 }
+
+			 MysqlConnector.getInstance().commit();
+		 }catch (SQLException e) {
+			 e.printStackTrace();
+			 try {
+				 if (st != null) {
+					 st.close();
+				 }
+			 } catch (SQLException ex) {
+				 e.printStackTrace();
+			 } finally {
+				 if (cn != null) {
+					 MysqlConnector.getInstance().closeConnection();
+				 }
+			 }
+		 }
+		return sellerId;
+	}
 }

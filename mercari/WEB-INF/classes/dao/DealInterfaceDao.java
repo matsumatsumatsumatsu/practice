@@ -12,4 +12,6 @@ public interface DealInterfaceDao {
 	public List getDeal(String dealId) throws IntegrationException;
 	public void changeState(String dealId,String state) throws IntegrationException;
 	public void updatePaymentLog(Deal d,String dealId) throws IntegrationException;
+	public String getBuyerId(String dealId) throws IntegrationException;
+	public String getItemId(String dealId) throws IntegrationException;
 }
