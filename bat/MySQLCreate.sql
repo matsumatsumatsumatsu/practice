@@ -181,8 +181,8 @@ values(3, 'パズル');
 insert into category(category_id, category)
 values(4, 'アドベンチャー');
 
-insert into admin(admin_id,admin_name,admin_password,mail)
-values(1000,'admin','P@ssw0rd','info@gmail.com');
+insert into admin(admin_name,admin_password,mail)
+values('admin','P@ssw0rd','info@gmail.com');
 
 
 commit;
