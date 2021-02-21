@@ -1,6 +1,7 @@
 package bean;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Item implements Serializable{
 	private String itemId;
@@ -10,11 +11,13 @@ public class Item implements Serializable{
 	private String itemExplanation;
 	private String hardwareId;
 	private String categoryId;
+	private String hardware;
+	private String category;
 	private String sellerId;
 	private int term;
 	private int stock;
-	private String listingDate;
-	private String userId;
+	private Timestamp listingDate;
+//	private String userId;
 
 	public Item() {}
 
@@ -78,10 +81,23 @@ public class Item implements Serializable{
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
-	public String getListingDate() {
+	public Timestamp getListingDate() {
 		return listingDate;
 	}
-	public void setListingDate(String listingDate) {
+	public void setListingDate(Timestamp listingDate) {
 		this.listingDate = listingDate;
+	}
+
+	public String getHardware() {
+		return hardware;
+	}
+	public void setHardware(String hardware) {
+		this.hardware = hardware;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 }

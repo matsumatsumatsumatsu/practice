@@ -4,8 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,8 +65,10 @@ public class ItemDao implements ItemInterfaceDao {
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select * from item " + key;
-            System.out.println("確認用SQL文:"+sql);
+			String sql = "select item_id, item_name, price, item_image, item_explanation, item.hardware_id, item.category_id, hardware.hardware, category.category, item.seller_id, stock, listing_date, term "
+					+ " from item left join hardware on item.hardware_id = hardware.hardware_id "
+					+ " left join category on item.category_id = category.category_id " +  key;
+//            System.out.println("確認用SQL文:"+sql);
 
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
@@ -82,15 +82,17 @@ public class ItemDao implements ItemInterfaceDao {
                 i.setItemExplanation(rs.getString(5));
                 i.setHardwareId(rs.getString(6));
                 i.setCategoryId(rs.getString(7));
-                i.setSellerId(rs.getString(8));
-                i.setStock(rs.getInt(9));
+                i.setHardware(rs.getString(8));
+                i.setCategory(rs.getString(9));
+                i.setSellerId(rs.getString(10));
+                i.setStock(rs.getInt(11));
+                i.setListingDate(rs.getTimestamp(12));
+                i.setTerm(rs.getInt(13));
 
-                Timestamp timestamp = rs.getTimestamp(10);
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-                String str = sdf.format(timestamp);
-
-                i.setListingDate(str);
-                i.setTerm(rs.getInt(11));
+//                Timestamp timestamp = rs.getTimestamp(10);
+//                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//                String str = sdf.format(timestamp);
+//                i.setListingDate(str);
 
                 items.add(i);
             }
@@ -269,12 +271,13 @@ public class ItemDao implements ItemInterfaceDao {
 	                i.setCategoryId(rs.getString(7));
 	                i.setSellerId(rs.getString(8));
 	                i.setStock(rs.getInt(9));
-
-	                Timestamp timestamp = rs.getTimestamp(10);
-	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
-	                String str = sdf.format(timestamp);
-	                i.setListingDate(str);
+	                i.setListingDate(rs.getTimestamp(10));
 	                i.setTerm(rs.getInt(11));
+
+//	                Timestamp timestamp = rs.getTimestamp(10);
+//	                SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+//	                String str = sdf.format(timestamp);
+//	                i.setListingDate(str);
 
 	                items.add(i);
 	            }

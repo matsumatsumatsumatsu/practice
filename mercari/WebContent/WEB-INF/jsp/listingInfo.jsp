@@ -25,8 +25,8 @@
 				<td>${item.itemImage}</td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
-				<td>${item.hardwareId}</td>
-				<td>${item.categoryId}</td>
+				<td>${item.hardware}</td>
+				<td>${item.category}</td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
 			</tr>
