@@ -17,8 +17,8 @@ public class FrontServlet extends javax.servlet.http.HttpServlet {
 			throws ServletException, IOException {
 		// doPostを呼び出す
 		doPost(req, res);
-
 	}
+
 	public void doPost(HttpServletRequest req, HttpServletResponse res)
 			throws IOException, ServletException {
 

@@ -71,7 +71,7 @@
 		<ul>
 			<li><a href="purchase">購入した商品</a></li>
 			<li><a href="point">ポイント</a></li>
-			<li><a href="profile">プロフィール</a></li>
+			<li><a href="showprofile">プロフィール</a></li>
 			<li><a href="logout">ログアウト</a></li>
 		</ul>
 	</div>

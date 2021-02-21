@@ -54,9 +54,9 @@
 
 	<div id="l-side">
 		<ul>
-			<li><a href="showownlistinglist">出品した商品</a></li>
+			<li><a href="showOwnListingList">出品した商品</a></li>
 			<li><a href="point">ポイント</a></li>
-			<li><a href="profile">プロフィール</a></li>
+			<li><a href="showprofile">プロフィール</a></li>
 			<li><a href="logout">ログアウト</a></li>
 			<li><a href="f_withdraw">退会</a></li>
 		</ul>
