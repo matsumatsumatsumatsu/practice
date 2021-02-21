@@ -42,14 +42,15 @@ public class CancelDealCommand extends AbstractCommand{
 		String itemId = ((Deal)deal.get(0)).getItemId();
 		item = itemDao.getItem("where item_id = "+itemId);
 		String sellerId = ((Item)item.get(0)).getSellerId();
-		String sellerComment = "取引がキャンセルされました";
+		String sellerComment = itemDao.getItemName(itemId) + "の取引はキャンセルされました。売却を続けたい場合は再度出品してください";
+		String buyerComment = itemDao.getItemName(itemId) + "の取引はキャンセルされました";
 
 		//返金処理
 		int point = ((Item)item.get(0)).getPrice();
 		userDao.grantPoint(buyerId,point);
 
 		//通知処理
-		NotifyCommand notify  = new NotifyCommand(buyerId,sellerComment);
+		NotifyCommand notify  = new NotifyCommand(buyerId,buyerComment);
 		notify.init(reqc);
 		resc = notify.execute(resc);
 
