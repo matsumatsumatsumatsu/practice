@@ -6,6 +6,7 @@
 
 <head>
 <title>スタート画面</title>
+<img src="images/sample.jpg" width="200px" height="200px">
 <div class="search">
 	<form name="itemsearch" method='post' action='search'
 		onSubmit="return check()">

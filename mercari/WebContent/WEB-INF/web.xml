@@ -79,6 +79,11 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>/images/*</url-pattern>
+ 	</servlet-mapping>
+
   <!-- <servlet>
     <servlet-name>front.FrontServlet</servlet-name>
     <jsp-file>/input.jap</jsp-file>
@@ -87,9 +92,4 @@
   <servlet-mapping>
     <servlet-name>in</servlet-name>
     <url-pattern>/testbooks</url-pattern> -->
-
-
-
-
-
 </web-app>
