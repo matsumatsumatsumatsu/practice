@@ -13,7 +13,7 @@ public abstract class AbstractMysqlFactory {
         	Properties prop = new Properties();
         	prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property/dao.properties"));
 			String name = prop.getProperty("dao");
-			System.out.println("property:"+name);
+			//System.out.println("property:"+name);
 
 //            // プロパティファイルを読み込む
 //        	ResourceBundle rb = ResourceBundle.getBundle("property/dao");

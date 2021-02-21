@@ -7,7 +7,7 @@ import context.RequestContext;
 
 public abstract class CommandFactory {
 	public static AbstractCommand getCommand(RequestContext rc) {
-		System.out.println("CommandFactory");
+		//System.out.println("CommandFactory");
 
 		AbstractCommand command = null;
 
@@ -15,10 +15,9 @@ public abstract class CommandFactory {
 			Properties prop = new Properties();
 			prop.load(CommandFactory.class.getClassLoader().getResourceAsStream("property/commands.properties"));
 			String name = prop.getProperty(rc.getCommandPath());
-			System.out.println("!---");
-			System.out.println(name);
-			System.out.println(rc.getCommandPath());
-			System.out.println("!---");
+			System.out.println("ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー");
+			System.out.println("PropertyName	: "+name);
+			System.out.println("CommandPath		: "+ rc.getCommandPath());
 //			// プロパティファイルを読み込む
 //			ResourceBundle rb = ResourceBundle.getBundle("property\\commands");
 

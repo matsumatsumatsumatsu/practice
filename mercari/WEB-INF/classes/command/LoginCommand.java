@@ -26,13 +26,10 @@ public class LoginCommand extends AbstractCommand{
 			e.printStackTrace();
 		}
 
-        System.out.println("user:"+ub);
-
         if(userPassword.equals(ub.getUserPassword())) {
             SessionManager.getSession(rq);;
         	SessionManager.setAttribute("token",ub);
-        	System.out.println("token取得");
-        	System.out.println("ログインユーザー名：");
+        	System.out.println("ログインユーザー名："+userName+" :	ログイン完了");
         	resc.setTarget("start");
         }
         else {
