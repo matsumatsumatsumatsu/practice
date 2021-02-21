@@ -165,9 +165,9 @@ public class DealDao implements DealInterfaceDao {
 			cn = MysqlConnector.getInstance().getConnection();
 
 			String sql = "select * from deal where deal_id = "+dealId;
-			System.out.println("sql="+sql);
+//			System.out.println("sql="+sql);
 			st = cn.prepareStatement(sql);
-			System.out.println("sql="+sql);
+//			System.out.println("sql="+sql);
 			rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -206,6 +206,33 @@ public class DealDao implements DealInterfaceDao {
 
 			String sql = "update deal set deal_state = "+state+" where deal_id = "+dealId;
 			st = cn.prepareStatement(sql);
+			st.executeUpdate();
+			MysqlConnector.getInstance().commit();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				if (st != null) {
+					st.close();
+				}
+			} catch (SQLException ex) {
+				e.printStackTrace();
+			} finally {
+				if (cn != null) {
+					MysqlConnector.getInstance().closeConnection();
+				}
+			}
+		}
+	}
+
+	public void updatePaymentLog(Deal d,String dealId) throws IntegrationException{
+		try {
+			cn = MysqlConnector.getInstance().getConnection();
+
+			String sql = "update deal set after_payment_id = ? where deal_id = "+ dealId;
+			st = cn.prepareStatement(sql);
+
+			st.setString(1, d.getAfterPaymentId());
+
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();
 		}catch (SQLException e) {
