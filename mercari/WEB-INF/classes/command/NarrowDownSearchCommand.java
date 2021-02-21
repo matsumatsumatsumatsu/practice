@@ -49,7 +49,7 @@ public class NarrowDownSearchCommand extends AbstractCommand{
 	        			}
 	        			//hardware× category〇
 	        			else {
-	        				search += "AND category_Id = " + categoryId;
+	        				search += "AND item.category_Id = " + categoryId;
 	        			}
 	        		}
 	        		//hardware× category = null
@@ -67,16 +67,16 @@ public class NarrowDownSearchCommand extends AbstractCommand{
 
 	        			//hardware〇 category×
 	        			if(categoryId.equals("0")) {
-	        				search += "AND hardware_Id = " + hardwareId;
+	        				search += "AND item.hardware_Id = " + hardwareId;
 	        			}
 	        			//hardware〇 category〇
 	        			else {
-	        				search += "AND category_Id = " + categoryId + " AND hardware_Id = " + hardwareId;
+	        				search += "AND item.category_Id = " + categoryId + " AND item.hardware_Id = " + hardwareId;
 	        			}
 	        		}
 	        		//hardware〇 category = null
 	        		else {
-	        			search += "AND hardware_Id = " + hardwareId;
+	        			search += "AND item.hardware_Id = " + hardwareId;
 	        		}
 	        	}
 	        }
@@ -92,7 +92,7 @@ public class NarrowDownSearchCommand extends AbstractCommand{
         			}
         			//hardware = null category〇
         			else {
-        				search += "AND category_Id = " + categoryId;
+        				search += "AND item.category_Id = " + categoryId;
         			}
         		}
         		//hardware = null category = null
@@ -121,7 +121,7 @@ public class NarrowDownSearchCommand extends AbstractCommand{
 	        	}
 	        }
 
-
+	        System.out.println("ここまでは大丈夫？"+search);
 	        items = itemdao.getItem(search);
         	hardwares = hardwaredao.getAllHardware();
         	categorys = categorydao.getAllCategory();

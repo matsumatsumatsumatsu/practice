@@ -25,8 +25,8 @@
 				<td>${item.itemImage}</td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
-				<td>${item.hardware}</td>
-				<td>${item.category}</td>
+				<td><a href="narrow?hardware=${item.hardwareId}&keyword=&category=0&minprice=&maxprice=&stock=">${item.hardware}</a></td>
+				<td><a href="narrow?category=${item.categoryId}&keyword=&hardware=0&minprice=&maxprice=&stock=">${item.category}</a></td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
 			</tr>
@@ -54,9 +54,6 @@
 
 	<p>
 		<a href="showprofile">マイページへ</a>
-	</p>
-	<p>
-		<a href="category">カテゴリー検索</a>
 	</p>
 	<p>
 		<c:forEach var="item" items="${item}">
