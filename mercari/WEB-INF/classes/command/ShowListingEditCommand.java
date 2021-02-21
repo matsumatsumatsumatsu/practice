@@ -28,7 +28,7 @@ public class ShowListingEditCommand extends AbstractCommand{
         List<List> result=new ArrayList<>();
 
 		List<Object> first=new ArrayList<>();
-		first.add("data");
+		first.add("item");
 		first.add(item);
 		result.add(first);
 
