@@ -3,18 +3,41 @@
 
 <html>
 <head>
+	<style>
+	body {
+		background-color: #F8F8FF;
+	}
+	h1{
+		text-align:center;
+	}
+		.center{
+			text-align: center;
+		}
+		.signup{
+			margin-left: auto;
+			margin-right: auto;
+			height: auto;
+			background-color: white;
+			width: 500px;
+		}
+
+	</style>
 <title>ユーザー登録</title>
 </head>
 <body>
+	<div class="signup">
 	<h1>ユーザー登録</h1>
+	<div class="center">
 	<form method='post' action='signup'>
-		ユーザー名<input type='text' name='userName' required><br>
-		パスワード<input type='text' name='userPassword' required><br>
-		 本名<input type='text' name='realName' required><br>
-		 住所<input type='text' name='address' required><br>
-		 電話番号<input type='text' name='tel' required><br>
-		メールアドレス<input type='text' name='mail' required><br>
+		<input type='text' name='userName' required placeholder="ユーザー名" size="60";><br><br>
+		<input type='text' name='userPassword' required placeholder="パスワード" size="60";><br><br>
+		<input type='text' name='realName' required placeholder="本名" size="60";><br><br>
+		<input type='text' name='address' required placeholder="住所" size="60";><br><br>
+		<input type='text' name='tel' required placeholder="電話番号" size="60";><br><br>
+		<input type='text' name='mail' required placeholder="メールアドレス" size="60";><br><br>
 		<input type='submit' value='登録'>
 	</form>
+</div>
+</div>
 </body>
 </html>
