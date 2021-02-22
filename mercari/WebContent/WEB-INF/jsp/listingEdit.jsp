@@ -5,52 +5,9 @@
 
 <html>
 <head>
-<style>
-body {
-		background-color: #F8F8FF;
-	}
-	h1{
-		text-align:center;
-	}
-		.center{
-			text-align: center;
-			margin-left: auto;
-			margin-right: auto;
-			height: auto;
-			background-color: white;
-			width: 700px;
-		}
-		.button{
-			background-color: #4669ff;
-    		border-bottom: solid 2px #003aff;
-   			border-right: solid 2px #003aff;
-   		 	border-radius: 20px;
-    		font-weight: bold;
-    		width:200px;
-   		 	color: #FFF;
-    		text-decoration: none;
-    		padding: 10px;
-    		display: inline-block;
-    		margin:90px;
-
-
-		}
-		.left{
-			display:inline-block;
-			float:left;
-			margin-left:20px;
-		}
-		.right{
-			display:inline-block;
-			float:right;
-			margin-right:30px;
-		}
-		.textsize{
-			width:300px;
-		}
-</style>
 <meta charset="UTF-8">
 <title>出品物の編集</title>
+<%@include file="../../css/listingEdit.css"%>
 </head>
 <body>
 <div class="center">

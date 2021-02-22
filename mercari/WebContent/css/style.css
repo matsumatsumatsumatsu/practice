@@ -1,5 +1,4 @@
-<style>
-.header {
+<style>.header {
 	background-color: white;
 	margin-bottom: 30px;
 	height: 150px;
@@ -12,9 +11,10 @@
 	float: right;
 	margin-right: 100px;
 }
+
 body {
 	background-color: #F8F8FF;
-	width:90%;
+	width: 90%;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -25,7 +25,11 @@ h1 {
 
 .center {
 	text-align: center;
+	background-color: white;
+	height:100%;
+
 }
+
 .button {
 	background-color: #4669ff;
 	border-bottom: solid 2px #003aff;
@@ -40,38 +44,40 @@ h1 {
 	margin: 20px
 }
 
-//ここまで共通
+//
+ここまで共通
 
-.signupPage{
+.signupPage {
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
-	background-color: white;
-	width: 60%;
+	background-color: red;
+	width: auto;
 }
 
-
-.notifications{
-	display:inline-block;
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: 100%;
-}
-.notifications table{
+.notifications table {
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
 	background-color: white;
 	width: 80%;
-	height:100%;
+	height: 100%;
 }
-.login_out_withdraw {
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
+
+}
+.left {
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+}
+
+.right {
+	display: inline-block;
+	float: right;
+	margin-right: 30px;
+}
+
+.textsize {
 	width: 300px;
 }
 </style>
