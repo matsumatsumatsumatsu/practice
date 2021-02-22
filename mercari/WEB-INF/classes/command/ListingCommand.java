@@ -1,5 +1,7 @@
 package command;
 
+import java.util.UUID;
+
 import bean.Item;
 import bean.User;
 import context.RequestContext;
@@ -19,8 +21,9 @@ public class ListingCommand extends AbstractCommand{
 		String prices[] = rq.getParameter("price");
 		int price = Integer.parseInt(prices[0]);
 
-		String itemImages[] = rq.getParameter("itemImage");
-		String itemImage = itemImages[0];
+		String itemImage  = rq.getParameter("itemImage")[0];
+		itemImage = UUID.randomUUID().toString()+".jpg";
+
 
 		String itemExplanations[] = rq.getParameter("itemExplanation");
 		String itemExplanation = itemExplanations[0];
