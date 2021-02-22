@@ -62,7 +62,7 @@
 	</table>
 
 	<c:forEach var="deal" items="${deal}">
-		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=${deal.userState}" method="post">
+		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=1" method="post">
 			<input type="text" name="text"><br> <input
 				type="submit" value="コメントする">
 		</form>
