@@ -25,8 +25,8 @@
 				<td><img src="../mercari/images/${item.itemImage}"width="300"></td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
-				<td>${item.hardware}</td>
-				<td>${item.category}</td>
+				<td><a href="narrow?hardware=${item.hardwareId}&keyword=&category=0&minprice=&maxprice=&stock=">${item.hardware}</a></td>
+				<td><a href="narrow?category=${item.categoryId}&keyword=&hardware=0&minprice=&maxprice=&stock=">${item.category}</a></td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
 				<td>${item.sellerId}</td>

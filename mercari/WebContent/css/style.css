@@ -1,0 +1,16 @@
+	body {
+		background-color: #F8F8FF;
+	}
+	h1{
+		text-align:center;
+	}
+		.center{
+			text-align: center;
+		}
+		.signup{
+			margin-left: auto;
+			margin-right: auto;
+			height: auto;
+			background-color: white;
+			width: 500px;
+		}
