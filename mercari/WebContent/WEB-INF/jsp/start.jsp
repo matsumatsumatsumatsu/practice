@@ -41,8 +41,8 @@ body {
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 5px;
-	left: 800px;
+	top: 50%;
+	left: 60%;
 }
 
 .headerColumn p {
@@ -94,12 +94,14 @@ body {
 	box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.2), 0 2px 2px
 		rgba(0, 0, 0, 0.19);
 	font-weight: bold;
+
 }
 
 .headerBtn:active {
 	border-bottom: solid 2px #fd9535;
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 }
+
 </style>
 <title>スタート画面</title>
 <p style="display:none;" id="flag"><%= token %></p>
