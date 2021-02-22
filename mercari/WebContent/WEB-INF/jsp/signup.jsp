@@ -22,6 +22,7 @@
 		}
 
 	</style>
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css">  -->
 <title>ユーザー登録</title>
 </head>
 <body>

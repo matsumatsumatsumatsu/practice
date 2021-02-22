@@ -31,10 +31,14 @@
 }
 
 .mypage {
-	color: black;
+	/*color: black;
 	text-align: right;
+	margin-left: 20px;*/
 	display: inline-block;
-	margin-left: 20px;
+	margin-left:130px;
+	height: auto;
+	background-color: white;
+	width: auto;
 }
 
 body {
@@ -52,7 +56,8 @@ body {
 	display: inline-block;
 	float: left;
 	width: 300px;
-	margin-left: 150px;
+	margin-right: 50px;
+	margin-left:10px;
 	margin-top:40px;
 }
 
@@ -68,7 +73,7 @@ body {
 	color: #2d8fdd;
 	border-left: solid 6px #f4b364;
 	background: #fdf2e3;
-	margin-bottom: 5px;
+	margin-bottom: 15px;
 	line-height: 1.5;
 	padding: 0.5em;
 	border-bottom: solid 2px #dadada;
@@ -176,6 +181,7 @@ label {
 </div>
 </head>
 <body>
+<div class="mypage">
 	<div class="right">
 		<table border="1" class="userName_Point">
 			<tr>
@@ -308,6 +314,7 @@ label {
 				<li><a href="f_logout">ログアウト</a></li>
 				<li><a href="f_withdraw">退会</a></li>
 			</ul>
+		</div>
 		</div>
 </body>
 </html>

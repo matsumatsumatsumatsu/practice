@@ -68,27 +68,27 @@ body {
 		<c:forEach var="user" items="${data}">
 			<p>ユーザーネームの変更</p>
 			<input type="text" name="name" value="${user.userName}" class="textsize">
-		</c:forEach><br><br>
+		</c:forEach><br>
 		<c:forEach var="user" items="${data}">
 		<p>パスワードの変更</p>
 			<input type="text" name="pass" value="${user.userPassword}" class="textsize">
-		</c:forEach><br><br>
+		</c:forEach><br>
 		<c:forEach var="user" items="${data}">
 			<p>本名の変更</p>
 			<input type="text" name="real" value="${user.realName}" class="textsize">
-		</c:forEach><br><br>
+		</c:forEach><br>
 		<c:forEach var="user" items="${data}">
 		<p>電話番号の変更</p>
 			<input type="text" name="tel" value="${user.tel}" class="textsize">
-		</c:forEach><br><br>
+		</c:forEach><br>
 		<c:forEach var="user" items="${data}">
 			<p>住所の変更</p>
 			<input type="text" name="address" value="${user.address}" class="textsize">
-		</c:forEach><br><br>
+		</c:forEach><br>
 		<c:forEach var="user" items="${data}">
 		<p>自己紹介文の変更</p>
 			<input type="text" name="prof" value="${user.profile}" class="textsize">
-		</c:forEach><br><br>
+		</c:forEach><br>
 		<input type="submit" value="変更" class ="button">
 	</form>
 	</div>
