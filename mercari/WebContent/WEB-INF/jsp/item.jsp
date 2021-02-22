@@ -22,7 +22,7 @@
 		</tr>
 		<c:forEach var="item" items="${item}">
 			<tr>
-				<td>${item.itemImage}</td>
+				<td><img src="../mercari/images/${item.itemImage}"width="300"></td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
 				<td>${item.hardware}</td>
