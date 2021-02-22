@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<%
+	String token = (String)session.getAttribute("flag");
+%>
+
 <html>
 
 <head>
@@ -98,6 +102,7 @@ body {
 }
 </style>
 <title>スタート画面</title>
+<p style="display:none;" id="flag"><%= token %></p>
 <div class="header">
 	<div class="search">
 		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
@@ -106,19 +111,21 @@ body {
 				<input type='submit' value='検索！' style="height: 40px">
 		</form>
 	</div>
+	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
 	<div class="headerColumn">
-		<p>
+		<p id = "signup">
 			<a href="f_signup" class="headerBtn">ユーザー登録画面へ</a>
 		</p>
 		<!-- 後々コメントアウト -->
-		<p>
+		<p id = "login">
 			<a href="f_login" class="headerBtn">ログイン</a>
 		</p>
-		<p>
+		<p id = "mypage">
 			<a href="showprofile" class="headerBtn">マイページ</a>
 		</p>
-		<!-- 非login→ログインjsp、login→マイページjsp -->
-
+		<p id = "notice">
+			<a href="showNoticeList" class="headerBtn">通知</a>
+		</p>
 	</div>
 </div>
 <!-- <div class="search">
@@ -172,12 +179,17 @@ body {
 	</div>
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
 	<script>
-		if (<c:out value="${loginCheck}" /> != null) {
-			$("#login").empty();
-			$("#login").html('<a href="showprofile">マイページ</a>');
+		var flag=document.getElementById("flag").innerText;
+		if (flag == "OK") {
+			$("#login").css("display","none");
+			$("#signup").css("display","none");
+			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
 			<!--
 			document.getElementById("stockCheck").style.color = "gray";
 			-->
+		}else{
+			$("#mypage").css("display","none");
+			$("#notice").css("display","none");
 		}
 	</script>
 

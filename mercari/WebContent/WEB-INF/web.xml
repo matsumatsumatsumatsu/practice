@@ -33,6 +33,17 @@
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
 
+    <filter>
+    <filter-name>logincheckfilter</filter-name>
+    <filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>logincheckfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
   <!-- <filter>
     <filter-name>reloadcategoryfilter</filter-name>
     <filter-class>filter.ReLoadCategoryFilter</filter-class>
