@@ -100,12 +100,10 @@ body {
 <title>スタート画面</title>
 <div class="header">
 	<div class="search">
-		<form name="itemsearch" method='post' action='search'
-			onSubmit="return check()">
-			<input type='text' name='itemName'
-				style="width: 800px; height: 40px; margin-top: 30px"
-				placeholder="商品名検索"> <input type='submit' value='検索！'
-				style="height: 40px">
+		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
+
+				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+				<input type='submit' value='検索！' style="height: 40px">
 		</form>
 	</div>
 	<div class="headerColumn">
