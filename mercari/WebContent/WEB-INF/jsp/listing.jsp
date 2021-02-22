@@ -34,17 +34,32 @@
 
 	<script>
 	    function check() {
+	        if(document.listing.itemImage.value == "") {
+	            alert("画像がありません");
+	            return false;
+	        }
 	        if(document.listing.hardwareId.value == "") {
-	            alert("ハードウェアを選択して下さい");
+	            alert("ハードを選択して下さい");
 	            return false;
 	        }
 	        if(document.listing.categoryId.value == "") {
 	            alert("ジャンルを選択して下さい");
 	            return false;
 	        }
-
+	        if(document.listing.itemName.value == "") {
+	            alert("名前を入力してください");
+	            return false;
+	        }
 	        if(document.listing.itemExplanation.value == "") {
 	            alert("説明を入力してください");
+	            return false;
+	        }
+	        if(document.listing.term.value == "") {
+	            alert("発送までの期間を入力してください");
+	            return false;
+	        }
+	        if(document.listing.price.value == "") {
+	            alert("値段を入力してください");
 	            return false;
 	        }
 	    }

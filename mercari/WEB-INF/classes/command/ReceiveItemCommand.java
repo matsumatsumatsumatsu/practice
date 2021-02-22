@@ -12,6 +12,7 @@ import dao.AbstractMysqlFactory;
 import dao.DealInterfaceDao;
 import dao.ItemInterfaceDao;
 import dao.PaymentLogInterfaceDao;
+import dao.UserInterfaceDao;
 import exception.BusinessLogicException;
 import exception.IntegrationException;
 
@@ -24,6 +25,7 @@ public class ReceiveItemCommand extends AbstractCommand{
 		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
 		DealInterfaceDao dealDao = factory.getDealInterfaceDao();
 		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
+		UserInterfaceDao userDao = factory.getUserInterfaceDao();
 		PaymentLogInterfaceDao payDao=factory.getPaymentLogInterfaceDao();
 
 		String  dealId= reqc.getParameter("deal_id")[0];
@@ -72,6 +74,15 @@ public class ReceiveItemCommand extends AbstractCommand{
 		String itemId = ((Deal)deal.get(0)).getItemId();
 		String sellerId = itemDao.getSellerId(itemId);
 		String sellerComment = itemDao.getItemName(itemId) + "を購入者様が受け取りました";
+
+		//出品者のポイント増やす処理
+		try {
+			//userのポイントを減らす
+			userDao.grantPoint(sellerId,((Item)item.get(0)).getPrice());
+			//在庫を減らす
+			itemDao.manageStock(itemId);
+		}catch(IntegrationException e) {
+		}
 
 		NotifyCommand notify  = new NotifyCommand(sellerId,sellerComment);
 		notify.init(reqc);
