@@ -22,7 +22,6 @@ public class LoginCheckFilter implements Filter{
     Object flag=session.getAttribute("token");
 
     if(flag != null) {
-    	System.out.println("こんちわ");
     	session.setAttribute("flag", "OK");
     }
 
