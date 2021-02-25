@@ -18,8 +18,8 @@
 		</c:forEach>
 		<div class="left">
 		<c:forEach var="item" items="${item}">
-		<p>商品画像の変更</p>
-			<input type="file" name="image" value="${item.itemImage}" class="textsize">
+		<p>商品画像</p>
+			<img src="images/${item.itemImage}" width="300">
 		</c:forEach><br>
 		</div>
 		<div class="right">
@@ -31,14 +31,20 @@
 		<p>商品説明の変更</p>
 			<input type="text" name="explanation" value="${item.itemExplanation}" class="textsize">
 		</c:forEach><br>
-		<c:forEach var="item" items="${item}">
-		<p>ゲームのジャンルの変更</p>
-			<input type="text" name="category" value="${item.categoryId}" class="textsize">
-		</c:forEach><br>
-		<c:forEach var="item" items="${item}">
-		<p>ハードの変更</p>
-			<input type="text" name="hardware" value="${item.hardwareId}" class="textsize">
-		</c:forEach><br>
+		<p>ハードの種類</p>
+		<select name="hardwareId">
+			<option value="" class="textsize">選択してください</option>
+			<c:forEach var="hardware" items="${hardware}">
+				<option value="${hardware.hardwareId}">${hardware.hardware}</option>
+			</c:forEach>
+		</select>
+		<p> ゲームのジャンル</p>
+		<select name="categoryId">
+			<option value="" class="textsize">選択してください</option>
+			<c:forEach var="category" items="${category}">
+				<option value="${category.categoryId}">${category.category}</option>
+			</c:forEach>
+		</select>
 		<c:forEach var="item" items="${item}">
 		<p>発送までの期間の変更</p>
 			<input type="text" name="term" value="${item.term}" class="textsize">

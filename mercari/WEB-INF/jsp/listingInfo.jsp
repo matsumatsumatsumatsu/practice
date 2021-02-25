@@ -20,13 +20,13 @@
 			<td>発送期間</td>
 			<td>値段</td>
 		</tr>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<tr>
-				<td>${item.itemImage}</td>
+				<td><img src="images/${item.itemImage}"width="300"></td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
-				<td>${item.hardwareId}</td>
-				<td>${item.categoryId}</td>
+				<td><a href="narrow?hardware=${item.hardwareId}&keyword=&category=0&minprice=&maxprice=&stock=">${item.hardware}</a></td>
+				<td><a href="narrow?category=${item.categoryId}&keyword=&hardware=0&minprice=&maxprice=&stock=">${item.category}</a></td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
 			</tr>
@@ -34,31 +34,39 @@
 	</table>
 	<br>
 
-
 	<div class="openChatTable">
 		<table border="1">
 			<c:forEach var="chat" items="${open}">
 				<tr>
-					<td>${open.text}</td>
-					<td>${open.date}</td>
+					<td>${chat.text}</td>
+					<td>${chat.date}</td>
 				</tr>
 			</c:forEach>
 		</table>
 
-		<form action="sendopenchat" method="post">
-			<input type="text" name="openChatText"><br>
-			<input type="submit" value="コメントする">
-		</form>
+		<c:forEach var="item" items="${item}">
+			<form action="sendopenchat?item_id=${item.itemId}" method="post">
+				<input type="text" name="text"><br> <input
+					type="submit" value="コメントする">
+			</form>
+		</c:forEach>
 	</div>
 
 	<p>
-		<a href="userInfo">ユーザーの確認</a>
+		<a href="showprofile">マイページへ</a>
 	</p>
 	<p>
-		<a href="category">カテゴリー検索</a>
+		<c:forEach var="item" items="${item}">
+			<a href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>
+		</c:forEach>
 	</p>
 	<p>
-		<a href="listingEdit">出品した商品の編集</a>
+		<c:forEach var="item" items="${item}">
+			<a href="remove?item_id=${item.itemId}">出品を取り消す</a>
+		</c:forEach>
+	</p>
+	<p>
+		<a href="f_start">TOP画面へ</a>
 	</p>
 </body>
 </html>

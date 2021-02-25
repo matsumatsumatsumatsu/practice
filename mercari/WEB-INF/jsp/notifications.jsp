@@ -6,23 +6,29 @@
 <head>
 <meta charset="UTF-8">
 <title>通知の閲覧</title>
+<%@include file="../css/style.css" %>
 </head>
 <body>
-	<div class="l-content">
+<div class="notifications">
+
+<div class="center">
+<h1>お知らせ</h1>
+
 		<table border="1">
-			<tr>
-				<th>notice_id</th>
-				<th>通知を受け取るユーザー</th>
-				<th>通知内容</th>
-			</tr>
-			<c:forEach var="notice" items="${data}">
+			<c:forEach var="notice" items="${notice}">
 				<tr>
-					<td>${notice.noticeId}</td>
-					<td>${notice.noticeId}</td>
-					<td>${notice.comment}</td>
+					<td height="50px">${notice.comment}</td>
+					<td>${notice.date}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<div>
+		<p>
+		<a href="f_start" class="button">TOPページへ</a>
+	</p>
+		</div>
+
+	</div>
+
+
 </body>
 </html>

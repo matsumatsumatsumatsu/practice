@@ -23,7 +23,7 @@ h1 {
    			border-right: solid 2px #003aff;
    		 	border-radius: 20px;
     		font-weight: bold;
-    		width:200px;
+    		width:250px;
    		 	color: #FFF;
     		text-decoration: none;
     		padding: 10px;
@@ -46,13 +46,15 @@ h1 {
 	float:right;
 	margin-right:50px;
 	width:550px;
-	top:72px;
+	position:relative;
+	top:2px;
 }
 .top{
 
 	margin-top:0px;
 	text-align:center;
 	position:relative;
+	right:380px;
 
 
 }
@@ -64,13 +66,13 @@ h1 {
 	margin-right: auto;
 	position:relative;
 	top:100%;
-
+	right:380px;
 
 
 
 
 }
-#dispatch{
+#receive{
 	margin:5%;
 
 }

@@ -1,82 +1,7 @@
 <style>
-
-/* aタグのもろもろ消す呪文 */
-/*
-	a{
-		text-decoration: none;
-	}
-	a:link { color: #000000; }
-	a:visited { color: #000000; }
-	a:hover { color: #000000; }
-	a:active { color: #000000; }
-*/
-/**/
-
-/* 商品一覧css */
-.itemlist{
-	display: inline-block;
-	width: calc(70% - 20px);
-	height: 100%;
-}
-
-#column ul {
-	width: calc(100 + 20px);
-	margin: 0 -10px;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-#column li {
-	list-style: none;
-	padding: 0 10px 20px;
-}
-
-#column li a,
-#column li a:visited {
-	text-decoration: none;
-	color: #111;
-}
-
-#column li p {
-	font-size: 90%;
-	margin-bottom: 3px;
-}
-
-#column li span {
-	background-color: #000;
-	color: #FFF;
-	font-size: 10px;
-	position: relative;
-	width: 50%;
-	/*top: -20%;*/
-	font-size: 80%;
-	display: block;
-}
-
-.column02 li {
-	width: calc(50% - 20px);
-}
-
-.column03 li {
-	width: calc(33.3333% - 20px);
-}
-
-.column04 li {
-	width: calc(25% - 20px);
-}
-
-.column05 li {
-	width: calc(20% - 20px);
-}
-
-#column img{
-	height: 200px;
-}
-
-/*ヘッダー共通*/
 .header {
+	z-index: 3;
 	background-color: white;
-
 	height: 150px;
 	border-bottom: 2px solid black;
 }
@@ -170,20 +95,73 @@ a.headerBtn:hover {
 .itemsearch{
   float: right;
 }
-
 .topBtn{
-	margin-top: 5%;
-	float: left;
+margin-top: 5%;
+float: left;
 }
 
+/* 商品一覧css */
+.itemlist{
+	width: 90%;
+	margin: auto;
+}
 
-/* 検索css */
-	.searchinfo{
-		background-color: #fff;
-		display: inline-block;
-		width: calc(30% - 20px);
-		height: 100%;
-		float:left;
-	}
+#column{
+	width: 100%;
 
+}
+
+#column ul {
+	width: calc(100 + 20px);
+	margin: 0 -10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#column li {
+	list-style: none;
+	padding: 0 10px 20px;
+}
+
+#column li a,
+#column li a:visited {
+	text-decoration: none;
+	color: #111;
+}
+
+#column li p {
+	font-size: 90%;
+	margin-bottom: 3px;
+}
+
+#column li span {
+	background-color: #000;
+	color: #FFF;
+	font-size: 10px;
+	position: relative;
+	width: 50%;
+	/*top: -20%;*/
+	font-size: 80%;
+	display: block;
+}
+
+.column02 li {
+	width: calc(50% - 20px);
+}
+
+.column03 li {
+	width: calc(33.3333% - 20px);
+}
+
+.column04 li {
+	width: calc(25% - 20px);
+}
+
+.column05 li {
+	width: calc(20% - 20px);
+}
+
+#column img{
+	height: 200px;
+}
 </style>
