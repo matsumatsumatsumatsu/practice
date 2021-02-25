@@ -40,6 +40,7 @@ h1 {
 	width:300px;
 	position:relative;
 	top:72px;
+
 }
 .right{
 	display:inline-block;
@@ -48,14 +49,29 @@ h1 {
 	width:550px;
 	position:relative;
 	top:2px;
+
 }
 .top{
-
+	display:inline-block;
 	margin-top:0px;
 	text-align:center;
 	position:relative;
-	right:380px;
+	top:90px;
+	right:635px;
+	width:300px;
 
+}
+.leftBtn{
+	display:inline-block;
+	position:fixed;
+	top:380px;
+	right:770px;
+}
+.underLeftBtn{
+	display:inline-block;
+	position:fixed;
+	top:450px;
+	right:770px;
 
 }
 #cancel{
@@ -65,8 +81,9 @@ h1 {
 	margin-left: auto;
 	margin-right: auto;
 	position:relative;
-	top:100%;
-	right:380px;
+	top:150px;
+	right:330px;
+	width:300px;
 
 
 
@@ -76,6 +93,7 @@ h1 {
 	margin:5%;
 
 }
+
 table{
   width: 100%;
   border-collapse: collapse;

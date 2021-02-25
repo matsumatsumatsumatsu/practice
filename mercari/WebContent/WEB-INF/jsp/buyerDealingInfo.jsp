@@ -74,19 +74,18 @@
 				type="submit" value="コメントする" class="button">
 		</form>
 		</div>
-		<div class="left">
 
-		<div id = "cancel">
+
+		<div class = "leftBtn">
 			<p>
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1" class="button">取引をキャンセルする</a>
 			</p>
-		</div>
+</div>
 	</c:forEach>
-<div class="top">
+	<div class="underLeftBtn">
 	<p>
 		<a href="f_start" class="button">TOPページへ</a>
 	</p>
-</div>
 </div>
 </div>
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>

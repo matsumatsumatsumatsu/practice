@@ -4,50 +4,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.header {
-	background-color: white;
-	margin-bottom: 30px;
-	height: 150px;
-	border-bottom: 2px solid black;
-}
-
-.search {
-	display: inline-block;
-	text-align: center;
-	float: right;
-	margin-right: 100px;
-}
-
-body {
-	background-color: #F8F8FF;
-}
-/* ここまで共通 */
-.user_name {
-	width: 100px;
-	margin: auto;
-}
-
-.user_name table {
-	text-align: center;
-}
-
-.user_item_list table {
-	border-collapse: collapse;
-	text-align: center;
-	margin-left: auto;
-    margin-right: auto;
-    width: 10em
-}
-
-.user_item_list p {
-	text-align: center;
-}
-
-</style>
-
 <meta charset="UTF-8">
 <title>ユーザーの個別表示</title>
+<%@include file="../../css/userInfo.css"%>
 <div class="header">
 	<div class="search">
 		<form name="itemsearch" method='post' action='search'
@@ -61,30 +20,40 @@ body {
 </div>
 </head>
 <body>
-	<div class="user_name">
-		<table border="1">
-			<tr>
-				<th>出品者</th>
+	<div class="center">
+		<div class="user_name">
+			<table border="1" class="userName">
+				<tr>
+					<th>出品者</th>
+				</tr>
+
 				<c:forEach var="user" items="${user}">
-					<td>${user.userName}</td>
+					<tr>
+						<td>${user.userName}</td>
+					</tr>
 				</c:forEach>
-			</tr>
-		</table>
-	</div>
-	<div class="user_item_list">
 
-		<p>この出品者の商品</p>
-		<table border="1">
-			<tr>
+			</table>
+		</div>
+		<div class="itemlist">
+
+			<p>この出品者の商品</p>
+			<div id="column" class="column05">
+				<ul>
 				<c:forEach var="item" items="${item}">
-					<td><a href="showiteminfo?item_id=${item.itemId}">${item.itemName}</a></td></tr>
-					<tr><td>￥${item.price}</td></tr>
+					<li>
+					<a href="showiteminfo?item_id=${item.itemId}">
+					<p>${item.itemName}</p>
+					<img src="images/${item.itemImage}" />
+					<span>￥${item.price}</span>
+					</a>
+					</li>
+				</c:forEach> </ul>
+			</div>
 
-
-		</c:forEach>
-		</table>
-
+		</div>
 	</div>
+
 
 </body>
 </html>
