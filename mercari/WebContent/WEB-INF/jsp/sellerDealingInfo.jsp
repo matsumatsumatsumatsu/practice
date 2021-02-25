@@ -6,8 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>売り手の商品取引画面</title>
+<%@include file="../../css/dealInfo.css"%>
 </head>
 <body>
+<div class="center">
+<div class="left">
 	<table border="1">
 		<tr>
 			<td>itemId</td>
@@ -37,7 +40,8 @@
 			<c:set var="stateCheck" value="${deal.dealState}"></c:set>
 		</c:forEach>
 	</table>
-
+	</div>
+	<div class="right">
 	<c:forEach var="deal" items="${deal}">
 		<div id = "dispatch">
 			<form action="dispatch?deal_id=${deal.dealId}&user_state=2" method="post">
@@ -62,20 +66,21 @@
 	</table>
 
 	<c:forEach var="deal" items="${deal}">
-		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=2" method="post">
+		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=${deal.userState}" method="post">
 			<input type="text" name="text"><br> <input
 				type="submit" value="コメントする">
 		</form>
-
+</div>
 		<div id = "cancel">
 			<p>
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1"">取引をキャンセルする</a>
 			</p>
 		</div>
 	</c:forEach>
-	<p>
+	<p class="top">
 		<a href="f_start">TOPページへ</a>
 	</p>
+	</div>
 
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
 	<script>
