@@ -338,16 +338,15 @@ public class ItemDao implements ItemInterfaceDao {
 			try {
 				cn = MysqlConnector.getInstance().getConnection();
 
-				String sql = "update item set item_name = ?, price = ?, item_image = ?, item_explanation = ?, hardware_id = ?, category_id = ?, term = ? where item_id = "+id;
+				String sql = "update item set item_name = ?, price = ?, item_explanation = ?, hardware_id = ?, category_id = ?, term = ? where item_id = "+id;
 				st = cn.prepareStatement(sql);
 
 				st.setString(1, i.getItemName());
 	        	st.setInt(2, i.getPrice());
-	        	st.setString(3, i.getItemImage());
-	        	st.setString(4, i.getItemExplanation());
-	        	st.setString(5, i.getHardwareId());
-	        	st.setString(6, i.getCategoryId());
-	        	st.setInt(7, i.getTerm());
+	        	st.setString(3, i.getItemExplanation());
+	        	st.setString(4, i.getHardwareId());
+	        	st.setString(5, i.getCategoryId());
+	        	st.setInt(6, i.getTerm());
 
 				st.executeUpdate();
 				MysqlConnector.getInstance().commit();

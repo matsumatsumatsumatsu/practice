@@ -6,36 +6,111 @@
 <head>
 <meta charset="UTF-8">
 <title>買い手の商品取引画面</title>
+<%@include file="../css/sellerDealInfo.css"%>
 </head>
 <body>
+<div class="center">
+<div class="left">
 	<table border="1">
-		<c:forEach var="user" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<tr>
-				<td>${user.itemImage}</td>
-				<td>${user.itemName}</td>
-				<td>${user.price}</td>
-				<td>${user.data}</td>
-				<td>${user.address}</td>
-				<td>${user.realName}</td>
+			<th>ItemID</th>
+				<td>${item.itemId}</td>
+			</tr>
+			<tr>
+				<th>商品名</th>
+				<td>${item.itemName}</td>
+			</tr>
+			<tr>
+				<th>商品価格</th>
+				<td>${item.price}</td>
 			</tr>
 		</c:forEach>
 	</table>
+	<table border="1">
+		<c:forEach var="deal" items="${deal}">
+			<tr>
+				<th>取引ID</th>
+				<td>${deal.dealId}</td>
+			</tr>
+			<tr>
+				<th>商品ID</th>
+				<td>${deal.itemId}</td>
+			</tr>
+			<tr>
+				<th>取引状況</th>
+				<td>${deal.dealState}</td>
+			</tr>
+			<c:set var="stateCheck" value="${deal.dealState}"></c:set>
+		</c:forEach>
+	</table>
+</div>
+<div class="right">
+	<c:forEach var="deal" items="${deal}">
+		<div id="receive">
+			<form action="receive?deal_id=${deal.dealId}&user_state=1" method="post">
+				<input type="submit" value="受け取りました" class="button">
+			</form>
+		</div>
+	</c:forEach>
 
-	<form action="showDealingInfo" method="post">
-		<input type="submit" value="受け取りました">
-	</form>
+	<table border="1">
+		<tr>
+			<td>chatId</td>
+			<td>text</td>
+			<td>date</td>
+		</tr>
+		<c:forEach var="chat" items="${chat}">
+			<tr>
+				<td>${chat.chatId}</td>
+				<td>${chat.	text}</td>
+				<td>${chat.date}</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<c:forEach var="deal" items="${deal}">
+		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=1" method="post">
+			<input type="text" name="text"><br> <input
+				type="submit" value="コメントする" class="button">
+		</form>
+		</div>
+		<div class="left">
 
-	<form action="sendMessage" method="post">
-		<input type="text" name="privateChat"><br> <input
-			type="submit" value="コメントする">
-	</form>
-
+		<div id = "cancel">
+			<p>
+				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1" class="button">取引をキャンセルする</a>
+			</p>
+		</div>
+	</c:forEach>
+<div class="top">
 	<p>
-		<a href="cancel">取引をキャンセルする</a>
+		<a href="f_start" class="button">TOPページへ</a>
 	</p>
-	<p>
-		<a href="f_start">TOPページへ</a>
-	</p>
+</div>
+</div>
+</div>
+	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script>
+		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
+		if (<c:out value="${stateCheck}" /> == 1) {
+			$("#receive").empty();
+			$("#receive").html('<p class="button">商品の発送をお待ちください。</p>');
+		}
+
+		if (<c:out value="${stateCheck}" /> == 2) {
+			$("#receive").empty();
+			$("#receive").html('<p>取引がキャンセルされました。</p>');
+		}
+
+		if (<c:out value="${stateCheck}" /> == 3) {
+			$("#receive").empty();
+			$("#receive").html('<p>商品の受け取りが完了しました。</p>');
+		}
+
+		if (<c:out value="${stateCheck}" /> == 2 ||<c:out value="${stateCheck}" /> == 4) {
+			$("#cancel").empty();
+		}
+	</script>
 
 </body>
 </html>

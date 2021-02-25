@@ -75,18 +75,16 @@
 				type="submit" value="コメントする" class="button">
 		</form>
 </div>
-<div class="left">
-<div id = "cancel">
+<div class = "leftBtn">
 			<p>
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1"" class="button">取引をキャンセルする</a>
-			</p>
-			</div>
+			</p><br>
+
 	</c:forEach>
-	<div class="top">
+
 	<p>
 		<a href="f_start" class="button">TOPページへ</a>
 	</p>
-	</div>
 	</div>
 	</div>
 
@@ -95,18 +93,18 @@
 		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
 		if (<c:out value="${stateCheck}" /> == 4) {
 			$("#dispatch").empty();
-			$("#dispatch").html('<p>商品の発送が完了しました。</p>');
+			$("#dispatch").html('<p class="button">商品の発送が完了しました。</p>');
 			<!-- document.getElementById("stockCheck").style.color = "gray"; -->
 		}
 
 		if (<c:out value="${stateCheck}" /> == 2) {
 			$("#dispatch").empty();
-			$("#dispatch").html('<p>取引がキャンセルされました。</p>');
+			$("#dispatch").html('<p class="button">取引がキャンセルされました。</p>');
 		}
 
 		if (<c:out value="${stateCheck}" /> == 3) {
 			$("#dispatch").empty();
-			$("#dispatch").html('<p>商品の受け取りが完了しました。</p>');
+			$("#dispatch").html('<p class="button">商品の受け取りが完了しました。</p>');
 		}
 
 		if (<c:out value="${stateCheck}" /> == 2 ||<c:out value="${stateCheck}" /> == 4) {

@@ -3,17 +3,24 @@
 
 <html>
 <head>
+<%@include file="../css/style.css"%>
 <title>ユーザー登録</title>
 </head>
 <body>
-	<h1>ユーザー登録</h1>
-	<form method='post' action='signup'>
-		ユーザー名<input type='text' name='userName'><br> パスワード<input
-			type='text' name='userPassword'><br> 本名<input
-			type='text' name='realName'><br> 住所<input type='text'
-			name='address'><br> 電話番号<input type='text' name='tel'><br>
-		メールアドレス<input type='text' name='mail'><br> <input
-			type='submit' value='登録'>
-	</form>
+	<div class="signupPage">
+
+		<div class="center">
+		<h1>ユーザー登録</h1>
+			<form method='post' action='signup'>
+				<input type='text' name='userName' required placeholder="ユーザー名" size="60"><br> <br>
+				<input type='text' name='userPassword' required placeholder="パスワード" size="60"><br><br>
+				<input type='text' name='realName' required placeholder="本名" size="60"><br> <br>
+				<input type='text' name='address' required placeholder="住所" size="60"><br><br>
+				<input type='text' name='tel' required placeholder="電話番号" size="60"><br> <br>
+				<input type='text' name='mail' required placeholder="メールアドレス" size="60"><br><br>
+				<input type='submit' value='登録' class="button">
+			</form>
+		</div>
+	</div>
 </body>
 </html>

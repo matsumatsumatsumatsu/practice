@@ -15,19 +15,17 @@ public class EditListingCommand extends AbstractCommand {
 		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
 
 		String itemId = reqc.getParameter("itemId")[0];
-        String image = reqc.getParameter("image")[0];
-        String name = reqc.getParameter("name")[0];
-        String explanation = reqc.getParameter("explanation")[0];
-        String category = reqc.getParameter("category")[0];
-        String hardware = reqc.getParameter("hardware")[0];
-        int term = Integer.parseInt(reqc.getParameter("term")[0]);
-        int price = Integer.parseInt(reqc.getParameter("price")[0]);
+		String name = reqc.getParameter("name")[0];
+		String explanation = reqc.getParameter("explanation")[0];
+		String category = reqc.getParameter("categoryId")[0];
+		String hardware = reqc.getParameter("hardwareId")[0];
+		int term = Integer.parseInt(reqc.getParameter("term")[0]);
+		int price = Integer.parseInt(reqc.getParameter("price")[0]);
 
-        Item i = new Item();
-        i.setItemId(itemId);
-        i.setItemName(name);
+		Item i = new Item();
+		i.setItemId(itemId);
+		i.setItemName(name);
 		i.setPrice(price);
-		i.setItemImage(image);
 		i.setItemExplanation(explanation);
 		i.setHardwareId(hardware);
 		i.setCategoryId(category);
@@ -40,7 +38,7 @@ public class EditListingCommand extends AbstractCommand {
 			e.printStackTrace();
 		}
 
-    	resc.setTarget("mypage");
+		resc.setTarget("mypage");
 		return resc;
 	}
 

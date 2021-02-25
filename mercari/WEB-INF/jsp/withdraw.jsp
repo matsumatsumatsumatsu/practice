@@ -4,12 +4,19 @@
 <html>
 <head>
 <title>退会</title>
+<%@include file="../css/style.css" %>
 </head>
 <body>
-	<h1>退会</h1>
-	<form action="withdraw" method="post">
-		<button type="submit">退会</button>
-	</form>
+	<div class="login_out_withdraw">
 
+		<div class="center">
+		<h1>退会</h1>
+			<form action="withdraw" method="post">
+				<label>パスワードを入力</label> <input type="text" name="userPassword" /><br>
+				<br>
+				<button type="submit" class="button">退会</button>
+			</form>
+		</div>
+	</div>
 </body>
 </html>

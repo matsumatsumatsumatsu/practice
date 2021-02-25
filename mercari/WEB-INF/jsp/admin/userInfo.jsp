@@ -4,36 +4,34 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@include file="../../css/mypage.css"%>
 <meta charset="UTF-8">
-<title>マイページ</title>
-
-<div class="header">
-	<div class="search">
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
-				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<input type='submit' value='検索！' style="height: 40px">
-		</form>
-	</div>
-</div>
+<title>ユーザーの個別表示</title>
 </head>
 <body>
-	<div class="mypage">
-		<div class="right">
-			<table border="1" class="userName_Point">
-				<tr>
-					<th>ユーザー名</th>
-					<th>ポイント</th>
-				</tr>
-				<c:forEach var="user" items="${data}">
-					<tr>
-						<td>${user.userName}</td>
-						<td>${user.point}</td>
-					</tr>
-				</c:forEach>
-			</table>
-
-			<div class="dealing">
+	<table border="1">
+		<tr>
+			<th>userid</th>
+			<th>ユーザー名</th>
+			<th>住所</th>
+			<th>本名</th>
+			<th>電話番号</th>
+			<th>メールアドレス</th>
+			<th>パスワード</th>
+		</tr>
+		<c:forEach var="user" items="${data}">
+			<tr>
+				<td>${user.userId}</td>
+				<td>${user.userName}</td>
+				<td>${user.realName}</td>
+				<td>${user.address}</td>
+				<td>${user.tel}</td>
+				<td>${user.mail}</td>
+				<td>${user.userPassword}</td>
+				<td><a href="banuser?user_id=${user.userId}">削除</a></td>
+			</tr>
+		</c:forEach>
+	</table>
+<div class="dealing">
 				<h4>取引中</h4>
 				<div class="hidden_box">
 					<label for="label1">購入した商品</label> <input type="checkbox"
@@ -41,7 +39,7 @@
 					<div class="hidden_show">
 
 						<h4>購入した商品</h4>
-						<table border="1" class="innerTable">
+						<table border="1">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -54,6 +52,14 @@
 										name="itemId">${deal.itemId}</a></td>
 									<td>${deal.itemName}</td>
 									<td>${deal.itemImage}</td>
+									<td>${deal.dealState}</td>
+									<td><form action="changeState" method='post'>
+
+
+                <input type='hidden' name="deal_id" value="${deal.dealId}">
+                <input type='submit' value='キャンセル'>
+
+            </form></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -68,7 +74,7 @@
 					<div class="hidden_show">
 
 
-						<table border="1" class="innerTable">
+						<table border="1">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -81,6 +87,7 @@
 										name="itemId">${deal.itemId}</a></td>
 									<td>${deal.itemName}</td>
 									<td>${deal.itemImage}</td>
+
 								</tr>
 							</c:forEach>
 						</table>
@@ -96,7 +103,7 @@
 						<div id="history">
 
 							<h4>購入した商品</h4>
-							<table border="1" class="innerTable">
+							<table border="1">
 								<tr>
 									<th>itemid</th>
 									<th>商品名</th>
@@ -109,6 +116,7 @@
 											name="itemId">${history.itemId}</a></td>
 										<td>${history.itemName}</td>
 										<td>${history.itemImage}</td>
+										<td>${history.dealState}</td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -122,7 +130,7 @@
 					<label for="label4">出品した商品</label> <input type="checkbox"
 						id="label4" />
 					<div class="hidden_show">
-						<table border="1" class="innerTable">
+						<table border="1">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -135,6 +143,7 @@
 										name="itemId">${history.itemId}</a></td>
 									<td>${history.itemName}</td>
 									<td>${history.itemImage}</td>
+
 								</tr>
 							</c:forEach>
 						</table>
@@ -142,17 +151,13 @@
 				</div>
 			</div>
 		</div>
-		<div id="list-side">
-			<ul class="list">
-				<li><a href="showNoticeList">通知</a></li>
-				<li><a href="showOwnListingList">出品した商品</a></li>
-				<li><a href="purchase">購入した商品</a></li>
-<!-- 				<li><a href="point">ポイント</a></li> -->
-				<li><a href="f_editProfile">プロフィール</a></li>
-				<li><a href="f_logout">ログアウト</a></li>
-				<li><a href="f_withdraw">退会</a></li>
-			</ul>
-		</div>
-	</div>
+	<form action="grantPoint" method='post'>
+		<c:forEach var="user" items="${data}">
+			<input type='hidden' name='user_id' value="${user.userId}">
+		</c:forEach>
+		<input type='text' placeholder='追加ポイント' name='point'> <input
+			type='submit' value='追加'>
+	</form>
+
 </body>
 </html>

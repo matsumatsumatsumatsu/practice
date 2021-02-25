@@ -1,0 +1,83 @@
+<style>.header {
+	background-color: white;
+	margin-bottom: 30px;
+	height: 150px;
+	border-bottom: 2px solid black;
+}
+
+.search {
+	display: inlone-block;
+	text-align: center;
+	float: right;
+	margin-right: 100px;
+}
+
+body {
+	background-color: #F8F8FF;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	background-color: white;
+	height:100%;
+
+}
+
+.button {
+	background-color: #4669ff;
+	border-bottom: solid 2px #003aff;
+	border-right: solid 2px #003aff;
+	border-radius: 20px;
+	font-weight: bold;
+	width: 200px;
+	color: #FFF;
+	text-decoration: none;
+	padding: 10px;
+	display: inline-block;
+	margin: 20px
+}
+
+//
+ここまで共通
+
+.signupPage {
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	background-color: red;
+	width: auto;
+}
+
+.notifications table {
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	background-color: white;
+	width: 80%;
+	height: 100%;
+}
+
+}
+.left {
+	display: inline-block;
+	float: left;
+	margin-left: 20px;
+}
+
+.right {
+	display: inline-block;
+	float: right;
+	margin-right: 30px;
+}
+
+.textsize {
+	width: 300px;
+}
+</style>
