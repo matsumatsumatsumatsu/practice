@@ -9,11 +9,8 @@
 <%@include file="../../css/listingEdit.css"%>
 </head>
 <body>
-<<<<<<< HEAD
 <div class="center">
 	<h1>出品</h1>
-=======
->>>>>>> refs/remotes/origin/master
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">
 		<div class="left">
 		<p>商品の画像</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
@@ -40,8 +37,6 @@
 		</div>
 		<br><br> <input type="submit" value="出品する" class="button">
 	</form>
-
-
 
 	<script>
 	    function check() {
