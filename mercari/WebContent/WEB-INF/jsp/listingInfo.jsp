@@ -22,7 +22,7 @@
 		</tr>
 		<c:forEach var="item" items="${item}">
 			<tr>
-				<td>${item.itemImage}</td>
+				<td><img src="images/${item.itemImage}"width="300"></td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
 				<td><a href="narrow?hardware=${item.hardwareId}&keyword=&category=0&minprice=&maxprice=&stock=">${item.hardware}</a></td>
