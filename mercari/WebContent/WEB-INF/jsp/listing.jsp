@@ -6,31 +6,39 @@
 <head>
 <meta charset="UTF-8">
 <title>出品</title>
+<%@include file="../../css/listingEdit.css"%>
 </head>
 <body>
+<div class="center">
 	<h1>出品</h1>
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">
-		商品の画像：<input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
-		<br>商品名：<input type="text" name="itemName" />
-		<br> 商品の説明：<input type="text"name="itemExplanation" />
-		<br> ハードの種類：
-		<select name="hardwareId">
+		<div class="left">
+		<p>商品の画像</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
+		</div>
+		<div class="right">
+		<br><p>商品名</p><input type="text" name="itemName"  class="textsize"/>
+		<br> <p>商品の説明</p><input type="text"name="itemExplanation"  class="textsize"/>
+		<br> <p>ハードの種類</p>
+		<select name="hardwareId" class="textsize">
 			<option value="">選択してください</option>
 			<c:forEach var="hardware" items="${hardware}">
 				<option value="${hardware.hardwareId}">${hardware.hardware}</option>
 			</c:forEach>
 		</select>
-		<br> ゲームのジャンル：
-		<select name="categoryId">
+		<br> <p>ゲームのジャンル</p>
+		<select name="categoryId" class="textsize">
 			<option value="">選択してください</option>
 			<c:forEach var="category" items="${category}">
 				<option value="${category.categoryId}">${category.category}</option>
 			</c:forEach>
 		</select>
-		<br> 発送までの期間：<input type="text" name="term" />
-		<br>値段：<input type="text" name="price" />
-		<br><br> <input type="submit" value="出品する">
+		<br> <p>発送までの期間</p><input type="text" name="term"  class="textsize"/>
+		<br><p>値段</p><input type="text" name="price"  class="textsize"/>
+		</div>
+		<br><br> <input type="submit" value="出品する" class="button">
 	</form>
+
+
 
 	<script>
 	    function check() {
@@ -64,5 +72,6 @@
 	        }
 	    }
     </script>
+    </div>
 </body>
 </html>
