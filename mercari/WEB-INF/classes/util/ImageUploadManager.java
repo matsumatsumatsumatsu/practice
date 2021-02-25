@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +45,7 @@ public class ImageUploadManager {
 	            String filename = item.getName();
 
 	            if ((filename != null) && (!filename.equals(""))){
-	              filename = (new File(filename)).getName();
+	              filename = UUID.randomUUID().toString()+".jpg";
 	              item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
 	              fields.put("itemImage",filename);
 	            }
@@ -69,5 +70,8 @@ public class ImageUploadManager {
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
 		}
+	}
+	public Map getFields() {
+		return fields;
 	}
 }

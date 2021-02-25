@@ -1,7 +1,6 @@
 package command;
 
 import java.util.Map;
-import java.util.UUID;
 
 import bean.Item;
 import bean.User;
@@ -15,18 +14,16 @@ import util.SessionManager;
 
 public class ListingCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
-		RequestContext rq =  getRequestContext();
+		RequestContext reqc =  getRequestContext();
 
 		ImageUploadManager ium = new ImageUploadManager();
-		Map field = ium.upload(rq);
+		Map field = ium.upload(reqc);
 
 		String itemName = (String)field.get("itemName");
 
 		int price = Integer.parseInt((String)field.get("price"));
 
-		String itemImage  = (String)field.get("itemImage");
-		itemImage = UUID.randomUUID().toString()+".jpg";
-
+		String itemImage  = (String)field.get("itemImage");;
 
 		String itemExplanation = (String)field.get("itemExplanation");
 
@@ -39,7 +36,7 @@ public class ListingCommand extends AbstractCommand{
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		ItemInterfaceDao dao = factory.getItemInterfaceDao();
 
-		SessionManager.getSession(rq);
+		SessionManager.getSession(reqc);
 		System.out.println("token:"+SessionManager.getAttribute("token"));
 
 		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
