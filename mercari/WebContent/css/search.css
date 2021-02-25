@@ -12,6 +12,68 @@
 */
 /**/
 
+/* 商品一覧css */
+.itemlist{
+	display: inline-block;
+	width: calc(70% - 20px);
+	height: 100%;
+}
+
+#column ul {
+	width: calc(100 + 20px);
+	margin: 0 -10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#column li {
+	list-style: none;
+	padding: 0 10px 20px;
+}
+
+#column li a,
+#column li a:visited {
+	text-decoration: none;
+	color: #111;
+}
+
+#column li p {
+	font-size: 90%;
+	margin-bottom: 3px;
+}
+
+#column li span {
+	background-color: #000;
+	color: #FFF;
+	font-size: 10px;
+	position: relative;
+	width: 50%;
+	/*top: -20%;*/
+	font-size: 80%;
+	display: block;
+}
+
+.column02 li {
+	width: calc(50% - 20px);
+}
+
+.column03 li {
+	width: calc(33.3333% - 20px);
+}
+
+.column04 li {
+	width: calc(25% - 20px);
+}
+
+.column05 li {
+	width: calc(20% - 20px);
+}
+
+#column img{
+	height: 200px;
+}
+
+/*ヘッダー共通*/
 	.header {
 		background-color: white;
 		margin-bottom: 30px;
@@ -62,6 +124,7 @@
 	}
 
 	.listingButton {
+		z-index: 2;
 		display: inline-block;
 		text-decoration: none;
 		background: #FF3333;
@@ -104,57 +167,13 @@
 		box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
 	}
 
-	#none{
-		display: none;
-	}
 
 /* 検索css */
 	.searchinfo{
-		width: 100%;
+		display: inline-block;
+		width: calc(30% - 20px);
 		height: 100%;
+		float:left;
 	}
 
-/* 商品一覧css */
-#column ul {
-	width: calc(100 + 20px);
-	margin: 0 -10px;
-	display: flex;
-	flex-wrap: wrap;
-}
-
-#column li {
-	padding: 0 10px 20px;
-}
-
-#column li a,
-#column li a:visited {
-	text-decoration: none;
-	color: #111;
-}
-
-#column li p {
-	font-size: 90%;
-	margin-bottom: 3px;
-}
-
-#column li span {
-	font-size: 80%;
-	display: block;
-}
-
-.column02 li {
-	width: calc(50% - 20px);
-}
-
-.column03 li {
-	width: calc(33.3333% - 20px);
-}
-
-.column04 li {
-	width: calc(25% - 20px);
-}
-
-.column05 li {
-	width: calc(20% - 20px);
-}
 </style>

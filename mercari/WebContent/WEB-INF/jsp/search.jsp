@@ -55,24 +55,26 @@
 		<div class="searchinfo">
 			<form name="itemsearch" method='post' action='search' onSubmit="return check()">
 				<p>キーワード</p>
-				<input type='text' name='keyword' style="width: 60px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+				<input type='text' name='keyword' style="width: 80%; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
 
 				<p>ハードウェア</p>
-				<div id="categorysearch">
-					<input type="radio" name="hardware" value="0" checked>すべて
-					<c:forEach var="hardware" items="${hardware}">
-						<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
-					</c:forEach>
-					<br>
-					<p>カテゴリ</p>
-					<input type="radio" name="category" value="0" checked>すべて
-					<c:forEach var="category" items="${category}">
-						<input type="radio" name="category" value="${category.categoryId}">${category.category}
-					</c:forEach>
-					<br>
-
+				<div id="hardwaresearch">
+					<select name="hardwareId">
+						<option value="">選択してください</option>
+						<c:forEach var="hardware" items="${hardware}">
+							<option value="${hardware.hardwareId}">${hardware.hardware}</option>
+						</c:forEach>
+					</select>
 				</div>
-
+				<p>ジャンル</p>
+				<div id="categorysearch">
+					<select name="categoryId">
+						<option value="">選択してください</option>
+						<c:forEach var="category" items="${category}">
+							<option value="${category.categoryId}">${category.category}</option>
+						</c:forEach>
+					</select>
+				</div>
 				<!-- 値段の絞り込み用のテキストボックス -->
 				<div id="pricesearch">
 				<br>
@@ -95,14 +97,15 @@
 
 			 <!-- 商品一覧 -->
 			<div id="column" class="column04">
-				<h3>4個並び</h3>
+				<h3>検索結果</h3>
 				<ul>
 					<c:forEach var="item" items="${data}">
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
 							<img src="images/${item.itemImage}" />
+							<p>${item.itemImage}</p>
 							<p>${item.itemName}</p>
-							<span>${item.price}</span>
+							<span>&yen;${item.price}</span>
 							</a>
 						</li>
 					</c:forEach>
