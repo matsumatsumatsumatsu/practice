@@ -184,7 +184,7 @@ float: left;
 						<td><a href="showiteminfo?item_id=${item.itemId}"
 							name="itemId">${item.itemName}</a></td>
 						<td>${item.price}</td>
-						<td>${item.itemImage}</td>
+						<td><img src="images/${item.itemImage}" width="300"></td>
 						<td>${item.itemExplanation}</td>
 						<td>${item.stock}</td>
 					</tr>

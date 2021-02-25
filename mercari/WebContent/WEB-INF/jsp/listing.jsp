@@ -8,7 +8,6 @@
 <title>出品</title>
 </head>
 <body>
-	<h1>出品</h1>
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">
 		商品の画像：<input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
 		<br>商品名：<input type="text" name="itemName" />

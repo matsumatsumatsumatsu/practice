@@ -46,9 +46,9 @@ public class ImageUploadManager {
 
 					if ((filename != null) && (!filename.equals(""))){
 						filename = UUID.randomUUID().toString()+".jpg";
-						item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
+						//item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
 						//item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\\\images\\" + filename));
-						//item.write(new File("/opt/tomcat/webapps/mercari/images" + filename));
+						item.write(new File("/opt/tomcat/webapps/mercari/images" + filename));
 						//item.write(new File("正式にデプロイするときのディレクトリ" + filename));
 						fields.put("itemImage",filename);
 					}
