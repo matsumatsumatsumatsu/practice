@@ -41,7 +41,7 @@
 					<div class="hidden_show">
 
 						<h4>購入した商品</h4>
-						<table border="1">
+						<table border="1" class="innerTable">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -68,7 +68,7 @@
 					<div class="hidden_show">
 
 
-						<table border="1">
+						<table border="1" class="innerTable">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -96,7 +96,7 @@
 						<div id="history">
 
 							<h4>購入した商品</h4>
-							<table border="1">
+							<table border="1" class="innerTable">
 								<tr>
 									<th>itemid</th>
 									<th>商品名</th>
@@ -122,7 +122,7 @@
 					<label for="label4">出品した商品</label> <input type="checkbox"
 						id="label4" />
 					<div class="hidden_show">
-						<table border="1">
+						<table border="1" class="innerTable">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>

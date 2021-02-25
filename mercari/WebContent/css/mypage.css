@@ -159,4 +159,22 @@ label {
 .dealing {
 	display: inline-block;
 }
+.innerTable{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.innerTable th,.innerTable td{
+  padding: 10px 0;
+  text-align: center;
+}
+
+.innerTable tr:nth-child(odd){
+  background-color: #eee
+}
+.textBox{
+	width:540px;
+	height:30px;
+}
 </style>
