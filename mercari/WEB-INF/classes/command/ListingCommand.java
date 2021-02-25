@@ -1,21 +1,16 @@
 package command;
 
-import java.util.UUID;
-
-import bean.Item;
-import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
-import dao.AbstractMysqlFactory;
-import dao.ItemInterfaceDao;
-import exception.IntegrationException;
-import util.SessionManager;
+import util.ImageUploadManager;
 
 public class ListingCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
 		RequestContext rq=  getRequestContext();
 
-		String itemNames[] = rq.getParameter("itemName");
+		ImageUploadManager.upload(rq);
+
+		/*String itemNames[] = rq.getParameter("itemName");
 		String itemName = itemNames[0];
 
 		String prices[] = rq.getParameter("price");
@@ -60,7 +55,7 @@ public class ListingCommand extends AbstractCommand{
 			dao.listing(i);
 		}catch(IntegrationException e) {
 
-		}
+		}*/
 		resc.setTarget("start");
 
 		return resc;
