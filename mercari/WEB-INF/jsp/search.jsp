@@ -2,70 +2,128 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
-<head>
 
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<div class="search">
-	<form name="itemsearch" method='post' action='search'>
-		<p>商品名検索</p>
-		<input type='text' name='keyword' placeholder="何かお探しですか？"> <input type='submit'
-			value='検索！'>
-	</form>
-</div>
+<%
+	String token = (String)session.getAttribute("flag");
+%>
+
+<html>
+
+<head>
+	<%@include file="../css/search.css"%>
+	<meta charset="UTF-8">
+	<title>商品検索結果</title>
+
+	<!-- ログインセッションの取得 -->
+	<p style="display:none;" id="flag"><%= token %></p>
 </head>
 
 <body>
-	<div id="search">
-		<form method='post' action="search">
-			<p>ハードウェア</p>
-			<div id="categorysearch">
-			<input type="radio" name="hardware" value="0">選択しない
-			<c:forEach var="hardware" items="${hardware}">
-				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
-			</c:forEach>
-			<br>
-			<p>カテゴリ</p>
-			<input type="radio" name="category" value="0">選択しない
-			<c:forEach var="category" items="${category}">
-				<input type="radio" name="category" value="${category.categoryId}">${category.category}
-			</c:forEach>
+	<div class="header">
+		<div class="search">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()">
 
-			</div>
-
-			<!-- 値段の絞り込み用のテキストボックス -->
-			<div id="pricesearch">
-				<input type="text" name="minvalue" placeholder="minvalue" > <input type="text"
-					name="maxvalue" placeholder="maxvalue">
-			</div>
-			<div id="stocksearch">
-				<input type="checkbox" name="sale"><label for="sale">販売中</label>
-				<input type="checkbox" name="sold"><label for="sold">売りきれ</label>
-			</div>
-			<button type='submit' value='検索！'></button>
-		</form>
+					<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+					<input type='submit' value='検索！' style="height: 40px">
+			</form>
+		</div>
+		<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
+		<div class="headerColumn">
+			<p id = "signup">
+				<a href="f_signup" class="headerBtn">ユーザー登録画面へ</a>
+			</p>
+			<!-- 後々コメントアウト -->
+			<p id = "login">
+				<a href="f_login" class="headerBtn">ログイン</a>
+			</p>
+			<p id = "mypage">
+				<a href="showprofile" class="headerBtn">マイページ</a>
+			</p>
+			<p id = "notice">
+				<a href="showNoticeList" class="headerBtn">通知</a>
+			</p>
+		</div>
 	</div>
-	<p>
-		<a href="f_listing">出品画面へ</a>
-	</p>
+	<div class="start">
+		<h1>メルカリもどき</h1>
 
-	<table border="1">
-		<tr>
-			<th>商品名</th>
-			<th>価格</th>
-			<th>画像</th>
-			<th>itemid</th>
-		</tr>
-		<c:forEach var="item" items="${data}">
-			<tr>
-				<td>${item.itemName}</td>
-				<td>${item.price}</td>
-				<td>${item.itemImage}</td>
-				<td>${item.itemId}</td>
-			</tr>
-		</c:forEach>
-	</table>
+		<p>
+			<a href="f_listing" class="listingButton">出品画面へ</a>
+		</p>
+
+		<!-- 詳細検索画面（のちにサイドバー）-->
+		<div class="searchinfo">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()">
+				<p>キーワード</p>
+				<input type='text' name='keyword' style="width: 60px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+
+				<p>ハードウェア</p>
+				<div id="categorysearch">
+					<input type="radio" name="hardware" value="0" checked>すべて
+					<c:forEach var="hardware" items="${hardware}">
+						<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
+					</c:forEach>
+					<br>
+					<p>カテゴリ</p>
+					<input type="radio" name="category" value="0" checked>すべて
+					<c:forEach var="category" items="${category}">
+						<input type="radio" name="category" value="${category.categoryId}">${category.category}
+					</c:forEach>
+					<br>
+
+				</div>
+
+				<!-- 値段の絞り込み用のテキストボックス -->
+				<div id="pricesearch">
+				<br>
+					値段下限：<input type="text" name="minprice"><br>
+					値段上限：<input type="text" name="maxprice">
+				</div>
+				<div id="stocksearch">
+					<br>
+					<input type="radio" name="stock" value="0" checked>すべて
+					<input type="radio" name="stock" value="sale">販売中
+					<input type="radio" name="stock" value="sold">売りきれ
+				</div>
+				<button type='submit' value='検索！'>検索</button>
+			</form>
+		</div>
+
+		<!-- 商品一覧 -->
+		<div class="itemlist">
+			<!-- テスト用のいらない子 -->
+
+			 <!-- 商品一覧 -->
+			<div id="column" class="column04">
+				<h3>4個並び</h3>
+				<ul>
+					<c:forEach var="item" items="${data}">
+						<li>
+							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
+							<img src="images/${item.itemImage}" />
+							<p>${item.itemName}</p>
+							<span>${item.price}</span>
+							</a>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
+			<h6>メルカリ</h6>
+		</div>
+
+	</div>
+
+	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script>
+		var flag=document.getElementById("flag").innerText;
+		if (flag == "OK") {
+			$("#login").css("display","none");
+			$("#signup").css("display","none");
+		}else{
+			$("#mypage").css("display","none");
+			$("#notice").css("display","none");
+		}
+	</script>
 
 </body>
 </html>

@@ -4,13 +4,20 @@
 <html>
 <head>
 <title>ログイン</title>
+<%@include file="../css/style.css"%>
 </head>
 <body>
-	<h1>ログイン</h1>
-	<form action="login" method="post">
-		名前：<input type="text" name="userName" /><br> パスワード：<input
-			type="text" name="userPassword" /><br>
-		<br> <input type="submit" value="ログイン">
-	</form>
+	<div class="login_out_withdraw">
+
+		<div class="center">
+		<h1>ログイン</h1>
+			<form action="login" method="post">
+				<input type="text" name="userName" placeholder="名前" /><br> <input
+					type="text" name="userPassword" placeholder="パスワード" /> <br>
+				<br>
+				<input type="submit" value="ログイン" class="button">
+			</form>
+		</div>
+	</div>
 </body>
 </html>

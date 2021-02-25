@@ -11,53 +11,58 @@
 <body>
 	<table border="1">
 		<tr>
-			<td>画像</td>
-			<td>商品名</td>
-			<td>商品説明</td>
-			<td>ハード</td>
-			<td>ジャンル</td>
-			<td>発送期間</td>
-			<td>値段</td>
+			<th>画像</th>
+			<th>商品名</th>
+			<th>商品説明</th>
+			<th>ハード</th>
+			<th>ジャンル</th>
+			<th>発送期間</th>
+			<th>値段</th>
+			<th>ユーザID</th>
 		</tr>
-		<c:forEach var="item" items="${data}">
+		<c:forEach var="item" items="${item}">
 			<tr>
-				<td>${item.itemImage}</td>
+				<td><img src="images/${item.itemImage}" width="300"></td>
 				<td>${item.itemName}</td>
 				<td>${item.itemExplanation}</td>
-				<td>${item.hardwareId}</td>
-				<td>${item.categoryId}</td>
+				<td><a href="narrow?hardware=${item.hardwareId}&keyword=&category=0&minprice=&maxprice=&stock=">${item.hardware}</a></td>
+				<td><a href="narrow?category=${item.categoryId}&keyword=&hardware=0&minprice=&maxprice=&stock=">${item.category}</a></td>
 				<td>${item.term}</td>
 				<td>${item.price}</td>
+				<td>${item.sellerId}</td>
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
 			</tr>
 			</c:forEach>
 	</table>
 	<br>
 
-	<div class="openChatTable">
+		<div class="openChatTable">
 		<table border="1">
 			<c:forEach var="chat" items="${open}">
 				<tr>
-					<td>${open.text}</td>
-					<td>${open.date}</td>
+					<td>${chat.text}</td>
+					<td>${chat.date}</td>
 				</tr>
 			</c:forEach>
 		</table>
 
-		<form action="sendopenchat" method="post">
-			<input type="text" name="openChatText"><br>
-			<input type="submit" value="コメントする">
-		</form>
+		<c:forEach var="item" items="${item}">
+			<form action="sendopenchat?item_id=${item.itemId}" method="post">
+				<input type="text" name="text"><br>
+				<input type="submit" value="コメントする">
+			</form>
+		</c:forEach>
 	</div>
 
 	<p>
-		<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
+		<c:forEach var="item" items="${item}">
+			<a id="stockCheck" href="confirmpay?item_id=${item.itemId}">商品購入</a>
+		</c:forEach>
 	</p>
-
-
-
 	<p>
-		<a href="/userInfo/">ユーザーの確認</a>
+		<c:forEach var="item" items="${item}">
+			<a href="showuserinfo?user_id=${item.sellerId}">ユーザーの確認</a>
+		</c:forEach>
 	</p>
 	<p>
 		<a href="/category/">カテゴリー検索</a>

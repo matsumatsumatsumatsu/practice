@@ -1,0 +1,95 @@
+<style>
+
+body {
+	background-color: #F8F8FF;
+
+}
+
+h1 {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	width: 1000px;
+	height:2000px;
+}
+.button{
+			background-color: #4669ff;
+    		border-bottom: solid 2px #003aff;
+   			border-right: solid 2px #003aff;
+   		 	border-radius: 20px;
+    		font-weight: bold;
+    		width:250px;
+   		 	color: #FFF;
+    		text-decoration: none;
+    		padding: 10px;
+    		display: inline-block;
+    		margin-bottom:20px;
+
+
+		}
+.left{
+	display:inline-block;
+	float:left;
+	margin-left:70px;
+	margin-top:20px;
+	width:300px;
+	position:relative;
+	top:72px;
+}
+.right{
+	display:inline-block;
+	float:right;
+	margin-right:50px;
+	width:550px;
+	top:72px;
+}
+.top{
+
+	margin-top:0px;
+	text-align:center;
+	position:relative;
+
+
+}
+#cancel{
+	display:inline-block;
+	margin-bottom:0px;
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	position:relative;
+	top:90%;
+
+
+
+
+
+}
+#dispatch{
+	margin:5%;
+
+}
+table{
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+table th,table td{
+  padding: 10px 0;
+  text-align: center;
+}
+
+table tr:nth-child(odd){
+  background-color: #eee
+}
+.textBox{
+	width:540px;
+	height:30px;
+}
+</style>

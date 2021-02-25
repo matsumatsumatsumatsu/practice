@@ -23,7 +23,7 @@ public class ListingCommand extends AbstractCommand{
 
 		int price = Integer.parseInt((String)field.get("price"));
 
-		String itemImage  = (String)field.get("itemImage");;
+		String itemImage  = (String)field.get("itemImage");
 
 		String itemExplanation = (String)field.get("itemExplanation");
 
