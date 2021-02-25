@@ -1,9 +1,13 @@
 package util;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.fileupload.FileItem;
@@ -14,8 +18,14 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import context.RequestContext;
 
 public class ImageUploadManager {
-	public static void upload(RequestContext reqc){
+	Map fields = new HashMap();
+	public Map upload(RequestContext reqc){
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
+		try {
+			req.setCharacterEncoding("");
+		} catch (UnsupportedEncodingException e1) {
+			e1.printStackTrace();
+		}
 
 		String path = req.getServletContext().getRealPath("data");
 		System.out.println("ImageUploadManager:path="+path);
@@ -36,7 +46,10 @@ public class ImageUploadManager {
 	            if ((filename != null) && (!filename.equals(""))){
 	              filename = (new File(filename)).getName();
 	              item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
+	              fields.put("itemImage",filename);
 	            }
+	          }else if (item.isFormField()) {
+	        	  this.setFormField(item);
 	          }
 	        }
 	      }catch (FileUploadException e) {
@@ -44,6 +57,17 @@ public class ImageUploadManager {
 	      }catch (Exception e) {
 	        e.printStackTrace();
 	      }
+	    return fields;
+	}
+	public void setFormField(FileItem item) throws ServletException {
+		try {
+			String name = item.getFieldName();
+			String field = item.getString("UTF8");
 
+			fields.put(name,field);
+			System.out.println("ImageUploadManager:name="+name+",field="+field);
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 	}
 }

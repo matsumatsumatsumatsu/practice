@@ -1,36 +1,40 @@
 package command;
 
+import java.util.Map;
+import java.util.UUID;
+
+import bean.Item;
+import bean.User;
 import context.RequestContext;
 import context.ResponseContext;
+import dao.AbstractMysqlFactory;
+import dao.ItemInterfaceDao;
+import exception.IntegrationException;
 import util.ImageUploadManager;
+import util.SessionManager;
 
 public class ListingCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc){
-		RequestContext rq=  getRequestContext();
+		RequestContext rq =  getRequestContext();
 
-		ImageUploadManager.upload(rq);
+		ImageUploadManager ium = new ImageUploadManager();
+		Map field = ium.upload(rq);
 
-		/*String itemNames[] = rq.getParameter("itemName");
-		String itemName = itemNames[0];
+		String itemName = (String)field.get("itemName");
 
-		String prices[] = rq.getParameter("price");
-		int price = Integer.parseInt(prices[0]);
+		int price = Integer.parseInt((String)field.get("price"));
 
-		String itemImage  = rq.getParameter("itemImage")[0];
+		String itemImage  = (String)field.get("itemImage");
 		itemImage = UUID.randomUUID().toString()+".jpg";
 
 
-		String itemExplanations[] = rq.getParameter("itemExplanation");
-		String itemExplanation = itemExplanations[0];
+		String itemExplanation = (String)field.get("itemExplanation");
 
-		String hardwareIds[] = rq.getParameter("hardwareId");
-		String hardwareId = hardwareIds[0];
+		String hardwareId = (String)field.get("hardwareId");
 
-		String categoryIds[] = rq.getParameter("categoryId");
-		String categoryId = categoryIds[0];
+		String categoryId = (String)field.get("categoryId");
 
-		String terms[] = rq.getParameter("term");
-		int term = Integer.parseInt(terms[0]);
+		int term = Integer.parseInt((String)field.get("term"));
 
 		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 		ItemInterfaceDao dao = factory.getItemInterfaceDao();
@@ -55,7 +59,7 @@ public class ListingCommand extends AbstractCommand{
 			dao.listing(i);
 		}catch(IntegrationException e) {
 
-		}*/
+		}
 		resc.setTarget("start");
 
 		return resc;
