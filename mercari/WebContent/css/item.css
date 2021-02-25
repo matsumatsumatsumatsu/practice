@@ -18,10 +18,10 @@ height:100%;
 body{
 
 	height:100%;
-	width : 1000px;
+	width : 100%;
 	margin-left: auto;
     margin-right: auto;
-	margin-top: 40px;
+
 	background-color: #F8F8FF;
 }
 .itemlist{
@@ -57,7 +57,7 @@ body{
     margin-right: auto;
 
 }
-input {
+.inputchat {
     width: 250px;
     text-align: center;
 }
@@ -149,4 +149,66 @@ float: left;
   margin: 0;
   padding: 0;
 }
+.header {
+	z-index: 3;
+	background-color: white;
+	height: 150px;
+	border-bottom: 2px solid black;
+}
+
+.search {
+	display: inlone-block;
+	text-align: center;
+	float: right;
+		margin-left: 10%;
+	margin-right: 10%;
+
+}
+
+.headerColumn {
+	display: inline-block;
+	width: auto;
+	position: relative;
+	top: 5px;
+	left: 800px;
+}
+
+.headerColumn p {
+	display: inline-block;
+	width: auto;
+	margin-right: 20px;
+}
+.headerBtn {
+	position: relative;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+}
+
+
+
+a.headerBtn {
+  border-radius: 0;
+
+}
+
+a.headerBtn:hover {
+  color:#8EF1FF;
+
+}
+.itemsearch{
+  float: right;
+}
+.topBtn{
+margin-top: 5%;
+float: left;
+}
+.start {
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	background-color: white;
+	width: auto;
+}
+
 </style>
