@@ -23,7 +23,7 @@ public class ImageUploadManager {
 	public Map upload(RequestContext reqc){
 		HttpServletRequest req = (HttpServletRequest)reqc.getRequest();
 		try {
-			req.setCharacterEncoding("");
+			req.setCharacterEncoding("UTF-8");
 		} catch (UnsupportedEncodingException e1) {
 			e1.printStackTrace();
 		}
@@ -32,33 +32,36 @@ public class ImageUploadManager {
 		System.out.println("ImageUploadManager:path="+path);
 
 		DiskFileItemFactory factory = new DiskFileItemFactory();
-	    ServletFileUpload sfu = new ServletFileUpload(factory);
+		ServletFileUpload sfu = new ServletFileUpload(factory);
 
-	    try {
-	        List list = sfu.parseRequest(req);
-	        Iterator iterator = list.iterator();
+		try {
+			List list = sfu.parseRequest(req);
+			Iterator iterator = list.iterator();
 
-	        while(iterator.hasNext()){
-	          FileItem item = (FileItem)iterator.next();
+			while(iterator.hasNext()){
+				FileItem item = (FileItem)iterator.next();
 
-	          if (!item.isFormField()){
-	            String filename = item.getName();
+				if (!item.isFormField()){
+					String filename = item.getName();
 
-	            if ((filename != null) && (!filename.equals(""))){
-	              filename = UUID.randomUUID().toString()+".jpg";
-	              item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
-	              fields.put("itemImage",filename);
-	            }
-	          }else if (item.isFormField()) {
-	        	  this.setFormField(item);
-	          }
-	        }
-	      }catch (FileUploadException e) {
-	        e.printStackTrace();
-	      }catch (Exception e) {
-	        e.printStackTrace();
-	      }
-	    return fields;
+					if ((filename != null) && (!filename.equals(""))){
+						filename = UUID.randomUUID().toString()+".jpg";
+						item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
+						//item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\\\images\\" + filename));
+						//item.write(new File("/opt/tomcat/webapps/mercari/images" + filename));
+						//item.write(new File("正式にデプロイするときのディレクトリ" + filename));
+						fields.put("itemImage",filename);
+					}
+				}else if (item.isFormField()) {
+					this.setFormField(item);
+				}
+			}
+		}catch (FileUploadException e) {
+			e.printStackTrace();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return fields;
 	}
 	public void setFormField(FileItem item) throws ServletException {
 		try {
