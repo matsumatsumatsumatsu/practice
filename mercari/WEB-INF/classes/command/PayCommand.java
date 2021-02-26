@@ -139,7 +139,7 @@ public class PayCommand extends AbstractCommand {
 		resc = notifyBuyer.execute(resc);
 		resc = notifySeller.execute(resc);
 
-		resc.setTarget("start");
+		resc.setTarget("completePay");
 		return resc;
 	}
 

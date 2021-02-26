@@ -12,15 +12,23 @@
 	<div class="pay">
 		<h1>購入内容の確認</h1>
 		<div class="center">
+			<table border="1" class="itemImage">
+				<tr>
+					<td>商品画像</td>
+				</tr>
+				<c:forEach var="item" items="${data}">
+					<tr>
+						<td><img src="images/${item.itemImage}" /></td>
+					</tr>
+				</c:forEach>
+			</table>
 			<table border="1" class="wantItem">
 				<tr>
-					<td>画像</td>
 					<td>商品名</td>
 					<td>値段</td>
 				</tr>
 				<c:forEach var="item" items="${data}">
 					<tr>
-						<td>${item.itemImage}</td>
 						<td>${item.itemName}</td>
 						<td>${item.price}</td>
 						<c:set var="price" value="${item.price }"></c:set>
