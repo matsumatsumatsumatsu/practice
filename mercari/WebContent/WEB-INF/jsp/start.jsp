@@ -4,8 +4,8 @@
 
 <%
 	String token = (String)session.getAttribute("flag");
+	session.setAttribute("token2",token);
 %>
-
 <html>
 
 <head>
@@ -17,7 +17,7 @@
 
 </style>
 <title>スタート画面</title>
-<p style="display:none;" id="flag"><%= token %></p>
+<p style="display:none;" id="flag"><%= session.getAttribute("token2") %></p>
 <!-- <div class="search">
 			<c:forEach var="hardware" items="${hardware}">
 				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
