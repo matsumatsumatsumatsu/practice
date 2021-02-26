@@ -9,7 +9,7 @@ public class LogoutCommand extends AbstractCommand{
 		RequestContext reqc = getRequestContext();
 		SessionManager.getSession(reqc);
 		SessionManager.invalidate();
-		resc.setTarget("start");
+		resc.setTarget("completeLogout");
 		return resc;
 	}
 }

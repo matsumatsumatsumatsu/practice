@@ -22,7 +22,7 @@ public class LoginCheckFilter implements Filter{
     Object flag=session.getAttribute("token");
 
     if(flag != null) {
-    	session.setAttribute("flag", "OK");
+    	hreq.setAttribute("flag", "OK");
     }
 
     chain.doFilter(req,res);
