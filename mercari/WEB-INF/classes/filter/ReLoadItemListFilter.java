@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
@@ -35,6 +36,14 @@ public class ReLoadItemListFilter implements Filter{
 	      }
 	      hreq.setAttribute("itemlist", items);
 //	      System.out.println("items:"+items);
+
+	  	HttpSession session=((HttpServletRequest) req).getSession();
+
+	    Object flag=session.getAttribute("token");
+
+	    if(flag != null) {
+	    	hreq.setAttribute("flag", "OK");
+	    }
 
 		  chain.doFilter(req,res);
 	  }
