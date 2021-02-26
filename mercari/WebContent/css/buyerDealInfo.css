@@ -63,15 +63,15 @@ h1 {
 }
 .leftBtn{
 	display:inline-block;
-	position:fixed;
-	top:380px;
-	right:770px;
+	position:relative;
+	top:100px;
+	right:10px;
 }
 .underLeftBtn{
 	display:inline-block;
-	position:fixed;
-	top:450px;
-	right:770px;
+	position:relative;
+	top:120px;
+	right:10px;
 
 }
 #cancel{

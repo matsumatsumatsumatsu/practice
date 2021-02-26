@@ -10,9 +10,12 @@
 
 <div class="header">
 	<div class="search">
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()">
-				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<input type='submit' value='検索！' style="height: 40px">
+		<form name="itemsearch" method='post' action='search'
+			onSubmit="return check()">
+			<input type='text' name='keyword'
+				style="width: 800px; height: 40px; margin-top: 30px"
+				placeholder="商品名検索"> <input type='submit' value='検索！'
+				style="height: 40px">
 		</form>
 	</div>
 </div>
@@ -43,7 +46,6 @@
 						<h4>購入した商品</h4>
 						<table border="1" class="innerTable">
 							<tr>
-								<th>itemid</th>
 								<th>商品名</th>
 								<th>画像</th>
 							</tr>
@@ -51,8 +53,7 @@
 								<tr>
 									<td><a
 										href="showDealingInfo?deal_id=${deal.dealId}&user_state=1"
-										name="itemId">${deal.itemId}</a></td>
-									<td>${deal.itemName}</td>
+										name="itemId">${deal.itemName}</a></td>
 									<td>${deal.itemImage}</td>
 								</tr>
 							</c:forEach>
@@ -70,7 +71,6 @@
 
 						<table border="1" class="innerTable">
 							<tr>
-								<th>itemid</th>
 								<th>商品名</th>
 								<th>画像</th>
 							</tr>
@@ -78,9 +78,8 @@
 								<tr>
 									<td><a
 										href="showDealingInfo?deal_id=${deal.dealId}&user_state=2"
-										name="itemId">${deal.itemId}</a></td>
-									<td>${deal.itemName}</td>
-									<td>${deal.itemImage}</td>
+										name="itemId">${deal.itemName}</a></td>
+									<td><img src="images/${deal.itemImage}" /></td>
 								</tr>
 							</c:forEach>
 						</table>
@@ -98,7 +97,6 @@
 							<h4>購入した商品</h4>
 							<table border="1" class="innerTable">
 								<tr>
-									<th>itemid</th>
 									<th>商品名</th>
 									<th>画像</th>
 								</tr>
@@ -106,9 +104,8 @@
 									<tr>
 										<td><a
 											href="showDealingInfo?deal_id=${history.dealId}&user_state=1"
-											name="itemId">${history.itemId}</a></td>
-										<td>${history.itemName}</td>
-										<td>${history.itemImage}</td>
+											name="itemId">${history.itemName}</a></td>
+										<td><img src="images/${history.itemImage}" /></td>
 									</tr>
 								</c:forEach>
 							</table>
@@ -124,7 +121,6 @@
 					<div class="hidden_show">
 						<table border="1" class="innerTable">
 							<tr>
-								<th>itemid</th>
 								<th>商品名</th>
 								<th>画像</th>
 							</tr>
@@ -132,9 +128,8 @@
 								<tr>
 									<td><a
 										href="showDealingInfo?deal_id=${history.dealId}&user_state=2"
-										name="itemId">${history.itemId}</a></td>
-									<td>${history.itemName}</td>
-									<td>${history.itemImage}</td>
+										name="itemId">${history.itemName}</a></td>
+									<td><img src="images/${history.itemImage}" /></td>
 								</tr>
 							</c:forEach>
 						</table>

@@ -63,9 +63,9 @@ h1 {
 }
 .leftBtn{
 	display:inline-block;
-	position:fixed;
-	top:380px;
-	right:780px;
+	position:relative;
+	top:100px;
+	right:10px;
 }
 .leftBtn p{
 	display:inline-block;
