@@ -79,12 +79,7 @@
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
 				</c:forEach>
 			</table>
-			<p>
-				<c:forEach var="item" items="${item}">
-					<a id="stockCheck" href="confirmpay?item_id=${item.itemId}"
-						class="button">商品購入</a>
-				</c:forEach>
-			</p>
+
 	</div>
 	<br>
 
