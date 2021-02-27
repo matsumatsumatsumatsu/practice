@@ -108,7 +108,7 @@ body{
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 110px;
+	top: 10px;
 	left: 700px;
 }
 
@@ -117,12 +117,6 @@ body{
 	width: auto;
 	margin-right: 20px;
 }
-.headerBtn {
-	position: relative;
-	display: inline-block;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-}
 a.headerBtn {
   border-radius: 0;
 
@@ -130,6 +124,16 @@ a.headerBtn {
 
 a.headerBtn:hover {
   color:#8EF1FF;
+
+}
+.itemsearch{
+  float: right;
+}
+.topBtn{
+float: left;
+position:relative;
+top:40px;
+left:-100px;
 
 }
 
