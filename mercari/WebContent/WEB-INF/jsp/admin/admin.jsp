@@ -63,6 +63,14 @@
 	<p>
 		<a href="paymentLogList">全ユーザーの取引履歴の閲覧</a>
 	</p>
+	<script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
+	</script>
 </body>
 </html>
 
