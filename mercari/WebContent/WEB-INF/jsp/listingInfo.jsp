@@ -47,9 +47,9 @@
 		<c:forEach var="item" items="${item}">
 
 			<h1>${item.itemName}</h1>
-			<div class="left">
-				<img src="images/${item.itemImage}" width="300">
-			</div>
+
+				<img src="images/${item.itemImage}" class="itemimage">
+
 			<table border="1" class="item">
 
 				<tr>
@@ -74,38 +74,10 @@
 					<th>値段</th>
 					<td>${item.price}</td>
 				</tr>
-
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
-				</c:forEach>
+					</c:forEach>
 			</table>
-
-	</div>
-	<br>
-
-	<div class="openChatTable">
-	<!-- 	<table border="1" class="chat"> -->
-			<c:forEach var="chat" items="${open}">
-
-				<div class="balloon1-left">
-					<p>${chat.text}</p>
-				</div>
-
-					${chat.date}
-
-			</c:forEach>
-
-
-		<c:forEach var="item" items="${item}">
-			<form action="sendopenchat?item_id=${item.itemId}" method="post"
-				id="form1">
-
-				<!-- <input type="text" name="text" class="inputchat" required> -->
-				<textarea rows ="10" cols="45" name="text"></textarea>
-				<br>
-				<input class="button" type="submit" value="コメントする">
-			</form>
-		</c:forEach>
-	<p>
+			<p>
 		<c:forEach var="item" items="${item}">
 			<a  class="button" href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>
 		</c:forEach>
@@ -115,6 +87,28 @@
 			<a class="button"  href="remove?item_id=${item.itemId}">出品を取り消す</a>
 		</c:forEach>
 	</p>
+
+	</div>
+	<br>
+	<div class="openChatTable">
+	<!-- 	<table border="1" class="chat"> -->
+			<c:forEach var="chat" items="${open}">
+				<div id="chat">
+				<div class="balloon1-left">
+					<p>${chat.text}</p>
+				</div>
+					${chat.date}
+				</div>
+			</c:forEach>
+		<c:forEach var="item" items="${item}">
+			<form action="sendopenchat?item_id=${item.itemId}" method="post"
+				id="form1">
+				<!-- <input type="text" name="text" class="inputchat" required> -->
+				<textarea rows ="10" cols="45" name="text" required="required"></textarea>
+				<input class="button" type="submit" value="コメントする">
+			</form>
+		</c:forEach>
+
 	</div>
 	<!-- 	<p>
 		<a href="/category/">カテゴリー検索</a>

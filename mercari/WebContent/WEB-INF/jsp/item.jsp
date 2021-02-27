@@ -106,7 +106,7 @@
 				id="form1">
 
 				<!-- <input type="text" name="text" class="inputchat" required> -->
-				<textarea  rows ="10" cols="45" name="text"></textarea>
+				<textarea  rows ="10" cols="45" name="text" required="required"></textarea>
 				<br>
 				<input class="button" type="submit" value="コメントする">
 			</form>
