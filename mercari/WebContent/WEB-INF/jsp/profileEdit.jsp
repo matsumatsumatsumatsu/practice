@@ -4,71 +4,43 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.header {
-	background-color: white;
-	margin-bottom: 30px;
-	height: 150px;
-	border-bottom: 2px solid black;
-}
-
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-	margin-right: 100px;
-}
-
-body {
-	background-color: #F8F8FF;
-}
-
-h1 {
-	text-align: center;
-}
-
-.center {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: 500px;
-}
-
-.button {
-	background-color: #4669ff;
-	border-bottom: solid 2px #003aff;
-	border-right: solid 2px #003aff;
-	border-radius: 20px;
-	font-weight: bold;
-	width: 200px;
-	color: #FFF;
-	text-decoration: none;
-	padding: 10px;
-	display: inline-block;
-	margin: 20px
-}
-
-.textsize {
-	width: 300px;
-}
-</style>
 <meta charset="UTF-8">
 <title>プロフィール編集</title>
-<div class="header">
-	<div class="search">
-		<form name="itemsearch" method='post' action='search'
-			onSubmit="return check()">
-			<input type='text' name='itemName'
-				style="width: 800px; height: 40px; margin-top: 30px"
-				placeholder="商品名検索"> <input type='submit' value='検索！'
-				style="height: 40px">
-		</form>
-	</div>
-</div>
+<%@include file="../../css/profileEdit.css"%>
 </head>
 <body>
+<p style="display:none;" id="flag">${flag}</p>
+<div class="header">
+
+	<div class="top">
+		<a href="f_start" class="topBtn">TOPページへ</a>
+	</div>
+	<div class="search" style="display:inline-flex">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
+					<input type='submit' value='検索！' class="searchBtn">
+			</form>
+
+	</div>
+
+	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
+	<div class="headerColumn">
+		<p id = "signup">
+			<a href="f_signup" class="headerBtn">ユーザー登録画面へ</a>
+		</p>
+		<!-- 後々コメントアウト -->
+		<p id = "login">
+			<a href="f_login" class="headerBtn">ログイン</a>
+		</p>
+		<p id = "mypage">
+			<a href="showprofile" class="headerBtn">マイページ</a>
+		</p>
+		<p id = "notice">
+			<a href="showNoticeList" class="headerBtn">通知</a>
+		</p>
+
+	</div>
+</div>
 	<div class="center">
 		<h1>プロフィールを編集する</h1>
 		<form action="editProfile" method="post">
@@ -109,5 +81,20 @@ h1 {
 			<br> <input type="submit" value="変更" class="button">
 		</form>
 	</div>
+		<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+	<script>
+		var flag=document.getElementById("flag").innerText;
+		if (flag == "OK") {
+			$("#login").css("display","none");
+			$("#signup").css("display","none");
+			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
+			<!--
+			document.getElementById("stockCheck").style.color = "gray";
+			-->
+		}else{
+			$("#mypage").css("display","none");
+			$("#notice").css("display","none");
+		}
+	</script>
 </body>
 </html>

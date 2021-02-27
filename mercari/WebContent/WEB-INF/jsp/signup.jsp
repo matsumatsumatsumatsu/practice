@@ -7,6 +7,7 @@
 <title>ユーザー登録</title>
 </head>
 <body>
+<a href="f_start" class="topButton">TOPページへ</a>
 	<div class="signupPage">
 
 		<div class="center">

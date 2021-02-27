@@ -1,24 +1,54 @@
 <style>
-.header {
-	z-index: 3;
-	background-color: white;
-	height: 150px;
-	border-bottom: 2px solid black;
-}
-
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-		margin-left: 10%;
-	margin-right: 10%;
-
-}
-
 body {
 	background-color: #F8F8FF;
+	width:100%;
+}
+.header {
+	display:inline-block;
+	background-color: white;
+	height: 142px;
+	width: 100%;
+	border-bottom: 2px solid black;
+
 }
 
+.search{
+	display:inline-block;
+	float:right;
+	width:100%;
+
+}
+.top{
+	float:left;
+	position:relative;
+	left:20%;
+}
+.searchText{
+	width:300%;
+	height:40px;
+	position:relative;
+	right:-170%;
+}
+.searchBtn{
+	height:40px;
+	position:relative;
+	top:-40px;
+	left:450%;
+}
+
+.headerColumn {
+	display: inline-block;
+	width: auto;
+	position: relative;
+	top: -45px;
+	right: -900px;
+}
+
+.headerColumn p {
+	display: inline-block;
+	width: auto;
+	margin-right: 20px;
+}
 .center {
 	text-align: center;
 	margin-left: auto;
@@ -27,21 +57,6 @@ body {
 	background-color: white;
 	width: 500px;
 }
-
-.headerColumn {
-	display: inline-block;
-	width: auto;
-	position: relative;
-	top: 5px;
-	left: 800px;
-}
-
-.headerColumn p {
-	display: inline-block;
-	width: auto;
-	margin-right: 20px;
-}
-
 .start {
 	margin-left: auto;
 	margin-right: auto;
@@ -96,8 +111,11 @@ a.headerBtn:hover {
   float: right;
 }
 .topBtn{
-margin-top: 5%;
 float: left;
+position:relative;
+top:40px;
+left:-100px;
+
 }
 
 /* 商品一覧css */

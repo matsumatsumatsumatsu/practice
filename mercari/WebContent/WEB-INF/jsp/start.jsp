@@ -11,10 +11,7 @@
 <head>
 	<%@include file="../../css/start.css"%>
 <style>
-
 <!-- 共通ヘッダー -->
-
-
 </style>
 <title>スタート画面</title>
 <!-- <div class="search">
@@ -29,19 +26,18 @@
 			</c:forEach>
 	</div> -->
 </head>
-
 <body>
 <p style="display:none;" id="flag">${flag}</p>
 <div class="header">
-
-	<div class="search">
-
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
-
-				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<input type='submit' value='検索！' style="height: 40px">
-		</form>
+	<div class="top">
 		<a href="f_start" class="topBtn">TOPページへ</a>
+	</div>
+	<div class="search" style="display:inline-flex">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
+					<input type='submit' value='検索！' class="searchBtn">
+			</form>
+
 	</div>
 	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
 	<div class="headerColumn">
@@ -58,12 +54,10 @@
 		<p id = "notice">
 			<a href="showNoticeList" class="headerBtn">通知</a>
 		</p>
-
 	</div>
 </div>
 	<div class="start">
 		<h1>メルカリもどき</h1>
-
 		<p>
 			<a href="f_listing" class="listingButton">出品画面へ</a>
 		</p>
@@ -73,7 +67,6 @@
 			<a href="f_logout">ログアウト</a>
 		</p>
 		-->
-
 		<div class="itemlist">
 			 <!-- 商品一覧 -->
 			<div id="column" class="column05">
@@ -107,7 +100,6 @@
 			$("#notice").css("display","none");
 		}
 	</script>
-
 </body>
 </html>
 

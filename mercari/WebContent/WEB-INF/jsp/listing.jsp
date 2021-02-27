@@ -9,6 +9,7 @@
 <%@include file="../../css/listingEdit.css"%>
 </head>
 <body>
+<a href="f_start" class="topButton">TOPページへ</a>
 <div class="center">
 	<h1>出品</h1>
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">
@@ -17,7 +18,8 @@
 		</div>
 		<div class="right">
 		<br><p>商品名</p><input type="text" name="itemName"  class="textsize"/>
-		<br> <p>商品の説明</p><input type="text"name="itemExplanation"  class="textsize"/>
+		<br> <p>商品の説明</p><textarea rows ="10" cols="45" name="itemExplanation"></textarea>
+		<!-- <input type="text"name="itemExplanation"  class="textsize"/> -->
 		<br> <p>ハードの種類</p>
 		<select name="hardwareId" class="textsize">
 			<option value="">選択してください</option>

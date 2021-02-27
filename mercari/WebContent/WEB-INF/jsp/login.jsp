@@ -7,6 +7,7 @@
 <%@include file="../../css/style.css"%>
 </head>
 <body>
+<a href="f_start" class="topButton">TOPページへ</a>
 	<div class="login_out_withdraw">
 
 		<div class="center">

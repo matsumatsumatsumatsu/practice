@@ -97,5 +97,19 @@ body{
 	border-right: solid 1px #ddd;
 	border-left: solid 1px #ddd;
 }
+.button{
+			background-color: #4669ff;
+    		border-bottom: solid 2px #003aff;
+   			border-right: solid 2px #003aff;
+   		 	border-radius: 20px;
+    		font-weight: bold;
+    		width:200px;
+   		 	color: #FFF;
+    		text-decoration: none;
+    		padding: 10px;
+    		display: inline-block;
+    		margin:90px;
+
+
 
 </style>

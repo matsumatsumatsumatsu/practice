@@ -8,19 +8,22 @@
 <head>
 <%@include file="../../css/item.css"%>
 <title>商品表示</title>
-<p style="display:none;" id="flag"><%= token %></p>
+</head>
+<body>
+<p style="display:none;" id="flag">${flag}</p>
 <div class="header">
 
-
-	<div class="search">
-
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
-
-				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<input type='submit' value='検索！' style="height: 40px">
-		</form>
+	<div class="top">
 		<a href="f_start" class="topBtn">TOPページへ</a>
 	</div>
+	<div class="search" style="display:inline-flex">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
+					<input type='submit' value='検索！' class="searchBtn">
+			</form>
+
+	</div>
+
 	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
 	<div class="headerColumn">
 		<p id = "signup">
@@ -39,10 +42,6 @@
 
 	</div>
 </div>
-</head>
-
-<body>
-
 	<div class="itemlist">
 
 		<c:forEach var="item" items="${item}">
@@ -104,9 +103,6 @@
 					class="button" type="submit" value="コメントする">
 			</form>
 		</c:forEach>
-
-
-
 	<p>
 		<c:forEach var="item" items="${item}">
 			<a  class="button" href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>

@@ -80,4 +80,18 @@ h1 {
 .textsize {
 	width: 300px;
 }
+.topButton{
+		text-align:center;
+		background-color: #4669ff;
+   		border-bottom: solid 2px #003aff;
+  		border-right: solid 2px #003aff;
+  		border-radius: 20px;
+   		font-weight: bold;
+   		width:200px;
+   	 	color: #FFF;
+    	text-decoration: none;
+    	padding: 10px;
+    	display: inline-block;
+    	margin-left: 40%;
+	}
 </style>
