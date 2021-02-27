@@ -34,10 +34,10 @@
 			<a href="f_login" class="headerBtn">ログイン</a>
 		</p>
 		<p id = "mypage">
-			<a href="showprofile" class="headerBtn">マイページ</a>
+			<a href="showprofile" class="headerButton">マイページ</a>
 		</p>
 		<p id = "notice">
-			<a href="showNoticeList" class="headerBtn">通知</a>
+			<a href="showNoticeList" class="headerButton">通知</a>
 		</p>
 
 	</div>
@@ -94,9 +94,9 @@
 
 				<div class="balloon1-left">
 					<p>${chat.text}</p>
-				</div>
+				</div><br>
 
-					${chat.date}
+					${chat.date}<br>
 
 			</c:forEach>
 
@@ -105,8 +105,10 @@
 			<form action="sendopenchat?item_id=${item.itemId}" method="post"
 				id="form1">
 
-				<input type="text" name="text" class="inputchat" required><br> <input
-					class="button" type="submit" value="コメントする">
+				<!-- <input type="text" name="text" class="inputchat" required> -->
+				<textarea  rows ="10" cols="45" name="text"></textarea>
+				<br>
+				<input class="button" type="submit" value="コメントする">
 			</form>
 		</c:forEach>
 

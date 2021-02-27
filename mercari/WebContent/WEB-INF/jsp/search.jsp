@@ -19,35 +19,38 @@
 </head>
 
 <body>
-	<div class="header">
+<p style="display:none;" id="flag">${flag}</p>
+<div class="header">
 
-		<div class="search">
-
-			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
-
-				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<input type='submit' value='検索！' style="height: 40px">
-			</form>
-			<a href="f_start" class="topBtn">TOPページへ</a>
-		</div>
-		<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
-		<div class="headerColumn">
-			<p id = "signup">
-				<a href="f_signup" class="headerBtn">ユーザー登録画面へ</a>
-			</p>
-			<!-- 後々コメントアウト -->
-			<p id = "login">
-				<a href="f_login" class="headerBtn">ログイン</a>
-			</p>
-			<p id = "mypage">
-				<a href="showprofile" class="headerBtn">マイページ</a>
-			</p>
-			<p id = "notice">
-				<a href="showNoticeList" class="headerBtn">通知</a>
-			</p>
-
-		</div>
+	<div class="top">
+		<a href="f_start" class="topBtn">TOPページへ</a>
 	</div>
+	<div class="search" style="display:inline-flex">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
+					<input type='submit' value='検索！' class="searchBtn">
+			</form>
+
+	</div>
+
+	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
+	<div class="headerColumn">
+		<p id = "signup">
+			<a href="f_signup" class="headerBtn">ユーザー登録画面へ</a>
+		</p>
+		<!-- 後々コメントアウト -->
+		<p id = "login">
+			<a href="f_login" class="headerBtn">ログイン</a>
+		</p>
+		<p id = "mypage">
+			<a href="showprofile" class="headerButton">マイページ</a>
+		</p>
+		<p id = "notice">
+			<a href="showNoticeList" class="headerButton">通知</a>
+		</p>
+
+	</div>
+</div>
 	<div class="start">
 		<h1>メルカリもどき</h1>
 
@@ -140,6 +143,10 @@
 		if (flag == "OK") {
 			$("#login").css("display","none");
 			$("#signup").css("display","none");
+			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
+			<!--
+			document.getElementById("stockCheck").style.color = "gray";
+			-->
 		}else{
 			$("#mypage").css("display","none");
 			$("#notice").css("display","none");

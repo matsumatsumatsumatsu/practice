@@ -5,6 +5,66 @@ body {
 	h1{
 		text-align:center;
 	}
+	.header{
+	background-color: white;
+	margin-left:20px;
+	margin-right:20px;
+	height: 150px;
+	border-bottom: 2px solid black;
+	width:1200px;
+}
+.top{
+	float:left;
+	margin-top:50px;
+	margin-left:100px;
+}
+.search{
+	float:right;
+	margin-right:10%;
+	margin-top:40px;
+}
+.searchText{
+	width:600px;
+	height:40px;
+}
+.searchBtn{
+	height:40px;
+	width:60px;
+}
+.headerColumn {
+	display: inline-block;
+	width: auto;
+	position: relative;
+	top: 20px;
+	left: 770px;
+
+}
+
+.headerColumn p {
+	display: inline-block;
+	width: auto;
+	margin-right: 20px;
+}
+a.headerBtn {
+  border-radius: 0;
+  text-decoration: none;
+}
+
+a.headerBtn:hover {
+  color:#8EF1FF;
+}
+a.headerButton {
+  border-radius: 0;
+  position:relative;
+  top:70px;
+  right:50px;
+  text-decoration: none;
+}
+
+a.headerButton:hover {
+  color:#8EF1FF;
+
+}
 	.center{
 		text-align: center;
 		margin-left: auto;
@@ -56,4 +116,6 @@ body {
 	textarea {
  	resize: none;
 	}
+	.topBtn{
+	text-decoration: none;}
 </style>

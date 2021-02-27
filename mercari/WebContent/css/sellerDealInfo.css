@@ -110,4 +110,7 @@ table tr:nth-child(odd){
 	width:540px;
 	height:30px;
 }
+.topBtn{
+	text-decoration: none;
+}
 </style>

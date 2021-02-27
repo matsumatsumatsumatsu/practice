@@ -5,10 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>ログアウト</title>
+<%@include file="../../css/style.css"%>
 </head>
 <body>
+<div class="center">
 	<p>ログアウトしました</p>
-	<a href="f_start">ok</a>
+	<a href="f_start" class="button">ok</a>
+	</div>
 	<script>
 		$(document).on('keydown', function(e) {
 			if ((e.which || e.keyCode) == 116) {

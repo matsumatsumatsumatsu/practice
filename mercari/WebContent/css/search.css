@@ -74,19 +74,64 @@
 }
 
 /*ヘッダー共通*/
-.header {
+.header{
 	background-color: white;
-
+	margin-left:20px;
+	margin-right:20px;
 	height: 150px;
 	border-bottom: 2px solid black;
+	width:1200px;
+}
+.top{
+	float:left;
+	margin-top:50px;
+	margin-left:100px;
+}
+.search{
+	float:right;
+	margin-right:10%;
+	margin-top:40px;
+}
+.searchText{
+	width:600px;
+	height:40px;
+}
+.searchBtn{
+	height:40px;
+	width:60px;
+}
+.headerColumn {
+	display: inline-block;
+	width: auto;
+	position: relative;
+	top: 10px;
+	left: 770px;
+
 }
 
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-		margin-left: 10%;
-	margin-right: 10%;
+.headerColumn p {
+	display: inline-block;
+	width: auto;
+	margin-right: 20px;
+}
+a.headerBtn {
+  border-radius: 0;
+  text-decoration: none;
+}
+
+a.headerBtn:hover {
+  color:#8EF1FF;
+}
+a.headerButton {
+  border-radius: 0;
+  position:relative;
+  top:70px;
+  right:50px;
+  text-decoration: none;
+}
+
+a.headerButton:hover {
+  color:#8EF1FF;
 
 }
 
@@ -102,21 +147,6 @@ body {
 	background-color: white;
 	width: 500px;
 }
-
-.headerColumn {
-	display: inline-block;
-	width: auto;
-	position: relative;
-	top: 5px;
-	left: 800px;
-}
-
-.headerColumn p {
-	display: inline-block;
-	width: auto;
-	margin-right: 20px;
-}
-
 .start {
 	margin-left: auto;
 	margin-right: auto;
@@ -185,5 +215,7 @@ a.headerBtn:hover {
 		height: 100%;
 		float:left;
 	}
-
+.topBtn{
+	text-decoration: none;
+}
 </style>

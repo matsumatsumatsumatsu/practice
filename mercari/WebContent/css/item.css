@@ -108,8 +108,9 @@ body{
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 10px;
-	left: 700px;
+	top: 40px;
+	left: 770px;
+
 }
 
 .headerColumn p {
@@ -119,10 +120,21 @@ body{
 }
 a.headerBtn {
   border-radius: 0;
-
+  text-decoration: none;
 }
 
 a.headerBtn:hover {
+  color:#8EF1FF;
+}
+a.headerButton {
+  border-radius: 0;
+  position:relative;
+  top:70px;
+  right:50px;
+  text-decoration: none;
+}
+
+a.headerButton:hover {
   color:#8EF1FF;
 
 }
@@ -132,8 +144,9 @@ a.headerBtn:hover {
 .topBtn{
 float: left;
 position:relative;
-top:40px;
-left:-100px;
+top:10px;
+left:-20px;
+text-decoration: none;
 
 }
 
@@ -167,7 +180,10 @@ left:-100px;
   margin: 0;
   padding: 0;
 }
-
+textarea {
+ 	resize: none;
+ 	margin-left:70px;
+	}
 
 
 </style>
