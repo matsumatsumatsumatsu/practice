@@ -16,29 +16,28 @@ import exception.IntegrationException;
 
 public class CancelDealCommand extends AbstractCommand{
 	public ResponseContext execute(ResponseContext resc) throws BusinessLogicException {
-        AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
+		AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 
+		DealInterfaceDao dealDao = factory.getDealInterfaceDao();
+		ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
+		UserInterfaceDao userDao = factory.getUserInterfaceDao();
+		RequestContext reqc = getRequestContext();
 
-        DealInterfaceDao dealDao = factory.getDealInterfaceDao();
-        ItemInterfaceDao itemDao = factory.getItemInterfaceDao();
-        UserInterfaceDao userDao = factory.getUserInterfaceDao();
-        RequestContext reqc = getRequestContext();
+		List deal = new ArrayList();
+		List item = new ArrayList();
 
-        List deal = new ArrayList();
-        List item = new ArrayList();
+		String dealId = reqc.getParameter("deal_id")[0];
+		//        System.out.print("CancelDealCommand"+dealId);
 
-        String dealId = reqc.getParameter("deal_id")[0];
-//        System.out.print("CancelDealCommand"+dealId);
-
-        try {
-           deal = dealDao.getDeal(dealId);
-           dealDao.changeState(dealId,"2");
-        }catch(IntegrationException e) {
-        	//例外処理
-        }
+		try {
+			deal = dealDao.getDeal(dealId);
+			dealDao.changeState(dealId,"2");
+		}catch(IntegrationException e) {
+			//例外処理
+		}
 
 		//取引がキャンセルされた旨を出品者、購入者に通知する
-        String buyerId=((Deal)deal.get(0)).getUserId();
+		String buyerId=((Deal)deal.get(0)).getUserId();
 		String itemId = ((Deal)deal.get(0)).getItemId();
 		item = itemDao.getItem("where item_id = "+itemId);
 		String sellerId = ((Item)item.get(0)).getSellerId();
@@ -62,6 +61,6 @@ public class CancelDealCommand extends AbstractCommand{
 		show.init(reqc);
 		resc = show.execute(resc);
 
-        return resc;
-    }
+		return resc;
+	}
 }

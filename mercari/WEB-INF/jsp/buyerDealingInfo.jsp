@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>買い手の商品取引画面</title>
-<%@include file="../css/sellerDealInfo.css"%>
+<%@include file="../css/buyerDealInfo.css"%>
 </head>
 <body>
 <div class="center">
@@ -56,9 +56,9 @@
 
 	<table border="1">
 		<tr>
-			<td>chatId</td>
-			<td>text</td>
-			<td>date</td>
+			<td>チャットID</td>
+			<td>本文</td>
+			<td>投稿日時</td>
 		</tr>
 		<c:forEach var="chat" items="${chat}">
 			<tr>
@@ -70,23 +70,22 @@
 	</table>
 	<c:forEach var="deal" items="${deal}">
 		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=1" method="post">
-			<input type="text" name="text"><br> <input
+			<input type="text" name="text" class="textBox"><br> <input
 				type="submit" value="コメントする" class="button">
 		</form>
 		</div>
-		<div class="left">
 
-		<div id = "cancel">
+
+		<div class = "leftBtn">
 			<p>
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1" class="button">取引をキャンセルする</a>
 			</p>
-		</div>
+</div>
 	</c:forEach>
-<div class="top">
+	<div class="underLeftBtn">
 	<p>
 		<a href="f_start" class="button">TOPページへ</a>
 	</p>
-</div>
 </div>
 </div>
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
@@ -99,12 +98,12 @@
 
 		if (<c:out value="${stateCheck}" /> == 2) {
 			$("#receive").empty();
-			$("#receive").html('<p>取引がキャンセルされました。</p>');
+			$("#receive").html('<p class="button">取引がキャンセルされました。</p>');
 		}
 
 		if (<c:out value="${stateCheck}" /> == 3) {
 			$("#receive").empty();
-			$("#receive").html('<p>商品の受け取りが完了しました。</p>');
+			$("#receive").html('<p class="button">商品の受け取りが完了しました。</p>');
 		}
 
 		if (<c:out value="${stateCheck}" /> == 2 ||<c:out value="${stateCheck}" /> == 4) {

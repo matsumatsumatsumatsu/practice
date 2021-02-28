@@ -4,52 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-body {
-	background-color: #F8F8FF;
-}
-
-h1 {
-	text-align: center;
-}
-
-.center {
-	text-align: center;
-}
-
-.wantItem {
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 20px;
-}
-
-.mypoint_address {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.pay {
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: 500px;
-}
-
-.pay a {
-	background-color: #4669ff;
-	border-bottom: solid 2px #003aff;
-	border-right: solid 2px #003aff;
-	border-radius: 20px;
-	font-weight: bold;
-	width: 200px;
-	color: #FFF;
-	text-decoration: none;
-	padding: 10px;
-	display: inline-block;
-	margin: 20px
-}
-</style>
+<%@include file="../css/pay.css"%>
 <meta charset="UTF-8">
 <title>購入内容の確認</title>
 </head>

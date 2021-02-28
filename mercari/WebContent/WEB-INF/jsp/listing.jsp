@@ -34,8 +34,8 @@
 				<option value="${category.categoryId}">${category.category}</option>
 			</c:forEach>
 		</select>
-		<br> <p>発送までの期間</p><input type="text" name="term"  class="textsize"/>
-		<br><p>値段</p><input type="text" name="price"  class="textsize"/>
+		<br> <p>発送までの期間(日数)</p><input type="text" name="term"  class="textsize"/>
+		<br><p>値段(円)</p><input type="text" name="price"  class="textsize"/>
 		</div>
 		<br><br> <input type="submit" value="出品する" class="button">
 	</form>

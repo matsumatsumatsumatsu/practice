@@ -4,168 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.header {
-	background-color: white;
-	margin-bottom: 30px;
-	height: 150px;
-	border-bottom: 2px solid black;
-}
-
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-	margin-right: 100px;
-}
-/* .top{
-			text-align: right;
-			float: left;
-
-		} */
-.notify {
-	color: black;
-	text-align: right;
-	display: inline-block;
-	margin-left: 920px;
-}
-
-.mypage {
-	/*color: black;
-	text-align: right;
-	margin-left: 20px;*/
-	display: inline-block;
-	margin-left: 130px;
-	height: auto;
-	background-color: white;
-	width: auto;
-}
-
-body {
-	background-color: #F8F8FF;
-}
-
-.right {
-	display: inline-block;
-	float: right;
-	width: 650px;
-}
-
-#list-side {
-	display: inline-block;
-	float: left;
-	width: 300px;
-	margin-right: 50px;
-	margin-left: 10px;
-	margin-top: 40px;
-}
-
-.list {
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	margin: 0 auto;
-	padding: 0 0 0 0 !important;
-}
-
-.list li {
-	color: #2d8fdd;
-	border-left: solid 6px #f4b364;
-	background: #fdf2e3;
-	margin-bottom: 15px;
-	line-height: 1.5;
-	padding: 0.5em;
-	border-bottom: solid 2px #dadada;
-	list-style-type: none;
-}
-
-.userName_Point {
-	margin-left: 30px;
-	margin-right: auto;
-	margin-top: 20px;
-	border-collapse: collapse;
-}
-
-.userName_Point tr:last-child {
-	border-bottom: solid 1px #ddd;
-}
-
-.userName_Point th {
-	text-align: center;
-	padding: 10px 0;
-	border-right: solid 1px #ddd;
-	border-left: solid 1px #ddd;
-	width: 155px;
-	font-size: 16px;
-}
-
-.userName_Point th:nth-child(1) {
-	background-color: grey;
-	color: white;
-}
-
-.userName_Point th:nth-child(2) {
-	background-color: grey;
-	color: white;
-}
-
-.userName_Point tr:nth-child(2) td {
-	font-size: 25px;
-	font-weight: bold;
-	padding-top: 10px;
-}
-
-.userName_Point td {
-	text-align: center;
-	padding-top: 10px;
-	border-right: solid 1px #ddd;
-	border-left: solid 1px #ddd;
-}
-
-.hidden_box {
-	margin: 2em 0;
-	padding: 0;
-}
-
-.hidden_box label {
-	padding: 15px;
-	font-weight: bold;
-	border: solid 2px black;
-	cursor: pointer;
-}
-
-.hidden_box label:hover {
-	background: #efefef;
-}
-
-.hidden_box input {
-	display: none;
-}
-
-.hidden_box .hidden_show {
-	height: 0;
-	padding: 0;
-	overflow: hidden;
-	opacity: 0;
-	transition: 0.8s;
-}
-
-.hidden_box input:checked ~ .hidden_show {
-	padding: 10px 0;
-	height: auto;
-	opacity: 1;
-}
-
-label {
-	display: block;
-	width: 450px;
-	margin-right: 20px;
-}
-
-.dealing {
-	display: inline-block;
-}
-</style>
+<%@include file="../css/mypage.css"%>
 <meta charset="UTF-8">
 <title>マイページ</title>
 
@@ -202,7 +41,7 @@ label {
 					<div class="hidden_show">
 
 						<h4>購入した商品</h4>
-						<table border="1">
+						<table border="1" class="innerTable">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -229,7 +68,7 @@ label {
 					<div class="hidden_show">
 
 
-						<table border="1">
+						<table border="1" class="innerTable">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>
@@ -257,7 +96,7 @@ label {
 						<div id="history">
 
 							<h4>購入した商品</h4>
-							<table border="1">
+							<table border="1" class="innerTable">
 								<tr>
 									<th>itemid</th>
 									<th>商品名</th>
@@ -283,7 +122,7 @@ label {
 					<label for="label4">出品した商品</label> <input type="checkbox"
 						id="label4" />
 					<div class="hidden_show">
-						<table border="1">
+						<table border="1" class="innerTable">
 							<tr>
 								<th>itemid</th>
 								<th>商品名</th>

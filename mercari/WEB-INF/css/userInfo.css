@@ -1,0 +1,140 @@
+<style>
+.header {
+	z-index: 3;
+	background-color: white;
+	height: 150px;
+	border-bottom: 2px solid black;
+}
+
+.search {
+	display: inlone-block;
+	text-align: center;
+	float: right;
+		margin-left: 10%;
+	margin-right: 10%;
+
+}
+body {
+	background-color: #F8F8FF;
+
+}
+
+h1 {
+	text-align: center;
+}
+
+.center {
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	height: auto;
+	background-color: white;
+	width: auto;
+}
+.userName {
+	display:inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+	border-collapse: collapse;
+}
+
+.userName tr:last-child {
+	border-bottom: solid 1px #ddd;
+}
+
+.userName th {
+	text-align: center;
+	padding: 10px 0;
+	border-right: solid 1px #ddd;
+	border-left: solid 1px #ddd;
+	width: 155px;
+	font-size: 16px;
+}
+
+.userName th:nth-child(1) {
+	background-color: grey;
+	color: white;
+}
+
+.userName th:nth-child(2) {
+	background-color: grey;
+	color: white;
+}
+
+.userName tr:nth-child(2) td {
+	font-size: 25px;
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+.userName td {
+	text-align: center;
+	padding-top: 10px;
+	border-right: solid 1px #ddd;
+	border-left: solid 1px #ddd;
+}
+.itemlist{
+	width: 90%;
+	margin: auto;
+}
+
+#column{
+	width: 100%;
+
+}
+
+#column ul {
+	width: calc(100 + 20px);
+	margin: 0 -10px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#column li {
+	list-style: none;
+	padding: 0 10px 20px;
+}
+
+#column li a,
+#column li a:visited {
+	text-decoration: none;
+	color: #111;
+}
+
+#column li p {
+	font-size: 90%;
+	margin-bottom: 3px;
+}
+
+#column li span {
+	background-color: #000;
+	color: #FFF;
+	font-size: 10px;
+	position: relative;
+	width: 50%;
+	/*top: -20%;*/
+	font-size: 80%;
+	display: block;
+}
+
+.column02 li {
+	width: calc(50% - 20px);
+}
+
+.column03 li {
+	width: calc(33.3333% - 20px);
+}
+
+.column04 li {
+	width: calc(25% - 20px);
+}
+
+.column05 li {
+	width: calc(20% - 20px);
+}
+
+#column img{
+	height: 200px;
+}
+</style>

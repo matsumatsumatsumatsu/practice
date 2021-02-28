@@ -20,12 +20,15 @@
 
 <body>
 	<div class="header">
-		<div class="search">
-			<form name="itemsearch" method='post' action='search' onSubmit="return check()">
 
-					<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-					<input type='submit' value='検索！' style="height: 40px">
+		<div class="search">
+
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+
+				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+				<input type='submit' value='検索！' style="height: 40px">
 			</form>
+			<a href="f_start" class="topBtn">TOPページへ</a>
 		</div>
 		<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
 		<div class="headerColumn">
@@ -42,6 +45,7 @@
 			<p id = "notice">
 				<a href="showNoticeList" class="headerBtn">通知</a>
 			</p>
+
 		</div>
 	</div>
 	<div class="start">
@@ -53,9 +57,29 @@
 
 		<!-- 詳細検索画面（のちにサイドバー）-->
 		<div class="searchinfo">
-			<form name="itemsearch" method='post' action='search' onSubmit="return check()">
+			<form name="itemsearch" method='post' action='narrow' onSubmit="return check()">
 				<p>キーワード</p>
-				<input type='text' name='keyword' style="width: 60px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+				<input type='text' name='keyword' style="width: 80%; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
+				<!--
+				<p>ハードウェア</p>
+				<div id="hardwaresearch">
+					<select name="hardware">
+						<option value="">選択してください</option>
+						<c:forEach var="hardware" items="${hardware}">
+							<option value="${hardware.hardwareId}">${hardware.hardware}</option>
+						</c:forEach>
+					</select>
+				</div>
+				<p>ジャンル</p>
+				<div id="categorysearch">
+					<select name="category">
+						<option value="">選択してください</option>
+						<c:forEach var="category" items="${category}">
+							<option value="${category.categoryId}">${category.category}</option>
+						</c:forEach>
+					</select>
+				</div>
+				-->
 
 				<p>ハードウェア</p>
 				<div id="categorysearch">
@@ -91,24 +115,21 @@
 
 		<!-- 商品一覧 -->
 		<div class="itemlist">
-			<!-- テスト用のいらない子 -->
-
 			 <!-- 商品一覧 -->
 			<div id="column" class="column04">
-				<h3>4個並び</h3>
+				<h3>検索結果</h3>
 				<ul>
 					<c:forEach var="item" items="${data}">
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
 							<img src="images/${item.itemImage}" />
 							<p>${item.itemName}</p>
-							<span>${item.price}</span>
+							<span>&yen;${item.price}</span>
 							</a>
 						</li>
 					</c:forEach>
 				</ul>
 			</div>
-			<h6>メルカリ</h6>
 		</div>
 
 	</div>

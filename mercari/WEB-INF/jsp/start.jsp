@@ -4,116 +4,34 @@
 
 <%
 	String token = (String)session.getAttribute("flag");
+	session.setAttribute("token2",token);
 %>
-
 <html>
 
 <head>
+	<%@include file="../css/start.css"%>
 <style>
-.header {
-	background-color: white;
 
-	height: 150px;
-	border-bottom: 2px solid black;
-}
+<!-- 共通ヘッダー -->
 
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-		margin-left: 10%;
-	margin-right: 10%;
-
-}
-
-body {
-	background-color: #F8F8FF;
-}
-
-.center {
-	text-align: center;
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: 500px;
-}
-
-.headerColumn {
-	display: inline-block;
-	width: auto;
-	position: relative;
-	top: 5px;
-	left: 800px;
-}
-
-.headerColumn p {
-	display: inline-block;
-	width: auto;
-	margin-right: 20px;
-}
-
-.start {
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: auto;
-}
-
-.listingButton {
-	display: inline-block;
-	text-decoration: none;
-	background: #FF3333;
-	color: #FFF;
-	font-size: 20px;
-	font-weight: bold; width : 150px;
-	height: 150px;
-	line-height: 150px;
-	border-radius: 50%;
-	text-align: center;
-	overflow: hidden;
-	transition: .4s;
-	position: fixed;
-	bottom: 50px;
-	right: 50px;
-	width: 150px;
-}
-
-.listingButton:hover {
-	background: #668ad8;
-}
-
-.headerBtn {
-	position: relative;
-	display: inline-block;
-	padding: 0.25em 0.5em;
-	text-decoration: none;
-}
-
-
-
-a.headerBtn {
-  border-radius: 0;
-
-}
-
-a.headerBtn:hover {
-  color:#8EF1FF;
-
-}
-.itemsearch{
-  float: right;
-}
-.topBtn{
-margin-top: 5%;
-float: left;
-}
-}
 
 </style>
 <title>スタート画面</title>
-<p style="display:none;" id="flag"><%= token %></p>
+<!-- <div class="search">
+			<c:forEach var="hardware" items="${hardware}">
+				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
+			</c:forEach>
+			<br>
+			<p>カテゴリ</p>
+			<input type="radio" name="category" value="0" checked>すべて
+			<c:forEach var="category" items="${category}">
+				<input type="radio" name="category" value="${category.categoryId}">${category.category}
+			</c:forEach>
+	</div> -->
+</head>
+
+<body>
+<p style="display:none;" id="flag">${flag}</p>
 <div class="header">
 
 	<div class="search">
@@ -143,20 +61,6 @@ float: left;
 
 	</div>
 </div>
-<!-- <div class="search">
-			<c:forEach var="hardware" items="${hardware}">
-				<input type="radio" name="hardware" value="${hardware.hardwareId}">${hardware.hardware}
-			</c:forEach>
-			<br>
-			<p>カテゴリ</p>
-			<input type="radio" name="category" value="0" checked>すべて
-			<c:forEach var="category" items="${category}">
-				<input type="radio" name="category" value="${category.categoryId}">${category.category}
-			</c:forEach>
-	</div> -->
-</head>
-
-<body>
 	<div class="start">
 		<h1>メルカリもどき</h1>
 
@@ -164,32 +68,28 @@ float: left;
 			<a href="f_listing" class="listingButton">出品画面へ</a>
 		</p>
 		<!-- 後々コメントアウト -->
+		<!--
 		<p>
 			<a href="f_logout">ログアウト</a>
 		</p>
+		-->
 
-		<div class="center">
-			<table border="1">
-				<tr>
-					<th>itemid</th>
-					<th>商品名</th>
-					<th>価格</th>
-					<th>画像</th>
-					<th>説明</th>
-					<th>在庫</th>
-				</tr>
-				<c:forEach var="item" items="${itemlist}">
-					<tr>
-						<td>${item.itemId}</td>
-						<td><a href="showiteminfo?item_id=${item.itemId}"
-							name="itemId">${item.itemName}</a></td>
-						<td>${item.price}</td>
-						<td><img src="images/${item.itemImage}" width="300"></td>
-						<td>${item.itemExplanation}</td>
-						<td>${item.stock}</td>
-					</tr>
-				</c:forEach>
-			</table>
+		<div class="itemlist">
+			 <!-- 商品一覧 -->
+			<div id="column" class="column05">
+				<h3>検索結果</h3>
+				<ul>
+					<c:forEach var="item" items="${itemlist}">
+						<li>
+							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
+							<img src="images/${item.itemImage}" />
+							<p>${item.itemName}</p>
+							<span>&yen;${item.price}</span>
+							</a>
+						</li>
+					</c:forEach>
+				</ul>
+			</div>
 		</div>
 	</div>
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
