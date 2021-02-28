@@ -18,6 +18,7 @@
 				<br>
 				<input type="submit" value="ログイン" class="button">
 			</form>
+			<a href="f_signup" class="button">ユーザー登録画面へ</a>
 		</div>
 	</div>
 	<script>

@@ -108,7 +108,12 @@
 				<!-- <input type="text" name="text" class="inputchat" required> -->
 				<textarea  rows ="10" cols="45" name="text" required="required"></textarea>
 				<br>
+				<p id = "chatbutton">
 				<input class="button" type="submit" value="コメントする">
+				</p>
+				<p id = "loginbutton">
+				<a class="button" href="f_login" class="headerBtn">コメントする</a>
+				</p>
 			</form>
 		</c:forEach>
 
@@ -146,6 +151,18 @@
 		}else{
 			$("#mypage").css("display","none");
 			$("#notice").css("display","none");
+		}
+	</script>
+	<script>
+		var flag=document.getElementById("flag").innerText;
+		if (flag == "OK") {
+			$("#loginbutton").css("display","none");
+			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
+			<!--
+			document.getElementById("stockCheck").style.color = "gray";
+			-->
+		}else{
+			$("#chatbutton").css("display","none");
 		}
 	</script>
 	<script>
