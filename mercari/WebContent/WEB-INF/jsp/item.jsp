@@ -69,11 +69,11 @@
 				</tr>
 				<tr>
 					<th>発送期間</th>
-					<td>${item.term}</td>
+					<td>${item.term}日</td>
 				</tr>
 				<tr>
 					<th>値段</th>
-					<td>${item.price}</td>
+					<td>${item.price}円</td>
 				</tr>
 
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
