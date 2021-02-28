@@ -185,4 +185,18 @@ left:-100px;
 .topBtn{
 	text-decoration: none;
 }
+.itemimage{
+	position: relative;
+}
+.out{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
 </style>
