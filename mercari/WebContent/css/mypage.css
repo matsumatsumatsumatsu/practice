@@ -33,8 +33,8 @@ body {
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 90px;
-	left: 700px;
+	top: 10px;
+	left: 600px;
 }
 
 .headerColumn p {
@@ -49,7 +49,6 @@ body {
 	text-decoration: none;
 }
 .topBtn{
-	text-decoration: none;
 }
 a.headerBtn {
   border-radius: 0;
@@ -216,5 +215,8 @@ label {
 }
 img{
 	height: 100px;
+}
+.images{
+	height:50px;
 }
 </style>

@@ -45,8 +45,8 @@ height:100%;
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 90px;
-	left: 700px;
+	top: 10px;
+	left: 600px;
 }
 
 .headerColumn p {
@@ -155,5 +155,8 @@ img{
 }
 .topBtn{
 	text-decoration: none;
+}
+.images{
+	height:50px;
 }
 </style>
