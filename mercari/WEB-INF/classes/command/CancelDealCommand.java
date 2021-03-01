@@ -48,7 +48,7 @@ public class CancelDealCommand extends AbstractCommand{
 		int point = ((Item)item.get(0)).getPrice();
 		userDao.grantPoint(buyerId,point);
 
-		//通知処理
+		//通知処理/
 		NotifyCommand notify  = new NotifyCommand(buyerId,buyerComment);
 		notify.init(reqc);
 		resc = notify.execute(resc);
