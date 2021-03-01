@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>購入完了</title>
+<%@include file="../../css/style.css" %>
 </head>
 <body>
-	<p>商品を購入しました</p>
-	<a href="f_start">topページへ</a>
+	<p class="text">商品を購入しました</p>
+	<a href="f_start" class="topButton">topページへ</a>
 </body>
 </html>
