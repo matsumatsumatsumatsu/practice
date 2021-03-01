@@ -38,7 +38,6 @@
 		<p id = "notice">
 			<a href="showNoticeList" class="headerBtn">通知</a>
 		</p>
-
 	</div>
 </div>
 	<div class="main">

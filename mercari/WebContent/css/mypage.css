@@ -79,6 +79,11 @@ a.headerBtn:hover {
 	width: 60%;
 }
 
+.right h1{
+	text-align: center;
+	width:90%;
+}
+
 #list-side {
 	display: inline-block;
 	float: left;
