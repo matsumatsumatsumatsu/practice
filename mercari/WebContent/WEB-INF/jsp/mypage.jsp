@@ -159,6 +159,7 @@
 		</div>
 		<div id="list-side">
 			<ul class="list">
+				<li><a href="showprofile">マイページ</a></li>
 				<li><a href="showNoticeList">通知</a></li>
 				<li><a href="showOwnListingList">出品した商品</a></li>
 				<li><a href="purchase">購入した商品</a></li>
