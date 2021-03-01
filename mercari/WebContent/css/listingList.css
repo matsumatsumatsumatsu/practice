@@ -21,6 +21,7 @@ height:100%;
 	margin-right:20px;
 	height: 150px;
 	border-bottom: 2px solid black;
+
 }
 .top{
 	float:left;
@@ -72,17 +73,16 @@ a.headerBtn:hover {
 
 #buyer{
 	display: inline-block;
-	width: 700px;
+	width: calc(70 - 20px);
 	height:100%;
-
+	vertical-align: top;
 }
 #list-side {
 	display: inline-block;
-	width: 363px;
+	width: calc(30% - 20px);
 	margin-right: 50px;
 	margin-left: 10px;
 	margin-top: 40px;
-	float: left;
 	margin: 50px;
 }
 
