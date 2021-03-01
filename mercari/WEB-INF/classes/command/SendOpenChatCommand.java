@@ -18,17 +18,17 @@ public class SendOpenChatCommand extends AbstractCommand{
         String sessionUserId =  ((User)SessionManager.getAttribute("token")).getUserId();
 
         String texts[] = reqc.getParameter("text");
-        System.out.println("SendOpenChatCommand.java:"+reqc.getParameter("text"));
+//        System.out.println("SendOpenChatCommand.java:"+reqc.getParameter("text"));
         String text = texts[0];
 
         String itemIds[] = reqc.getParameter("item_id");
-        System.out.println("item_id="+reqc.getParameter("item_id"));
+//        System.out.println("item_id="+reqc.getParameter("item_id"));
         String itemId = itemIds[0];
 
 		AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
         OpenChatInterfaceDao dao = factory.getOpenChatInterfaceDao();
 
-        System.out.println("token:"+SessionManager.getAttribute("token"));
+//        System.out.println("token:"+SessionManager.getAttribute("token"));
 
         OpenChat op = new OpenChat();
         op.setUserId(sessionUserId);

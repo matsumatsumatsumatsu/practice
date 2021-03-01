@@ -13,6 +13,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import bean.User;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
 import exception.IntegrationException;
@@ -27,6 +28,7 @@ public class ReLoadItemListFilter implements Filter{
 		  AbstractMysqlFactory factory=AbstractMysqlFactory.getFactory();
 	      ItemInterfaceDao dao=factory.getItemInterfaceDao();
 
+	      //商品一覧取得
 	      List items = new ArrayList();
 
 	      try {
@@ -37,12 +39,16 @@ public class ReLoadItemListFilter implements Filter{
 	      hreq.setAttribute("itemlist", items);
 //	      System.out.println("items:"+items);
 
+	      //ログインしているかどうかの確認
 	  	HttpSession session=((HttpServletRequest) req).getSession();
 
 	    Object flag=session.getAttribute("token");
 
+
 	    if(flag != null) {
 	    	hreq.setAttribute("flag", "OK");
+		    String sessionUserId =  ((User)flag).getUserId();
+	    	hreq.setAttribute("userId", sessionUserId);
 	    }
 
 		  chain.doFilter(req,res);

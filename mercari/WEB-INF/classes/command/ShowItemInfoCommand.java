@@ -10,6 +10,7 @@ import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
 import dao.OpenChatInterfaceDao;
+import dao.UserInterfaceDao;
 import exception.IntegrationException;
 import util.SessionManager;
 
@@ -18,12 +19,19 @@ public class ShowItemInfoCommand extends AbstractCommand{
     	AbstractMysqlFactory factory = AbstractMysqlFactory.getFactory();
         ItemInterfaceDao itemdao = factory.getItemInterfaceDao();
         OpenChatInterfaceDao chatdao = factory.getOpenChatInterfaceDao();
+        UserInterfaceDao userdao = factory.getUserInterfaceDao();
         RequestContext reqc = getRequestContext();
 
-        System.out.println("--ShowItemInfo--");
+//        System.out.println("--ShowItemInfo--");
+
+        //セッションからuserIdを取得
+        SessionManager.getSession(reqc);
+        String sessionUserId =  ((User)SessionManager.getAttribute("token")).getUserId();
 
         List item = new ArrayList();
         List chat = new ArrayList();
+        List user = new ArrayList();
+        List userId = new ArrayList();
 
         String itemId = reqc.getParameter("item_id")[0];
         String key = "where item_id = " + itemId;
@@ -34,34 +42,39 @@ public class ShowItemInfoCommand extends AbstractCommand{
 
         try {
         	chat = chatdao.getAllMessage(itemId);
+        	user = userdao.getUser(sessionUserId);
         }catch(IntegrationException e) {
+
         }
 
-        System.out.println("chat:"+chat);
-
-		List<List> result=new ArrayList<>();
+//        System.out.println("chat:"+chat);
 
         List<Object> first=new ArrayList<>();
 		first.add("open");
 		first.add(chat);
-		result.add(first);
 
         List<Object> second=new ArrayList<>();
 		second.add("item");
 		second.add(item);
+
+		List<Object> third=new ArrayList<>();
+		third.add("user");
+		third.add(user);
+
+		List<List> result=new ArrayList<>();
+		result.add(first);
 		result.add(second);
+		result.add(third);
 
         resc.setResult(result);
 
-        //sessionからuserIdを持ってくる
-        SessionManager.getSession(reqc);
         //ログインユーザーかそうでないかの判定
 		if(SessionManager.getAttribute("token")==null) {
 			resc.setTarget("item");
 		}else {
 	        //出品者のidとログインユーザーのidが一致したらlisting、
 			//違ったらitemに飛ばす
-			if(((User)SessionManager.getAttribute("token")).getUserId().equals(((Item)item.get(0)).getSellerId())) {
+			if(sessionUserId.equals(((Item)item.get(0)).getSellerId())) {
 				resc.setTarget("listingInfo");
 			}else {
 		        resc.setTarget("item");

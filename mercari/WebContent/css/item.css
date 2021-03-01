@@ -78,6 +78,14 @@ float: right;
 	 text-align: center;
 	 margin-left: 120px;
 }
+
+.itemExplanation{
+	width:100%;
+	margin: 10px;
+	font-size:20px;
+}
+
+/* ヘッダー（共通） */
 .header{
 	background-color: white;
 	margin-left:20px;
