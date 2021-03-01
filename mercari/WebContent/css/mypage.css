@@ -111,6 +111,9 @@ a.headerBtn:hover {
 	border-bottom: solid 2px #dadada;
 	list-style-type: none;
 }
+.list a{
+	text-decoration: none;
+}
 
 .userName_Point {
 	margin-left: 30px;
