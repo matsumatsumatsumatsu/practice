@@ -28,8 +28,8 @@
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 90px;
-	left: 700px;
+	top: 10px;
+	left: 600px;
 }
 
 .headerColumn p {
@@ -92,5 +92,8 @@ h1 {
 }
 textarea {
  	resize: none;
+}
+.images{
+	height:50px;
 }
 </style>
