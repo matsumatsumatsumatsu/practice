@@ -18,7 +18,7 @@
 		</div>
 		<div class="right">
 		<br><p>商品名</p><input type="text" name="itemName"  class="textsize"/>
-		<br> <p>商品の説明</p><textarea rows ="10" cols="45" name="itemExplanation"></textarea>
+		<br> <p>商品の説明</p><textarea rows ="10" cols="45" name="itemExplanation" maxlength="500"></textarea>
 		<!-- <input type="text"name="itemExplanation"  class="textsize"/> -->
 		<br> <p>ハードの種類</p>
 		<select name="hardwareId" class="textsize">
