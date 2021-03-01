@@ -30,9 +30,9 @@ public class EditProfileCommad extends AbstractCommand {
 		u.setUserName(userName);
 		u.setUserPassword(password);
 		u.setRealName(realName);
-		u.setAddress(address);
 		u.setTel(tel);
-		u.setMail(profile);
+		u.setAddress(address);
+		u.setProfile(profile);
 
 		try {
 			userDao.updateUser(u,sessionUserId);

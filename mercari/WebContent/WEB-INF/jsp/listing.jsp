@@ -41,7 +41,7 @@
 		</div>
 		<br><br> <input type="submit" value="出品する" class="button">
 	</form>
-
+</div>
 	<script>
 	    function check() {
 	        if(document.listing.itemImage.value == "") {
@@ -74,7 +74,6 @@
 	        }
 	    }
     </script>
-    </div>
     <script>
 		$(document).on('keydown', function(e) {
 			if ((e.which || e.keyCode) == 116) {

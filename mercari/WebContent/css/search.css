@@ -104,8 +104,8 @@
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 10px;
-	left: 770px;
+	top: -80px;
+	left: 660px;
 }
 
 .headerColumn p {
@@ -216,5 +216,8 @@ a.headerBtn:hover {
 	}
 .topBtn{
 	text-decoration: none;
+}
+.images{
+	height:50px;
 }
 </style>

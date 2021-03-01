@@ -33,8 +33,8 @@ body {
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 90px;
-	left: 700px;
+	top: 10px;
+	left: 600px;
 }
 
 .headerColumn p {
@@ -49,7 +49,6 @@ body {
 	text-decoration: none;
 }
 .topBtn{
-	text-decoration: none;
 }
 a.headerBtn {
   border-radius: 0;
@@ -80,6 +79,11 @@ a.headerBtn:hover {
 	width: 60%;
 }
 
+.right h1{
+	text-align: center;
+	width:90%;
+}
+
 #list-side {
 	display: inline-block;
 	float: left;
@@ -106,6 +110,9 @@ a.headerBtn:hover {
 	padding: 0.5em;
 	border-bottom: solid 2px #dadada;
 	list-style-type: none;
+}
+.list a{
+	text-decoration: none;
 }
 
 .userName_Point {
@@ -216,5 +223,8 @@ label {
 }
 img{
 	height: 100px;
+}
+.images{
+	height:50px;
 }
 </style>

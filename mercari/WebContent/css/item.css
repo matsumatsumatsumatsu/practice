@@ -124,8 +124,8 @@ body{
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: 40px;
-	left: 770px;
+	top: -30px;
+	left: 650px;
 
 }
 
@@ -213,7 +213,6 @@ float: left;
 }
 
 
-
 .balloon1-right {
 
   position: relative;
@@ -252,4 +251,7 @@ p#right{
 	text-align:end;
 }
 
+.images{
+	height:50px;
+}
 </style>
