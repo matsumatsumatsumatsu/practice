@@ -41,8 +41,8 @@ public class CancelDealCommand extends AbstractCommand{
 		String itemId = ((Deal)deal.get(0)).getItemId();
 		item = itemDao.getItem("where item_id = "+itemId);
 		String sellerId = ((Item)item.get(0)).getSellerId();
-		String sellerComment = itemDao.getItemName(itemId) + "の取引はキャンセルされました。売却を続けたい場合は再度出品してください";
-		String buyerComment = itemDao.getItemName(itemId) + "の取引はキャンセルされました";
+		String sellerComment = "<a href=\"showiteminfo?item_id=" + itemId + "\"name=\"itemId\">"+ itemDao.getItemName(itemId) + "</a>の取引はキャンセルされました。売却を続けたい場合は再度出品してください";
+		String buyerComment = "<a href=\"showiteminfo?item_id=" + itemId + "\"name=\"itemId\">"+ itemDao.getItemName(itemId) + "</a>の取引はキャンセルされました";
 
 		//返金処理
 		int point = ((Item)item.get(0)).getPrice();

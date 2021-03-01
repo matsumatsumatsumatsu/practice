@@ -29,7 +29,7 @@ public class DispatchItemCommand extends AbstractCommand{
 		//売り手が商品を発送したことを買い手に通知する
 		String buyerId = dealDao.getBuyerId(dealId);
 		String itemId = dealDao.getItemId(dealId);
-		String buyerComment = "あなたの購入した商品:" + itemDao.getItemName(itemId) + "が発送されました";
+		String buyerComment = "あなたの購入した商品:<a href=\"showiteminfo?item_id=" + itemId + "\"name=\"itemId\">"+ itemDao.getItemName(itemId) + "</a>が発送されました";
 
 		NotifyCommand notify  = new NotifyCommand(buyerId,buyerComment);
 		notify.init(reqc);
