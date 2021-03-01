@@ -91,13 +91,10 @@
 	<div class="openChatTable">
 	<!-- 	<table border="1" class="chat"> -->
 			<c:forEach var="chat" items="${open}">
-
 				<div class="balloon1-left">
 					<p>${chat.text}</p>
 				</div><br>
-
 					${chat.date}<br>
-
 			</c:forEach>
 
 

@@ -70,7 +70,6 @@
 		<div class="itemlist">
 			 <!-- 商品一覧 -->
 			<div id="column" class="column05">
-				<h3>検索結果</h3>
 				<ul>
 					<c:forEach var="item" items="${itemlist}">
 						<li>
