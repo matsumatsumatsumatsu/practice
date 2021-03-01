@@ -101,19 +101,17 @@
 			</c:forEach>
 
 
-		<c:forEach var="item" items="${item}">
+		<c:forEach var="item" items="${item}" >
 			<form action="sendopenchat?item_id=${item.itemId}" method="post"
-				id="form1">
+				id="form1" class = "chatbutton">
 
 				<!-- <input type="text" name="text" class="inputchat" required> -->
 				<textarea  rows ="10" cols="45" name="text" maxlength="500" required="required"></textarea>
 				<br>
-				<p id = "chatbutton">
+
 				<input class="button" type="submit" value="コメントする">
-				</p>
-				<p id = "loginbutton">
-				<a class="button" href="f_login" class="headerBtn">コメントする</a>
-				</p>
+
+
 			</form>
 		</c:forEach>
 
@@ -145,9 +143,7 @@
 			$("#login").css("display","none");
 			$("#signup").css("display","none");
 			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
-			<!--
-			document.getElementById("stockCheck").style.color = "gray";
-			-->
+
 		}else{
 			$("#mypage").css("display","none");
 			$("#notice").css("display","none");
@@ -156,13 +152,10 @@
 	<script>
 		var flag=document.getElementById("flag").innerText;
 		if (flag == "OK") {
-			$("#loginbutton").css("display","none");
-			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
-			<!--
-			document.getElementById("stockCheck").style.color = "gray";
-			-->
+
+
 		}else{
-			$("#chatbutton").css("display","none");
+			$(".chatbutton").css("display","none");
 		}
 	</script>
 	<script>
