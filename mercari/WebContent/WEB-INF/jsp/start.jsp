@@ -80,8 +80,8 @@
 							<div class="out">
 							<script>
 						    	var sold1=`<img src="images/soldoutjpeg_transparent.png"  width="152.396px"/>`
-								if(${item.stock }==0){
-								document.write(sold1)
+								if(${item.stock}==0){
+								document.write(sold1);
 								}else{}
 							</script>
 
