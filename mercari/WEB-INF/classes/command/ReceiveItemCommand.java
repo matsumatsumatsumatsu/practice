@@ -79,7 +79,7 @@ public class ReceiveItemCommand extends AbstractCommand{
 		try {
 			//userのポイントを減らす
 			userDao.grantPoint(sellerId,((Item)item.get(0)).getPrice());
-			//在庫を減らす
+			//在庫を減らす/
 			itemDao.manageStock(itemId);
 		}catch(IntegrationException e) {
 		}
