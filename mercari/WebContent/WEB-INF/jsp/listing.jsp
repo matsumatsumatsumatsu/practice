@@ -17,7 +17,7 @@
 		<p>商品の画像</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
 		</div>
 		<div class="right">
-		<br><p>商品名</p><input type="text" name="itemName"  class="textsize"/>
+		<br><p>商品名</p><input type="text" name="itemName" maxlength="40" class="textsize"/>
 		<br> <p>商品の説明</p><textarea rows ="10" cols="45" name="itemExplanation" maxlength="500"></textarea>
 		<!-- <input type="text"name="itemExplanation"  class="textsize"/> -->
 		<br> <p>ハードの種類</p>
@@ -34,8 +34,8 @@
 				<option value="${category.categoryId}">${category.category}</option>
 			</c:forEach>
 		</select>
-		<br> <p>発送までの期間(日数)</p><input type="text" name="term"  class="textsize"/>
-		<br><p>値段(円)</p><input type="text" name="price"  class="textsize"/>
+		<br> <p>発送までの日数(半角数字)</p><input type="text" name="term" pattern="[0-9]+" placeholder="(例：7)" class="textsize"/>
+		<br><p>値段(半角数字)</p><input type="text" name="price" pattern="[0-9]+" placeholder="(例：5000)" class="textsize"/>
 		</div>
 		<br><br> <input type="submit" value="出品する" class="button">
 	</form>
