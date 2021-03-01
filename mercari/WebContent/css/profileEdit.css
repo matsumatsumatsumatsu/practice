@@ -90,4 +90,7 @@ h1 {
 .topBtn{
 	text-decoration: none;
 }
+textarea {
+ 	resize: none;
+}
 </style>
