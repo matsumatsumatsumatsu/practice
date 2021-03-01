@@ -54,8 +54,10 @@
 			<table border="1" class="item">
 
 				<tr>
-					<th>商品説明</th>
-					<td>${item.itemExplanation}</td>
+					<th>出品者</th>
+					<c:forEach var="user" items="${user}">
+						<td><a href="showuserinfo?user_id=${user.userId}">${user.userName}</a></td>
+					</c:forEach>
 				</tr>
 				<tr>
 					<th>ハード</th>
@@ -75,26 +77,34 @@
 					<th>値段</th>
 					<td>${item.price}円</td>
 				</tr>
-
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
-				</c:forEach>
 			</table>
+		</c:forEach>
 			<p>
 				<c:forEach var="item" items="${item}">
 					<a id="stockCheck" href="confirmpay?item_id=${item.itemId}"
 						class="button">商品購入</a>
 				</c:forEach>
 			</p>
+
+			<div class="itemExplanation">
+				<c:forEach var="item" items="${item}">
+					<p>${item.itemExplanation}</p>
+				</c:forEach>
+			</div>
 	</div>
 	<br>
 
 	<div class="openChatTable">
 	<!-- 	<table border="1" class="chat"> -->
 			<c:forEach var="chat" items="${open}">
+
 				<div class="balloon1-left">
 					<p>${chat.text}</p>
 				</div><br>
+
 					${chat.date}<br>
+
 			</c:forEach>
 
 
@@ -111,14 +121,6 @@
 
 			</form>
 		</c:forEach>
-
-
-
-		<p>
-			<c:forEach var="item" items="${item}">
-				<a class="button" href="showuserinfo?user_id=${item.sellerId}">ユーザーの確認</a>
-			</c:forEach>
-		</p>
 	</div>
 	<!-- 	<p>
 		<a href="/category/">カテゴリー検索</a>
