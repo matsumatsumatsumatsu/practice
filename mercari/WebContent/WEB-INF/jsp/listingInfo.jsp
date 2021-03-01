@@ -42,15 +42,16 @@
 
 	</div>
 </div>
+
 	<div class="itemlist">
 
 		<c:forEach var="item" items="${item}">
 
 			<h1>${item.itemName}</h1>
-
-				<img src="images/${item.itemImage}" class="itemimage">
-
-			<table border="1" class="item">
+			<div class="left">
+				<img src="images/${item.itemImage}" width="300">
+			</div>
+			<table  border="1" style="border: 1px solid black; border-collapse: collapse;" class="item">
 
 				<tr>
 					<th>出品者</th>
@@ -77,9 +78,14 @@
 					<td>${item.price}円</td>
 				</tr>
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
-					</c:forEach>
 			</table>
-			<p>
+		</c:forEach>
+			<div class="itemExplanation">
+				<c:forEach var="item" items="${item}">
+					<p>${item.itemExplanation}</p>
+				</c:forEach>
+			</div>
+					<p>
 		<c:forEach var="item" items="${item}">
 			<a  class="button" href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>
 		</c:forEach>
@@ -89,31 +95,37 @@
 			<a class="button"  href="remove?item_id=${item.itemId}">出品を取り消す</a>
 		</c:forEach>
 	</p>
-
-	<div class="itemExplanation">
-		<c:forEach var="item" items="${item}">
-			<p>${item.itemExplanation}</p>
-		</c:forEach>
-	</div>
-
 	</div>
 	<br>
+
 	<div class="openChatTable">
 	<!-- 	<table border="1" class="chat"> -->
 			<c:forEach var="chat" items="${open}">
-				<div id="chat">
-				<div class="balloon1-left">
-					<p>${chat.text}</p>
-				</div>
-					${chat.date}
-				</div>
+
+					<script>
+							var sold1=`<p>${chat.userName}</p><div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
+							var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
+							if(${chat.userId}==${userId}){
+							document.write(sold2)
+							}else{document.write(sold1)}
+					</script>
+
+
+
 			</c:forEach>
-		<c:forEach var="item" items="${item}">
+
+
+		<c:forEach var="item" items="${item}" >
 			<form action="sendopenchat?item_id=${item.itemId}" method="post"
-				id="form1">
+				id="form1" class = "chatbutton">
+
 				<!-- <input type="text" name="text" class="inputchat" required> -->
-				<textarea rows ="10" cols="45" name="text" maxlength="500" required="required"></textarea>
+				<textarea  rows ="10" cols="45" name="text" maxlength="500" required="required"></textarea>
+				<br>
+
 				<input class="button" type="submit" value="コメントする">
+
+
 			</form>
 		</c:forEach>
 
@@ -138,12 +150,19 @@
 			$("#login").css("display","none");
 			$("#signup").css("display","none");
 			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
-			<!--
-			document.getElementById("stockCheck").style.color = "gray";
-			-->
+
 		}else{
 			$("#mypage").css("display","none");
 			$("#notice").css("display","none");
+		}
+	</script>
+	<script>
+		var flag=document.getElementById("flag").innerText;
+		if (flag == "OK") {
+
+
+		}else{
+			$(".chatbutton").css("display","none");
 		}
 	</script>
 	<script>
