@@ -16,11 +16,11 @@
 	<h1>出品</h1>
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">
 		<div class="left">
-		<p>商品の画像</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
+		<p>商品の画像(.jpg .jpeg .png)</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
 		</div>
 		<div class="right">
-		<br><p>商品名</p><input type="text" name="itemName" maxlength="40" class="textsize"/>
-		<br> <p>商品の説明</p><textarea rows ="10" cols="45" name="itemExplanation" maxlength="500"></textarea>
+		<br><p>商品名(40字以内)</p><input type="text" name="itemName" maxlength="40" class="textsize"/>
+		<br> <p>商品の説明(500字以内)</p><textarea rows ="10" cols="45" name="itemExplanation" maxlength="500"></textarea>
 		<!-- <input type="text"name="itemExplanation"  class="textsize"/> -->
 		<br> <p>ハードの種類</p>
 		<select name="hardwareId" class="textsize">

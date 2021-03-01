@@ -56,12 +56,12 @@
 		</div>
 		<div class="right">
 		<c:forEach var="item" items="${item}">
-		<p>商品名の変更</p>
-			<input type="text" name="name" value="${item.itemName}" class="textsize">
+		<p>商品名の変更(40字以内)</p>
+			<input type="text" name="name" maxlength="40" value="${item.itemName}" class="textsize">
 		</c:forEach><br>
 		<c:forEach var="item" items="${item}">
-		<p>商品説明の変更</p>
-			<input type="text" name="explanation" value="${item.itemExplanation}" class="textsize">
+		<p>商品説明の変更(500字以内)</p>
+			<input type="text" name="explanation" maxlength="40" value="${item.itemExplanation}" class="textsize">
 		</c:forEach><br>
 		<p>ハードの種類</p>
 		<select name="hardwareId" class="textsize">
@@ -78,12 +78,12 @@
 			</c:forEach>
 		</select>
 		<c:forEach var="item" items="${item}">
-		<p>発送までの期間の変更</p>
-			<input type="text" name="term" value="${item.term}" class="textsize">
+		<p>発送までの期間の変更(半角数字)</p>
+			<input type="text" name="term" pattern="[0-9]+" placeholder="(例：7)" value="${item.term}" class="textsize">
 		</c:forEach><br>
 		<c:forEach var="item" items="${item}">
-		<p>値段の変更</p>
-			<input type="text" name="price" value="${item.price}" class="textsize">
+		<p>値段の変更(半角数字)</p>
+			<input type="text" name="price" value="${item.price}" pattern="[0-9]+" placeholder="(例：5000)" class="textsize">
 		</c:forEach><br>
 		</div>
 			<input type="submit" value="変更" class="button">
