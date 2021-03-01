@@ -9,7 +9,9 @@
 <%@include file="../../css/listingEdit.css"%>
 </head>
 <body>
-<a href="f_start" class="topButton">TOPページへ</a>
+<div class="topOuter">
+	<a href="f_start" class="topButton">TOPページへ</a>
+</div>
 <div class="center">
 	<h1>出品</h1>
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">

@@ -70,23 +70,27 @@
 		<div class="itemlist">
 			 <!-- 商品一覧 -->
 			<div id="column" class="column05">
-				<h3>検索結果</h3>
+				<h3>商品一覧</h3>
 				<ul>
 					<c:forEach var="item" items="${itemlist}">
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
-							<div class="itemimage">
-							<img src="images/${item.itemImage}"   width="152.396px" />
-							<div class="out">
-							<script>
-						    	var sold1=`<img src="images/soldoutjpeg_transparent.png"  width="152.396px"/>`
-								if(${item.stock }==0){
-								document.write(sold1)
-								}else{}
-							</script>
 
-							</div>
-							</div>
+								<div class="itemimage">
+								<!-- ここで横幅指定するの良くない（修正案件） -->
+								<img src="images/${item.itemImage}"   width="152.396px" />
+									<div class="itemName">
+									<p>${item.itemName}</p>
+										<div class="out">
+											<script>
+										    	var sold1=`<img src="images/soldoutjpeg_transparent.png"  width="152.396px"/>`
+												if(${item.stock }==0){
+												document.write(sold1)
+												}else{}
+											</script>
+										</div>
+									</div>
+								</div>
 							<span>&yen;${item.price}</span>
 							</a>
 						</li>

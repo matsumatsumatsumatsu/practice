@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html>
 
 <%
 	String token = (String)session.getAttribute("flag");
+	session.setAttribute("token2",token);
 %>
 
 <html>
@@ -15,7 +15,7 @@
 	<title>商品検索結果</title>
 
 	<!-- ログインセッションの取得 -->
-	<p style="display:none;" id="flag"><%= token %></p>
+	<!--  <p style="display:none;" id="flag"><%= token %></p>-->
 </head>
 
 <body>

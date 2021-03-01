@@ -57,7 +57,7 @@ public class ListingCommand extends AbstractCommand{
 		}catch(IntegrationException e) {
 
 		}
-		resc.setTarget("start");
+		resc.setTarget("completeListing");
 
 		return resc;
 	}
