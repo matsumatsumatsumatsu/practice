@@ -73,7 +73,7 @@ public class ReceiveItemCommand extends AbstractCommand{
 		//売り手の発送した商品が受け取られた旨を通知する
 		String itemId = ((Deal)deal.get(0)).getItemId();
 		String sellerId = itemDao.getSellerId(itemId);
-		String sellerComment = itemDao.getItemName(itemId) + "を購入者様が受け取りました";
+		String sellerComment = "<a href=\"showiteminfo?item_id=" + itemId + "\"name=\"itemId\">"+ itemDao.getItemName(itemId) + "</a>を購入者様が受け取りました";
 
 		//出品者のポイント増やす処理
 		try {
