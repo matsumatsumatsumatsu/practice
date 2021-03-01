@@ -51,7 +51,7 @@
 			<div class="left">
 				<img src="images/${item.itemImage}" width="300">
 			</div>
-			<table border="1" class="item">
+			<table  border="1" style="border: 1px solid black; border-collapse: collapse;" class="item">
 
 				<tr>
 					<th>出品者</th>
@@ -92,6 +92,7 @@
 					<p>${item.itemExplanation}</p>
 				</c:forEach>
 			</div>
+
 	</div>
 	<br>
 
@@ -99,11 +100,15 @@
 	<!-- 	<table border="1" class="chat"> -->
 			<c:forEach var="chat" items="${open}">
 
-				<div class="balloon1-left">
-					<p>${chat.text}</p>
-				</div><br>
+					<script>
+							var sold1=`<p>${chat.userName}</p><div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
+							var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
+							if(${chat.userId}==${userId}){
+							document.write(sold2)
+							}else{document.write(sold1)}
+					</script>
 
-					${chat.date}<br>
+
 
 			</c:forEach>
 

@@ -10,7 +10,9 @@
 <body>
 <div class="center">
 	<p>ログアウトしました</p>
+	<div class="topOuter">
 	<a href="f_start" class="button">ok</a>
+	</div>
 	</div>
 	<script>
 		$(document).on('keydown', function(e) {

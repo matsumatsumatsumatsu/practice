@@ -9,6 +9,8 @@
 </head>
 <body>
 	<p>商品を購入しました</p>
+	<div class="topOuter">
 	<a href="f_start" class="topButton">topページへ</a>
+	</div>
 </body>
 </html>
