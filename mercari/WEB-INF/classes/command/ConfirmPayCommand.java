@@ -41,26 +41,26 @@ public class ConfirmPayCommand extends AbstractCommand{
 		try {
 			user = userDao.getUser(sessionUserId);
 		}catch(IntegrationException e) {}
-		System.out.println(((User)user.get(0)).getUserId());
+//		System.out.println(((User)user.get(0)).getUserId());
 
         List<Object> first=new ArrayList<>();
 		first.add("data");
 		first.add(item);
-		System.out.println(first.get(0));
+//		System.out.println(first.get(0));
 
 		List<Object> second=new ArrayList<>();
 		second.add("user");
 		second.add(user);
-		System.out.println(second.get(0));
+//		System.out.println(second.get(0));
 
 		List<List> result=new ArrayList<>();
 		result.add(first);
 		result.add(second);
-		System.out.println(result.get(0));
+//		System.out.println(result.get(0));
 
         resc.setResult(result);
         resc.setTarget("pay");
-        System.out.println("payowari");
+//        System.out.println("payowari");
 		return resc;
 	}
 }
