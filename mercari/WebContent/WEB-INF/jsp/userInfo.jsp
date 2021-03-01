@@ -46,11 +46,13 @@
 			<table border="1" class="userName">
 				<tr>
 					<th>出品者</th>
+					<th>プロフィール</th>
 				</tr>
 
 				<c:forEach var="user" items="${user}">
 					<tr>
 						<td>${user.userName}</td>
+						<td>${user.profile}</td>
 					</tr>
 				</c:forEach>
 

@@ -6,6 +6,7 @@ import java.sql.Timestamp;
 public class OpenChat implements Serializable{
 	private String openChatId;
 	private String userId;
+	private String userName;
 	private String itemId;
 	private String text;
 	private Timestamp date;
@@ -48,5 +49,19 @@ public class OpenChat implements Serializable{
 	}
 	public void setDate(Timestamp date) {
 		this.date = date;
+	}
+
+	/**
+	 * @return userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * @param userName セットする userName
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }
