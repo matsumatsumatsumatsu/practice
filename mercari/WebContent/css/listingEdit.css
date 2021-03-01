@@ -86,8 +86,11 @@ a.headerButton:hover {
    		display: inline-block;
    		margin:90px;
 	}
+	.topOuter{
+		text-align: center;
+	}
 	.topButton{
-		text-align:center;
+		text-align: center;
 		background-color: #4669ff;
    		border-bottom: solid 2px #003aff;
   		border-right: solid 2px #003aff;
@@ -98,8 +101,8 @@ a.headerButton:hover {
     	text-decoration: none;
     	padding: 10px;
     	display: inline-block;
-    	margin-left: 40%;
 	}
+
 	.left{
 		display:inline-block;
 		float:left;
