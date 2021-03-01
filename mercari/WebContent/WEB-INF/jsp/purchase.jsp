@@ -41,6 +41,18 @@
 
 	</div>
 </div>
+	<div class="main">
+		<div id="list-side">
+			<ul class="list">
+				<li><a href="showprofile">マイページ</a></li>
+				<li><a href="showNoticeList">通知</a></li>
+				<li><a href="showOwnListingList">出品した商品</a></li>
+				<li><a href="purchase">購入した商品</a></li>
+				<li><a href="f_editProfile">プロフィール</a></li>
+				<li><a href="f_logout">ログアウト</a></li>
+				<li><a href="f_withdraw">退会</a></li>
+			</ul>
+		</div>
 	<div id="buyer">
 
 		<h4>購入した商品</h4>
@@ -71,19 +83,8 @@
 					</tr>
 			</c:forEach>
 		</table>
-			</div>
-
-		<div id="list-side">
-			<ul class="list">
-				<li><a href="showprofile">マイページ</a></li>
-				<li><a href="showNoticeList">通知</a></li>
-				<li><a href="showOwnListingList">出品した商品</a></li>
-				<li><a href="purchase">購入した商品</a></li>
-				<li><a href="f_editProfile">プロフィール</a></li>
-				<li><a href="f_logout">ログアウト</a></li>
-				<li><a href="f_withdraw">退会</a></li>
-			</ul>
 		</div>
+	</div>
 
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
 	<script>
