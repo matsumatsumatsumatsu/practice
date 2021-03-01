@@ -100,6 +100,10 @@ h1 {
 	margin-right: 260px;
 	padding: 0px;
 }
+
+#passwordcheck login{
+	text-align: center;
+}
 p{
 	text-align:center;
 }

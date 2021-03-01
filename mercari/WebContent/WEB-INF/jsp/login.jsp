@@ -13,8 +13,9 @@
 		<div class="center">
 		<h1>ログイン</h1>
 			<form action="login" method="post">
-				<input type="text" name="userName" placeholder="名前" /><br> <input
-					type="text" name="userPassword" placeholder="パスワード" /> <br>
+				<input type='text' name='userName' required placeholder="ユーザー名" size="30"><br>
+				<br> <input type='password' name='userPassword' required placeholder="パスワード" size="30" id="userPassword" ><br>
+				<div id="passwordcheck login"><input type="checkbox" id="password-check">パスワードを表示する <br><br></div> <br>
 				<br>
 				<input type="submit" value="ログイン" class="button">
 			</form>
@@ -29,5 +30,16 @@
 			}
 		});
 	</script>
+	<script>
+	 const pwd = document.getElementById('userPassword');
+	 const pwdCheck = document.getElementById('password-check');
+	 pwdCheck.addEventListener('change', function() {
+	     if(pwdCheck.checked) {
+	         pwd.setAttribute('type', 'text');
+	     } else {
+	         pwd.setAttribute('type', 'password');
+	     }
+	 }, false);
+ </script>
 </body>
 </html>
