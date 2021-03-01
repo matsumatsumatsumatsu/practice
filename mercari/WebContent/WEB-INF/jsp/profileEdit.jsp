@@ -52,9 +52,13 @@
 			<br>
 			<c:forEach var="user" items="${data}">
 				<p>パスワードの変更</p>
-				<input type="text" name="pass" value="${user.userPassword}"
-					class="textsize" required size="60">
+				<input type="password" name="pass" value="${user.userPassword}"
+					class="textsize" required size="60" id="js-password"><br>
+				<label for="js-passcheck">パスワードを表示する</label>
+				<input type="checkbox" id="js-passcheck"/><br>
 			</c:forEach>
+			<br>
+			<p>パスワードの確認</p>
 			<br>
 			<c:forEach var="user" items="${data}">
 				<p>本名の変更</p>
@@ -104,6 +108,25 @@
 				return false;
 			}
 		});
+	</script>
+	<script>
+		$(function() {
+		    var password  = '#js-password';
+		    var passcheck = '#js-passcheck';
+
+		    changeInputtype(password, passcheck);
+		});
+
+
+		function changeInputtype(password, passcheck) {
+		    $(passcheck).change(function() {
+		        if ($(this).prop('checked')) {
+		            $(password).attr('type','text');
+		        } else {
+		            $(password).attr('type','password');
+		        }
+		    });
+	}
 	</script>
 </body>
 </html>

@@ -96,4 +96,10 @@ textarea {
 .images{
 	height:50px;
 }
+.password {
+    font-size: 20px;
+    padding: 12px;
+    border: 1px solid #000000;
+    border-radius: 3px;
+}
 </style>
