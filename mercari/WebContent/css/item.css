@@ -137,6 +137,9 @@ body{
 a.headerBtn {
   border-radius: 0;
   text-decoration: none;
+   position:relative;
+  top:50px;
+  right:80px;
 }
 
 a.headerBtn:hover {
@@ -145,7 +148,7 @@ a.headerBtn:hover {
 a.headerButton {
   border-radius: 0;
   position:relative;
-  top:70px;
+  top:60px;
   right:50px;
   text-decoration: none;
 }
