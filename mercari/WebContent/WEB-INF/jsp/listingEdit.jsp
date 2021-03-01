@@ -17,7 +17,7 @@
 		<a href="f_start" class="topBtn">TOPページへ</a>
 	</div>
 	<div class="search" style="display:inline-flex">
-			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+			<form name="itemsearch" method='post' action='search' class="itemsearch">
 					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
 					<input type='submit' value='検索！' class="searchBtn">
 			</form>
@@ -44,7 +44,7 @@
 </div>
 <div class="center">
 <h1>出品物の編集</h1>
-	<form action="editListing" method="post">
+	<form name="listing" action="editListing" method="post" onSubmit="return check()">
 		<c:forEach var="item" items="${item}">
 			<input type="hidden" name="itemId" value="${item.itemId}">
 		</c:forEach>
@@ -89,6 +89,35 @@
 			<input type="submit" value="変更" class="button">
 	</form>
 	</div>
+	<script>
+	    function check() {
+		    if(document.listing.hardwareId.value == "") {
+		        alert("ハードを選択して下さい");
+		        return false;
+		    }
+		    if(document.listing.categoryId.value == "") {
+		        alert("ジャンルを選択して下さい");
+		        return false;
+		    }
+		    if(document.listing.itemName.value == "") {
+		        alert("名前を入力してください");
+		        return false;
+		    }
+		    if(document.listing.itemExplanation.value == "") {
+		        alert("説明を入力してください");
+		        return false;
+		    }
+		    if(document.listing.term.value == "") {
+		        alert("発送までの期間を入力してください");
+		        return false;
+		    }
+		    if(document.listing.price.value == "") {
+		        alert("値段を入力してください");
+		        return false;
+		    }
+
+	    }
+    </script>
 	<script>
 		$(document).on('keydown', function(e) {
 			if ((e.which || e.keyCode) == 116) {
