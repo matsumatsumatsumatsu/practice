@@ -16,7 +16,7 @@ public class ShowOpenChatCommand extends AbstractCommand{
         OpenChatInterfaceDao dao = factory.getOpenChatInterfaceDao();
         RequestContext reqc = getRequestContext();
 
-        System.out.println("--ShowOpenChat--");
+//        System.out.println("--ShowOpenChat--");
 
         List chat = new ArrayList();
 

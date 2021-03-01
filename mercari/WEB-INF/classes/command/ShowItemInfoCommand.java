@@ -26,7 +26,11 @@ public class ShowItemInfoCommand extends AbstractCommand{
 
         //セッションからuserIdを取得
         SessionManager.getSession(reqc);
-        String sessionUserId =  ((User)SessionManager.getAttribute("token")).getUserId();
+
+        String sessionUserId = null;
+        if(SessionManager.getAttribute("token") != null) {
+        	sessionUserId = ((User)SessionManager.getAttribute("token")).getUserId();
+        }
 
         List item = new ArrayList();
         List chat = new ArrayList();
@@ -42,7 +46,7 @@ public class ShowItemInfoCommand extends AbstractCommand{
 
         try {
         	chat = chatdao.getAllMessage(itemId);
-        	user = userdao.getUser(sessionUserId);
+        	user = userdao.getUser(((Item)item.get(0)).getSellerId());
         }catch(IntegrationException e) {
 
         }
