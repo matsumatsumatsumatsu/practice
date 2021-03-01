@@ -53,8 +53,10 @@
 			<table border="1" class="item">
 
 				<tr>
-					<th>商品説明</th>
-					<td>${item.itemExplanation}</td>
+					<th>出品者</th>
+					<c:forEach var="user" items="${user}">
+						<td><a href="showuserinfo?user_id=${user.userId}">${user.userName}</a></td>
+					</c:forEach>
 				</tr>
 				<tr>
 					<th>ハード</th>
@@ -87,6 +89,12 @@
 			<a class="button"  href="remove?item_id=${item.itemId}">出品を取り消す</a>
 		</c:forEach>
 	</p>
+
+	<div class="itemExplanation">
+		<c:forEach var="item" items="${item}">
+			<p>${item.itemExplanation}</p>
+		</c:forEach>
+	</div>
 
 	</div>
 	<br>

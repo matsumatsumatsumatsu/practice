@@ -61,7 +61,9 @@ public class OpenChatDao implements OpenChatInterfaceDao {
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select open_chat_id,user_id,text,date,item_id from open_chat where item_id = "+item_id+" order by open_chat_id";
+            String sql = "select open_chat_id,open_chat.user_id,user.user_name,text,date,item_id "
+            		+ "from open_chat inner join user on open_chat.user_id = user.user_id "
+            		+ "where item_id = "+item_id+" order by open_chat_id";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
@@ -69,9 +71,10 @@ public class OpenChatDao implements OpenChatInterfaceDao {
                 OpenChat op = new OpenChat();
                 op.setOpenChatId(rs.getString(1));
                 op.setUserId(rs.getString(2));
-                op.setText(rs.getString(3));
-                op.setDate(rs.getTimestamp(4));
-                op.setItemId(rs.getString(5));
+                op.setUserName(rs.getString(3));
+                op.setText(rs.getString(4));
+                op.setDate(rs.getTimestamp(5));
+                op.setItemId(rs.getString(6));
 
                 chat.add(op);
             }
