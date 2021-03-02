@@ -63,7 +63,7 @@
 
 
 		<div class = "leftBtn">
-			<p>
+			<p id="cancel">
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1" class="button">取引をキャンセルする</a>
 			</p>
 </div>
@@ -75,6 +75,12 @@
 </div>
 </div>
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+		<script>
+		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
+		if (<c:out value="${stateCheck}" /> <> 1) {
+			$("#cancel").css("display","none");
+		}
+	</script>
 	<script>
 		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
 		if (<c:out value="${stateCheck}" /> == 1) {
@@ -104,6 +110,7 @@
 			}
 		});
 	</script>
+
 
 </body>
 </html>
