@@ -169,6 +169,12 @@ values(3, 'PS4');
 insert into hardware (hardware_id, hardware)
 values(4, 'switch');
 
+insert into hardware (hardware_id, hardware)
+values(5, '3DS');
+
+insert into hardware (hardware_id, hardware)
+values(6, 'その他');
+
 insert into category(category_id, category)
 values(1, 'RPG');
 
@@ -180,6 +186,15 @@ values(3, 'パズル');
 
 insert into category(category_id, category)
 values(4, 'アドベンチャー');
+
+insert into category(category_id, category)
+values(5, 'スポーツ');
+
+insert into category(category_id, category)
+values(6, 'FPS');
+
+insert into category(category_id, category)
+values(7, 'その他');
 
 insert into admin(admin_name,admin_password,mail)
 values('admin','P@ssw0rd','info@gmail.com');
