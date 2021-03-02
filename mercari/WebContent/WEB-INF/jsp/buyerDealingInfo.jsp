@@ -43,9 +43,10 @@
 
 
 		<c:forEach var="chat" items="${chat}">
+
 			<script>
-				var sold1=`<div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
-				var sold2=`<div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
+				var sold1=`<p>${chat.userName}</p><div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
+				var sold2=`<div class="balloon1-right"><p>${chat.text}</p></div><p>${chat.userName}</p><br><p id="right">${chat.date}<br></p>`
 					if(${chat.sellerId}==${userId}){
 						document.write(sold2)
 						}else{document.write(sold1)}

@@ -22,9 +22,9 @@ public class ShowItemInfoCommand extends AbstractCommand{
         UserInterfaceDao userdao = factory.getUserInterfaceDao();
         RequestContext reqc = getRequestContext();
 
-//        System.out.println("--ShowItemInfo--");
+        System.out.println("--ShowItemInfo--");
 
-        //ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‹ã‚‰userIdã‚’å–å¾—
+        //ƒZƒbƒVƒ‡ƒ“‚©‚çuserId‚ğæ“¾
         SessionManager.getSession(reqc);
 
         String sessionUserId = null;
@@ -51,7 +51,8 @@ public class ShowItemInfoCommand extends AbstractCommand{
 
         }
 
-//        System.out.println("chat:"+chat);
+        System.out.println("user:"+user);
+        System.out.println("chat:"+chat);
 
         List<Object> first=new ArrayList<>();
 		first.add("open");
@@ -72,12 +73,12 @@ public class ShowItemInfoCommand extends AbstractCommand{
 
         resc.setResult(result);
 
-        //ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‹ãã†ã§ãªã„ã‹ã®åˆ¤å®š
+        //ƒƒOƒCƒ“ƒ†[ƒU[‚©‚»‚¤‚Å‚È‚¢‚©‚Ì”»’è
 		if(SessionManager.getAttribute("token")==null) {
 			resc.setTarget("item");
 		}else {
-	        //å‡ºå“è€…ã®idã¨ãƒ­ã‚°ã‚¤ãƒ³ãƒ¦ãƒ¼ã‚¶ãƒ¼ã®idãŒä¸€è‡´ã—ãŸã‚‰listingã€
-			//é•ã£ãŸã‚‰itemã«é£›ã°ã™
+	        //o•iÒ‚Ìid‚ÆƒƒOƒCƒ“ƒ†[ƒU[‚Ìid‚ªˆê’v‚µ‚½‚çlistingA
+			//ˆá‚Á‚½‚çitem‚É”ò‚Î‚·
 			if(sessionUserId.equals(((Item)item.get(0)).getSellerId())) {
 				resc.setTarget("listingInfo");
 			}else {

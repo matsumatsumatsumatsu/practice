@@ -8,6 +8,7 @@ public class PrivateChat implements Serializable{
 	private String dealId;
 	private String buyerId;
 	private String sellerId;
+	private String userName;
 	private String text;
 	private Timestamp date;
 
@@ -59,5 +60,19 @@ public class PrivateChat implements Serializable{
 
 	public void setDate(Timestamp date) {
 		this.date = date;
+	}
+
+	/**
+	 * @return userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
+
+	/**
+	 * @param userName セットする userName
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 }

@@ -36,9 +36,9 @@ public class SendPrivateChatCommand extends AbstractCommand {
         }else {
         	sellerId = sessionUserId;
         }
-        System.out.println("reqc.getCommandPath() ="+reqc.getCommandPath());
-        System.out.println("sellerId="+sellerId);
-        System.out.println("buyerId="+buyerId);
+//        System.out.println("reqc.getCommandPath() ="+reqc.getCommandPath());
+//        System.out.println("sellerId="+sellerId);
+//        System.out.println("buyerId="+buyerId);
 
 		String text = reqc.getParameter("text")[0];
 

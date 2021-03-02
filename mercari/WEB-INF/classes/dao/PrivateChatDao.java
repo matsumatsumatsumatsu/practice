@@ -59,7 +59,9 @@ public class PrivateChatDao implements PrivateChatInterfaceDao {
         try {
         	cn = MysqlConnector.getInstance().getConnection();
 
-            String sql = "select chat_id,deal_id,buyer_id,seller_id,text,date from private_chat where deal_id = "+dealId+" order by chat_id";
+            String sql = "select chat_id,deal_id,buyer_id,seller_id,user.user_name,text,date "
+            		+ "from private_chat inner join user on seller_id = user_id"
+            		+ " where deal_id = "+dealId+" order by chat_id";
             st = cn.prepareStatement(sql);
             rs = st.executeQuery();
 
@@ -69,8 +71,9 @@ public class PrivateChatDao implements PrivateChatInterfaceDao {
                 p.setDealId(rs.getString(2));
                 p.setBuyerId(rs.getString(3));
                 p.setSellerId(rs.getString(4));
-                p.setText(rs.getString(5));
-                p.setDate(rs.getTimestamp(6));
+                p.setUserName(rs.getString(5));
+                p.setText(rs.getString(6));
+                p.setDate(rs.getTimestamp(7));
 
                 chat.add(p);
             }

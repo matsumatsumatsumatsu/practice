@@ -67,7 +67,8 @@ public class ItemDao implements ItemInterfaceDao {
 
 			String sql = "select item_id, item_name, price, item_image, item_explanation, item.hardware_id, item.category_id, hardware.hardware, category.category, item.seller_id, stock, listing_date, term "
 					+ " from item left join hardware on item.hardware_id = hardware.hardware_id "
-					+ " left join category on item.category_id = category.category_id " +  key;
+					+ " left join category on item.category_id = category.category_id "
+					+  key;
 //            System.out.println("確認用SQL文:"+sql);
 
             st = cn.prepareStatement(sql);
