@@ -44,15 +44,15 @@
 
 
 		<c:forEach var="chat" items="${chat}">
-		<script>
-				var sold1=`<div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
-				var sold2=`<div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
-					if(${chat.sellerId}==${userId}){
+			<script>
+						var sold1=`<p id="left">${chat.userName}<div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}</p><br>`
+						var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
+						if(${chat.sellerId}==${userId}){
 						document.write(sold2)
 						}else{document.write(sold1)}
 			</script>
-		</c:forEach>
 
+</c:forEach>
 
 	<c:forEach var="deal" items="${deal}">
 		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=2" method="post">
