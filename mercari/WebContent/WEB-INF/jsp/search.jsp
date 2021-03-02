@@ -52,7 +52,7 @@
 	</div>
 </div>
 	<div class="start">
-		<h1>メルカリもどき</h1>
+
 
 		<p>
 			<a href="f_listing" class="listingButton">出品画面へ</a>

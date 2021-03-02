@@ -51,6 +51,10 @@ h1 {
 	top:2px;
 
 }
+p#left{
+	float:left;
+	width:300px;
+}
 .top{
 	display:inline-block;
 	margin-top:0px;
@@ -185,5 +189,10 @@ p#right{
 .balloon1-left p {
   margin: 0;
   padding: 0;
+}
+img{
+	height: 300px;
+	width:300px;
+	object-fit: contain;
 }
 </style>

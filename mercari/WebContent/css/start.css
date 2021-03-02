@@ -179,7 +179,9 @@ left:-100px;
 }
 
 #column img{
-	height: 200px;
+	height: 200;
+	width:130.4px;
+	object-fit: contain;
 }
 .topBtn{
 	text-decoration: none;

@@ -221,10 +221,15 @@ label {
 	width: 540px;
 	height: 30px;
 }
-img{
-	height: 100px;
+.right img{
+	height: 200px;
+	width:130.4px;
+	object-fit: contain;
 }
 .images{
 	height:50px;
+}
+a{
+	text-decoration: none;
 }
 </style>

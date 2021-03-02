@@ -105,6 +105,9 @@ a.headerBtn:hover {
 	border-bottom: solid 2px #dadada;
 	list-style-type: none;
 }
+.list a{
+	text-decoration: none;
+}
 body{
 	background-color: #ffffff;
 	width : 1180px;
@@ -150,8 +153,10 @@ body{
 	border-right: solid 1px #ddd;
 	border-left: solid 1px #ddd;
 }
-img{
-	height: 100px;
+.tablelist img{
+	height: 200px;
+	width:130.4px;
+	object-fit: contain;
 }
 .topBtn{
 	text-decoration: none;
@@ -159,4 +164,7 @@ img{
 .images{
 	height:50px;
 }
+a{
+	text-decoration: none;
+
 </style>

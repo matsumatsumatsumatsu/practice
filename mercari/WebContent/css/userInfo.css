@@ -173,7 +173,9 @@ h1 {
 }
 
 #column img{
+	object-fit: contain;
 	height: 200px;
+	width:200px;
 }
 .topBtn{
 	text-decoration: none;
