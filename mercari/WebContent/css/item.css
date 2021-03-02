@@ -32,6 +32,7 @@ body{
 }
 .left{
 	float: left;
+	min-height:374.67;
 }
 .item{
     float: right;
