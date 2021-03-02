@@ -61,12 +61,13 @@
 		</form>
 </div>
 <div class = "leftBtn">
-			<p id="cancel">
+			<p id="canceldeal">
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1"" class="button">取引をキャンセルする</a>
 			</p><br>
 
 	</c:forEach>
-
+		</div>
+<div class = "leftBtn">
 	<p>
 		<a href="f_start" class="button">TOPページへ</a>
 	</p>
@@ -127,11 +128,14 @@
 			}
 		});
 	</script>
-		<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+
 		<script>
 		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
-		if (<c:out value="${stateCheck}" /> <> 1) {
-			$("#cancel").css("display","none");
+		if (<c:out value="${stateCheck}" /> == 1) {
+			$("#canceldeal").css("display","none");
+		}
+		if (<c:out value="${stateCheck}" /> == 4) {
+			$("#canceldeal").css("display","none");
 		}
 	</script>
 

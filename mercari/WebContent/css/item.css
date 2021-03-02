@@ -258,6 +258,11 @@ p#right{
 .images{
 	height:50px;
 }
+.left img{
+	height: 374.67px;
+	width:300px;
+	object-fit: contain;
+}
 a{
 	text-decoration: none;
 }
