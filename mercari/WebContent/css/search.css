@@ -214,4 +214,10 @@ a.headerBtn:hover {
 .images{
 	height:50px;
 }
+.textHidden{
+	width: 150px; /* この幅を超えると省略 */
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 </style>

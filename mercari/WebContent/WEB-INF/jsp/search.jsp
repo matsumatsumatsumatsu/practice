@@ -105,7 +105,9 @@
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
 							<img src="images/${item.itemImage}" />
+							<div class="textHidden">
 							<p>${item.itemName}</p>
+							</div>
 							<span>&yen;${item.price}</span>
 							</a>
 						</li>
