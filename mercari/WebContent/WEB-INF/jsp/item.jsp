@@ -11,6 +11,7 @@
 </head>
 <body>
 <p style="display:none;" id="flag">${flag}</p>
+<p style="display:none;" id="userId">${userId}</p>
 <div class="header">
 
 	<div class="top">
@@ -98,20 +99,30 @@
 
 	<div class="openChatTable">
 	<!-- 	<table border="1" class="chat"> -->
-			<c:forEach var="chat" items="${open}">
+		<c:forEach var="chat" items="${open}">
+			<script>
+				var flag=document.getElementById("flag").innerText;
+				var chatUserId = ${chat.userId};
+				var userId = document.getElementById("userId").innerText;
 
-					<script>
-							var sold1=`<p>${chat.userName}</p><div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
-							var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
-							if(${chat.userId}==${userId}){
-							document.write(sold2)
-							}else{document.write(sold1)}
-					</script>
+				var sold1=`<p>${chat.userName}</p><div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
+				var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
 
-
-
-			</c:forEach>
-
+				if(flag == "OK"){
+					//ログイン時
+					if(chatUserId == userId){
+						//自分側
+						document.write(sold2);
+					}else{
+						//相手側
+						document.write(sold1);
+					}
+				}else{
+					//非ログイン時
+					document.write(sold1);
+				}
+			</script>
+		</c:forEach>
 
 		<c:forEach var="item" items="${item}" >
 			<form action="sendopenchat?item_id=${item.itemId}" method="post"
@@ -122,8 +133,6 @@
 				<br>
 
 				<input class="button" type="submit" value="コメントする">
-
-
 			</form>
 		</c:forEach>
 	</div>
