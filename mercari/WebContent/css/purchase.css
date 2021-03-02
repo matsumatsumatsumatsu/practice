@@ -75,8 +75,8 @@ a.headerBtn:hover {
 	width: calc(70 - 20px);
 	height:100%;
 	vertical-align: top;
-
 }
+
 #list-side {
 	display: inline-block;
 	width: calc(30% - 20px);

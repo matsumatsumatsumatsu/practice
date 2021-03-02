@@ -52,8 +52,7 @@
 	</div>
 </div>
 	<div class="start">
-
-
+		<!-- 出品ボタン -->
 		<p>
 			<a href="f_listing" class="listingButton">出品画面へ</a>
 		</p>
@@ -63,26 +62,6 @@
 			<form name="itemsearch" method='post' action='narrow' onSubmit="return check()">
 				<p>キーワード</p>
 				<input type='text' name='keyword' style="width: 80%; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<!--
-				<p>ハードウェア</p>
-				<div id="hardwaresearch">
-					<select name="hardware">
-						<option value="">選択してください</option>
-						<c:forEach var="hardware" items="${hardware}">
-							<option value="${hardware.hardwareId}">${hardware.hardware}</option>
-						</c:forEach>
-					</select>
-				</div>
-				<p>ジャンル</p>
-				<div id="categorysearch">
-					<select name="category">
-						<option value="">選択してください</option>
-						<c:forEach var="category" items="${category}">
-							<option value="${category.categoryId}">${category.category}</option>
-						</c:forEach>
-					</select>
-				</div>
-				-->
 
 				<p>ハードウェア</p>
 				<div id="categorysearch">
@@ -134,7 +113,6 @@
 				</ul>
 			</div>
 		</div>
-
 	</div>
 
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>

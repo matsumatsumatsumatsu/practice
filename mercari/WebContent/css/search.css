@@ -16,7 +16,7 @@
 .itemlist{
 	display: inline-block;
 	width: calc(70% - 20px);
-	height: 100%;
+	vertical-align: top;
 }
 
 #column ul {
@@ -29,6 +29,8 @@
 #column li {
 	list-style: none;
 	padding: 0 10px 20px;
+	margin: 5px;
+	background-color: white;
 }
 
 #column li a,
@@ -62,7 +64,7 @@
 }
 
 .column04 li {
-	width: calc(25% - 20px);
+	width: calc(25% - 40px);
 }
 
 .column05 li {
@@ -70,17 +72,17 @@
 }
 
 #column img{
-	height: 200px;
+	height: 200;
+	width:130.4px;
+	object-fit: contain;
 }
 
 /*ヘッダー共通*/
 .header{
 	background-color: white;
-	margin-left:20px;
-	margin-right:20px;
 	height: 150px;
 	border-bottom: 2px solid black;
-	width:1200px;
+	width:100%;
 }
 .top{
 	float:left;
@@ -104,7 +106,7 @@
 	display: inline-block;
 	width: auto;
 	position: relative;
-	top: -80px;
+	top: 0px;
 	left: 660px;
 }
 
@@ -147,11 +149,7 @@ body {
 	width: 500px;
 }
 .start {
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: auto;
+	width: 100%;
 }
 
 .listingButton {
@@ -185,8 +183,6 @@ body {
 	text-decoration: none;
 }
 
-
-
 a.headerBtn {
   border-radius: 0;
 
@@ -207,13 +203,11 @@ a.headerBtn:hover {
 
 
 /* 検索css */
-	.searchinfo{
-		background-color: #fff;
-		display: inline-block;
-		width: calc(30% - 20px);
-		height: 100%;
-		float:left;
-	}
+.searchinfo{
+	background-color: #fff;
+	display: inline-block;
+	width: calc(30% - 20px);
+}
 .topBtn{
 	text-decoration: none;
 }
