@@ -147,6 +147,8 @@
 
 			document.getElementById("stockCheck").style.backgroundColor = "ButtonShadow";
 			document.getElementById("stockCheck").style.color = "white";
+			document.getElementById("stockCheck").style.borderBottom = "2px solid #555";
+			document.getElementById("stockCheck").style.borderRight = "2px solid #555";
 		}
 	</script>
 		<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
