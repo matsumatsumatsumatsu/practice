@@ -158,6 +158,14 @@
 		<input type='text' placeholder='追加ポイント' name='point'> <input
 			type='submit' value='追加'>
 	</form>
+	<script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
+	</script>
 
 </body>
 </html>

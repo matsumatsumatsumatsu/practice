@@ -8,19 +8,23 @@
 <head>
 <%@include file="../css/item.css"%>
 <title>商品表示</title>
-<p style="display:none;" id="flag"><%= token %></p>
+</head>
+<body>
+<p style="display:none;" id="flag">${flag}</p>
+<p style="display:none;" id="userId">${userId}</p>
 <div class="header">
 
-
-	<div class="search">
-
-		<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
-
-				<input type='text' name='keyword' style="width: 800px; height: 40px; margin-top: 30px" placeholder="何かお探しですか？">
-				<input type='submit' value='検索！' style="height: 40px">
-		</form>
-		<a href="f_start" class="topBtn">TOPページへ</a>
+	<div class="top">
+		<a href="f_start" class="topBtn"><img src="images/caripaku.png" class="images"></a>
 	</div>
+	<div class="search" style="display:inline-flex">
+			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
+					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
+					<input type='submit' value='検索！' class="searchBtn">
+			</form>
+
+	</div>
+
 	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
 	<div class="headerColumn">
 		<p id = "signup">
@@ -31,17 +35,14 @@
 			<a href="f_login" class="headerBtn">ログイン</a>
 		</p>
 		<p id = "mypage">
-			<a href="showprofile" class="headerBtn">マイページ</a>
+			<a href="showprofile" class="headerButton">マイページ</a>
 		</p>
 		<p id = "notice">
-			<a href="showNoticeList" class="headerBtn">通知</a>
+			<a href="showNoticeList" class="headerButton">通知</a>
 		</p>
 
 	</div>
 </div>
-</head>
-
-<body>
 
 	<div class="itemlist">
 
@@ -51,11 +52,13 @@
 			<div class="left">
 				<img src="images/${item.itemImage}" width="300">
 			</div>
-			<table border="1" class="item">
+			<table  border="1" style="border: 1px solid black; border-collapse: collapse;" class="item">
 
 				<tr>
-					<th>商品説明</th>
-					<td>${item.itemExplanation}</td>
+					<th>出品者</th>
+					<c:forEach var="user" items="${user}">
+						<td><a href="showuserinfo?user_id=${user.userId}">${user.userName}</a></td>
+					</c:forEach>
 				</tr>
 				<tr>
 					<th>ハード</th>
@@ -69,54 +72,70 @@
 				</tr>
 				<tr>
 					<th>発送期間</th>
-					<td>${item.term}</td>
+					<td>${item.term}日</td>
 				</tr>
 				<tr>
 					<th>値段</th>
-					<td>${item.price}</td>
+					<td>${item.price}円</td>
 				</tr>
-
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
-				</c:forEach>
 			</table>
+		</c:forEach>
 			<p>
 				<c:forEach var="item" items="${item}">
 					<a id="stockCheck" href="confirmpay?item_id=${item.itemId}"
 						class="button">商品購入</a>
 				</c:forEach>
 			</p>
+
+			<div class="itemExplanation">
+				<c:forEach var="item" items="${item}">
+					<p>${item.itemExplanation}</p>
+				</c:forEach>
+			</div>
+
+
 	</div>
 	<br>
 
 	<div class="openChatTable">
 	<!-- 	<table border="1" class="chat"> -->
-			<c:forEach var="chat" items="${open}">
+		<c:forEach var="chat" items="${open}">
+			<script>
+				var flag=document.getElementById("flag").innerText;
+				var chatUserId = ${chat.userId};
+				var userId = document.getElementById("userId").innerText;
 
-				<div class="balloon1-left">
-					<p>${chat.text}</p>
-				</div>
+				var sold1=`<p>${chat.userName}</p><div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
+				var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
 
-					${chat.date}
-
-			</c:forEach>
-
-
-		<c:forEach var="item" items="${item}">
-			<form action="sendopenchat?item_id=${item.itemId}" method="post"
-				id="form1">
-
-				<input type="text" name="text" class="inputchat" required><br> <input
-					class="button" type="submit" value="コメントする">
-			</form>
+				if(flag == "OK"){
+					//ログイン時
+					if(chatUserId == userId){
+						//自分側
+						document.write(sold2);
+					}else{
+						//相手側
+						document.write(sold1);
+					}
+				}else{
+					//非ログイン時
+					document.write(sold1);
+				}
+			</script>
 		</c:forEach>
 
+		<c:forEach var="item" items="${item}" >
+			<form action="sendopenchat?item_id=${item.itemId}" method="post"
+				id="form1" class = "chatbutton">
 
+				<!-- <input type="text" name="text" class="inputchat" required> -->
+				<textarea  rows ="10" cols="45" name="text" maxlength="500" required="required"></textarea>
+				<br>
 
-		<p>
-			<c:forEach var="item" items="${item}">
-				<a class="button" href="showuserinfo?user_id=${item.sellerId}">ユーザーの確認</a>
-			</c:forEach>
-		</p>
+				<input class="button" type="submit" value="コメントする">
+			</form>
+		</c:forEach>
 	</div>
 	<!-- 	<p>
 		<a href="/category/">カテゴリー検索</a>
@@ -129,6 +148,8 @@
 
 			document.getElementById("stockCheck").style.backgroundColor = "ButtonShadow";
 			document.getElementById("stockCheck").style.color = "white";
+			document.getElementById("stockCheck").style.borderBottom = "2px solid #555";
+			document.getElementById("stockCheck").style.borderRight = "2px solid #555";
 		}
 	</script>
 		<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
@@ -138,13 +159,28 @@
 			$("#login").css("display","none");
 			$("#signup").css("display","none");
 			<!--$("#login").html('<a href="showprofile" class="headerBtn">マイページ</a>');-->
-			<!--
-			document.getElementById("stockCheck").style.color = "gray";
-			-->
+
 		}else{
 			$("#mypage").css("display","none");
 			$("#notice").css("display","none");
 		}
+	</script>
+	<script>
+		var flag=document.getElementById("flag").innerText;
+		if (flag == "OK") {
+
+
+		}else{
+			$(".chatbutton").css("display","none");
+		}
+	</script>
+	<script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
 	</script>
 
 </body>

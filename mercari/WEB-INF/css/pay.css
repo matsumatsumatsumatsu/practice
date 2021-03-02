@@ -11,6 +11,19 @@ h1 {
 	text-align: center;
 }
 
+.itemImage{
+	width: 100%;
+	margin-bottom: 20px;
+}
+
+.itemImage img{
+	margin: auto;
+	height: 200px;
+	width:130.4px;
+	object-fit: contain;
+
+}
+
 .wantItem {
 	margin-left: auto;
 	margin-right: auto;

@@ -7,6 +7,9 @@
 <%@include file="../css/style.css" %>
 </head>
 <body>
+<div class="topOuter">
+<a href="f_start" class="topButton">TOPページへ</a>
+</div>
 	<div class="login_out_withdraw">
 
 		<div class="center">
@@ -18,5 +21,13 @@
 			</form>
 		</div>
 	</div>
+	<script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
+	</script>
 </body>
 </html>
