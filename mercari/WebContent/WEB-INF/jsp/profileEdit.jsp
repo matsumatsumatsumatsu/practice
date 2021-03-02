@@ -41,6 +41,18 @@
 
 	</div>
 </div>
+	<div class="mypage">
+	<div id="list-side">
+		<ul class="list">
+			<li><a href="showprofile">マイページ</a></li>
+			<li><a href="showNoticeList">通知</a></li>
+			<li><a href="showOwnListingList">出品した商品</a></li>
+			<li><a href="purchase">購入した商品</a></li>
+			<li><a href="f_editProfile">プロフィール</a></li>
+			<li><a href="f_logout">ログアウト</a></li>
+			<li><a href="f_withdraw">退会</a></li>
+		</ul>
+	</div>
 	<div class="center">
 		<h1>プロフィールを編集する</h1>
 		<form action="editProfile" method="post">
@@ -90,6 +102,7 @@
 			</c:forEach>
 			<br> <input type="submit" value="変更" class="button">
 		</form>
+	</div>
 	</div>
 		<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
 	<script>
