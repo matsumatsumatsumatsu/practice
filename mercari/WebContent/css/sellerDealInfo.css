@@ -40,7 +40,7 @@ h1 {
 	width:300px;
 	position:relative;
 	top:72px;
-
+	height:100px;
 }
 .right{
 	display:inline-block;
@@ -64,7 +64,7 @@ h1 {
 .leftBtn{
 	display:inline-block;
 	position:relative;
-	top:100px;
+	top:400px;
 	right:10px;
 }
 .leftBtn p{
@@ -112,5 +112,78 @@ table tr:nth-child(odd){
 }
 .topBtn{
 	text-decoration: none;
+}
+.balloon1-right {
+
+  position: relative;
+
+  display: inline-block;
+  margin: 1.5em 15px 1.5em 0;
+  padding: 7px 10px;
+  min-width: 250px;
+    overflow-wrap: break-word;
+   max-width: 250px;
+  color: #555;
+  font-size: 16px;
+  background: #FFFF99	;
+   border-radius: 10px;
+   overflow-wrap: break-word;
+   max-width: 250px;
+   margin-left:300px;
+
+}
+
+.balloon1-right:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 99%;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-left: 15px solid #FFFF99;
+}
+
+.balloon1-right p {
+  margin: 0;
+  padding: 0;
+}
+p#right{
+	text-align:end;
+}
+
+.images{
+	height:50px;
+}
+
+.balloon1-left {
+	 border-radius: 15px;
+  position: relative;
+  display: inline-block;
+  margin: 1.5em 0 1.5em 15px;
+  padding: 7px 10px;
+   min-width: 250px;
+    overflow-wrap: break-word;
+   max-width: 250px;
+  color: #555;
+  font-size: 16px;
+  background: #e0edff;
+
+
+
+}
+
+.balloon1-left:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -23px;
+  margin-top: -15px;
+  border: 15px solid transparent;
+  border-right: 15px solid #e0edff;
+}
+
+.balloon1-left p {
+  margin: 0;
+  padding: 0;
 }
 </style>

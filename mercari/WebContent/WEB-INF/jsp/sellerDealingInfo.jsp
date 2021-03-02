@@ -10,45 +10,12 @@
 </head>
 <body>
 <p style="display:none;" id="flag">${flag}</p>
-<div class="header">
-
-	<div class="top">
-		<a href="f_start" class="topBtn">TOPページへ</a>
-	</div>
-	<div class="search" style="display:inline-flex">
-			<form name="itemsearch" method='post' action='search' onSubmit="return check()" class="itemsearch">
-					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
-					<input type='submit' value='検索！' class="searchBtn">
-			</form>
-
-	</div>
-
-	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
-	<div class="headerColumn">
-		<p id = "signup">
-			<a href="f_signup" class="headerBtn">ユーザー登録画面へ</a>
-		</p>
-		<!-- 後々コメントアウト -->
-		<p id = "login">
-			<a href="f_login" class="headerBtn">ログイン</a>
-		</p>
-		<p id = "mypage">
-			<a href="showprofile" class="headerBtn">マイページ</a>
-		</p>
-		<p id = "notice">
-			<a href="showNoticeList" class="headerBtn">通知</a>
-		</p>
-
-	</div>
-</div>
 <div class="center">
 <div class="left">
 	<table border="1">
+
 		<c:forEach var="item" items="${item}">
-			<tr>
-			<th>ItemID</th>
-				<td>${item.itemId}</td>
-			</tr>
+			<img src="images/${item.itemImage}" width="300">
 			<tr>
 				<th>商品名</th>
 				<td>${item.itemName}</td>
@@ -61,18 +28,7 @@
 	</table>
 	<table border="1">
 		<c:forEach var="deal" items="${deal}">
-			<tr>
-				<th>取引ID</th>
-				<td>${deal.dealId}</td>
-			</tr>
-			<tr>
-				<th>商品ID</th>
-				<td>${deal.itemId}</td>
-			</tr>
-			<tr>
-				<th>取引状況</th>
-				<td>${deal.dealState}</td>
-			</tr>
+
 			<c:set var="stateCheck" value="${deal.dealState}"></c:set>
 		</c:forEach>
 	</table>
@@ -86,20 +42,17 @@
 		</div>
 	</c:forEach>
 
-	<table border="1">
-		<tr>
-			<td>チャットID</td>
-			<td>本文</td>
-			<td>投稿日時</td>
-		</tr>
+
 		<c:forEach var="chat" items="${chat}">
-			<tr>
-				<td>${chat.chatId}</td>
-				<td>${chat.	text}</td>
-				<td>${chat.date}</td>
-			</tr>
+		<script>
+				var sold1=`<div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}<br>`
+				var sold2=`<div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
+					if(${chat.sellerId}==${userId}){
+						document.write(sold2)
+						}else{document.write(sold1)}
+			</script>
 		</c:forEach>
-	</table>
+
 
 	<c:forEach var="deal" items="${deal}">
 		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=2" method="post">
