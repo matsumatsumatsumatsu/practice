@@ -190,4 +190,9 @@ p#right{
   margin: 0;
   padding: 0;
 }
+img{
+	height: 300px;
+	width:300px;
+	object-fit: contain;
+}
 </style>

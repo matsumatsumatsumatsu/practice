@@ -222,8 +222,9 @@ label {
 	height: 30px;
 }
 .right img{
-	height: auto;
+	height: 200px;
 	width:130.4px;
+	object-fit: contain;
 }
 .images{
 	height:50px;

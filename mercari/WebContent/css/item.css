@@ -258,4 +258,7 @@ p#right{
 .images{
 	height:50px;
 }
+a{
+	text-decoration: none;
+}
 </style>
