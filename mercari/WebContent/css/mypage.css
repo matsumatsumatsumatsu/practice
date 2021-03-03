@@ -242,4 +242,7 @@ a{
     width: 250px;
     word-break: break-all;
 }
+.notificationTable{
+	border-collapse: collapse
+}
 </style>
