@@ -20,7 +20,6 @@
 					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
 					<input type='submit' value='検索！' class="searchBtn">
 			</form>
-
 	</div>
 
 	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->

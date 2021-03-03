@@ -9,6 +9,7 @@ import context.ResponseContext;
 import dao.AbstractMysqlFactory;
 import dao.ItemInterfaceDao;
 import exception.IntegrationException;
+import util.ConversionManager;
 import util.ImageUploadManager;
 import util.SessionManager;
 
@@ -25,8 +26,7 @@ public class ListingCommand extends AbstractCommand{
 
 		String itemImage  = (String)field.get("itemImage");
 
-		String itemExplanation = (String)field.get("itemExplanation");
-
+		String itemExplanation = ConversionManager.conversionText((String)field.get("itemExplanation"));
 		String hardwareId = (String)field.get("hardwareId");
 
 		String categoryId = (String)field.get("categoryId");
@@ -37,7 +37,7 @@ public class ListingCommand extends AbstractCommand{
 		ItemInterfaceDao dao = factory.getItemInterfaceDao();
 
 		SessionManager.getSession(reqc);
-		System.out.println("token:"+SessionManager.getAttribute("token"));
+//		System.out.println("token:"+SessionManager.getAttribute("token"));
 
 		String sessionUserId=((User)SessionManager.getAttribute("token")).getUserId();
 
