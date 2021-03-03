@@ -64,7 +64,7 @@
 			</tr>
 			<c:forEach var="deal" items="${buyDeal}">
 					<tr>
-						<td><a href="showDealingInfo?deal_id=${deal.dealId}&user_state=1" name="itemId">${deal.itemName}</a></td>
+						<td><a id="nameSize" href="showDealingInfo?deal_id=${deal.dealId}&user_state=1" name="itemId">${deal.itemName}</a></td>
 						<td><img src="images/${deal.itemImage}" /></td>
 					</tr>
 			</c:forEach>
@@ -78,7 +78,7 @@
 			</tr>
 			<c:forEach var="history" items="${buyHistory}">
 					<tr>
-						<td><a href="showDealingInfo?deal_id=${history.dealId}&user_state=1" name="itemId">${history.itemName}</a></td>
+						<td><a id="nameSize" href="showDealingInfo?deal_id=${history.dealId}&user_state=1" name="itemId">${history.itemName}</a></td>
 						<td><img src="images/${history.itemImage}" /></td>
 					</tr>
 			</c:forEach>

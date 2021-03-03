@@ -16,15 +16,15 @@
 		<h1>ユーザー登録</h1>
 			<form method='post' action='signup'>
 			<div id="errorMessage"></div>
-				<input type='text' name='userName' required placeholder="ユーザー名" size="60"><br> <br>
-				<input type='password' name='userPassword' required placeholder="パスワード" size="60" id="userPassword" ><br>
+				<input type='text' name='userName' required placeholder="ユーザー名" size="60" maxlength='30'><br> <br>
+				<input type='password' name='userPassword' required placeholder="パスワード" size="60" id="userPassword" maxlength='30'><br>
 				<div id="passwordcheck"><input type="checkbox" id="password-check">パスワードを表示する <br><br></div>
-				<input type='password' name='userPasswordConfirm' required placeholder="確認用パスワード" size="60" id="userPasswordConfirm"  oninput="CheckPassword(this)"><br>
+				<input type='password' name='userPasswordConfirm' required placeholder="確認用パスワード" size="60" id="userPasswordConfirm"  oninput="CheckPassword(this)" maxlength='30'><br>
 				<div id="passwordcheck"><input type="checkbox" id="password-check2">パスワードを表示する <br><br></div>
-				<input type='text' name='realName' required placeholder="本名" size="60"><br> <br>
-				<input type='text' name='address' required placeholder="住所" size="60"><br><br>
-				<input type='text' name='tel' required placeholder="電話番号" size="60"><br> <br>
-				<input type='text' name='mail' required placeholder="メールアドレス" size="60"><br><br>
+				<input type='text' name='realName' required placeholder="本名" size="60" maxlength='10'><br> <br>
+				<input type='text' name='address' required placeholder="住所" size="60" maxlength='20'><br><br>
+				<input type='tel' name='tel' required placeholder="電話番号(ハイフンなしで入力してください)" size="60" maxlength='10' pattern="[\d\]*"><br> <br>
+				<input type='email' name='mail' required placeholder="メールアドレス" size="60" maxlength='25'><br><br>
 				<input type='submit' value='登録' class="button">
 			</form>
 		</div>

@@ -49,7 +49,7 @@ public class ImageUploadManager {
 						item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
 						//item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\\\images\\" + filename));
 						//item.write(new File("/opt/tomcat/webapps/mercari/images/" + filename));
-						//item.write(new File("正式にデプロイするときのディレクトリ" + filename));
+						//item.write(new File("/webapps/2020/mercari/images" + filename));
 						fields.put("itemImage",filename);
 					}
 				}else if (item.isFormField()) {

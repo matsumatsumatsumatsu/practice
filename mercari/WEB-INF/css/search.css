@@ -16,7 +16,7 @@
 .itemlist{
 	display: inline-block;
 	width: calc(70% - 20px);
-	height: 100%;
+	vertical-align: top;
 }
 
 #column ul {
@@ -29,6 +29,8 @@
 #column li {
 	list-style: none;
 	padding: 0 10px 20px;
+	margin: 5px;
+	background-color: white;
 }
 
 #column li a,
@@ -62,7 +64,7 @@
 }
 
 .column04 li {
-	width: calc(25% - 20px);
+	width: calc(25% - 40px);
 }
 
 .column05 li {
@@ -70,23 +72,67 @@
 }
 
 #column img{
-	height: 200px;
+	height: 200;
+	width:130.4px;
+	object-fit: contain;
 }
 
 /*ヘッダー共通*/
-.header {
+.header{
 	background-color: white;
-
 	height: 150px;
 	border-bottom: 2px solid black;
+	width:100%;
+}
+.top{
+	float:left;
+	margin-top:50px;
+	margin-left:100px;
+}
+.search{
+	float:right;
+	margin-right:10%;
+	margin-top:40px;
+}
+.searchText{
+	width:600px;
+	height:40px;
+}
+.searchBtn{
+	height:40px;
+	width:60px;
+}
+.headerColumn {
+	display: inline-block;
+	width: auto;
+	position: relative;
+	top: 0px;
+	left: 660px;
 }
 
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-		margin-left: 10%;
-	margin-right: 10%;
+.headerColumn p {
+	display: inline-block;
+	width: auto;
+	margin-right: 20px;
+}
+a.headerBtn {
+  border-radius: 0;
+  text-decoration: none;
+}
+
+a.headerBtn:hover {
+  color:#8EF1FF;
+}
+a.headerButton {
+  border-radius: 0;
+  position:relative;
+  top:70px;
+  right:50px;
+  text-decoration: none;
+}
+
+a.headerButton:hover {
+  color:#8EF1FF;
 
 }
 
@@ -102,27 +148,8 @@ body {
 	background-color: white;
 	width: 500px;
 }
-
-.headerColumn {
-	display: inline-block;
-	width: auto;
-	position: relative;
-	top: 5px;
-	left: 800px;
-}
-
-.headerColumn p {
-	display: inline-block;
-	width: auto;
-	margin-right: 20px;
-}
-
 .start {
-	margin-left: auto;
-	margin-right: auto;
-	height: auto;
-	background-color: white;
-	width: auto;
+	width: 100%;
 }
 
 .listingButton {
@@ -156,8 +183,6 @@ body {
 	text-decoration: none;
 }
 
-
-
 a.headerBtn {
   border-radius: 0;
 
@@ -178,12 +203,21 @@ a.headerBtn:hover {
 
 
 /* 検索css */
-	.searchinfo{
-		background-color: #fff;
-		display: inline-block;
-		width: calc(30% - 20px);
-		height: 100%;
-		float:left;
-	}
-
+.searchinfo{
+	background-color: #fff;
+	display: inline-block;
+	width: calc(30% - 20px);
+}
+.topBtn{
+	text-decoration: none;
+}
+.images{
+	height:50px;
+}
+.textHidden{
+	width: 150px; /* この幅を超えると省略 */
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
 </style>

@@ -9,15 +9,19 @@
 <%@include file="../css/listingEdit.css"%>
 </head>
 <body>
+<div class="topOuter">
+	<a href="f_start" class="topButton">TOPページへ</a>
+</div>
 <div class="center">
 	<h1>出品</h1>
 	<form name="listing" action="listing" enctype="multipart/form-data" method="post" onSubmit="return check()">
 		<div class="left">
-		<p>商品の画像</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
+		<p>商品の画像(.jpg .jpeg .png)</p><input type="file" name="itemImage" accept=".jpg,.jpeg,.png">
 		</div>
 		<div class="right">
-		<br><p>商品名</p><input type="text" name="itemName"  class="textsize"/>
-		<br> <p>商品の説明</p><input type="text"name="itemExplanation"  class="textsize"/>
+		<br><p>商品名(40字以内)</p><input type="text" name="itemName" maxlength="40" class="textsize"/>
+		<br> <p>商品の説明(500字以内)</p><textarea rows ="10" cols="45" name="itemExplanation" maxlength="500"></textarea>
+		<!-- <input type="text"name="itemExplanation"  class="textsize"/> -->
 		<br> <p>ハードの種類</p>
 		<select name="hardwareId" class="textsize">
 			<option value="">選択してください</option>
@@ -32,12 +36,12 @@
 				<option value="${category.categoryId}">${category.category}</option>
 			</c:forEach>
 		</select>
-		<br> <p>発送までの期間</p><input type="text" name="term"  class="textsize"/>
-		<br><p>値段</p><input type="text" name="price"  class="textsize"/>
+		<br> <p>発送までの日数(半角数字)</p><input type="text" name="term" pattern="[0-9]+" placeholder="(例：7)" class="textsize"/>
+		<br><p>値段(半角数字)</p><input type="text" name="price" pattern="[0-9]+" placeholder="(例：5000)" class="textsize"/>
 		</div>
 		<br><br> <input type="submit" value="出品する" class="button">
 	</form>
-
+</div>
 	<script>
 	    function check() {
 	        if(document.listing.itemImage.value == "") {
@@ -70,6 +74,13 @@
 	        }
 	    }
     </script>
-    </div>
+    <script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
+	</script>
 </body>
 </html>

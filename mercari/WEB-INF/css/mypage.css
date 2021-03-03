@@ -1,27 +1,63 @@
 <style>
-.header {
+body {
+	background-color: #F8F8FF;
+	margin-top:0px;
+}
+.header{
 	background-color: white;
-	margin-bottom: 30px;
+	margin-left:20px;
+	margin-right:20px;
 	height: 150px;
 	border-bottom: 2px solid black;
+	width:1200px;
 }
+.top{
+	float:left;
+	margin-top:50px;
+	margin-left:100px;
 
-.search {
-	display: inlone-block;
-	text-align: center;
-	float: right;
-	margin-right: 100px;
 }
-/* .top{
-			text-align: right;
-			float: left;
-
-		} */
-.notify {
-	color: black;
-	text-align: right;
+.search{
+	float:right;
+	margin-right:10%;
+	margin-top:40px;
+}
+.searchText{
+	width:600px;
+	height:35px;
+}
+.searchBtn{
+	height:40px;
+}
+.headerColumn {
 	display: inline-block;
-	margin-left: 920px;
+	width: auto;
+	position: relative;
+	top: 10px;
+	left: 600px;
+}
+
+.headerColumn p {
+	display: inline-block;
+	width: auto;
+	margin-right: 20px;
+}
+.headerBtn {
+	position: relative;
+	display: inline-block;
+	padding: 0.25em 0.5em;
+	text-decoration: none;
+}
+.topBtn{
+}
+a.headerBtn {
+  border-radius: 0;
+
+}
+
+a.headerBtn:hover {
+  color:#8EF1FF;
+
 }
 
 .mypage {
@@ -29,26 +65,29 @@
 	text-align: right;
 	margin-left: 20px;*/
 	display: inline-block;
-	margin-left: 130px;
 	height: auto;
 	background-color: white;
-	width: 1000px;
+	text-align:center;
+	width:1000px;
+	margin-left:140px;
 }
 
-body {
-	background-color: #F8F8FF;
-}
 
 .right {
 	display: inline-block;
 	float: right;
-	width: 600px;
+	width: 60%;
+}
+
+.right h1{
+	text-align: center;
+	width:90%;
 }
 
 #list-side {
 	display: inline-block;
 	float: left;
-	width: 300px;
+	width: 30%;
 	margin-right: 50px;
 	margin-left: 10px;
 	margin-top: 40px;
@@ -71,6 +110,9 @@ body {
 	padding: 0.5em;
 	border-bottom: solid 2px #dadada;
 	list-style-type: none;
+}
+.list a{
+	text-decoration: none;
 }
 
 .userName_Point {
@@ -159,22 +201,48 @@ label {
 .dealing {
 	display: inline-block;
 }
-.innerTable{
-  width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0;
+
+.innerTable {
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.innerTable th,.innerTable td{
-  padding: 10px 0;
-  text-align: center;
+.innerTable th, .innerTable td {
+	padding: 10px 0;
+	text-align: center;
 }
 
-.innerTable tr:nth-child(odd){
-  background-color: #eee
+.innerTable tr:nth-child(odd) {
+	background-color: #eee;
 }
-.textBox{
-	width:540px;
-	height:30px;
+.innerTable td {
+	padding: 10px 0;
+	text-align: center;
+	width:60%;
+}
+
+.textBox {
+	width: 540px;
+	height: 30px;
+}
+.right img{
+	height: 100px;
+	width:100px;
+	object-fit: contain;
+}
+.images{
+	height:50px;
+}
+a{
+	text-decoration: none;
+}
+#nameSize{
+	display: inline-block;
+    width: 250px;
+    word-break: break-all;
+}
+.notificationTable{
+	border-collapse: collapse
 }
 </style>
