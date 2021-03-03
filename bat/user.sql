@@ -1,6 +1,6 @@
-insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('1','1','ユーザー1','住所1','番号1','メール1',null,0);
-insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('2','2','ユーザー2','住所2','番号2','メール2',null,0);
-insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('3','3','ユーザー3','住所3','番号3','メール3',null,0);
+insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('0yen','pass','矢作','東京都','08032873289','yahagi@gmail.com',null,50000);
+insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('さく','pass','櫻井','埼玉県','09076541230','sakurai@gmail.com',null,50000);
+insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('なる','pass','北条','千葉県','08012341234','hojo0gmail.com',null,50000);
 
 commit;
 

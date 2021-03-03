@@ -21,7 +21,7 @@ public class UserDao implements UserInterfaceDao{
 		try {
 			cn = MysqlConnector.getInstance().getConnection();
 
-			String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,?)";
+			String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,10000)";
 
 			st = cn.prepareStatement(sql);
 
@@ -32,7 +32,6 @@ public class UserDao implements UserInterfaceDao{
 			st.setString(5, u.getTel());
 			st.setString(6, u.getMail());
 			st.setString(7, u.getProfile());
-			st.setInt(8, u.getPoint());
 
 			st.executeUpdate();
 			MysqlConnector.getInstance().commit();
