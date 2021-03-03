@@ -33,6 +33,17 @@
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
 
+<!--     <filter>
+    <filter-name>noticecheckfilter</filter-name>
+    <filter-class>filter.NoticeCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>noticecheckfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping> -->
+
     <filter>
     <filter-name>logincheckfilter</filter-name>
     <filter-class>filter.LoginCheckFilter</filter-class>
