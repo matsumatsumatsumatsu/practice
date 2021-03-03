@@ -23,7 +23,7 @@
 				<div id="passwordcheck"><input type="checkbox" id="password-check2">パスワードを表示する <br><br></div>
 				<input type='text' name='realName' required placeholder="本名" size="60" maxlength='10'><br> <br>
 				<input type='text' name='address' required placeholder="住所" size="60" maxlength='20'><br><br>
-				<input type='tel' name='tel' required placeholder="電話番号" size="60" maxlength='10' pattern="[\d\-]*"><br> <br>
+				<input type='tel' name='tel' required placeholder="電話番号(ハイフンなしで入力してください)" size="60" maxlength='10' pattern="[\d\]*"><br> <br>
 				<input type='email' name='mail' required placeholder="メールアドレス" size="60" maxlength='25'><br><br>
 				<input type='submit' value='登録' class="button">
 			</form>
