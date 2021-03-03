@@ -13,10 +13,8 @@
 <div class="left">
 	<table border="1">
 		<c:forEach var="item" items="${item}">
-			<tr>
-			<th>ItemID</th>
-				<td>${item.itemId}</td>
-			</tr>
+			<img src="images/${item.itemImage}" width="300">
+
 			<tr>
 				<th>商品名</th>
 				<td>${item.itemName}</td>
@@ -29,18 +27,7 @@
 	</table>
 	<table border="1">
 		<c:forEach var="deal" items="${deal}">
-			<tr>
-				<th>取引ID</th>
-				<td>${deal.dealId}</td>
-			</tr>
-			<tr>
-				<th>商品ID</th>
-				<td>${deal.itemId}</td>
-			</tr>
-			<tr>
-				<th>取引状況</th>
-				<td>${deal.dealState}</td>
-			</tr>
+
 			<c:set var="stateCheck" value="${deal.dealState}"></c:set>
 		</c:forEach>
 	</table>
@@ -54,20 +41,19 @@
 		</div>
 	</c:forEach>
 
-	<table border="1">
-		<tr>
-			<td>チャットID</td>
-			<td>本文</td>
-			<td>投稿日時</td>
-		</tr>
+
 		<c:forEach var="chat" items="${chat}">
-			<tr>
-				<td>${chat.chatId}</td>
-				<td>${chat.	text}</td>
-				<td>${chat.date}</td>
-			</tr>
-		</c:forEach>
-	</table>
+
+			<script>
+							var sold1=`<p id="left">${chat.userName}<div class="balloon1-left"><p>${chat.text}</p></div><br>${chat.date}</p><br>`
+							var sold2=`<p id="right">${chat.userName}</p><div class="balloon1-right"><p>${chat.text}</p></div><br><p id="right">${chat.date}<br></p>`
+							if(${chat.sellerId}==${userId}){
+							document.write(sold2)
+							}else{document.write(sold1)}
+					</script>
+
+	</c:forEach>
+
 	<c:forEach var="deal" items="${deal}">
 		<form action="sendPrivateChat?deal_id=${deal.dealId}&user_state=1" method="post">
 			<input type="text" name="text" class="textBox"><br> <input
@@ -77,7 +63,7 @@
 
 
 		<div class = "leftBtn">
-			<p>
+			<p id="canceldeal">
 				<a href="canceldeal?deal_id=${deal.dealId}&user_state=1" class="button">取引をキャンセルする</a>
 			</p>
 </div>
@@ -89,6 +75,15 @@
 </div>
 </div>
 	<script src="//code.jquery.com/jquery-1.12.1.min.js"></script>
+		<script>
+		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
+		if (<c:out value="${stateCheck}" /> == 1) {
+			$("#canceldeal").css("display","none");
+		}
+		if (<c:out value="${stateCheck}" /> == 4) {
+			$("#canceldeal").css("display","none");
+		}
+	</script>
 	<script>
 		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
 		if (<c:out value="${stateCheck}" /> == 1) {
@@ -110,6 +105,15 @@
 			$("#cancel").empty();
 		}
 	</script>
+		<script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
+	</script>
+
 
 </body>
 </html>

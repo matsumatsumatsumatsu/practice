@@ -9,5 +9,13 @@
 <body>
 	<from action="notifyUser"> 通知内容<input type='text'> <input
 		type='submit' value='送信'> </from>
+	<script>
+		$(document).on('keydown', function(e) {
+			if ((e.which || e.keyCode) == 116) {
+			//	alert("F5キーは無効化されています。");
+				return false;
+			}
+		});
+	</script>
 </body>
 </html>

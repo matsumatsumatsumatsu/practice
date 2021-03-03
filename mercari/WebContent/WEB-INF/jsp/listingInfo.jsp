@@ -81,12 +81,7 @@
 				<c:set var="stockCheck" value="${item.stock }"></c:set>
 			</table>
 		</c:forEach>
-			<div class="itemExplanation">
-				<c:forEach var="item" items="${item}">
-					<p>${item.itemExplanation}</p>
-				</c:forEach>
-			</div>
-					<p>
+	<p>
 		<c:forEach var="item" items="${item}">
 			<a  class="button" href="showListingEdit?item_id=${item.itemId}">出品した商品の編集</a>
 		</c:forEach>
@@ -96,6 +91,12 @@
 			<a class="button"  href="remove?item_id=${item.itemId}">出品を取り消す</a>
 		</c:forEach>
 	</p>
+
+	<div class="itemExplanation">
+	<c:forEach var="item" items="${item}">
+		<p>${item.itemExplanation}</p>
+	</c:forEach>
+
 	</div>
 	<br>
 
