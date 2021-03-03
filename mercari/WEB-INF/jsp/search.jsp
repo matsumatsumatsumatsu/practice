@@ -104,9 +104,19 @@
 					<c:forEach var="item" items="${data}">
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
+							<div class="itemimage">
 							<img src="images/${item.itemImage}" />
 							<div class="textHidden">
 							<p>${item.itemName}</p>
+							<div class="out">
+								<script>
+							    	var sold1=`<img src="images/soldoutjpeg_transparent.png"  width="152.396px"/>`
+									if(${item.stock }==0){
+									document.write(sold1)
+									}else{}
+									</script>
+								</div>
+							</div>
 							</div>
 							<span>&yen;${item.price}</span>
 							</a>
