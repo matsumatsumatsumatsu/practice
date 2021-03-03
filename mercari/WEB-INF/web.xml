@@ -33,7 +33,18 @@
     <dispatcher>FORWARD</dispatcher>
   </filter-mapping>
 
-  <filter>
+    <filter>
+    <filter-name>logincheckfilter</filter-name>
+    <filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>logincheckfilter</filter-name>
+    <url-pattern>/*</url-pattern>
+    <dispatcher>REQUEST</dispatcher>
+    <dispatcher>FORWARD</dispatcher>
+  </filter-mapping>
+
+  <!-- <filter>
     <filter-name>reloadcategoryfilter</filter-name>
     <filter-class>filter.ReLoadCategoryFilter</filter-class>
   </filter>
@@ -53,7 +64,8 @@
     <url-pattern>/*</url-pattern>
     <dispatcher>REQUEST</dispatcher>
     <dispatcher>FORWARD</dispatcher>
-  </filter-mapping>
+  </filter-mapping> -->
+
 
 	<welcome-file-list>
 		<welcome-file>/WEB-INF/jsp/start.jsp</welcome-file>
@@ -67,6 +79,18 @@
 		<servlet-name>FrontServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping> -->
+	<error-page>
+    	<error-code>404</error-code>
+    	<location>/WEB-INF/jsp/404.jsp</location>
+  	</error-page>
+  	<error-page>
+    	<error-code>403</error-code>
+    	<location>/WEB-INF/jsp/404.jsp</location>
+  	</error-page>
+  	<error-page>
+    	<error-code>500</error-code>
+    	<location>/WEB-INF/jsp/500.jsp</location>
+  	</error-page>
 
     <servlet>
 		<servlet-name>front.FrontServlet</servlet-name>
@@ -91,9 +115,4 @@
   <servlet-mapping>
     <servlet-name>in</servlet-name>
     <url-pattern>/testbooks</url-pattern> -->
-
-
-
-
-
 </web-app>
