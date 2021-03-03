@@ -44,7 +44,7 @@
 <div class="mypage">
 	<div class="right">
 		<h1>お知らせ</h1>
-		<table border="1">
+		<table border="1" class="notificationTable">
 			<c:forEach var="notice" items="${notice}">
 				<tr>
 					<td height="50px">${notice.comment}</td>

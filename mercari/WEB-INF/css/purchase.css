@@ -166,5 +166,10 @@ body{
 }
 a{
 	text-decoration: none;
-
+}
+#nameSize{
+	display: inline-block;
+	width:250px;
+	word-break: break-all;
+}
 </style>
