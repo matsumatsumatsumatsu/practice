@@ -9,13 +9,13 @@ insert into item(item_name, price, item_image, item_explanation, hardware_id, ca
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('パタポン',700,'test09.jpg','懐かしい',2,2,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('サルゲッチュ',300,'test10.jpg','サル有り',2,2,1,cast( now() as datetime),1);
 
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('桃太郎電鉄',3000,'test11.jpg','収入有り',4,1,1,cast( now() as datetime),1);
+insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('桃太郎電鉄',3000,'test11.jpeg','収入有り',4,1,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('SEKIRO',4300,'test12.jpg','品質良好',3,2,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('おいでよ どうぶつの森',500,'test13.jpg','住民無し',1,1,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('とびだせ どうぶつの森',1000,'test14.jpg','傷あり',5,1,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('モンスターハンター3rd',200,'test15.jpg','箱なし',2,2,1,cast( now() as datetime),1);
 
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('マリオメーカー２',5200,'test16.jpg','品質良好',4,2,1,cast( now() as datetime),1);
+insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('マリオメーカー２',5200,'test16.jpeg','品質良好',4,2,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ARK',3000,'test17.jpg','重すぎ',3,2,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ちびロボ',800,'test18.jpg','懐かしいよね？',1,2,1,cast( now() as datetime),1);
 insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ポケットモンスター サン',1800,'test19.jpg','クリア済みデータ',5,1,1,cast( now() as datetime),1);
