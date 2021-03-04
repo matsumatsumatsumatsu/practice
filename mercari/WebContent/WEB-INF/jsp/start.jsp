@@ -10,6 +10,7 @@
 
 <head>
 	<%@include file="../../css/start.css"%>
+	<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <style>
 <!-- 共通ヘッダー -->
 </style>

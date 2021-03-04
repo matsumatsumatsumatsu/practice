@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>ページが見つかりません</title>
 <%@include file="../../css/style.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 	<div class="center">

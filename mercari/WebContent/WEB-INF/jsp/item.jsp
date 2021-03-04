@@ -7,6 +7,7 @@
 <html>
 <head>
 <%@include file="../../css/item.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <title>商品表示</title>
 </head>
 <body>

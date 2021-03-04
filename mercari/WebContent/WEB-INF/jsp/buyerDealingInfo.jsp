@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>買い手の商品取引画面</title>
 <%@include file="../../css/buyerDealInfo.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 <div class="center">
