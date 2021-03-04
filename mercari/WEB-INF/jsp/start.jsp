@@ -37,7 +37,6 @@
 					<input type='text' name='keyword' class="searchText" placeholder="何かお探しですか？">
 					<input type='submit' value='検索！' class="searchBtn">
 			</form>
-
 	</div>
 	<!-- 非login→ログインjsp、登録 login→マイページjsp、通知 -->
 	<div class="headerColumn">
@@ -74,7 +73,6 @@
 					<c:forEach var="item" items="${itemlist}">
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
-
 								<div class="itemimage">
 								<!-- ここで横幅指定するの良くない（修正案件） -->
 								<img src="images/${item.itemImage}"   width="152.396px" />
