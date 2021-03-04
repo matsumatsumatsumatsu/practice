@@ -16,7 +16,7 @@ public class EditListingCommand extends AbstractCommand {
 
 		String itemId = reqc.getParameter("itemId")[0];
 		String name = reqc.getParameter("name")[0];
-		String explanation = reqc.getParameter("explanation")[0];
+		String explanation = reqc.getParameter("itemExplanation")[0];
 		String category = reqc.getParameter("categoryId")[0];
 		String hardware = reqc.getParameter("hardwareId")[0];
 		int term = Integer.parseInt(reqc.getParameter("term")[0]);
