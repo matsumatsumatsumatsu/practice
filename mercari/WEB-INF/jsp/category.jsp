@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <meta charset="UTF-8">
 <title>カテゴリ一覧</title>
 </head>

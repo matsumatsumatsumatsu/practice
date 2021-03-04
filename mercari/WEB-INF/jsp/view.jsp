@@ -4,6 +4,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <title>ユーザー一覧</title>
 </head>
 <body>

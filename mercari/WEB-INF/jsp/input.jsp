@@ -2,7 +2,7 @@
 pageEncoding="UTF-8"%>
 
 <html>
-<head><title>ユーザー登録</title></head>
+<head><link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png"><title>ユーザー登録</title></head>
 <body>
 <h1>ユーザー登録</h1>
 <form method='post' action='add'>

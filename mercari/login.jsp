@@ -3,6 +3,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <title>ƒƒOƒCƒ“</title>
 </head>
 <body>

@@ -3,6 +3,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <title>退会</title>
 <%@include file="../css/style.css" %>
 </head>

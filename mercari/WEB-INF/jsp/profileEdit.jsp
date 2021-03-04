@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <meta charset="UTF-8">
 <title>プロフィール編集</title>
 <%@include file="../css/profileEdit.css"%>
