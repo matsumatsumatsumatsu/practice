@@ -5,6 +5,7 @@
 <head>
 <title>ログイン</title>
 <%@include file="../../css/style.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 <div class="topOuter">

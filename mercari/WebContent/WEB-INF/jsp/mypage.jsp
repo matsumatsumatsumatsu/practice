@@ -5,6 +5,7 @@
 <html>
 <head>
 <%@include file="../../css/mypage.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <meta charset="UTF-8">
 <title>マイページ</title>
 </head>

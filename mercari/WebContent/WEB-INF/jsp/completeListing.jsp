@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>出品完了</title>
 <%@include file="../../css/style.css" %>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 	<p>出品が完了しました</p>

@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>通知の閲覧</title>
 <%@include file="../../css/mypage.css" %>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 <p style="display:none;" id="flag">${flag}</p>

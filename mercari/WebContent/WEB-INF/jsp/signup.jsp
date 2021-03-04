@@ -4,6 +4,7 @@
 <html>
 <head>
 <%@include file="../../css/style.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <title>ユーザー登録</title>
 </head>
 <body>

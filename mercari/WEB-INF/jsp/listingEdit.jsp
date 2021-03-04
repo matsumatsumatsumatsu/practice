@@ -5,6 +5,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <meta charset="UTF-8">
 <title>出品物の編集</title>
 <%@include file="../css/listingEdit.css"%>

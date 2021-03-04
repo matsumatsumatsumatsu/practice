@@ -6,6 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>取引履歴</title>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 	<h4>取引が完了しました</h4>

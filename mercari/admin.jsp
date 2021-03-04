@@ -4,6 +4,7 @@
 
 <html>
 <head>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 <title>管理者用ページ</title>
 <div class="search">
 	<form name="itemsearch" method='post' action='search'

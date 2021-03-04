@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>出品物の編集</title>
 <%@include file="../../css/listingEdit.css"%>
+<link rel="shortcut icon" type="image/vnd.microsoft.icon" href="images/icon16.png">
 </head>
 <body>
 <p style="display:none;" id="flag">${flag}</p>
