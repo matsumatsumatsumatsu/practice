@@ -132,10 +132,10 @@
 
 		<script>
 		<!-- 1→取引中（取引開始）、2→取引キャンセル、3→取引完了（受け取り終了）、4→商品発送 -->
-		if (<c:out value="${stateCheck}" /> == 1) {
+		if (<c:out value="${stateCheck}" /> == 2) {
 			$("#canceldeal").css("display","none");
 		}
-		if (<c:out value="${stateCheck}" /> == 4) {
+		if (<c:out value="${stateCheck}" /> == 3) {
 			$("#canceldeal").css("display","none");
 		}
 	</script>
