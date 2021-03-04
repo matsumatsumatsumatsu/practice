@@ -74,7 +74,6 @@
 					<c:forEach var="item" items="${itemlist}">
 						<li>
 							<a href="showiteminfo?item_id=${item.itemId}" name="itemId">
-
 								<div class="itemimage">
 								<!-- ここで横幅指定するの良くない（修正案件） -->
 								<img src="images/${item.itemImage}"   width="152.396px" />

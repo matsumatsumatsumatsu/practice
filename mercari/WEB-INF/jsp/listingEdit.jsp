@@ -62,7 +62,7 @@
 		</c:forEach><br>
 		<c:forEach var="item" items="${item}">
 		<p>商品説明の変更(500字以内)</p>
-			<input type="text" name="explanation" maxlength="40" value="${item.itemExplanation}" class="textsize">
+		<textarea rows ="10" cols="45" name="itemExplanation" maxlength="500"  class="textsize">${item.itemExplanation}</textarea>
 		</c:forEach><br>
 		<p>ハードの種類</p>
 		<select name="hardwareId" class="textsize">
