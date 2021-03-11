@@ -1,4 +1,4 @@
-CREATE DATABASE humie CHARACTER SET utf8;
+CREATE DATABASE humie;
 CREATE USER kirisuto IDENTIFIED BY 'zabieru';
 GRANT ALL ON *.* to kirisuto;
 commit;

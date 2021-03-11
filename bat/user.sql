@@ -1,6 +1,6 @@
-insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('0yen','pass','–îì','“Œ‹“s','08032873289','yahagi@gmail.com',null,50000);
-insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('‚³‚­','pass','ŸNˆä','é‹ÊŒ§','09076541230','sakurai@gmail.com',null,50000);
-insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) values('‚È‚é','pass','–kğ','ç—tŒ§','08012341234','hojo0gmail.com',null,50000);
+insert into humie.user(user_name,user_password,real_name,address,tel,mail,profile,point) values('0yen','pass','çŸ¢ä½œ','æ±äº¬éƒ½','08032873289','yahagi@gmail.com',null,50000);
+insert into humie.user(user_name,user_password,real_name,address,tel,mail,profile,point) values('ã•ã','pass','æ«»äº•','åŸ¼ç‰çœŒ','09076541230','sakurai@gmail.com',null,50000);
+insert into humie.user(user_name,user_password,real_name,address,tel,mail,profile,point) values('ãªã‚‹','pass','åŒ—æ¡','åƒè‘‰çœŒ','08012341234','hojo0gmail.com',null,50000);
 
 commit;
 

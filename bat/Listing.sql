@@ -1,37 +1,37 @@
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('‚ ‚Â‚Ü‚ê@‚Ç‚¤‚Ô‚Â‚ÌX',4000,'test01.jpg','•i¿ƒSƒ~',4,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ}ƒŠƒIƒJ[ƒg‚W',3500,'test02.jpg','–³–Æ‹–',4,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒX[ƒp[ƒ}ƒŠƒI@ƒIƒfƒbƒZƒC',2000,'test03.jpg','‚¨‚à‚ë‚¢H',4,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ€[ƒrƒ“ƒO@ƒAƒEƒg',100,'test04.jpg','‰½‚±‚ÌƒQ[ƒ€@’m‚ç‚ñ',3,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('‘å—“¬ƒXƒ}ƒbƒVƒ…ƒuƒ‰ƒU[ƒY',3800,'test05.jpg','‚µ‚©‚È‚¢',4,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('MINECRAFT',2900,'test06.jpg','é—L‚è',3,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒgƒ‚ƒ_ƒ`ƒRƒŒƒNƒVƒ‡ƒ“',500,'test07.jpg','ƒ^ƒ‚ƒŠ—L‚è',1,2,2,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒXƒ[ƒ“‚Æƒ}ƒNƒw[ƒ‹‚Ì“ä‚Ì•¨Œê',3400,'test08.jpg','…•½vlƒNƒCƒY',1,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒpƒ^ƒ|ƒ“',700,'test09.jpg','‰ù‚©‚µ‚¢',2,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒTƒ‹ƒQƒbƒ`ƒ…',300,'test10.jpg','ƒTƒ‹—L‚è',2,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã‚ã¤ã¾ã‚Œã€€ã©ã†ã¶ã¤ã®æ£®',4000,'test01.jpg','å“è³ªã‚´ãƒŸ',4,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒãƒªã‚ªã‚«ãƒ¼ãƒˆï¼˜',3500,'test02.jpg','ç„¡å…è¨±',4,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã‚¹ãƒ¼ãƒ‘ãƒ¼ãƒãƒªã‚ªã€€ã‚ªãƒ‡ãƒƒã‚»ã‚¤',2000,'test03.jpg','ãŠã‚‚ã‚ã„ï¼Ÿ',4,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ ãƒ¼ãƒ“ãƒ³ã‚°ã€€ã‚¢ã‚¦ãƒˆ',100,'test04.jpg','ä½•ã“ã®ã‚²ãƒ¼ãƒ ã€€çŸ¥ã‚‰ã‚“',3,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('å¤§ä¹±é—˜ã‚¹ãƒãƒƒã‚·ãƒ¥ãƒ–ãƒ©ã‚¶ãƒ¼ã‚º',3800,'test05.jpg','å‚·ã—ã‹ãªã„',4,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('MINECRAFT',2900,'test06.jpg','åŸæœ‰ã‚Š',3,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒˆãƒ¢ãƒ€ãƒã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³',500,'test07.jpg','ã‚¿ãƒ¢ãƒªæœ‰ã‚Š',1,2,2,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã‚¹ãƒ­ãƒ¼ãƒ³ã¨ãƒã‚¯ãƒ˜ãƒ¼ãƒ«ã®è¬ã®ç‰©èª',3400,'test08.jpg','æ°´å¹³æ€è€ƒã‚¯ã‚¤ã‚º',1,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ‘ã‚¿ãƒãƒ³',700,'test09.jpg','æ‡ã‹ã—ã„',2,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã‚µãƒ«ã‚²ãƒƒãƒãƒ¥',300,'test10.jpg','ã‚µãƒ«æœ‰ã‚Š',2,2,1,cast( now() as datetime),1);
 
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('“‘¾˜Y“d“S',3000,'test11.jpg','û“ü—L‚è',4,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('SEKIRO',4300,'test12.jpg','•i¿—ÇD',3,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('‚¨‚¢‚Å‚æ ‚Ç‚¤‚Ô‚Â‚ÌX',500,'test13.jpg','Z–¯–³‚µ',1,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('‚Æ‚Ñ‚¾‚¹ ‚Ç‚¤‚Ô‚Â‚ÌX',1000,'test14.jpg','‚ ‚è',5,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ‚ƒ“ƒXƒ^[ƒnƒ“ƒ^[3rd',200,'test15.jpg','” ‚È‚µ',2,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('æ¡ƒå¤ªéƒé›»é‰„',3000,'test11.jpg','åå…¥æœ‰ã‚Š',4,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('SEKIRO',4300,'test12.jpg','å“è³ªè‰¯å¥½',3,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãŠã„ã§ã‚ˆ ã©ã†ã¶ã¤ã®æ£®',500,'test13.jpg','ä½æ°‘ç„¡ã—',1,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã¨ã³ã ã› ã©ã†ã¶ã¤ã®æ£®',1000,'test14.jpg','å‚·ã‚ã‚Š',5,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒãƒ³ã‚¿ãƒ¼3rd',200,'test15.jpg','ç®±ãªã—',2,2,1,cast( now() as datetime),1);
 
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ}ƒŠƒIƒ[ƒJ[‚Q',5200,'test16.jpg','•i¿—ÇD',4,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ARK',3000,'test17.jpg','d‚·‚¬',3,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('‚¿‚Ñƒƒ{',800,'test18.jpg','‰ù‚©‚µ‚¢‚æ‚ËH',1,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ|ƒPƒbƒgƒ‚ƒ“ƒXƒ^[ ƒTƒ“',1800,'test19.jpg','ƒNƒŠƒAÏ‚İƒf[ƒ^',5,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('GOD EATER2',600,'test20.jpg','‚ ‚è',2,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒãƒªã‚ªãƒ¡ãƒ¼ã‚«ãƒ¼ï¼’',5200,'test16.jpg','å“è³ªè‰¯å¥½',4,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ARK',3000,'test17.jpg','é‡ã™ã',3,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã¡ã³ãƒ­ãƒœ',800,'test18.jpg','æ‡ã‹ã—ã„ã‚ˆã­ï¼Ÿ',1,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒã‚±ãƒƒãƒˆãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ ã‚µãƒ³',1800,'test19.jpg','ã‚¯ãƒªã‚¢æ¸ˆã¿ãƒ‡ãƒ¼ã‚¿',5,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('GOD EATER2',600,'test20.jpg','å‚·ã‚ã‚Š',2,2,1,cast( now() as datetime),1);
 
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒpƒƒvƒ2020',4200,'test21.jpg','” ‚É‚ ‚è',4,5,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒXƒpƒCƒ_[ƒ}ƒ“',3900,'test22.jpg','’wå',3,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒhƒ‰ƒSƒ“ƒNƒGƒX IX',1500,'test23.jpg','ƒXƒƒJƒX',1,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ|ƒPƒbƒgƒ‚ƒ“ƒXƒ^[@ƒEƒ‹ƒgƒ‰ƒTƒ“',2900,'test24.webp','ƒf[ƒ^‚ ‚è',5,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ‚ƒ“ƒXƒ^[ƒnƒ“ƒ^[ 2nd G',100,'test25.jpg','‚µ‚©‚È‚µ',2,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ‘ãƒ¯ãƒ—ãƒ­2020',4200,'test21.jpg','ç®±ã«å‚·ã‚ã‚Š',4,5,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ã‚¹ãƒ‘ã‚¤ãƒ€ãƒ¼ãƒãƒ³',3900,'test22.jpg','èœ˜è››',3,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ‰ãƒ©ã‚´ãƒ³ã‚¯ã‚¨ã‚¹ IX',1500,'test23.jpg','ã‚¹ãƒ­ã‚«ã‚¹',1,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒã‚±ãƒƒãƒˆãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ã€€ã‚¦ãƒ«ãƒˆãƒ©ã‚µãƒ³',2900,'test24.webp','ãƒ‡ãƒ¼ã‚¿ã‚ã‚Š',5,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒãƒ³ã‚¿ãƒ¼ 2nd G',100,'test25.jpg','å‚·ã—ã‹ãªã—',2,2,1,cast( now() as datetime),1);
 
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒŠƒ“ƒOƒtƒBƒbƒgƒAƒhƒxƒ“ƒ`ƒƒ[',6900,'test26.jpg','ƒŠƒ“ƒO–³‚µ',4,5,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('RAINBOW SIX SIEGE',2500,'test27.jpg','•i¿—ÇD',3,6,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒhƒ‰ƒSƒ“ƒNƒGƒXƒg XI',1200,'test28.jpg','ƒf[ƒ^‚ ‚è',1,1,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒsƒNƒ~ƒ“',2200,'test29.jpg','V•i',5,2,1,cast( now() as datetime),1);
-insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ƒ‚ƒ“ƒXƒ^[ƒnƒ“ƒ^[2nd',50,'test30.jpg','‚È‚µ',2,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒªãƒ³ã‚°ãƒ•ã‚£ãƒƒãƒˆã‚¢ãƒ‰ãƒ™ãƒ³ãƒãƒ£ãƒ¼',6900,'test26.jpg','ãƒªãƒ³ã‚°ç„¡ã—',4,5,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('RAINBOW SIX SIEGE',2500,'test27.jpg','å“è³ªè‰¯å¥½',3,6,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ‰ãƒ©ã‚´ãƒ³ã‚¯ã‚¨ã‚¹ãƒˆ XI',1200,'test28.jpg','ãƒ‡ãƒ¼ã‚¿ã‚ã‚Š',1,1,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ”ã‚¯ãƒŸãƒ³',2200,'test29.jpg','æ–°å“',5,2,1,cast( now() as datetime),1);
+insert into humie.item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values('ãƒ¢ãƒ³ã‚¹ã‚¿ãƒ¼ãƒãƒ³ã‚¿ãƒ¼2nd',50,'test30.jpg','å‚·ãªã—',2,2,1,cast( now() as datetime),1);
 
 
 commit;
