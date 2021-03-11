@@ -1,4 +1,4 @@
-create table user(
+create table humie.user(
 user_id int UNSIGNED auto_increment,
 user_name varchar(30) unique,
 user_password varchar(30),
@@ -11,20 +11,20 @@ point int UNSIGNED,
  primary key(user_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-CREATE table hardware(
+CREATE table humie.hardware(
 hardware_id int UNSIGNED auto_increment,
 hardware varchar(20),
 primary key(hardware_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table category(
+create table humie.category(
 category_id int UNSIGNED auto_increment,
 category varchar(20),
 primary key(category_id)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 
-create table item(
+create table humie.item(
 item_id int unsigned PRIMARY KEY auto_increment,
 item_name varchar(40),
 price int UNSIGNED,
@@ -51,7 +51,7 @@ CONSTRAINT fk_item_seller_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table payment_log(
+create table humie.payment_log(
 payment_id int unsigned PRIMARY KEY auto_increment,
 seller_id int UNSIGNED,
 buyer_id int UNSIGNED,
@@ -68,7 +68,7 @@ CONSTRAINT fk_buyer_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table deal(
+create table humie.deal(
 deal_id int unsigned PRIMARY KEY auto_increment,
 before_payment_id int UNSIGNED,
 after_payment_id int UNSIGNED,
@@ -96,7 +96,7 @@ CONSTRAINT fk_user_id
      ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table notice(
+create table humie.notice(
 notice_id int UNSIGNED auto_increment,
 user_id int UNSIGNED,
 comment varchar(500),
@@ -109,7 +109,7 @@ CONSTRAINT fk_notice_user_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table private_chat(
+create table humie.private_chat(
 chat_id int UNSIGNED  PRIMARY KEY auto_increment,
 deal_id int UNSIGNED,
 buyer_id int UNSIGNED,
@@ -130,7 +130,7 @@ CONSTRAINT fk_chat_seller_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table open_chat(
+create table humie.open_chat(
 open_chat_id int unsigned PRIMARY KEY auto_increment,
 user_id int UNSIGNED,
 text varchar(500),
@@ -146,7 +146,7 @@ CONSTRAINT fk_chat_item_id
     ON DELETE RESTRICT ON UPDATE RESTRICT
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-create table admin(
+create table humie.admin(
 admin_id int UNSIGNED auto_increment,
 admin_name varchar(30) unique,
 admin_password varchar(30),
@@ -157,46 +157,46 @@ mail varchar(40) unique,
 commit;
 
 
-insert into hardware (hardware_id, hardware)
+insert into humie.hardware (hardware_id, hardware)
 values(1, 'DS');
 
-insert into hardware (hardware_id, hardware)
+insert into humie.hardware (hardware_id, hardware)
 values(2, 'PSP');
 
-insert into hardware (hardware_id, hardware)
+insert into humie.hardware (hardware_id, hardware)
 values(3, 'PS4');
 
-insert into hardware (hardware_id, hardware)
+insert into humie.hardware (hardware_id, hardware)
 values(4, 'switch');
 
-insert into hardware (hardware_id, hardware)
+insert into humie.hardware (hardware_id, hardware)
 values(5, '3DS');
 
-insert into hardware (hardware_id, hardware)
-values(6, 'ÇªÇÃëº');
+insert into humie.hardware (hardware_id, hardware)
+values(6, '„Åù„ÅÆ‰ªñ');
 
-insert into category(category_id, category)
+insert into humie.category(category_id, category)
 values(1, 'RPG');
 
-insert into category(category_id, category)
-values(2, 'ÉAÉNÉVÉáÉì');
+insert into humie.category(category_id, category)
+values(2, '„Ç¢„ÇØ„Ç∑„Éß„É≥');
 
-insert into category(category_id, category)
-values(3, 'ÉpÉYÉã');
+insert into humie.category(category_id, category)
+values(3, '„Éë„Ç∫„É´');
 
-insert into category(category_id, category)
-values(4, 'ÉAÉhÉxÉìÉ`ÉÉÅ[');
+insert into humie.category(category_id, category)
+values(4, '„Ç¢„Éâ„Éô„É≥„ÉÅ„É£„Éº');
 
-insert into category(category_id, category)
-values(5, 'ÉXÉ|Å[Éc');
+insert into humie.category(category_id, category)
+values(5, '„Çπ„Éù„Éº„ÉÑ');
 
-insert into category(category_id, category)
+insert into humie.category(category_id, category)
 values(6, 'FPS');
 
-insert into category(category_id, category)
-values(7, 'ÇªÇÃëº');
+insert into humie.category(category_id, category)
+values(7, '„Åù„ÅÆ‰ªñ');
 
-insert into admin(admin_name,admin_password,mail)
+insert into humie.admin(admin_name,admin_password,mail)
 values('admin','P@ssw0rd','info@gmail.com');
 
 
