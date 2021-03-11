@@ -20,7 +20,7 @@ public class HardwareDao implements HardwareInterfaceDao {
 		ArrayList hardwareList = new ArrayList();
 
 		try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "select * from hardware";
             st = cn.prepareStatement(sql);
@@ -54,7 +54,7 @@ public class HardwareDao implements HardwareInterfaceDao {
 	public List getHardware(String key, String id)throws IntegrationException{
 		ArrayList hardware = new ArrayList();
 		try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "select hardware from hardware " + key + id;
             st = cn.prepareStatement(sql);

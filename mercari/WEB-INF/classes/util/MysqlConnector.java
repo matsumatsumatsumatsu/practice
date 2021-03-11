@@ -28,7 +28,7 @@ public class MysqlConnector{
 	  return mysqlconn;
 	}
 
-	public Connection getConnection() throws IntegrationException{
+	private Connection getConnection() throws IntegrationException{
 		try {
 			Class.forName(driver);
 
@@ -60,10 +60,10 @@ public class MysqlConnector{
 		    }
 		  }
 
-	public void beginTransaction(){
+	public Connection beginTransaction(){
 	    if(cn ==null){
 	    	try {
-	    		getConnection();
+	    		cn = getConnection();
 	    	}catch(IntegrationException e) {
 
 	    	}
@@ -74,6 +74,7 @@ public class MysqlConnector{
 	      e.printStackTrace();
 	      System.out.println("setAutoCommitできませんでした。SQL関連の例外です");
 	    }
+	    return cn;
 	  }
 
 	  public void commit(){

@@ -20,7 +20,7 @@ public class NoticeDao implements NoticeInterfaceDao {
 	//Notice表に通知の詳細を登録する
 	public void registNotice(String userId,String comment) throws IntegrationException {
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			//commentにシングルクォーテーション注意
 			String sql = "insert into notice(user_id,comment,date)  values(" + userId + ", '" + comment + "', cast( now() as datetime))";
@@ -53,7 +53,7 @@ public class NoticeDao implements NoticeInterfaceDao {
 	public List getAllNotices(String userId) throws IntegrationException {
 		ArrayList notices = new ArrayList();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select notice_id, user_id, comment, is_read, date from notice where user_id = " + userId;
 			st = cn.prepareStatement(sql);
@@ -95,7 +95,7 @@ public class NoticeDao implements NoticeInterfaceDao {
 	public int getIsRead(String userId) throws IntegrationException {
 		int isRead = 0;
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select  is_read, from notice where user_id = " + userId;
 			st = cn.prepareStatement(sql);
@@ -133,7 +133,7 @@ public class NoticeDao implements NoticeInterfaceDao {
 		String notices = "";
 
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "update notice set is_read = 0 where user_id = " + userId;
 			st = cn.prepareStatement(sql);

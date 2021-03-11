@@ -18,7 +18,7 @@ public class OpenChatDao implements OpenChatInterfaceDao {
 
 	public void send(OpenChat op) throws IntegrationException {
 		try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "insert into open_chat(user_id,text,date,item_id)  values(?,?,cast( now() as datetime),?)";
 
@@ -59,7 +59,7 @@ public class OpenChatDao implements OpenChatInterfaceDao {
 	public List getAllMessage(String item_id) throws IntegrationException{
 		ArrayList chat =new ArrayList();
         try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "select open_chat_id,open_chat.user_id,user.user_name,text,date,item_id "
             		+ "from open_chat inner join user on open_chat.user_id = user.user_id "

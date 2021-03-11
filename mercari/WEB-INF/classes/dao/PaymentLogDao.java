@@ -22,7 +22,7 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
         System.out.println("---PaymentLogDao---");
 
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 			String sql = "insert into payment_log(seller_id,buyer_id,item_id,price,date) values(?,?,?,?,cast( now() as datetime))";
 			st = cn.prepareStatement(sql);
 
@@ -72,7 +72,7 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
 	public List getAllPaymentLogs(String paymentLogId) throws IntegrationException{
 		List paymentLogs = new ArrayList();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			//deal表とitem表を表結合（内部結合）、item表のitem_nameをdealのbeanに挿入する。user_idで識別。
 			String sql = "select payment_id,seller_id,buyer_id,item_id,price,date from payment_log";
@@ -110,7 +110,7 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
 	public String getBuyerId(String itemId) throws IntegrationException{
 		String buyerId = "";
 		 try {
-			 cn = MysqlConnector.getInstance().getConnection();
+			 cn = MysqlConnector.getInstance().beginTransaction();
 			 String sql = "select buyer_id from payment_log where item_id = " + itemId;
 			 System.out.println("確認用SQL文:"+sql);
 
@@ -143,7 +143,7 @@ public class PaymentLogDao implements PaymentLogInterfaceDao {
 	public String getSellerId(String itemId) throws IntegrationException {
 		String sellerId = "";
 		 try {
-			 cn = MysqlConnector.getInstance().getConnection();
+			 cn = MysqlConnector.getInstance().beginTransaction();
 			 String sql = "select seller_id from payment_log where item_id = " + itemId;
 			 System.out.println("確認用SQL文:"+sql);
 

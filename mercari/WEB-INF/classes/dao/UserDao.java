@@ -19,7 +19,7 @@ public class UserDao implements UserInterfaceDao{
 
 	public void addUser(User u) throws IntegrationException {
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "insert into user(user_name,user_password,real_name,address,tel,mail,profile,point) " + "values(?,?,?,?,?,?,?,10000)";
 
@@ -59,7 +59,7 @@ public class UserDao implements UserInterfaceDao{
 		List users = new ArrayList();
 		User u = new User();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select * from user where user_id = ?";
 			st = cn.prepareStatement(sql);
@@ -102,7 +102,7 @@ public class UserDao implements UserInterfaceDao{
 		List users = new ArrayList();
 		User u = new User();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select * from user where user_name = ?" ;
 			st = cn.prepareStatement(sql);
@@ -144,7 +144,7 @@ public class UserDao implements UserInterfaceDao{
 		List users = new ArrayList();
 		User u = new User();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select * from user where user_id = ?" ;
 			st = cn.prepareStatement(sql);
@@ -185,7 +185,7 @@ public class UserDao implements UserInterfaceDao{
 	public List getAllUsers() throws IntegrationException {
 		ArrayList users =new ArrayList();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select user_id,user_name,user_password,real_name,address,tel,mail,profile,point from user";
 			st = cn.prepareStatement(sql);
@@ -225,7 +225,7 @@ public class UserDao implements UserInterfaceDao{
 
 	public void updateUser(User u,String id) throws IntegrationException {
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "update user set user_name = ?, user_password = ?, real_name = ?, address = ?, tel = ?, profile = ? where user_id = "+id;
 			st = cn.prepareStatement(sql);
@@ -257,7 +257,7 @@ public class UserDao implements UserInterfaceDao{
 
 	public void deleteUser(String userId) throws IntegrationException {
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql1 = "SET FOREIGN_KEY_CHECKS = 0";
 			String sql2 = "delete from user where user_id = ?";
@@ -291,7 +291,7 @@ public class UserDao implements UserInterfaceDao{
 
 	public void pay(String userId,int point) throws IntegrationException{
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 			String sql = "update user set point = ? where user_id = ?";
 			st = cn.prepareStatement(sql);
 			st.setInt(1,point);
@@ -316,7 +316,7 @@ public class UserDao implements UserInterfaceDao{
 
 	public void grantPoint(String userId,int point) throws IntegrationException{
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String selectsql = "select point from user where user_id = " + userId ;
 			st = cn.prepareStatement(selectsql);
@@ -353,7 +353,7 @@ public class UserDao implements UserInterfaceDao{
 	}
 	public void editProfile(String userId, String profile) throws IntegrationException{
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 			String sql = "update user set profile = "+profile+"where user_id = "+userId;
 //			System.out.println(sql);
 			st = cn.prepareStatement(sql);

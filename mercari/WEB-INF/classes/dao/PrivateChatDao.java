@@ -18,7 +18,7 @@ public class PrivateChatDao implements PrivateChatInterfaceDao {
 
 	public void send(PrivateChat p) throws IntegrationException{
 		try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "insert into private_chat(deal_id,buyer_id,seller_id,text,date) " + "values(?,?,?,?,cast( now() as datetime))";
 
@@ -57,7 +57,7 @@ public class PrivateChatDao implements PrivateChatInterfaceDao {
 	public List getAllMessage(String dealId) throws IntegrationException{
 		ArrayList chat =new ArrayList();
         try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "select chat_id,deal_id,buyer_id,seller_id,user.user_name,text,date "
             		+ "from private_chat inner join user on seller_id = user_id"

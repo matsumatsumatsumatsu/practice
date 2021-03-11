@@ -19,7 +19,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	public void listing(Item item) throws IntegrationException {
         try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
         	String sql = "insert into item(item_name, price, item_image, item_explanation, hardware_id, category_id, seller_id, listing_date, term) values(?,?,?,?,?,?,?,cast( now() as datetime),?)";
         	st = cn.prepareStatement(sql);
@@ -63,7 +63,7 @@ public class ItemDao implements ItemInterfaceDao {
 		ArrayList items = new ArrayList();
 
         try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select item_id, item_name, price, item_image, item_explanation, item.hardware_id, item.category_id, hardware.hardware, category.category, item.seller_id, stock, listing_date, term "
 					+ " from item left join hardware on item.hardware_id = hardware.hardware_id "
@@ -121,7 +121,7 @@ public class ItemDao implements ItemInterfaceDao {
 	 public List getAllItems() throws IntegrationException {
 	        ArrayList items =new ArrayList();
 	        try {
-	        	cn = MysqlConnector.getInstance().getConnection();
+	        	cn = MysqlConnector.getInstance().beginTransaction();
 
 	            String sql = "select item_id,item_name,price,item_image,item_explanation,stock from item";
 	            st = cn.prepareStatement(sql);
@@ -158,7 +158,7 @@ public class ItemDao implements ItemInterfaceDao {
 	 public String getItemName(String itemId) throws IntegrationException {
 		 String itemName= "";
 		 try {
-			 cn = MysqlConnector.getInstance().getConnection();
+			 cn = MysqlConnector.getInstance().beginTransaction();
 			 String sql = "select item_name from item where item_id = " + itemId;
 			 System.out.println("確認用SQL文:"+sql);
 
@@ -192,7 +192,7 @@ public class ItemDao implements ItemInterfaceDao {
 	public String  getSellerId(String itemId) throws IntegrationException {
 		 String sellerId = "";
 		 try {
-			 cn = MysqlConnector.getInstance().getConnection();
+			 cn = MysqlConnector.getInstance().beginTransaction();
 			 String sql = "select seller_id from item where item_id = " + itemId;
 			 System.out.println("確認用SQL文:"+sql);
 
@@ -224,7 +224,7 @@ public class ItemDao implements ItemInterfaceDao {
 	 public Item manageStock(String itemId) throws IntegrationException {
 	        Item i = new Item();
 	        try {
-	        	cn = MysqlConnector.getInstance().getConnection();
+	        	cn = MysqlConnector.getInstance().beginTransaction();
 
 	            String sql = "update item set stock = 0 where item_id = ?";
 	            st = cn.prepareStatement(sql);
@@ -255,7 +255,7 @@ public class ItemDao implements ItemInterfaceDao {
 	        List items= new ArrayList();
 		 	Item i = new Item();
 	        try {
-	        	cn = MysqlConnector.getInstance().getConnection();
+	        	cn = MysqlConnector.getInstance().beginTransaction();
 
 	            String sql = "select * from item where item_name like '%?%'" + "";
 	            st = cn.prepareStatement(sql);
@@ -303,7 +303,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	 public void deleteItem(String itemid) throws IntegrationException{
 		 try {
-				cn = MysqlConnector.getInstance().getConnection();
+				cn = MysqlConnector.getInstance().beginTransaction();
 
 				String sql1 = "SET FOREIGN_KEY_CHECKS = 0";
 				String sql2 = "delete from item where item_id = ?";
@@ -337,7 +337,7 @@ public class ItemDao implements ItemInterfaceDao {
 
 	 public void updateItem(Item i,String id) throws IntegrationException {
 			try {
-				cn = MysqlConnector.getInstance().getConnection();
+				cn = MysqlConnector.getInstance().beginTransaction();
 
 				String sql = "update item set item_name = ?, price = ?, item_explanation = ?, hardware_id = ?, category_id = ?, term = ? where item_id = "+id;
 				st = cn.prepareStatement(sql);

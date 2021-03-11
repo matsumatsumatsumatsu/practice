@@ -47,9 +47,8 @@ public class ImageUploadManager {
 					if ((filename != null) && (!filename.equals(""))){
 						filename = UUID.randomUUID().toString()+".jpg";
 						item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\WebContent\\images\\" + filename));
-						//item.write(new File("C:\\Users\\koyama\\git\\practice\\mercari\\\\images\\" + filename));
-						//item.write(new File("/opt/tomcat/webapps/mercari/images/" + filename));
-						//item.write(new File("/webapps/2020/mercari/images" + filename));
+						//item.write(new File("\\172.19.253.32\\public\\2020\\卒業制作\\mercari\\images\\" + filename)); //共有にあげるほう
+						//item.write(new File("/webapps/2020/mercari/images/" + filename));
 						fields.put("itemImage",filename);
 					}
 				}else if (item.isFormField()) {

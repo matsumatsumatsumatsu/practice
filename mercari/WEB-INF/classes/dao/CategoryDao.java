@@ -20,7 +20,7 @@ public class CategoryDao implements CategoryInterfaceDao {
 		ArrayList categoryList = new ArrayList();
 
 		try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "select * from category ";
             st = cn.prepareStatement(sql);
@@ -54,7 +54,7 @@ public class CategoryDao implements CategoryInterfaceDao {
 	public List getCategory(String key, String id)throws IntegrationException{
 		ArrayList category = new ArrayList();
 		try {
-        	cn = MysqlConnector.getInstance().getConnection();
+        	cn = MysqlConnector.getInstance().beginTransaction();
 
             String sql = "select category from category " + key + id;
             st = cn.prepareStatement(sql);

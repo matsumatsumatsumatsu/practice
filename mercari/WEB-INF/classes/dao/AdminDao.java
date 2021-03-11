@@ -21,7 +21,7 @@ public class AdminDao implements AdminInterfaceDao {
 		List admins = new ArrayList();
 		Admin admin = new Admin();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select * from admin where admin_name = ?" ;
 			st = cn.prepareStatement(sql);

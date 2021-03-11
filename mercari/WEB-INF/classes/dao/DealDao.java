@@ -18,7 +18,7 @@ public class DealDao implements DealInterfaceDao {
 
 	public void insertDeal(Deal deal) throws IntegrationException{
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
         	String sql = "insert into deal(before_payment_id,after_payment_id,item_id,deal_state,time_limit,user_id,user_state) values(?,?,?,?,null,?,?)";
         	st = cn.prepareStatement(sql);
 
@@ -65,7 +65,7 @@ public class DealDao implements DealInterfaceDao {
 	public List getAllDeals(String userId, String key) throws IntegrationException{
 		ArrayList deals = new ArrayList();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			//deal表とitem表を表結合（内部結合）、item表のitem_nameをdealのbeanに挿入する。user_idで識別。
 			String sql = "select deal.deal_id,deal.before_payment_id,deal.after_payment_id,deal.item_id,item.item_name,item.item_image,item.seller_id,item.term,deal.deal_state,deal.time_limit,deal.user_id,deal.user_state "
@@ -114,7 +114,7 @@ public class DealDao implements DealInterfaceDao {
 	public List getSellAllDeals(String userId, String key) throws IntegrationException{
 		ArrayList deals = new ArrayList();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			//deal表とitem表を表結合（内部結合）、item表のitem_nameをdealのbeanに挿入する。user_idで識別。
 			String sql = "select deal.deal_id,deal.before_payment_id,deal.after_payment_id,deal.item_id,item.item_name,item.item_image,item.seller_id,item.term,deal.deal_state,deal.time_limit,deal.user_id,deal.user_state "
@@ -162,7 +162,7 @@ public class DealDao implements DealInterfaceDao {
 		List deal = new ArrayList();
 		Deal d = new Deal();
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "select * from deal where deal_id = "+dealId;
 //			System.out.println("sql="+sql);
@@ -202,7 +202,7 @@ public class DealDao implements DealInterfaceDao {
 	}
 	public void changeState(String dealId,String state) throws IntegrationException {
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "update deal set deal_state = "+state+" where deal_id = "+dealId;
 			st = cn.prepareStatement(sql);
@@ -226,7 +226,7 @@ public class DealDao implements DealInterfaceDao {
 
 	public void updatePaymentLog(Deal d,String dealId) throws IntegrationException{
 		try {
-			cn = MysqlConnector.getInstance().getConnection();
+			cn = MysqlConnector.getInstance().beginTransaction();
 
 			String sql = "update deal set after_payment_id = ? where deal_id = "+ dealId;
 			st = cn.prepareStatement(sql);
@@ -255,7 +255,7 @@ public class DealDao implements DealInterfaceDao {
 	public String getBuyerId(String dealId) throws IntegrationException {
 		String buyerId = "";
 		 try {
-			 cn = MysqlConnector.getInstance().getConnection();
+			 cn = MysqlConnector.getInstance().beginTransaction();
 			 String sql = "select user_id from deal where deal_id = " + dealId;
 			 System.out.println("確認用SQL文:"+sql);
 
@@ -288,7 +288,7 @@ public class DealDao implements DealInterfaceDao {
 	public String getItemId(String dealId) throws IntegrationException{
 		String itemId = "";
 		 try {
-			 cn = MysqlConnector.getInstance().getConnection();
+			 cn = MysqlConnector.getInstance().beginTransaction();
 			 String sql = "select item_id from deal where deal_id = " + dealId;
 			 System.out.println("確認用SQL文:"+sql);
 
